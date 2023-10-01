@@ -16,6 +16,9 @@ using PayMasta.ViewModel.VerifyNinVM;
 
 namespace PayMasta.API.Controllers.Account
 {
+    /// <summary>
+    /// RegisterWithNubanController
+    /// </summary>
     [RoutePrefix("api/RegisterWithNubanController")]
     public class RegisterWithNubanController : ApiController
     {
@@ -25,7 +28,6 @@ namespace PayMasta.API.Controllers.Account
         private IAccountService _accountService;
         public RegisterWithNubanController(IVerifyNinService verifyNinService, IAccountService accountService)
         {
-            //  _logUtils = logUtils;
             _converter = new Converter();
             _verifyNinService = verifyNinService;
             _accountService = accountService;
@@ -272,7 +274,7 @@ namespace PayMasta.API.Controllers.Account
                             response = response.Create(false, ResponseMessages.OTHER_DETAIL_NOT_UPDATED, null, result);
                             _iHttpActionResult = _converter.ApiResponseMessage(response, HttpStatusCode.OK);
                             break;
-                       
+
                         default:
                             response = response.Create(false, ResponseMessages.INVALID_REQUEST, null, result);
                             _iHttpActionResult = _converter.ApiResponseMessage(response, HttpStatusCode.OK);
