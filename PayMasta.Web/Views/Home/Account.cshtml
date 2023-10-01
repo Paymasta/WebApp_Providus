@@ -1,0 +1,476 @@
+﻿
+@{
+    ViewBag.Title = "Account";
+}
+
+@*<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">*@
+@*<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>*@
+
+<link href="~/Content/css/ViewAccountBalanceCss/ViewAccountBalance.css" rel="stylesheet" />
+<script src="~/Content/js/OkraAccount/OkraAccount.js"></script>
+<link href="~/Content/css/BillPayment/billPayment.css" rel="stylesheet" />
+<link href="~/Content/css/BillPayment/Airtimemodal.css" rel="stylesheet" />
+<script src="~/Content/js/BillPayments/WalletToBank.js"></script>
+<style>
+    body {
+        background-color: #F2F7FF;
+    }
+
+    .viewdata {
+       /* font: normal normal 600 18px/24px Open Sans;*/
+        letter-spacing: 0px;
+        color: #464646;
+        opacity: 1;
+        margin-bottom:20px;
+       @* margin-top: 40px;*@
+
+        font-size:18px;
+    }
+
+    #divBankList {
+        margin-top: 30px;
+       @* margin-left: 30px;*@
+        border-radius: 10px;
+        opacity: 1;
+    }
+
+    .sidebardata1 {
+        display: flex;
+        justify-content: space-between;
+        background-color: #FFFFFF;
+        border: none;
+        width: 307px;
+        box-shadow: 0px 3px 6px #00000029;
+        padding: 5px 10px;
+    }
+
+    .imgdata {
+        margin-left: 30px;
+    }
+
+    .toggles {
+        margin-left: 22px;
+        margin-top: 5px;
+        font: normal normal bold 16px/22px Open Sans;
+        letter-spacing: 0px;
+        color: #5A5757;
+        opacity: 1;
+    }
+
+    .down-arrow-icon {
+        transform: rotate(0deg);
+        margin-top: 6px;
+    }
+
+    .collapsed .down-arrow-icon {
+        transform: rotate(-90deg);
+    }
+
+    .imgs {
+        height: 36px;
+    }
+
+    .bd1 {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .bd2 {
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    .dataNotfound {
+        /* align-items: center; */
+        text-align: center;
+    }
+
+    .view-account-balance-container {
+        padding: 16px 18px;
+        width: 30%;
+        background: #FFFFFF;
+        box-shadow: 0px 3px 6px #00000029;
+        border-radius: 9px;
+    }
+
+    .bank-name-container {
+        display: flex;
+        align-items: center;
+        margin-bottom: 16px;
+        margin-top:20px
+    }
+
+    .bank-type-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 16px;
+    }
+
+    .bankname {
+        margin-left: 10px;
+        color: #130F26;
+    }
+
+    .view-amount {
+        color: #130F26;
+        font-size: 32px;
+    }
+
+    .view-available-amount-txt {
+        color: #130F26;
+        font-size: 14px;
+        opacity: 0.5;
+    }
+
+    .view-saving-account {
+        color: #797979;
+        font-size: 14px;
+    }
+
+    .view-account-number {
+        color: #32A4FF;
+        font-weight: bold;
+    }
+
+    .view-balance-hr {
+        border: 0.5px solid #00000029;
+    }
+    .transactiondiv {
+        margin-top: 20px;
+    }
+</style>
+
+<div class="viewdata" id="">
+    <p> View Account balance & Transfer Funds</p>
+
+</div>
+<div class="sidebardata" id="divBankList">
+
+</div>
+
+<div class="row" id="divPasscode2" style="padding:200px 400px 400px 400px">
+
+    <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xl-offset-1 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
+        <div class="infodata">
+            <div>
+                <input type="text" placeholder="Passcode" id="txtPasscode2" maxlength="4">
+                <span class="form-validations-error" id="txtPasscodeError2"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xl-offset-1 col-lg-offset-1 col-md-offset-1 col-sm-offset-1 padding-top">
+        <button id="btnVerifyPasscode2" type="button" class="btn btn-primary">Verify Passcode</button>
+    </div>
+</div>
+
+<div id="divmain_content">
+
+
+    <div id="viewBalanceDetail">
+
+        <div class="view-account-balance-container">
+            <div class="bank-name-container">
+                <img id="bankImage" src="" alt="" width="40" height="40">
+                <div class="bankname" id="spnbankName"></div>
+            </div>
+            <div class="view-available-amount-txt">Available Amount</div>
+            <div class="view-amount" id="balance"></div>
+            <hr class="view-balance-hr">
+            <div class="bank-type-container">
+                <div class="view-saving-account">Wallet Account:</div>
+                <div class="view-account-number" id="spnAccountNumber"></div>
+
+            </div>
+            @*<div class="bank-type-container">
+                    <div class="view-saving-account">Nuban Account:</div>
+                    <div class="view-account-number" id="spnNubanAccountNumber"></div>
+
+                </div>*@
+            <div class="bank-type-container">
+                <div class="view-saving-account">Bank Name:</div>
+                <div class="view-account-number" id="">Xpress Wallet</div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-default" id="dataNotFound">
+        <div class="panel-heading dataNotfound">You have not added any bank yet.</div>
+
+    </div>
+
+    <div class="lowspace">
+        <div class="bills">
+            <div class="billtype mar">
+                @*need to uncomment below comment*@
+
+                <div class="lowerspace cursor-pointer" id="WalletToBankDiv" data-toggle="modal" data-target="#walletToBankModal">
+                    <div>
+
+                        @*<img src="~/Content/images/WallettoBank/Icon.svg" />*@
+                        <img src="~/Content/images/WallettoBank/W2B_SVG.svg" />
+                    </div>
+                    <p class="smalltxt diff1">Wallet To Bank</p>
+                </div>
+
+                <div class="lowerspace cursor-pointer " id="WalletToWalletDiv">
+                    <div>
+
+
+                        <img src="~/Content/images/WallettoBank/W2W_SVG.svg" />
+                    </div>
+                    <p class="smalltxt diff1">Wallet To Wallet</p>
+                </div>
+
+
+            </div>
+        </div>
+
+        @*<div class="bills bill-padding-top">
+                <span class="txt">Travels</span>
+                <div class="billtype">
+                    <div class="lowerspace opacity cursor-not-allowed">
+                        <div>
+                            <img src="~/Content/images/Group 50176.svg">
+                        </div>
+                        <p class="smalltxt">Cab</p>
+                    </div>
+
+                    <div class="lowerspace opacity cursor-not-allowed">
+                        <div>
+                            <img class="space" src="~/Content/images/Group 50163.svg">
+                        </div>
+                        <p class="smalltxt diff">Bus Tickets</p>
+                    </div>
+
+                    <div class="lowerspace opacity cursor-not-allowed">
+                        <div>
+                            <img class="space" src="~/Content/images/Group 50502 (1).png">
+                        </div>
+                        <p class="smalltxt diff1">Train Tickets</p>
+                    </div>
+
+                    <div class="lowerspace opacity cursor-not-allowed">
+                        <div>
+                            <img class="space" src="~/Content/images/Group 50168.svg">
+                        </div>
+                        <p class="smalltxt diff1">Plane Tickets</p>
+                    </div>
+                </div>
+            </div>*@
+
+        @*<div class="bills bill-padding-top">
+                <span class="txt">Others</span>
+                <div class="billtype">
+                    <div class="lowerspace opacity cursor-not-allowed">
+                        <div>
+                            <img src="~/Content/images/Group 50181.svg" />
+                        </div>
+                        <p class="smalltxt">E-Commerce</p>
+                    </div>
+
+                    <div class="lowerspace opacity cursor-not-allowed">
+                        <div>
+                            <img class="space" src="~/Content/images/Group 50503 (1).png">
+                        </div>
+                        <p class="smalltxt diff">Groceries</p>
+                    </div>
+
+                    <div class="lowerspace opacity cursor-not-allowed">
+                        <div>
+                            <img class="space" src="~/Content/images/Group 50183.svg">
+                        </div>
+                        <p class="smalltxt diff1">Education</p>
+                    </div>
+
+                    <div class="lowerspace opacity cursor-not-allowed">
+                        <div>
+                            <img class="space" src="~/Content/images/Group 12436.svg">
+                        </div>
+                        <p class="smalltxt diff1">Foods</p>
+                    </div>
+                </div>
+            </div>*@
+
+    </div>
+
+
+</div>
+@*wallet to bank modal*@
+<div class="modal" tabindex="-1" id="walletToBankModal" aria-labelledby="exampleModalCenterTitle">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="loader" id="loader1"></div>
+            <div class="modal-header">
+                <h3 class="modal-title">Wallet To Bank</h3>
+                <div data-dismiss="modal" class="airtime-close-btn-container">
+                    <img src="~/Content/images/close.svg" id="BtnCloseAirtime" />
+
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="midguard">
+                    <div class="row">
+                        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xl-offset-1 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
+                            <div class="infodata">
+                                <label for="" class="label">Account Type</label>
+                                <div>
+                                    @*<input type="text" placeholder="Enter your operator name">*@
+                                    <select id="ddlAccountTypeList" class="operator">
+                                        <option value="" selected>Select AccountType</option>
+                                        <option value="Self">Self</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <span class="form-validations-error" id="AccountTypeError"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row padding-top">
+                        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xl-offset-1 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
+                            <div class="infodata">
+                                <label for="" class="label">Bank Name</label>
+                                <div>
+                                    @*<input type="text" placeholder="Enter your operator name">*@
+                                    <select id="ddlbankList" class="operator">
+                                        <option value="">Select Bank</option>
+                                    </select>
+                                    <span class="form-validations-error" id="BankError"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row padding-top">
+                        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xl-offset-1 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
+                            <div class="infodata">
+                                <label for="" class="label">Account Number</label>
+                                <div>
+                                    <input type="text" placeholder="Account Number" id="txtBankAccountNumber" maxlength="12" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                                </div>
+                                <span class="form-validations-error" id="bankAccountNumberError"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row padding-top">
+                        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xl-offset-1 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
+                            <div class="infodata">
+                                <label for="" class="label">Beneficiary Name</label>
+                                <div>
+                                    <input type="text" placeholder="Beneficiary Name" id="txtBankBeneficiaryName" maxlength="30">
+                                </div>
+                                <span class="form-validations-error" id="txtBankBeneficiaryNameError"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row padding-top">
+                        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xl-offset-1 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
+                            <div class="infodata">
+                                <label for="" class="label">Amount</label>
+                                <div>
+                                    <input type="text" placeholder="Amount" id="bankTransferAmount" maxlength="9" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                                </div>
+                                <span class="form-validations-error" id="bankTransferAmountError"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="submitdata" id="btnWalletToBankPay">Transfer</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*wallet to Wallet modal*@
+<div class="modal" tabindex="-1" id="walletToWalletModal" aria-labelledby="exampleModalCenterTitle">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="loader" id="loader1"></div>
+            <div class="modal-header">
+                <h3 class="modal-title">Wallet To Wallet</h3>
+                <div data-dismiss="modal" class="airtime-close-btn-container">
+                    <img src="~/Content/images/close.svg" id="BtnClosewallettowallet" />
+
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="midguard">
+                    @*<div class="row">
+                        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xl-offset-1 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
+                            <div class="infodata">
+                                <label for="" class="label">Account Type</label>
+                                <div>
+                                    <select id="ddlAccountTypeList" class="operator">
+                                        <option value="" selected>Select AccountType</option>
+                                        <option value="Self">Self</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <span class="form-validations-error" id="AccountTypeError"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row padding-top">
+                        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xl-offset-1 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
+                            <div class="infodata">
+                                <label for="" class="label">Bank Name</label>
+                                <div>
+                                    <select id="ddlbankList" class="operator">
+                                        <option value="">Select Bank</option>
+                                    </select>
+                                    <span class="form-validations-error" id="BankError"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
+
+                    <div class="row padding-top">
+                        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xl-offset-1 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
+                            <div class="infodata">
+                                <label for="" class="label">Wallet Account Number</label>
+                                <div>
+                                    <input type="text" placeholder="Wallet Account Number" id="txtWalletAccountNumber" maxlength="12" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                                </div>
+                                <span class="form-validations-error" id="walletAccountNumberError"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row padding-top">
+                        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xl-offset-1 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
+                            <div class="infodata">
+                                <label for="" class="label">Beneficiary Name</label>
+                                <div>
+                                    <input type="text" placeholder="Beneficiary Name" id="txtWalletBeneficiaryName" maxlength="30">
+                                </div>
+                                <span class="form-validations-error" id="txtwalletBeneficiaryNameError"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row padding-top">
+                        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xl-offset-1 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
+                            <div class="infodata">
+                                <label for="" class="label">Amount</label>
+                                <div>
+                                    <input type="text" placeholder="Amount" id="walletTransferAmount" maxlength="9" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                                </div>
+                                <span class="form-validations-error" id="walletTransferAmountError"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="submitdata" id="btnWalletToWalletPay">Transfer</button>
+            </div>
+        </div>
+    </div>
+</div>

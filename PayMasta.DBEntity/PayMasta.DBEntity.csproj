@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DF3BF265-B081-481F-B6BB-75742A48B2B5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PayMasta.DBEntity</RootNamespace>
+    <AssemblyName>PayMasta.DBEntity</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccessAmountRequest\AccessAmountRequest.cs" />
+    <Compile Include="Account\CityMaster.cs" />
+    <Compile Include="Account\CountryMaster.cs" />
+    <Compile Include="Account\OtpInfo.cs" />
+    <Compile Include="Account\StateMaster.cs" />
+    <Compile Include="Account\UserMaster.cs" />
+    <Compile Include="Account\UserSession.cs" />
+    <Compile Include="ArticleMaster\ArticleMaster.cs" />
+    <Compile Include="ArticleMaster\ArticleOption.cs" />
+    <Compile Include="ArticleMaster\ArticleUserAnswer.cs" />
+    <Compile Include="BankDetail\BankDetail.cs" />
+    <Compile Include="BaseEntity.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="CommisionMaster\CommisionMaster.cs" />
+    <Compile Include="Earning\EarningMaster.cs" />
+    <Compile Include="EmployerDetail\EmployerDetail.cs" />
+    <Compile Include="ErrorLog\ErrorLog.cs" />
+    <Compile Include="ExpressWallet\ExpressVirtualAccountDetail.cs" />
+    <Compile Include="NonRegisterEmployerDetail\NonRegisterEmployerDetail.cs" />
+    <Compile Include="Notification.cs" />
+    <Compile Include="Notifications\Notifications.cs" />
+    <Compile Include="OkraCallBack\OkraCallBackResponse.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProvidusVirtualAccountDetail\ProvidusVirtualAccountDetail.cs" />
+    <Compile Include="RandomInvoiceNumber\RandomInvoiceNumber.cs" />
+    <Compile Include="ServiceCategory\ServiceCategory.cs" />
+    <Compile Include="Support\SupportMaster.cs" />
+    <Compile Include="TransactionLog\TransactionLog.cs" />
+    <Compile Include="UpdateUserProfileRequest\UpdateUserProfileRequest.cs" />
+    <Compile Include="UserBudget\UserBudgeting.cs" />
+    <Compile Include="VirtualAccountDetail\VirtualAccountDetail.cs" />
+    <Compile Include="WalletService\WalletService.cs" />
+    <Compile Include="WalletTransaction\WalletTransaction.cs" />
+    <Compile Include="WidgetLinkMaster\WidgetLinkMaster.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

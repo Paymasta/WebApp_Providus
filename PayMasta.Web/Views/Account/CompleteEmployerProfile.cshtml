@@ -1,0 +1,433 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="~/Content/js/plugins/jquery/jquery-3.5.1.js"></script>
+    <link href="~/Content/css/jquery-ui.css" rel="stylesheet" />
+    @*<script src="~/Content/js/plugins/jquery/jquery-3.3.1.js"></script>
+        <script src="~/Content/js/plugins/jquery/jquery-3.3.1.min.js"></script>*@
+    <script src="~/Content/js/plugins/datepicker/bootstrap-datepicker.js"></script>
+
+    <script src="~/Content/js/plugins/datepicker/bootstrap-datepicker.min.js"></script>
+    <script src="~/Content/js/plugins/bootstrap/bootstrap.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <link href="~/Content/css/Account/employerCompleteProfile.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+    @*<script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>*@
+    <link rel="icon" type="image/x-icon" href="~/Content/images/pay-master-logo.png">
+    <script src="~/Content/js/Profile/EmployerProfile.js"></script>
+    <title>Sign Up - PayMasta</title>
+</head>
+<body>
+    <div class="userpage">
+        <div class="header">
+
+
+            <img src="~/Content/images/Logos/latest-paymasta-logo.png" width="119" height="46" class="logo-img"/>
+
+        </div>
+
+
+        <div class="cdata">
+            <h4>Complete Your Profile</h4>
+            <p class="para">Enter your Information to begin the process of creating your PayMasta Account</p>
+        </div>
+
+        <div id="personalinfo">
+            <div class="row uppermargin">
+                <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1 upperspace">
+                    <div class="position-relative pb4 infodata">
+                        <label for="" class="position-absolute label">Organisation Name<sup>*</sup></label>
+                        <div>
+                            <input type="text" placeholder="Enter your organisation name" id="txtorganisation" maxlength="50">
+                        </div>
+
+                        <span id="txttxtorganisationError" style="color:red">
+
+                        </span>
+
+                    </div>
+                </div>
+            </div>
+
+            @*<div class="row uppermargin">
+            <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1">
+                <div class="position-relative pb4 infodata">
+                    <label for="" class="position-absolute label">Email Address</label>
+                    <div>
+                        <input type="email" placeholder="Enter your email address" id="txtEmail" maxlength="100">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row uppermargin">
+            <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1">
+                <div class="position-relative pb4 infodata">
+                    <label for="" class="position-absolute label">Mobile Number<sup>*</sup></label>
+                    <div>
+                        <input type="text" placeholder="Enter your  mobile number" id="txtMobile" maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+
+            <div class="column uppermargin datas">
+                <div class="col-xl-3 col-lg-3 col-sm-5 col-6 offset-xl-3 offset-lg-3 offset-sm-1 datas1" style="padding-right: 7px">
+                    <div class="position-relative pb4 infodata">
+                        <label for="" class="position-absolute label">Country<sup>*</sup></label>
+                        <div>
+                            <select id="ddlcountry" name="menu">
+                                @*<option value="">Select</option>*@
+
+                            </select>
+                        </div>
+                        <span id="ddlCountryError" style="color:red">
+
+                        </span>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-lg-3 col-sm-5 col-6 datas1" style="padding-left: 7px">
+                    <div class="position-relative pb4 infodata">
+                        <label for="" class="position-absolute label">State<sup>*</sup></label>
+                        <div>
+                            <select id="ddlState" name="menu">
+                                <option value="">Please select state</option>
+
+                            </select>
+                        </div>
+                        <span id="ddlStateError" style="color:red">
+
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- rowdata -->
+            @*<div class="row subdata">
+            <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1">
+                <div class="position-relative pb4 infodata">
+                    <label for="" class="position-absolute label">Country</label>
+                    <div>
+                        <select id="menudetail" name="menu">
+                            <option value="Select">Select</option>
+                            <option value="USA">USA</option>
+                            <option value="India">India</option>
+                            <option value="China">China</option>
+                            <option value="Pakistan">Pakistan</option>
+                            <option value="Japan">Japan</option>
+                            <option value="UK">Uk</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row  subdata subdata1">
+            <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1">
+                <div class="position-relative pb4 infodata">
+                    <label for="" class="position-absolute label">State</label>
+                    <div>
+                        <select id="menudetail" name="menu">
+                            <option value="Select">Select</option>
+                            <option value="UP">Uttar Pradesh</option>
+                            <option value="MP">Madhya Pradesh</option>
+                            <option value="UK">Uttrakhand</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+
+            <!-- rowdata -->
+
+
+
+
+
+
+
+
+            <div class="row uppermargin">
+                <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1">
+                    <div class="position-relative pb4 infodata">
+                        <label for="" class="position-absolute label">Office Address<sup>*</sup></label>
+                        <div>
+                            <input type="text" placeholder="Enter your office address" id="txtAddress" maxlength="300">
+                        </div>
+                        <span id="txtAddressError" style="color:red">
+
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row uppermargin">
+                <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1">
+                    <div class="position-relative pb4 infodata">
+                        <label for="" class="position-absolute label">Post Code<sup>*</sup></label>
+                        <div>
+                            <input type="text" placeholder="Enter your post code" id="txtPostalCode" maxlength="6" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                        </div>
+                        <span id="txtPostalCodeError" style="color:red">
+
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="row uppermargin">
+                <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1">
+                    <div class="position-relative pb4 infodata">
+                        <label for="" class="position-absolute label">Working hours/day<sup>*</sup></label>
+                        <div>
+                            <input type="text" placeholder="Enter the number of working hours" id="txtWorkingDays" maxlength="2" oninput="this.value = this.value.replace(/[^1-9]/g, '');">
+                        </div>
+                        <span id="txtWorkingDaysError" style="color:red">
+
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="row uppermargin">
+                <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1">
+                    <div class="position-relative pb4 infodata">
+                        <label for="" class="position-absolute label">Working days in a week<sup>*</sup></label>
+                        <div>
+                            <select id="ddlWorkingDays" name="menu">
+                                <option value="Select">Select</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                            </select>
+                        </div>
+                        <span id="ddlWorkingDaysError" style="color:red">
+
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="column uppermargin datas">
+                <div class="col-xl-3 col-lg-3 col-sm-5 col-6 offset-xl-3 offset-lg-3 offset-sm-1 ps-1" style="padding-right: 7px">
+                    <div class="position-relative pb4 infodata">
+                        <label for="" class="position-absolute label">Pay Cycle(From Day)<sup>*</sup></label>
+                        <div>
+                            <select class="datedata" id="payCycleFrom">
+                                @*id="txtPayCycleFrom"*@
+                                <option value="0">Please select paycycle</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                            </select>
+                        </div>
+                        <span id="txtPayCycleFromError" style="color:red">
+
+                        </span>
+                    </div>
+                </div>
+                <p class="to">To</p>
+                <div class="col-xl-3 col-lg-3 col-sm-5 col-6 pe-3" style="padding-left: 7px">
+                    <div class="position-relative pb4 infodata">
+                        <label for="" class="position-absolute label">Pay Cycle(To Day)<sup>*</sup></label>
+                        <div>
+                            <select class="datedata" id="payCycleTo">
+                                @*id="txtPayCycleTo"*@
+                                <option value="0">Please select paycycle</option>
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                                <option value="6">6</option>
+                                <option value="7">7</option>
+                                <option value="8">8</option>
+                                <option value="9">9</option>
+                                <option value="10">10</option>
+                                <option value="11">11</option>
+                                <option value="12">12</option>
+                                <option value="13">13</option>
+                                <option value="14">14</option>
+                                <option value="15">15</option>
+                                <option value="16">16</option>
+                                <option value="17">17</option>
+                                <option value="18">18</option>
+                                <option value="19">19</option>
+                                <option value="20">20</option>
+                                <option value="21">21</option>
+                                <option value="22">22</option>
+                                <option value="23">23</option>
+                                <option value="24">24</option>
+                                <option value="25">25</option>
+                                <option value="26">26</option>
+                                <option value="27">27</option>
+                                <option value="28">28</option>
+                                <option value="29">29</option>
+                                <option value="30">30</option>
+                            </select>
+                        </div>
+                        <span id="txtPayCycleToError" style="color:red">
+
+                        </span>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+            <div class="row uppermargin">
+                <div class="d-flex col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1">
+                   
+                    <div class="position-relative pb4 infodata" style="display:flex;gap:17px;">
+                        <div>
+                            <input type="checkbox" class="chkEWAapprovalauthority-wrapper" id="chkEWAapprovalauthority" name="ewaApproval" style="height: 17px;margin-right:26px;">
+                        </div>
+                        @*<label style="text-align:right" for="" class="position-absolute label">You want EWA approval authority:<sup>*</sup></label>*@
+                    <p style=" font-size: 13px;">You want EWA approval authority:</p>
+
+                    </div>
+                </div>
+            </div>
+            @* <div class="column uppermargin datas">
+            <div class="col-xl-3 col-lg-3 col-sm-5 offset-xl-3 offset-lg-3 offset-sm-1 ps-1">
+                <div class="position-relative pb4 infodata">
+                    <label for="" class="position-absolute label">Pay Cycle<sup>*</sup></label>
+                    <div>
+                        <input type="text" class="datedata" id="txtPayCycleFrom">
+                    </div>
+                    <span id="txtPayCycleFromError" style="color:red">
+
+                    </span>
+                </div>
+            </div>
+            <p class="to">To</p>
+            <div class="col-xl-3 col-lg-3 col-sm-5 pe-3">
+                <div class="position-relative pb4 infodata">
+                    <label for="" class="position-absolute label">Pay Cycle<sup>*</sup></label>
+                    <div>
+                        <input type="text" class="datedata" id="txtPayCycleTo">
+                    </div>
+                    <span id="txtPayCycleToError" style="color:red">
+
+                    </span>
+                </div>
+            </div>
+        </div>
+
+
+            *@
+
+
+
+            <!-- rowdata -->
+            @*<div class="row subdata">
+            <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1">
+                <div class="position-relative pb4 infodata">
+                    <label for="" class="position-absolute label">Date of Birth<sup>*</sup></label>
+                    <div>
+                        <input type="date" class="datedata">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row subdata">
+            <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1">
+                <div class="position-relative pb4 infodata">
+                    <label for="" class="position-absolute label">Date of Birth<sup>*</sup></label>
+                    <div>
+                        <input type="date" class="datedata">
+                    </div>
+                </div>
+            </div>
+        </div>*@
+
+
+
+            <!-- rowdata -->
+
+
+
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1 text-center">
+                    <button type="button" id="btnUpdateProfile" class="continue">Sign Up</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1 text-center">
+                    <button type="button" class="skipbtn" data-toggle="modal" data-target="#helpModal" id="btnHelp"><u>Need help?</u></button>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+    @*help modal*@
+    <div>
+        <div class="modal" aria-modal="true" role="dialog" id="helpModal" data-backdrop="static">
+            <div class="modal-dialog h-100 my-0 modal-dialog-centered data-ba">
+                <div class="modal-content position-absolute">
+                    <div class="text-center">
+                        <div class="m-auto position-relative heading-container">
+                            <div class="heading py-4 m-auto">Help</div>
+                          
+                            <img src="~/Content/images/close.png" data-dismiss="modal" class="position-absolute help-modal-close-btn" width="19" height="19" style="top: 50%; right: 0.8rem; transform: translateY(-50%); padding-left: 0px !important" />
+                        </div>
+                        <img src="~/Content/images/help.png" class="mt-3" />
+                        <p style="font-size: 14px">If you’d like to get in touch with us, please do write <br> us at <span class="help-popup-contact-detail">hello@paymasta.co</span> or call us on <br> <span class="help-popup-contact-detail">+234 (0) 903 5061 611</span>.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

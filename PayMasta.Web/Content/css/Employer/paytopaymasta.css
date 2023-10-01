@@ -1,0 +1,600 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.pay-to-paymasta-check {
+    width: 18px !important;
+    height: 18px !important;
+}
+
+body {
+    background-color: #F2F7FF;
+}
+
+.to_date {
+    margin: 0px 5px;
+    height: 40px;
+    border: none;
+    border: 1px solid #BFBFBF;
+    padding: 7px;
+    border-radius: 10px;
+    color: #464646CC;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+.calender {
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    transform: translateY(-50%);
+}
+
+.drop_down {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+    justify-content: space-between;
+    padding: 28px 0px 0px 0px;
+}
+
+.date_option {
+    display: flex;
+   /* margin-bottom: 25px;*/
+    flex-direction: column;
+}
+
+.date_from {
+    /*display: flex;*/
+    align-items: center;
+    margin: 10px 0px 0px 10px;
+}
+
+.paytopaymasta-status {
+    width: 113px;
+    padding: 9px;
+    border-radius: 10px;
+    color: #464646CC;
+    background-color: white;
+    border: 1px solid #BFBFBF;
+    -webkit-appearance: none;
+    appearance: none;
+    padding-left: 7px;
+    background-image: url('../../images/Employer/arrow-down.svg');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 6px);
+}
+
+.reset-filter-btn-container {
+    display: flex;
+   /* margin-top: 10px;*/
+}
+
+.filter {
+    margin: 10px 0px 0px 10px;
+    background-color: #F86847;
+    border: none;
+    padding: 9px;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 14px;
+    width: 90px;
+}
+
+.reset {
+    background-color: #F2F7FF;
+    border: none;
+    padding: 9px;
+    color: #130F26;
+    border-radius: 10px;
+    font-size: 14px;
+    margin: 10px 0px 0px 10px;
+    width: 90px;
+    border: 1px solid #BFBFBF;
+}
+
+
+.date-container {
+    display: flex;
+    flex-direction: column;
+   /* margin-top: 10px;*/
+}
+
+.paytopaymasta-table {
+    font-family: arial, sans-serif;
+    border-collapse: separate;
+    width: 100%;
+    border-spacing: 0 5px;
+}
+
+.table-overflow {
+    overflow: auto;
+}
+
+.paytopaymasta-table-heading:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.paytopaymasta-table-heading:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+/* td:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+td:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+} */
+.paytopaymasta-table-heading {
+    background-color: #32A4FC;
+    font-size: 14px;
+}
+
+td, .paytopaymasta-table-heading {
+    /* border: 1px solid #dddddd; */
+    text-align: left;
+    padding: 8px;
+}
+
+tr, .paytopaymasta-table-heading {
+    color: #ffffff;
+}
+
+tr, td {
+    font-size: 14px;
+    color: #464646;
+}
+
+td {
+    border-bottom: 0.3px solid #dddddd;
+    color: #130F26;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    max-width: 168px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.main_transaction {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-top: 12px;
+    margin-bottom: 14px;
+}
+
+.sec_transaction {
+    display: flex;
+}
+
+.check {
+    width: 25px;
+    height: 16px;
+}
+
+.csvexport {
+    background-color: #F86847;
+    border: none;
+    padding: 11px;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 14px;
+    margin: 0px 10px 0px 0px;
+    width: 120px;
+    cursor: pointer;
+}
+
+.search {
+    border: 1px solid #707070;
+    border-radius: 10px;
+    padding: 11px;
+    width: 230px;
+    padding-left: 25px;
+    font-size: 13px;
+}
+
+.search_icon {
+    position: relative;
+}
+
+.search-img {
+    width: 11px;
+    left: 5px;
+    position: absolute;
+    top: 50%;
+    transform: translate(5px, -50%);
+}
+/* tr:nth-child(even) {
+    background-color: #F2F1FF;
+  } */
+.main_div {
+    width: 100%;
+}
+
+.tab_data {
+    background-color: #fff;
+    border-radius: 16px;
+}
+
+.tab_data1 {
+    padding: 15px 30px;
+}
+
+.text {
+    margin-bottom: 5px;
+    color: #464646;
+    font-size: 18px;
+    font-family: sans-serif
+}
+
+.transaction {
+    display: flex;
+    justify-content: space-between;
+    padding: 22px 24px 0px 22px;
+    font-size: normal normal 600 18px/24px Open Sans;
+    ;
+}
+
+.trans_text {
+    font-size: 18px;
+}
+
+.image {
+    background-color: #32A4FC;
+    padding: 7px;
+    border-radius: 50%;
+}
+
+.sucess {
+    color: #0CAF38;
+}
+
+.reject {
+    color: #EB2E0C;
+}
+
+.pending {
+    color: #32A4FC;
+}
+
+.hold {
+    color: #F86847;
+}
+
+.img-eye {
+    margin-left: 11px;
+}
+
+.pagination {
+    /* display: inline-block; */
+    display: flex;
+    justify-content: end;
+    margin: 10px 0px 10px 0px;
+}
+
+.arrow_custom {
+    border: 1px solid #BFBFBF;
+    border-radius: 10px;
+}
+
+.anch_tag {
+    /* border: 1px solid #BFBFBF; */
+    border-radius: 10px;
+    color: #fff !important;
+    background-color: #32A4FC;
+    margin: 0px 10px;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 4px 16px;
+    text-decoration: none;
+}
+
+.lower-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.approve-btn {
+    background-color: #F87658;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    padding: 10px 40px;
+    border-radius: 10px;
+    margin-right: 20px;
+    width: 226px;
+    cursor: pointer;
+}
+
+.reject-btn {
+    background-color: #F2F7FF;
+    color: #130F26;
+    font-size: 18px;
+    border: 1px solid #BFBFBF;
+    padding: 10px 45px;
+    border-radius: 10px;
+    width: 226px;
+    cursor: pointer;
+}
+
+.hold-btn {
+    background-color: #32A4FC;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    padding: 10px 45px;
+    border-radius: 10px;
+    width: 226px;
+    cursor: pointer;
+}
+
+.space-right {
+    margin-right: 20px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: end;
+}
+
+#employerPaymentDetails .modal-dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin: 0px;
+    padding: 0px 10px;
+    width: 100%;
+}
+
+.modal-content {
+    border-radius: 16px;
+}
+
+.heading-container {
+    margin: auto;
+    position: relative;
+    padding: 2.5rem 0rem;
+}
+
+.heading {
+    margin: auto;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.input-field {
+    width: 335px;
+    height: 54px;
+    font-size: 12px;
+    color: #130F2666;
+    border: 1px solid #707070;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+.employerPaymentDetails-btn-container {
+    padding-bottom: 30px;
+}
+
+.pay-request-btn {
+    padding: 1rem 0rem;
+    width: 280px;
+    margin: auto;
+    background: #F86847;
+    color: #FFFFFF;
+    border: 1px solid #F86847;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.input-text {
+    padding-left: 10px;
+    width: 345px;
+    height: 54px;
+    /* UI Properties */
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #797979;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.employerPaymentDetails-input-text {
+    padding: 0px 10px;
+    width: 280px;
+    height: 54px;
+    /* UI Properties */
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #797979;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.label {
+    padding: 0px 2px;
+    position: absolute;
+    top: -6px;
+    left: 10px;
+    background-color: white;
+    font-size: 12px;
+    z-index: 1;
+    color: #130F26;
+}
+
+select {
+    appearance: none;
+}
+
+.add-bank-acc-close-btn {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    right: 2rem;
+    transform: translateY(-50%);
+}
+
+.employerPaymentDetails-input-container {
+    margin-bottom: 2rem;
+    display: inline-block;
+    position: relative;
+}
+
+.total-amount-container {
+    margin: 10px auto 30px auto;
+    width: 280px;
+    background: #EFEFEF;
+    padding: 0px 15px;
+}
+
+.total-detail-container {
+    padding: 15px 0px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.paytopaymasta-employees {
+    color: #130F26;
+    font-weight: 600;
+}
+
+.paytopaymasta-amount {
+    color: #130F26;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.font-color {
+    color: #464646;
+}
+
+.border-divider {
+    height: 3px;
+    background: #D3D3D3;
+}
+
+.paytopaymasta-success-content {
+    padding: 20px;
+    color: #464646;
+    font-size: 18px;
+}
+
+#paytopaymastaSuccess .modal-dialog {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    margin: 0px;
+    padding: 0px 10px;
+    width: 100%;
+}
+
+@media(max-width:676px) {
+    .main_transaction {
+        flex-direction: column !important;
+    }
+}
+
+@media(max-width:590px) {
+    .sec_transaction {
+        flex-direction: column;
+    }
+
+    .search {
+        margin-top: 10px;
+        margin-left: 0px;
+    }
+
+    .search-img {
+        top: 60%;
+    }
+}
+
+@media(max-width:768px) {
+    .lower-button {
+        flex-direction: column;
+    }
+
+    .approve-btn {
+        margin-right: 0px;
+    }
+
+    .space-right {
+        margin: 0px;
+    }
+}
+
+@media (min-width: 992px) {
+
+    .main_transaction {
+        flex-direction: row;
+    }
+
+    .csvexport {
+        margin: 0px 10px 0px 0px;
+    }
+}
+
+@media (min-width: 576px) {
+    #employerPaymentDetails .modal-dialog {
+        max-width: 500px;
+        width: 100%;
+    }
+
+    #paytopaymastaSuccess .modal-dialog {
+        max-width: 500px;
+        width: 100%;
+    }
+
+    .employerPaymentDetails-input-text {
+        width: 335px;
+    }
+
+    .pay-request-btn {
+        width: 335px;
+    }
+
+    .total-amount-container {
+        width: 335px;
+    }
+
+    .date-container {
+        flex-direction: row;
+    }
+
+    .reset-filter-btn-container {
+        /*justify-content: end;*/
+    }
+}
+
+@media (min-width: 1024px) {
+    .drop_down {
+        flex-direction: row;
+    }
+
+    .date_option {
+        flex-direction: row;
+    }
+
+    .date_from {
+        margin: 0px 0px 0px 10px;
+    }
+
+    .reset {
+        margin: 0px 0px 0px 10px;
+    }
+
+    .filter {
+        margin: 0px 0px 0px 10px;
+    }
+}

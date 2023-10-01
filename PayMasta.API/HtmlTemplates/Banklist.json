@@ -1,0 +1,1369 @@
+{
+  "code": "00",
+  "message": "success",
+  "data": [
+    {
+      "bankCode": "779",
+      "bankAccronym": "Taj Bank",
+      "type": "DMB",
+      "bankName": "TAJ BANK",
+      "shortCode": "779",
+      "QoreIdBankCode": "000026"
+    },
+    {
+      "bankCode": "058",
+      "bankAccronym": "GTBank",
+      "type": "DMB",
+      "bankName": "Guaranty Trust Bank",
+      "shortCode": "737",
+      "QoreIdBankCode": "000013"
+    },
+    {
+      "bankCode": "063",
+      "bankAccronym": "DIAMOND",
+      "type": "DMB",
+      "bankName": "ACCESS BANK (DIAMOND)",
+      "shortCode": "426",
+      "QoreIdBankCode": "000005"
+    },
+    {
+      "bankCode": "044",
+      "bankAccronym": "ACCESS",
+      "type": "DMB",
+      "bankName": "ACCESS BANK PLC",
+      "shortCode": "901",
+      "QoreIdBankCode": "000014"
+    },
+    {
+      "bankCode": "023",
+      "bankAccronym": "CITI",
+      "type": "DMB",
+      "bankName": "CITIBANK NIG LTD",
+      "shortCode": null,
+      "QoreIdBankCode": "000009"
+    },
+    {
+      "bankCode": "459",
+      "bankAccronym": "CMB",
+      "type": "DMB",
+      "bankName": "CORONATION MERCHANT BANK LIMITED",
+      "shortCode": null,
+      "QoreIdBankCode": "060001"
+    },
+    {
+      "bankCode": "050",
+      "bankAccronym": "ECOBANK",
+      "type": "DMB",
+      "bankName": "ECOBANK NIGERIA PLC",
+      "shortCode": "326",
+      "QoreIdBankCode": "000010"
+    },
+    {
+      "bankCode": "084",
+      "bankAccronym": "SPRING",
+      "type": "DMB",
+      "bankName": "ENTERPRISE BANK",
+      "shortCode": null,
+      "QoreIdBankCode": "000019"
+    },
+    {
+      "bankCode": "460",
+      "bankAccronym": "FBNQ MB",
+      "type": "DMB",
+      "bankName": "FBNQUEST MERCHANT BANK",
+      "shortCode": null,
+      "QoreIdBankCode": "060002"
+    },
+    {
+      "bankCode": "070",
+      "bankAccronym": "FIDELITY",
+      "type": "DMB",
+      "bankName": "FIDELITY BANK PLC",
+      "shortCode": "770",
+      "QoreIdBankCode": "000007"
+    },
+    {
+      "bankCode": "011",
+      "bankAccronym": "FBN",
+      "type": "DMB",
+      "bankName": "FIRST BANK OF NIGERIA PLC",
+      "shortCode": "894",
+      "QoreIdBankCode": "000016"
+    },
+    {
+      "bankCode": "401",
+      "bankAccronym": "FSDH",
+      "type": "DMB",
+      "bankName": "FSDH MERCHANT BANK LTD",
+      "shortCode": null,
+      "QoreIdBankCode": "400001"
+    },
+    {
+      "bankCode": "103",
+      "bankAccronym": "GLOBUS",
+      "type": "DMB",
+      "bankName": "GLOBUS BANK",
+      "shortCode": null,
+      "QoreIdBankCode": "000027"
+    },
+    {
+      "bankCode": "030",
+      "bankAccronym": "HERITAGE",
+      "type": "DMB",
+      "bankName": "HERITAGE BANK",
+      "shortCode": "745",
+      "QoreIdBankCode": "000020"
+    },
+    {
+      "bankCode": "301",
+      "bankAccronym": "JAIZ",
+      "type": "DMB",
+      "bankName": "JAIZ BANK PLC",
+      "shortCode": null,
+      "QoreIdBankCode": "000006"
+    },
+    {
+      "bankCode": "082",
+      "bankAccronym": "KEYSTONE",
+      "type": "DMB",
+      "bankName": "KEYSTONE BANK",
+      "shortCode": "7111",
+      "QoreIdBankCode": "000002"
+    },
+    {
+      "bankCode": "461",
+      "bankAccronym": "NOVA",
+      "type": "DMB",
+      "bankName": "NOVA MERCHANT BANK LIMITED",
+      "shortCode": null,
+      "QoreIdBankCode": "060003"
+    },
+    {
+      "bankCode": "076",
+      "bankAccronym": "POLARIS",
+      "type": "DMB",
+      "bankName": "POLARIS BANK",
+      "shortCode": "833",
+      "QoreIdBankCode": "000008"
+    },
+    {
+      "bankCode": "101",
+      "bankAccronym": "PROVIDUS",
+      "type": "DMB",
+      "bankName": "PROVIDUS BANK PLC",
+      "shortCode": null,
+      "QoreIdBankCode": "000023"
+    },
+    {
+      "bankCode": "068",
+      "bankAccronym": "STANCHART",
+      "type": "DMB",
+      "bankName": "STANDARD CHARTERED BANK NIGERIA LTD",
+      "shortCode": null,
+      "QoreIdBankCode": "000021"
+    },
+    {
+      "bankCode": "232",
+      "bankAccronym": "STERLING",
+      "type": "DMB",
+      "bankName": "STERLING BANK PLC",
+      "shortCode": "822",
+      "QoreIdBankCode": "000001"
+    },
+    {
+      "bankCode": "100",
+      "bankAccronym": "SUNTRUST",
+      "type": "DMB",
+      "bankName": "SUNTRUST BANK NIG LTD",
+      "shortCode": null,
+      "QoreIdBankCode": "000022"
+    },
+    {
+      "bankCode": "102",
+      "bankAccronym": "TITAN",
+      "type": "DMB",
+      "bankName": "TITAN TRUST BANK LIMITED",
+      "shortCode": null,
+      "QoreIdBankCode": "000025"
+    },
+    {
+      "bankCode": "033",
+      "bankAccronym": "UBA",
+      "type": "DMB",
+      "bankName": "UBA PLC",
+      "shortCode": "919",
+      "QoreIdBankCode": "000004"
+    },
+    {
+      "bankCode": "032",
+      "bankAccronym": "UBN",
+      "type": "DMB",
+      "bankName": "UNION BANK OF NIGERIA PLC",
+      "shortCode": "826",
+      "QoreIdBankCode": "000018"
+    },
+    {
+      "bankCode": "215",
+      "bankAccronym": "UNITY",
+      "type": "DMB",
+      "bankName": "UNITY BANK PLC",
+      "shortCode": "7799",
+      "QoreIdBankCode": "000011"
+    },
+    {
+      "bankCode": "035",
+      "bankAccronym": "WEMA",
+      "type": "DMB",
+      "bankName": "WEMA BANK PLC",
+      "shortCode": "945",
+      "QoreIdBankCode": "000017"
+    },
+    {
+      "bankCode": "057",
+      "bankAccronym": "ZENITH",
+      "type": "DMB",
+      "bankName": "ZENITH BANK PLC",
+      "shortCode": "966",
+      "QoreIdBankCode": "000015"
+    },
+    {
+      "bankCode": "058",
+      "bankAccronym": "GTBank",
+      "type": "DMB",
+      "bankName": "Guaranty Trust Bank",
+      "shortCode": "737",
+      "QoreIdBankCode": "000013"
+    },
+    {
+      "bankCode": "770",
+      "bankAccronym": "Kuda",
+      "type": "DMB",
+      "bankName": "KUDA MICROFINANCE BANK",
+      "shortCode": "770",
+      "QoreIdBankCode": "090267"
+    },
+    {
+      "bankCode": "855",
+      "bankAccronym": "PalmPay",
+      "type": "DMB",
+      "bankName": "PALMPAY",
+      "shortCode": "855",
+      "QoreIdBankCode": "100033"
+    },
+    {
+      "bankCode": "566",
+      "bankAccronym": "VFD",
+      "type": "DMB",
+      "bankName": "VFD MICROFINANCE BANK",
+      "shortCode": "566",
+      "QoreIdBankCode": "999999"
+    },
+    {
+      "bankCode": "214",
+      "bankAccronym": "Fcmb",
+      "type": "DMB",
+      "bankName": "FCMB",
+      "shortCode": "214",
+      "QoreIdBankCode": "000003"
+    },
+    {
+      "bankCode": "772",
+      "bankAccronym": "AB Microfinance bank",
+      "type": "DMB",
+      "bankName": "AB Microfinance Bank",
+      "shortCode": "772",
+      "QoreIdBankCode": "090270"
+    },
+    {
+      "bankCode": "813",
+      "bankAccronym": "ABU Microfinance Bank",
+      "type": "DMB",
+      "bankName": "ABU Microfinance Bank",
+      "shortCode": "813",
+      "QoreIdBankCode": "090197"
+    },
+    {
+      "bankCode": "719",
+      "bankAccronym": "ACCION MFB",
+      "type": "DMB",
+      "bankName": "ACCION MicroFinance Bank",
+      "shortCode": "719",
+      "QoreIdBankCode": "090134"
+    },
+    {
+      "bankCode": "738",
+      "bankAccronym": "Addosser MFBB",
+      "type": "DMB",
+      "bankName": "ADDOSSER MICROFINANCE BANK",
+      "shortCode": "738",
+      "QoreIdBankCode": "090160"
+    },
+    {
+      "bankCode": "704",
+      "bankAccronym": "AG MORTGAGE BANK",
+      "type": "DMB",
+      "bankName": "AG MORTGAGE BANK PLC",
+      "shortCode": "704",
+      "QoreIdBankCode": "100028"
+    },
+    {
+      "bankCode": "716",
+      "bankAccronym": "AL-BARKAH MFB",
+      "type": "DMB",
+      "bankName": "AL-BARAKAH MICROFINANCE BANK",
+      "shortCode": "716",
+      "QoreIdBankCode": "090133"
+    },
+    {
+      "bankCode": "717",
+      "bankAccronym": "ALLWORKERS MFB",
+      "type": "DMB",
+      "bankName": "ALLWORKERS MICROFINANCE BANK",
+      "shortCode": "717",
+      "QoreIdBankCode": "090131"
+    },
+    {
+      "bankCode": "755",
+      "bankAccronym": "Amju MFB",
+      "type": "DMB",
+      "bankName": "AMJU UNIQUE MICROFINANCE BANK",
+      "shortCode": "755",
+      "QoreIdBankCode": "090180"
+    },
+    {
+      "bankCode": "798",
+      "bankAccronym": "AMML MFB",
+      "type": "DMB",
+      "bankName": "AMML MFB",
+      "shortCode": "798",
+      "QoreIdBankCode": "090116"
+    },
+    {
+      "bankCode": "800",
+      "bankAccronym": "Apeks Microfinance Bank",
+      "type": "DMB",
+      "bankName": "APEKS Microfinance Bank",
+      "shortCode": "800",
+      "QoreIdBankCode": "090143"
+    },
+    {
+      "bankCode": "793",
+      "bankAccronym": "Arise MFB",
+      "type": "DMB",
+      "bankName": "ARISE MICROFINANCE BANK",
+      "shortCode": "793",
+      "QoreIdBankCode": "090282"
+    },
+    {
+      "bankCode": "401",
+      "bankAccronym": "ASOSavings",
+      "type": "DMB",
+      "bankName": "Aso Savings",
+      "shortCode": "401",
+      "QoreIdBankCode": "090001"
+    },
+    {
+      "bankCode": "809",
+      "bankAccronym": "Astrapolis MFB",
+      "type": "DMB",
+      "bankName": "Astrapolaris Microfinance Bank",
+      "shortCode": "809",
+      "QoreIdBankCode": "090172"
+    },
+    {
+      "bankCode": "818",
+      "bankAccronym": "Auchi Microfinance Bank",
+      "type": "DMB",
+      "bankName": "Auchi Microfinance Bank",
+      "shortCode": "818",
+      "QoreIdBankCode": "090264"
+    },
+    {
+      "bankCode": "787",
+      "bankAccronym": "Baines Credit MFB",
+      "type": "DMB",
+      "bankName": "BAINES CREDIT MICROFINANCE BANK",
+      "shortCode": "787",
+      "QoreIdBankCode": "090188"
+    },
+    {
+      "bankCode": "712",
+      "bankAccronym": "BC Kash MFB",
+      "type": "DMB",
+      "bankName": "BC Kash Microfinance Bank",
+      "shortCode": "712",
+      "QoreIdBankCode": "090127"
+    },
+    {
+      "bankCode": "799",
+      "bankAccronym": "Boctrust Microfinance Bank",
+      "type": "DMB",
+      "bankName": "Boctrust Microfinance Bank",
+      "shortCode": "799",
+      "QoreIdBankCode": "090117"
+    },
+    {
+      "bankCode": "764",
+      "bankAccronym": "Bosak MFB",
+      "type": "DMB",
+      "bankName": "BOSAK MICROFINANCE BANK",
+      "shortCode": "764",
+      "QoreIdBankCode": "090176"
+    },
+    {
+      "bankCode": "736",
+      "bankAccronym": "Bowen MFB",
+      "type": "DMB",
+      "bankName": "BOWEN MICROFINANCE BANK",
+      "shortCode": "736",
+      "QoreIdBankCode": "090148"
+    },
+    {
+      "bankCode": "796",
+      "bankAccronym": "Brent Mortgage Bank",
+      "type": "DMB",
+      "bankName": "Brent Mortgage Bank",
+      "shortCode": "796",
+      "QoreIdBankCode": "070015"
+    },
+    {
+      "bankCode": "317",
+      "bankAccronym": "Cellulant",
+      "type": "DMB",
+      "bankName": "Cellulant",
+      "shortCode": "317",
+      "QoreIdBankCode": "100005"
+    },
+    {
+      "bankCode": "743",
+      "bankAccronym": "CEMCS MFB",
+      "type": "DMB",
+      "bankName": "CEMCS MICROFINANCE BANK",
+      "shortCode": "743",
+      "QoreIdBankCode": "090154"
+    },
+    {
+      "bankCode": "731",
+      "bankAccronym": "Chikum Microfinance Bank",
+      "type": "DMB",
+      "bankName": "CHIKUM MICROFINANCE BANK",
+      "shortCode": "731",
+      "QoreIdBankCode": "090141"
+    },
+    {
+      "bankCode": "730",
+      "bankAccronym": "CIT Microfinance Bank",
+      "type": "DMB",
+      "bankName": "CIT MICROFINANCE BANK",
+      "shortCode": "730",
+      "QoreIdBankCode": "090144"
+    },
+    {
+      "bankCode": "748",
+      "bankAccronym": "Contec Global",
+      "type": "DMB",
+      "bankName": "CONTEC GLOBAL INFOTECH LIMITED",
+      "shortCode": "748",
+      "QoreIdBankCode": "100032"
+    },
+    {
+      "bankCode": "559",
+      "bankAccronym": "Coronation",
+      "type": "DMB",
+      "bankName": "Coronation Merchant Bank",
+      "shortCode": "559",
+      "QoreIdBankCode": "060001"
+    },
+    {
+      "bankCode": "551",
+      "bankAccronym": "Covenant MFB",
+      "type": "DMB",
+      "bankName": "Covenant Microfinance Bank",
+      "shortCode": "551",
+      "QoreIdBankCode": "070006"
+    },
+    {
+      "bankCode": "805",
+      "bankAccronym": "Credit Afrique MFB",
+      "type": "DMB",
+      "bankName": "Credit Afrique Microfinance Bank",
+      "shortCode": "805",
+      "QoreIdBankCode": "090159"
+    },
+    {
+      "bankCode": "805",
+      "bankAccronym": "Credit Afrique MFB",
+      "type": "DMB",
+      "bankName": "Credit Afrique Microfinance Bank",
+      "shortCode": "805",
+      "QoreIdBankCode": "090159"
+    },
+    {
+      "bankCode": "745",
+      "bankAccronym": "Daylight Microfinance Bank",
+      "type": "DMB",
+      "bankName": "DAYLIGHT MICROFINANCE BANK",
+      "shortCode": "745",
+      "QoreIdBankCode": "090167"
+    },
+    {
+      "bankCode": "758",
+      "bankAccronym": "e-BARCs MFB",
+      "type": "DMB",
+      "bankName": "E-BARCS MFB",
+      "shortCode": "758",
+      "QoreIdBankCode": "090156"
+    },
+    {
+      "bankCode": "844",
+      "bankAccronym": "Eartholeum",
+      "type": "DMB",
+      "bankName": "Eartholeum",
+      "shortCode": "844",
+      "QoreIdBankCode": "100021"
+    },
+    {
+      "bankCode": "562",
+      "bankAccronym": "Ekondo MFB",
+      "type": "DMB",
+      "bankName": "EKONDO MicroFinance Bank",
+      "shortCode": "562",
+      "QoreIdBankCode": "090097"
+    },
+    {
+      "bankCode": "824",
+      "bankAccronym": "Emeralds MFB",
+      "type": "DMB",
+      "bankName": "Emeralds Microfinance Bank",
+      "shortCode": "824",
+      "QoreIdBankCode": "090273"
+    },
+    {
+      "bankCode": "797",
+      "bankAccronym": "Empire trust MFB",
+      "type": "DMB",
+      "bankName": "EmpireTrust Microfinance bank",
+      "shortCode": "797",
+      "QoreIdBankCode": "090114"
+    },
+    {
+      "bankCode": "084",
+      "bankAccronym": "Enterprise Bank",
+      "type": "DMB",
+      "bankName": "EnterpriseBankPLC",
+      "shortCode": "084",
+      "QoreIdBankCode": "000019"
+    },
+    {
+      "bankCode": "757",
+      "bankAccronym": "EsanMFB",
+      "type": "DMB",
+      "bankName": "ESANMICROFINANCEBANK",
+      "shortCode": "757",
+      "QoreIdBankCode": "090189"
+    },
+    {
+      "bankCode": "807",
+      "bankAccronym": "Eso-EMicrofinanceBank",
+      "type": "DMB",
+      "bankName": "Eso-EMicrofinanceBank",
+      "shortCode": "807",
+      "QoreIdBankCode": "090166"
+    },
+    {
+      "bankCode": "911",
+      "bankAccronym": "FBNQuestMERCHANTBANK",
+      "type": "DMB",
+      "bankName": "FBNQuestMerchantBank",
+      "shortCode": "911",
+      "QoreIdBankCode": "060002"
+    },
+    {
+      "bankCode": "314",
+      "bankAccronym": "FET",
+      "type": "DMB",
+      "bankName": "FET",
+      "shortCode": "314",
+      "QoreIdBankCode": "100001"
+    },
+    {
+      "bankCode": "752",
+      "bankAccronym": "FFSMicrofinanceBank",
+      "type": "DMB",
+      "bankName": "FFSMICROFINANCEBANK",
+      "shortCode": "752",
+      "QoreIdBankCode": "090153"
+    },
+    {
+      "bankCode": "318",
+      "bankAccronym": "FidelityMobile",
+      "type": "DMB",
+      "bankName": "FidelityMobile",
+      "shortCode": "318",
+      "QoreIdBankCode": "100019"
+    },
+    {
+      "bankCode": "711",
+      "bankAccronym": "FidFundMFB",
+      "type": "DMB",
+      "bankName": "FidfundMicrofinanceBank",
+      "shortCode": "711",
+      "QoreIdBankCode": "090126"
+    },
+    {
+      "bankCode": "608",
+      "bankAccronym": "FinaTrustMicrofinanceBank",
+      "type": "DMB",
+      "bankName": "FINATRUSTMICROFINANCEBANK",
+      "shortCode": "608",
+      "QoreIdBankCode": "090111"
+    },
+    {
+      "bankCode": "753",
+      "bankAccronym": "FirstGenerationMortgageBank",
+      "type": "DMB",
+      "bankName": "FirstGenerationMortgageBank",
+      "shortCode": "753",
+      "QoreIdBankCode": "070014"
+    },
+    {
+      "bankCode": "747",
+      "bankAccronym": "FirstRoyalMicrofinanceBank",
+      "type": "DMB",
+      "bankName": "FIRSTROYALMICROFINANCEBANK",
+      "shortCode": "747",
+      "QoreIdBankCode": "090164"
+    },
+    {
+      "bankCode": "501",
+      "bankAccronym": "FortisMicrofinanceBank",
+      "type": "DMB",
+      "bankName": "FortisMicrofinanceBank",
+      "shortCode": "501",
+      "QoreIdBankCode": "070002"
+    },
+    {
+      "bankCode": "308",
+      "bankAccronym": "FortisMobile",
+      "type": "DMB",
+      "bankName": "FortisMobile",
+      "shortCode": "308",
+      "QoreIdBankCode": "100016"
+    },
+    {
+      "bankCode": "801",
+      "bankAccronym": "FullrangeMFB",
+      "type": "DMB",
+      "bankName": "FullrangeMicrofinanceBank",
+      "shortCode": "801",
+      "QoreIdBankCode": "090145"
+    },
+    {
+      "bankCode": "804",
+      "bankAccronym": "FUTOMFB",
+      "type": "DMB",
+      "bankName": "FutoMicrofinanceBank",
+      "shortCode": "804",
+      "QoreIdBankCode": "090158"
+    },
+    {
+      "bankCode": "744",
+      "bankAccronym": "GashuaMicrofinanceBank",
+      "type": "DMB",
+      "bankName": "GASHUAMICROFINANCEBANK",
+      "shortCode": "744",
+      "QoreIdBankCode": "090168"
+    },
+    {
+      "bankCode": "706",
+      "bankAccronym": "GatewayMortgageBank",
+      "type": "DMB",
+      "bankName": "GATEWAYMORTGAGEBANK",
+      "shortCode": "706",
+      "QoreIdBankCode": "070009"
+    },
+    {
+      "bankCode": "791",
+      "bankAccronym": "GloryMFB",
+      "type": "DMB",
+      "bankName": "GLORYMICROFINANCEBANK",
+      "shortCode": "791",
+      "QoreIdBankCode": "090278"
+    },
+    {
+      "bankCode": "740",
+      "bankAccronym": "GOWANSMFB",
+      "type": "DMB",
+      "bankName": "GowansMicrofinanceBank",
+      "shortCode": "740",
+      "QoreIdBankCode": "090122"
+    },
+    {
+      "bankCode": "762",
+      "bankAccronym": "GreenBankMFB",
+      "type": "DMB",
+      "bankName": "GREENBANKMICROFINANCEBANK",
+      "shortCode": "762",
+      "QoreIdBankCode": "090178"
+    },
+    {
+      "bankCode": "782",
+      "bankAccronym": "GreenvilleMicrofinancebank",
+      "type": "DMB",
+      "bankName": "GREENVILLEMICROFINANCEBANK",
+      "shortCode": "782",
+      "QoreIdBankCode": "090269"
+    },
+    {
+      "bankCode": "783",
+      "bankAccronym": "GroomingMicrofinancebank",
+      "type": "DMB",
+      "bankName": "GROOMINGMICROFINANCEBANK",
+      "shortCode": "783",
+      "QoreIdBankCode": "090195"
+    },
+    {
+      "bankCode": "058",
+      "bankAccronym": "GTBank",
+      "type": "DMB",
+      "bankName": "GuarantyTrustBank",
+      "shortCode": "058",
+      "QoreIdBankCode": "000013"
+    },
+    {
+      "bankCode": "315",
+      "bankAccronym": "GTMobile",
+      "type": "DMB",
+      "bankName": "GTMobile",
+      "shortCode": "315",
+      "QoreIdBankCode": "100009"
+    },
+    {
+      "bankCode": "803",
+      "bankAccronym": "HackmanMicrofinanceBank",
+      "type": "DMB",
+      "bankName": "HackmanMicrofinanceBank",
+      "shortCode": "803",
+      "QoreIdBankCode": "090147"
+    },
+    {
+      "bankCode": "769",
+      "bankAccronym": "HaggaiMortgageBank",
+      "type": "DMB",
+      "bankName": "HAGGAIMORTGAGEBANK",
+      "shortCode": "769",
+      "QoreIdBankCode": "070017"
+    },
+    {
+      "bankCode": "715",
+      "bankAccronym": "HASALMFB",
+      "type": "DMB",
+      "bankName": "HasalMicrofinanceBank",
+      "shortCode": "715",
+      "QoreIdBankCode": "090121"
+    },
+    {
+      "bankCode": "841",
+      "bankAccronym": "Hedonmark",
+      "type": "DMB",
+      "bankName": "Hedonmark",
+      "shortCode": "841",
+      "QoreIdBankCode": "100017"
+    },
+    {
+      "bankCode": "749",
+      "bankAccronym": "HighStreetMFB",
+      "type": "DMB",
+      "bankName": "HIGHSTREETMICROFINANCEBANK",
+      "shortCode": "749",
+      "QoreIdBankCode": "090175"
+    },
+    {
+      "bankCode": "703",
+      "bankAccronym": "IBILEMicrofinanceBank",
+      "type": "DMB",
+      "bankName": "IBILEMicrofinanceBank",
+      "shortCode": "703",
+      "QoreIdBankCode": "090118"
+    },
+    {
+      "bankCode": "790",
+      "bankAccronym": "IkireMFB",
+      "type": "DMB",
+      "bankName": "IKIREMICROFINANCEBANK",
+      "shortCode": "790",
+      "QoreIdBankCode": "090279"
+    },
+    {
+      "bankCode": "773",
+      "bankAccronym": "ImoMicrofinancebank",
+      "type": "DMB",
+      "bankName": "IMOSTATEMICROFINANCEBANK",
+      "shortCode": "773",
+      "QoreIdBankCode": "090258"
+    },
+    {
+      "bankCode": "415",
+      "bankAccronym": "ImperialHomesMortgageBank",
+      "type": "DMB",
+      "bankName": "ImperialHomesMortgageBank",
+      "shortCode": "415",
+      "QoreIdBankCode": "100024"
+    },
+    {
+      "bankCode": "771",
+      "bankAccronym": "InfinityMFB",
+      "type": "DMB",
+      "bankName": "InfinityMicroFinanceBank",
+      "shortCode": "771",
+      "QoreIdBankCode": "090157"
+    },
+    {
+      "bankCode": "733",
+      "bankAccronym": "InfinitytrustMortgageBank",
+      "type": "DMB",
+      "bankName": "INFINITYTRUSTMORTGAGEBANK",
+      "shortCode": "733",
+      "QoreIdBankCode": "070016"
+    },
+    {
+      "bankCode": "767",
+      "bankAccronym": "IRLMicrofinanceBank",
+      "type": "DMB",
+      "bankName": "IRLMICROFINANCEBANK",
+      "shortCode": "767",
+      "QoreIdBankCode": "090149"
+    },
+    {
+      "bankCode": "402",
+      "bankAccronym": "JubileeLife",
+      "type": "DMB",
+      "bankName": "JubileeLifeMortgageBank",
+      "shortCode": "402",
+      "QoreIdBankCode": "090003"
+    },
+    {
+      "bankCode": "839",
+      "bankAccronym": "Kegow",
+      "type": "DMB",
+      "bankName": "Kegow",
+      "shortCode": "839",
+      "QoreIdBankCode": "100015"
+    },
+    {
+      "bankCode": "770",
+      "bankAccronym": "KudaMicrofinanceBank",
+      "type": "DMB",
+      "bankName": "KUDAMICROFINANCEBANK",
+      "shortCode": "770",
+      "QoreIdBankCode": "090267"
+    },
+    {
+      "bankCode": "754",
+      "bankAccronym": "LapoMFB",
+      "type": "DMB",
+      "bankName": "LAPOMICROFINANCEBANK",
+      "shortCode": "754",
+      "QoreIdBankCode": "090177"
+    },
+    {
+      "bankCode": "822",
+      "bankAccronym": "LavenderMicrofinanceBank",
+      "type": "DMB",
+      "bankName": "LavenderMicrofinanceBank",
+      "shortCode": "822",
+      "QoreIdBankCode": "090271"
+    },
+    {
+      "bankCode": "819",
+      "bankAccronym": "LovonusMicrofinanceBank",
+      "type": "DMB",
+      "bankName": "LovonusMicrofinanceBank",
+      "shortCode": "819",
+      "QoreIdBankCode": "090265"
+    },
+    {
+      "bankCode": "774",
+      "bankAccronym": "MainstreetMFB",
+      "type": "DMB",
+      "bankName": "MAINSTREETMICROFINANCEBANK",
+      "shortCode": "774",
+      "QoreIdBankCode": "090171"
+    },
+    {
+      "bankCode": "750",
+      "bankAccronym": "MalachyMFB",
+      "type": "DMB",
+      "bankName": "MALACHYMICROFINANCEBANKLTD",
+      "shortCode": "750",
+      "QoreIdBankCode": "090174"
+    },
+    {
+      "bankCode": "827",
+      "bankAccronym": "MegapraiseMicrofinanceBank",
+      "type": "DMB",
+      "bankName": "MegapraiseMicrofinanceBank",
+      "shortCode": "827",
+      "QoreIdBankCode": "090280"
+    },
+    {
+      "bankCode": "851",
+      "bankAccronym": "MINT-FINEXMFB",
+      "type": "DMB",
+      "bankName": "MINT-FINEXMFB",
+      "shortCode": "851",
+      "QoreIdBankCode": "090281"
+    },
+    {
+      "bankCode": "837",
+      "bankAccronym": "Mkudi",
+      "type": "DMB",
+      "bankName": "Mkudi",
+      "shortCode": "837",
+      "QoreIdBankCode": "100011"
+    },
+    {
+      "bankCode": "843",
+      "bankAccronym": "MoneyBox",
+      "type": "DMB",
+      "bankName": "MoneyBox",
+      "shortCode": "843",
+      "QoreIdBankCode": "100020"
+    },
+    {
+      "bankCode": "720",
+      "bankAccronym": "MONEYTRUSTMFB",
+      "type": "DMB",
+      "bankName": "MONEYTRUSTMICROFINANCEBANK",
+      "shortCode": "720",
+      "QoreIdBankCode": "090129"
+    },
+    {
+      "bankCode": "760",
+      "bankAccronym": "MutualBenefitsMFB",
+      "type": "DMB",
+      "bankName": "MUTUALBENEFITSMICROFINANCEBANK",
+      "shortCode": "760",
+      "QoreIdBankCode": "090190"
+    },
+    {
+      "bankCode": "732",
+      "bankAccronym": "MutualTrustMicrofinanceBank",
+      "type": "DMB",
+      "bankName": "MUTUALTRUSTMICROFINANCEBANK",
+      "shortCode": "732",
+      "QoreIdBankCode": "090151"
+    },
+    {
+      "bankCode": "763",
+      "bankAccronym": "NargataMFB",
+      "type": "DMB",
+      "bankName": "NAGARTAMICROFINANCEBANK",
+      "shortCode": "763",
+      "QoreIdBankCode": "090152"
+    },
+    {
+      "bankCode": "785",
+      "bankAccronym": "NavyMicrofinancebank",
+      "type": "DMB",
+      "bankName": "NIGERIANNAVYMICROFINANCEBANK",
+      "shortCode": "785",
+      "QoreIdBankCode": "090263"
+    },
+    {
+      "bankCode": "713",
+      "bankAccronym": "NdiorahMFB",
+      "type": "DMB",
+      "bankName": "NdiorahMicrofinanceBank",
+      "shortCode": "713",
+      "QoreIdBankCode": "090128"
+    },
+    {
+      "bankCode": "561",
+      "bankAccronym": "NewPrudentialBank",
+      "type": "DMB",
+      "bankName": "NewPrudentialMortgateBank",
+      "shortCode": "561",
+      "QoreIdBankCode": "090108"
+    },
+    {
+      "bankCode": "778",
+      "bankAccronym": "NewdawnMicrofinancebank",
+      "type": "DMB",
+      "bankName": "NEWDAWNMICROFINANCEBANK",
+      "shortCode": "778",
+      "QoreIdBankCode": "090205"
+    },
+    {
+      "bankCode": "775",
+      "bankAccronym": "NIRSALMicroFinanceBank",
+      "type": "DMB",
+      "bankName": "NIRSALNationalmicrofinancebank",
+      "shortCode": "775",
+      "QoreIdBankCode": "090194"
+    },
+    {
+      "bankCode": "637",
+      "bankAccronym": "NOVAMB",
+      "type": "DMB",
+      "bankName": "NOVAMerchantBank",
+      "shortCode": "637",
+      "QoreIdBankCode": "060003"
+    },
+    {
+      "bankCode": "552",
+      "bankAccronym": "NPFMicroFinanceBank",
+      "type": "DMB",
+      "bankName": "NigeriaPoliceForceMicroFinanceBank",
+      "shortCode": "552",
+      "QoreIdBankCode": "070001"
+    },
+    {
+      "bankCode": "702",
+      "bankAccronym": "OHAFIAMFB",
+      "type": "DMB",
+      "bankName": "OhafiaMicrofinanceBank",
+      "shortCode": "702",
+      "QoreIdBankCode": "090119"
+    },
+    {
+      "bankCode": "741",
+      "bankAccronym": "OkpogaMFB",
+      "type": "DMB",
+      "bankName": "OKPOGAMICROFINANCEBANK",
+      "shortCode": "741",
+      "QoreIdBankCode": "090161"
+    },
+    {
+      "bankCode": "823",
+      "bankAccronym": "OlabisiOnabanjoUniversityMicrofinanceBank",
+      "type": "DMB",
+      "bankName": "OlabisiOnabanjoUniversityMicrofinanceBank",
+      "shortCode": "823",
+      "QoreIdBankCode": "090272"
+    },
+    {
+      "bankCode": "606",
+      "bankAccronym": "OmoluabiMortgageBank",
+      "type": "DMB",
+      "bankName": "OmoluabiMortgageBankPlc",
+      "shortCode": "606",
+      "QoreIdBankCode": "070007"
+    },
+    {
+      "bankCode": "560",
+      "bankAccronym": "PageFinancials",
+      "type": "DMB",
+      "bankName": "PAGEFINANCIALS",
+      "shortCode": "560",
+      "QoreIdBankCode": "070008"
+    },
+    {
+      "bankCode": "526",
+      "bankAccronym": "Parallex",
+      "type": "DMB",
+      "bankName": "ParallexMicroFinanceBank",
+      "shortCode": "526",
+      "QoreIdBankCode": "000030"
+    },
+    {
+      "bankCode": "311",
+      "bankAccronym": "ParkWay-ReadyCash",
+      "type": "DMB",
+      "bankName": "ParkWay-ReadyCash",
+      "shortCode": "311",
+      "QoreIdBankCode": "100003"
+    },
+    {
+      "bankCode": "329",
+      "bankAccronym": "PayAttitude",
+      "type": "DMB",
+      "bankName": "PayAttitudeOnline",
+      "shortCode": "329",
+      "QoreIdBankCode": "110001"
+    },
+    {
+      "bankCode": "305",
+      "bankAccronym": "Paycom(Opay)",
+      "type": "DMB",
+      "bankName": "Paycom",
+      "shortCode": "305",
+      "QoreIdBankCode": "100004"
+    },
+    {
+      "bankCode": "726",
+      "bankAccronym": "PecanTrustMicrofinanceBank",
+      "type": "DMB",
+      "bankName": "PECANTRUSTMicroFinanceBank",
+      "shortCode": "726",
+      "QoreIdBankCode": "090137"
+    },
+    {
+      "bankCode": "812",
+      "bankAccronym": "PennywiseMicrofinanceBank",
+      "type": "DMB",
+      "bankName": "PennywiseMicrofinanceBank",
+      "shortCode": "812",
+      "QoreIdBankCode": "090196"
+    },
+    {
+      "bankCode": "728",
+      "bankAccronym": "PersonalTrustMicrofinanceBank",
+      "type": "DMB",
+      "bankName": "PERSONALTRUSTMICROFINANCEBANK",
+      "shortCode": "728",
+      "QoreIdBankCode": "090135"
+    },
+    {
+      "bankCode": "724",
+      "bankAccronym": "PlatinumMortgageBank",
+      "type": "DMB",
+      "bankName": "PlatinumMortgageBank",
+      "shortCode": "724",
+      "QoreIdBankCode": "070013"
+    },
+    {
+      "bankCode": "825",
+      "bankAccronym": "PrestigeMicrofinanceBank",
+      "type": "DMB",
+      "bankName": "PrestigeMicrofinanceBank",
+      "shortCode": "825",
+      "QoreIdBankCode": "090274"
+    },
+    {
+      "bankCode": "816",
+      "bankAccronym": "QuickFundMicrofinancebank",
+      "type": "DMB",
+      "bankName": "QuickFundMicrofinancebank",
+      "shortCode": "816",
+      "QoreIdBankCode": "090261"
+    },
+    {
+      "bankCode": "502",
+      "bankAccronym": "RandMerchantBank",
+      "type": "DMB",
+      "bankName": "RandMerchantBank",
+      "shortCode": "502",
+      "QoreIdBankCode": "000024"
+    },
+    {
+      "bankCode": "795",
+      "bankAccronym": "RefugeMortgageBank",
+      "type": "DMB",
+      "bankName": "RefugeMortgageBank",
+      "shortCode": "795",
+      "QoreIdBankCode": "070011"
+    },
+    {
+      "bankCode": "710",
+      "bankAccronym": "REGENTMFB",
+      "type": "DMB",
+      "bankName": "RegentMicrofinanceBank",
+      "shortCode": "710",
+      "QoreIdBankCode": "090125"
+    },
+    {
+      "bankCode": "810",
+      "bankAccronym": "RelianceMFB",
+      "type": "DMB",
+      "bankName": "RelianceMicrofinanceBank",
+      "shortCode": "810",
+      "QoreIdBankCode": "090125"
+    },
+    {
+      "bankCode": "766",
+      "bankAccronym": "Renmoneymicrofinancebank",
+      "type": "DMB",
+      "bankName": "RenMoneyMICROFINANCEBANK",
+      "shortCode": "766",
+      "QoreIdBankCode": "090198"
+    },
+    {
+      "bankCode": "718",
+      "bankAccronym": "RICHWAYMFB",
+      "type": "DMB",
+      "bankName": "RICHWAYMICROFINANCEBANK",
+      "shortCode": "718",
+      "QoreIdBankCode": "090132"
+    },
+    {
+      "bankCode": "723",
+      "bankAccronym": "RoyalExchangeMicrofinanceBank",
+      "type": "DMB",
+      "bankName": "ROYALEXCHANGEMICROFINANCEBANK",
+      "shortCode": "723",
+      "QoreIdBankCode": "090138"
+    },
+    {
+      "bankCode": "789",
+      "bankAccronym": "SafeHavenMFB",
+      "type": "DMB",
+      "bankName": "SafeHavenMicrofinanceBank",
+      "shortCode": "789",
+      "QoreIdBankCode": "090286"
+    },
+    {
+      "bankCode": "403",
+      "bankAccronym": "SafeTrust",
+      "type": "DMB",
+      "bankName": "SafeTrustMortgageBank",
+      "shortCode": "403",
+      "QoreIdBankCode": "090006"
+    },
+    {
+      "bankCode": "729",
+      "bankAccronym": "SagamuMicroFinanceBank",
+      "type": "DMB",
+      "bankName": "SagamuMicroFinanceBank",
+      "shortCode": "729",
+      "QoreIdBankCode": "090140"
+    },
+    {
+      "bankCode": "609",
+      "bankAccronym": "SeedCapitalMicrofinanceBank",
+      "type": "DMB",
+      "bankName": "SEEDCAPITALMICROFINANCEBANK",
+      "shortCode": "609",
+      "QoreIdBankCode": "090112"
+    },
+    {
+      "bankCode": "852",
+      "bankAccronym": "Sparkle",
+      "type": "DMB",
+      "bankName": "Sparkle",
+      "shortCode": "852",
+      "QoreIdBankCode": "090325"
+    },
+    {
+      "bankCode": "852",
+      "bankAccronym": "StanbicIBTC@easeWallet",
+      "type": "DMB",
+      "bankName": "StanbicIBTC@easeWallet",
+      "shortCode": "852",
+      "QoreIdBankCode": "100007"
+    },
+    {
+      "bankCode": "806",
+      "bankAccronym": "StanfordMFB",
+      "type": "DMB",
+      "bankName": "StanfordMicrofinanceBank",
+      "shortCode": "806",
+      "QoreIdBankCode": "090162"
+    },
+    {
+      "bankCode": "328",
+      "bankAccronym": "TagPay",
+      "type": "DMB",
+      "bankName": "TagPay",
+      "shortCode": "328",
+      "QoreIdBankCode": "100023"
+    },
+    {
+      "bankCode": "567",
+      "bankAccronym": "TCFMFB",
+      "type": "DMB",
+      "bankName": "TCFMICROFINANCEBANK",
+      "shortCode": "567",
+      "QoreIdBankCode": "090115"
+    },
+    {
+      "bankCode": "836",
+      "bankAccronym": "TeasyMobile",
+      "type": "DMB",
+      "bankName": "TeasyMobile",
+      "shortCode": "836",
+      "QoreIdBankCode": "100010"
+    },
+    {
+      "bankCode": "780",
+      "bankAccronym": "TitanTrustBank",
+      "type": "DMB",
+      "bankName": "TITANTRUSTBANK",
+      "shortCode": "780",
+      "QoreIdBankCode": "000025"
+    },
+    {
+      "bankCode": "820",
+      "bankAccronym": "UnibenMicrofinanceBank",
+      "type": "DMB",
+      "bankName": "UnibenMicrofinanceBank",
+      "shortCode": "820",
+      "QoreIdBankCode": "090266"
+    },
+    {
+      "bankCode": "761",
+      "bankAccronym": "UnicalMFB",
+      "type": "DMB",
+      "bankName": "UNICALMICROFINANCEBANK",
+      "shortCode": "761",
+      "QoreIdBankCode": "090193"
+    },
+    {
+      "bankCode": "708",
+      "bankAccronym": "VeriteMicrofinanceBank",
+      "type": "DMB",
+      "bankName": "VeriteMicrofinanceBank",
+      "shortCode": "708",
+      "QoreIdBankCode": "090123"
+    },
+    {
+      "bankCode": "739",
+      "bankAccronym": "VirtueMFB",
+      "type": "DMB",
+      "bankName": "VIRTUEMICROFINANCEBANK",
+      "shortCode": "739",
+      "QoreIdBankCode": "090123"
+    },
+    {
+      "bankCode": "725",
+      "bankAccronym": "VisaMicroFinanceBank",
+      "type": "DMB",
+      "bankName": "VISAMicroFinanceBank",
+      "shortCode": "725",
+      "QoreIdBankCode": "090139"
+    },
+    {
+      "bankCode": "320",
+      "bankAccronym": "VTNetworks",
+      "type": "DMB",
+      "bankName": "VTNetworks",
+      "shortCode": "320",
+      "QoreIdBankCode": "100012"
+    },
+    {
+      "bankCode": "701",
+      "bankAccronym": "WETLANDMFB",
+      "type": "DMB",
+      "bankName": "WetlandMicrofinanceBank",
+      "shortCode": "701",
+      "QoreIdBankCode": "090120"
+    },
+    {
+      "bankCode": "709",
+      "bankAccronym": "XSLNCEMicrofinanceBank",
+      "type": "DMB",
+      "bankName": "XSLNCEMicrofinanceBank",
+      "shortCode": "709",
+      "QoreIdBankCode": "090124"
+    },
+    {
+      "bankCode": "727",
+      "bankAccronym": "YesMFB",
+      "type": "DMB",
+      "bankName": "YESMicroFinanceBank",
+      "shortCode": "727",
+      "QoreIdBankCode": "090142"
+    },
+    {
+      "bankCode": "842",
+      "bankAccronym": "ZenithMobile",
+      "type": "DMB",
+      "bankName": "ZenithMobile",
+      "shortCode": "842",
+      "QoreIdBankCode": "100018"
+    }
+  ],
+  "metadata": {
+    "size": 34
+  }
+}

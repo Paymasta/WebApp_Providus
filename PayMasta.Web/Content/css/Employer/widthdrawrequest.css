@@ -1,0 +1,463 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+.withdraw-request-check {
+    width: 18px !important;
+    height: 18px !important;
+}
+.checkbox-container {
+    display: block;
+    position: relative;
+    margin-bottom: 19.5px;
+    padding-left: 25px;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+    /* Hide the browser's default checkbox */
+    .checkbox-container input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 6px;
+}
+
+/* On mouse-over, add a grey background color */
+.checkbox-container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+    background-color: #F86847;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+    left: 7px;
+    top: 4px;
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+body{
+  background-color: #F2F7FF;
+}
+.employer-withdrawal {
+    border-collapse: separate;
+    width: 100%;
+    border-spacing: 0 5px;
+}
+
+  .table-overflow{
+    overflow: auto;
+  }
+  th:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+th:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+/* td:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+td:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+} */
+
+td, th {
+    /* border: 1px solid #dddddd; */
+    text-align: left;
+    padding: 8px;
+    font-size: 14px;
+}
+
+  tr,td{
+      font-size: 18px;
+  }
+td {
+    border-bottom: 0.3px solid #dddddd;
+    color: #130F26;
+    font-size: 14px;
+    font-weight: 600;
+    /* text-align: left;
+    padding: 8px; */
+    white-space: nowrap;
+    max-width: 168px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.employer-transaction-head {
+    background-color: #32A4FC;
+    color: #ffffff;
+}
+
+.employer-withdrawal .employer-withdrawal-head {
+    background-color: #32A4FC;
+    color: #ffffff;
+}
+  .main_transaction{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    margin-bottom: 14px;
+  }
+  .sec_transaction{
+    display: flex;
+  }
+  .check{
+     /* width: 25px;*/
+      height: 16px;
+  }
+  .paycycle{
+    background-color: #32A4FC;
+    width: 105px;
+    border: none;
+    padding: 11px;
+    color: #fff;
+     border-radius: 10px;
+     font-size: 14px;
+     margin: 0px 10px;
+  }
+  .csvexport{
+    background-color: #F86847;
+    border: none;
+    padding: 11px;
+    color: #fff;
+     border-radius: 10px;
+     font-size: 14px;
+     margin: 0px 10px;
+     width: 120px;
+     cursor: pointer;
+  }
+  
+  .search{
+    border: 1px solid #707070;
+    border-radius: 10px;
+    padding: 11px;
+    width: 230px;
+    padding-left: 25px;
+    font-size: 13px;
+  }
+  .search_icon{
+    position: relative;
+  }
+  .search-img{
+    width: 11px;
+    left: 5px;
+    position: absolute;
+    top: 50%;
+    transform: translate(5px, -50%);
+  }
+  /* tr:nth-child(even) {
+    background-color: #F2F1FF;
+  } */
+  .main_div{
+      width: 100%;
+  }
+  .tab_data{
+      background-color: #fff;
+      border-radius: 16px;
+  }
+  .tab_data1{
+      padding: 15px 30px;
+  }
+  .text{
+      margin-bottom: 5px;
+      color: #464646;
+      font-size: 18px;
+  }
+  .transaction{
+      display: flex;
+      justify-content: space-between;
+      padding: 22px 24px 0px 22px;
+      font-size: normal normal 600 18px/24px Open Sans;;
+  }
+  .trans_text{
+    font-size:  18px;  
+  }
+  .image{
+      background-color:#32A4FC ;
+      padding: 7px;
+      border-radius: 50%;
+  }
+  .drop_down{
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 25px;
+      justify-content: space-between;
+      padding: 28px 0px 0px 0px;
+  }
+ 
+  .drop_select{
+      position: relative;
+  }
+  .drop_select1{
+    position: relative;
+    margin-left: 10px;
+  }
+
+.calender {
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    transform: translateY(-50%);
+}
+/* .drop_image{
+      position: absolute;
+      margin-left: 72px;
+      margin-top: 7px;
+  }
+  .drop_image1{
+    position: absolute;
+    margin-left: 206px;
+    margin-top: 7px;
+  } */
+.date_option {
+    display: flex;
+    flex-direction: column;
+}
+
+.date_from {
+    margin: 10px 0px 0px 0px;
+}
+
+.to-text {
+    padding-top: 10px;
+}
+
+.filter {
+    margin: 10px 0px 0px 0px;
+    height: 40px;
+    background-color: #F86847;
+    border: none;
+    padding: 9px;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 14px;
+    width: 90px;
+    cursor: pointer;
+}
+.reset{
+    margin: 10px 0px 0px 0px;
+    background-color: #F2F7FF;
+    border: none;
+    padding: 9px;
+    color:#130F26;
+    border-radius: 10px;
+    font-size: 14px;
+    width: 90px;
+    border: 1px solid #BFBFBF;
+    cursor: pointer;
+}
+
+.to_date {
+    height: 40px;
+    padding: 9px;
+    border: none;
+    border: 1px solid #BFBFBF;
+    padding: 9px;
+    border-radius: 10px;
+    margin: 0px 5px;
+    color: #464646CC;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+#ddlStatus {
+    width: 113px;
+    padding: 9px;
+    border-radius: 10px;
+    color: #464646CC;
+    background-color: white;
+    border: 1px solid #BFBFBF;
+    -webkit-appearance: none;
+    appearance: none;
+    padding-left: 7px;
+    background-image: url('../../images/Employer/arrow-down.svg');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 6px);
+}
+  .sucess{
+    color: #0CAF38;
+  }
+  .reject{
+    color: #EB2E0C ;
+  }
+  .pending{
+    color: #32A4FC;
+  }
+  .hold{
+      color: #F86847;
+  }
+  .img-eye{
+    margin-left: 11px;
+  }
+  .pagination {
+    /* display: inline-block; */
+    display: flex;
+    justify-content: flex-end;
+    /*margin: 10px 20px 10px 0px;*/
+  }
+
+  .pagination li {
+    cursor: pointer;
+   }
+
+  .arrow_custom{
+    border: 1px solid #BFBFBF;
+    border-radius: 10px;
+  }
+  .anch_tag{
+    /* border: 1px solid #BFBFBF; */
+    border-radius: 10px;
+    color: #fff !important;
+    background-color: #32A4FC;
+    margin: 0px 10px;
+  }
+  .pagination a {
+    color: black;
+    float: left;
+    padding: 4px 16px;
+    text-decoration: none;
+  }
+  .lower-button{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 30px;
+  }
+  .approve-btn{
+      background-color: #F87658;
+      color: #fff;
+      font-size: 18px;
+      border: none;
+      padding: 10px 40px;
+      border-radius: 10px;
+      margin-right: 20px;
+      width: 226px;
+      cursor: pointer;
+  }
+  .reject-btn{
+    background-color: #F2F7FF;
+    color: #130F26;
+    font-size: 18px;
+    border: 1px solid #BFBFBF;
+    padding: 10px 45px;
+    border-radius: 10px;
+    width: 226px;
+    cursor: pointer;
+}
+.hold-btn{
+    background-color: #32A4FC;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    padding: 10px 45px;
+    border-radius: 10px;
+    width: 226px;
+    cursor: pointer;
+}
+.space-right{
+    margin-right: 20px;
+}
+
+  @media(max-width:676px){
+    .main_transaction{
+      flex-direction: column !important;
+    }
+  }
+  @media(max-width:590px){
+    .sec_transaction{
+      flex-direction: column;
+    }
+    .paycycle{
+      margin-top: 10px;
+      margin-left: 0px;
+    }
+    .csvexport{
+      margin-top: 10px;
+      margin-left: 0px;
+    }
+    .search{
+      margin-top: 10px;
+      margin-left: 0px; 
+    }
+  }
+  @media(max-width:768px){
+    .lower-button{
+        flex-direction: column;
+    }
+    .approve-btn{
+        margin-right: 0px;
+    }
+    .reject-btn{
+        margin-top: 10px;
+    }
+    .hold-btn{
+        margin-top: 10px;
+    }
+    .space-right{
+        margin: 0px;
+    }
+  }
+
+@media (min-width: 1024px) {
+    .drop_down {
+        flex-direction: row;
+    }
+
+    .date_option {
+        flex-direction: row;
+    }
+
+    .date_from {
+        margin: 0px 0px 0px 10px;
+    }
+
+    .reset {
+        margin: 0px 0px  0px 10px;
+    }
+
+    .filter {
+        margin: 0px 0px 0px 10px;
+    }
+}
+  

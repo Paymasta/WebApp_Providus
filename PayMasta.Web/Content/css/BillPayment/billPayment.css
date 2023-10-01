@@ -1,0 +1,151 @@
+body{
+    margin:0;
+    background-color: #F2F7FF;
+}
+
+select {
+    border: 1px solid #707070;
+}
+
+h1 {
+    font-size: 18px!important;
+    font-weight: bold !important;
+}
+.bills{
+    /*margin-top:40px;
+    margin-left:30px;*/
+   
+}
+
+.bill-padding-top {
+    padding-top: 25px;
+}
+.billtype {
+    padding: 25px 20px 10px 20px;
+    width: 95%;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border-radius: 16px;
+    opacity: 1;  
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    grid-column-gap: 60px;
+}
+.space{
+   /* margin-left:75px;*/
+}
+.lowerspace {
+    /* padding-bottom:30px;*/
+  /* padding: 0px 0px 0px 10px;*/
+}
+.smalltxt{
+  font-size: 11px;
+letter-spacing: 0px;
+color: #464646;
+opacity: 1;
+margin-top:10px;
+text-align: center;
+}
+.diff{
+   /* margin-left:51%;*/
+
+}
+.diff1{
+   /* margin-left: 90px;*/
+}
+
+.txt {
+    font-size: 18px;
+    color: #464646;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 14px;
+}
+
+.lowerspace div {
+    text-align: center;
+}
+
+@media(max-width:650px){
+    .lowerspace div img{
+        width:50px;
+        height:50px;
+    }
+    .space{
+        /*margin-left:40px;*/
+    }
+   /*.diff{
+       margin-left:55%;
+       font: normal normal 600 8px/11px Open Sans;
+   }
+   .diff1{
+       margin-left: 55%;;
+       font: normal normal 600 8px/11px Open Sans;
+   }
+   .smalltxt{
+    font: normal normal 600 8px/11px Open Sans;
+letter-spacing: 0px;
+color: #464646;
+opacity: 1;
+margin-top:10px;
+}*/
+}
+/*@media(max-width:450px){
+    img{
+        width:35px;
+        height:40px;
+    }
+    .space{
+        margin-left:30px;
+    }
+   .diff{
+       margin-left:55%;
+   }
+   .diff1{
+       margin-left: 55%;;
+   }
+   .smalltxt{
+    font: normal normal 600 7px/9px Open Sans;
+letter-spacing: 0px;
+color: #464646;
+opacity: 1;
+margin-top:10px;
+}
+}*/
+.lowspace{
+    margin-bottom:10%;
+}
+
+.opacity{
+    opacity:0.5;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.cursor-not-allowed {
+    cursor: not-allowed;
+}
+
+
+@media (max-width: 810px) {
+    .billtype {
+        grid-column-gap: 40px !important;
+    }
+}
+
+@media(min-width: 314px) {
+    /*.lowerspace {
+        padding: 0px 40px 0px 10px;
+    }*/
+
+    .billtype {
+        justify-content: flex-start;
+        grid-column-gap: 40px !important;
+    }
+}
+
+.mar{
+    margin-top:20px;
+}

@@ -1,0 +1,341 @@
+﻿
+@{
+    ViewBag.Title = "View Profile";
+}
+
+<script src="~/Content/js/Profile/UpdateProfile.js"></script>
+<link href="~/Content/css/Account/ViewProfile.css" rel="stylesheet" />
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="~/Scripts/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+
+<div class="view-profile-grid-container">
+    @*<div class="border-right">
+
+            <button type="button" class="btn side-collapse-btn" data-toggle="collapse" data-target="#my-profile">
+                <div class="text-container">
+
+                    <img src="~/Content/images/setting-img.svg" />
+                    <div class="accordion-content">My Profile</div>
+                </div>
+                <img src="~/Content/images/drop-down-icon.svg" alt="" class="drop-down-img">
+            </button>
+
+
+
+            <div id="my-profile" class="collapse">
+                <a href="@Url.Action("ChangePassword","Account")">
+                    <div class="collapse-sub-container">
+                        <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                        <div class="accordion-content">Change Password</div>
+                    </div>
+                </a>
+                <a href="@Url.Action("ChangePassword","Account")">
+                    <div class="collapse-sub-container">
+                        <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                        <div class="accordion-content">Change Password</div>
+                    </div>
+                </a>
+                <a href="@Url.Action("ChangePassword","Account")">
+                    <div class="collapse-sub-container">
+                        <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                        <div class="accordion-content">Change Password</div>
+                    </div>
+                </a>
+            </div>
+
+            <button type="button" class="btn side-collapse-btn" data-toggle="collapse" data-target="#settings">
+                <div class="text-container">
+                    <img src="~/Content/images/setting-img.svg" alt="">
+                    <div class="accordion-content">Settings</div>
+                </div>
+                <img src="~/Content/images/drop-down-icon.svg" alt="" class="drop-down-img">
+            </button>
+            <div id="settings" class="collapse">
+                <a href="@Url.Action("ChangePassword","Account")">
+                    <div class="collapse-sub-container">
+                        <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                        <div class="accordion-content">Change Password</div>
+                    </div>
+                </a>
+
+                <div class="collapse-sub-container">
+                    <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                    <div class="accordion-content">FAQs</div>
+                </div>
+
+                <div class="collapse-sub-container">
+
+                    <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                    <div class="accordion-content">Term & Condition</div>
+
+                </div>
+                <div class="collapse-sub-container">
+
+                    <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                    <div class="accordion-content">Privacy Policy</div>
+
+                </div>
+                <div class="collapse-sub-container">
+
+                    <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                    <div class="accordion-content">Invite</div>
+
+                </div>
+
+            </div>
+
+            <div class="profile-logout-btn">
+                <img src="~/Content/images/logout-img.svg" alt="">
+                <div class="px-2 accordion-content">Logout</div>
+            </div>
+
+        </div>*@
+    <div class="view-profile-sub-container pt-3">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne">
+                <button class="btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    <div class="text-container">
+
+                        <img src="~/Content/images/setting-img.svg" alt="">
+                        <div class="accordion-content">My Profile</div>
+                    </div>
+                    <div class="text-end position-absolute drop-down-img-container">
+                        <img src="~/Content/images/drop-down-icon.svg" alt="" class="down-arrow-icon">
+                    </div>
+                </button>
+
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="my-profile" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    @*<div class="collapse-sub-content">
+                            <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                            <div class="px-2 accordion-content">Change Password</div>
+                        </div>
+                        <div class="collapse-sub-content">
+                            <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                            <div class="px-2 accordion-content">FAQs</div>
+                        </div>
+                        <div class="collapse-sub-content">
+                            <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                            <div class="px-2 accordion-content">Terms & Conditions</div>
+                        </div>
+                        <div class="collapse-sub-content">
+                            <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                            <div class="px-2 accordion-content">Privacy Policy</div>
+                        </div>*@
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne">
+                <button class="btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                    <div class="text-container">
+                        <img src="~/Content/images/setting-img.svg" alt="">
+                        <div class="accordion-content">Settings</div>
+                    </div>
+                    <div class="text-end position-absolute drop-down-img-container">
+                        <img src="~/Content/images/drop-down-icon.svg" alt="" class="down-arrow-icon">
+                    </div>
+                </button>
+
+            </h2>
+            <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    <a href="@Url.Action("ChangePassword", "Account")">
+                        <div class="collapse-sub-content">
+                            <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                            <div class="px-2 accordion-content">Change Password</div>
+                        </div>
+                    </a>
+                    <a href="@Url.Action("Faq", "CMS")">
+                        <div class="collapse-sub-content">
+                            <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                            <div class="px-2 accordion-content">
+                                FAQs
+
+                            </div>
+                        </div>
+                    </a>
+                    <a href="@Url.Action("TermsConditions", "CMS")">
+
+                        <div class="collapse-sub-content">
+                            <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                            <div class="px-2 accordion-content">Terms & Conditions</div>
+                        </div>
+                    </a>
+                    <a href="@Url.Action("PrivacyPolicy", "CMS")">
+                        <div class="collapse-sub-content">
+                            <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                            <div class="px-2 accordion-content">Privacy Policy</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        @*<button>*@
+
+
+        <div class="d-flex align-items-center profile-logout-btn">
+            <img src="~/Content/images/logout-img.svg" alt="">
+            <div class="px-2 accordion-content" id="divLogout">Logout</div>
+        </div>
+        @*</button>*@
+    </div>
+
+    <div class="view-profile-sub-container-two">
+        <div class="view_profile ">
+            <div class="view-profile-heading">View Profile</div>
+            <a href="@Url.Action("UpdateProfile","Account")">
+                <div class="edit-profile-btn">Edit Profile</div>
+            </a>
+            @*<a href="#" id="openPasscodeModal">
+                <div class="edit-profile-btn">Set Passcode</div>
+            </a>*@
+        <button type="button" class="btnUploadProfileImage" name="Save" id="openPasscodeModal">Set Passcode</button>
+        </div>
+
+        <div class="profile-details">
+
+            <div class="profile-pic-container">
+                <img src="" alt="" class="profile-pic" id="test" />
+
+                <img src="~/Content/images/camera-img.svg" alt="" class="camera-img" data-toggle="modal" data-target="#uploadProfileModal">
+            </div>
+
+            @*<div class="profile-pic-container">
+                    <img src="~/Content/images/avatar.jpg" alt="" class="profile-pic" />
+                    <img src="~/Content/images/camera-img.svg" alt="" class="camera-img">
+                </div>*@
+            <div class="user-info-container">
+                <div class="user-info-container_1">
+                    <div class="border-color">
+                        <div class="user-detail-heading">First Name</div>
+                        <div class="user-info"><span id="txtFirstName"></span></div>
+                    </div>
+                </div>
+                <div class="user-info-container_1" id="middleNameDiv">
+                    <div class="border-color">
+                        <div class="user-detail-heading">Middle Name</div>
+                        <div class="user-info"><span id="txtMiddleName"></span></div>
+                    </div>
+                </div>
+                <div class="user-info-container_1">
+                    <div class="border-color">
+                        <div class="user-detail-heading">Last Name</div>
+                        <div class="user-info"><span id="txtLastName"></span></div>
+                    </div>
+                </div>
+
+                <div class="user-info-container_1">
+                    <div class="border-color">
+                        <div class="user-detail-heading">Email Address</div>
+                        <div class="user-info"><span id="txtEmail"></span></div>
+                    </div>
+                </div>
+
+                <div class="user-info-container_1">
+                    <div class="border-color">
+                        <div class="user-detail-heading">Mobile Number</div>
+                        <div class="user-info"><span id="txtMobileNumber"></span></div>
+                    </div>
+                </div>
+
+                <div class="user-info-container_1">
+                    <div class="border-color">
+                        <div class="user-detail-heading">Date of Birth</div>
+                        <div class="user-info"><span id="txtdob"></span></div>
+                    </div>
+                </div>
+
+                <div class="user-info-container_1">
+                    <div class="border-color">
+                        <div class="user-detail-heading">NIN No.</div>
+                        <div class="user-info"><span id="txtNinNumber"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+@*modal upload image*@
+<div>
+    <div class="modal" id="uploadProfileModal">
+        <div class="modal-dialog ">
+            <div class="modal-content ">
+                <div class=" body-content">
+                    <div class=" heading-container">
+                        <div class="heading ">Change Profile Picture</div>
+                        <img class="img-pic" src="~/Content/images/Employer/close.png" data-dismiss="modal" alt="" width="19px" height="19px">
+                    </div>
+                    <div class=" changeprofileimg  upload-button">
+                        <label for="profile-pic" class="profile-upload-img"> <img src="~/Content/images/Employer/changeprofile.svg" /></label>
+                        <input type="file" id="profile-pic" name="myfile" style="display: none;" class="file-upload" accept="image/*">
+                    </div>
+                    <button type="button" class="btnUploadProfileImage" name="Save" id="btnSaveImage">Upload</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@*modal upload image*@
+<div>
+    <div class="modal" id="passcodeModal">
+        <div class="modal-dialog ">
+            <div class="modal-content ">
+                <div class=" body-content">
+                    <div class=" heading-container">
+                        <div class="heading ">Set Passcode</div>
+                        <img class="img-pic" src="~/Content/images/Employer/close.png" data-dismiss="modal" alt="" width="19px" height="19px">
+                    </div>
+                    <div class="modal-body">
+                        <div class="midguard">
+
+                            <div class="row">
+                                <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xl-offset-1 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
+                                    <div class="infodata">
+                                        <div>
+                                            <input type="text" placeholder="Passcode" id="txtPasscode" maxlength="4">
+                                            <span class="form-validations-error" id="txtPasscodeError"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xl-offset-1 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
+                                    <div class="infodata">
+                                        <div>
+                                            <input type="text" placeholder="OTP" id="txtOTP" maxlength="4">
+                                            <span class="form-validations-error" id="txtOTPError"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between text-start py-2 m-auto verify-timer-container">
+                                <div class="px-2">
+                                    <img src="~/Content/images/timer-img.svg" class="verify-timer-img" />
+                                    <span id="Passcodetimer"></span>
+                                </div>
+                                <div class="text-end position-relative resend-btn">
+                                    <button type="button" id="btnResendPasscodeOtp">Resend</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btnUploadProfileImage" name="Save" id="btnSetPasscode">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

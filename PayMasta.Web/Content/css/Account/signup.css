@@ -1,0 +1,361 @@
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 1000px #FFFFFF inset !important;
+}
+
+.employer-signup-label {
+    color: #79797977;
+}
+.user-withnuban-signup-label {
+    color: #79797977;
+}
+
+.tems-condition-height {
+    height: 36px;
+}
+
+.signup-mobile-text {
+    padding-left: 40px !important;
+}
+
+.country-code {
+    padding-left: 10px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    font-size: 12px !important;
+}
+
+.font-size-12 {
+    font-size: 12px;
+}
+
+.modal-body {
+    padding: 0rem !important;
+}
+
+.signup-heading {
+    font-weight: bold;
+    font-size: 26px;
+    text-align: center;
+}
+
+.signup-sub-heading {
+    color: #464646;
+    opacity: 0.5;
+    font-size: 14px;
+    text-align: center;
+}
+
+.signup-input-text {
+    padding-left: 10px;
+    height: 54px;
+    / UI Properties / background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #797979;
+    border-radius: 10px;
+    font-size: 12px;
+}
+
+.signup-input-label {
+    padding: 0px 2px;
+    top: -8px;
+    left: 10px;
+    background-color: white;
+    font-size: 12px;
+    z-index: 1;
+    color: #130F26;
+}
+.signup-input-label1 {
+    padding: 0px 2px;
+    top: 92px;
+    left: 28px;
+    background-color: white;
+    font-size: 12px;
+    z-index: 1;
+    color: #808080;
+}
+.checkbox-label {
+    color: #32A4FF;
+}
+
+.checkbox-container {
+    width: 100% !important;
+    font-size: 14px;
+    color: #130F26CC;
+}
+
+    .checkbox-container label {
+        padding-left: 10px;
+    }
+
+.signup-radio-label {
+    padding: 0px 14px 0px 4px;
+}
+
+.signup-grid-container {
+    display: grid;
+    grid-template-columns: 100%;
+    align-items: center;
+}
+
+.signup-body-content {
+    max-width: 345px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 50px 0;
+}
+
+.signup-background {
+    height: 100%;
+    background-color: #32A4FC;
+    border-top-right-radius: 11px;
+    border-bottom-right-radius: 11px;
+    display: none;
+}
+
+.signup-already-text-container {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.signup-not-member {
+    font-size: 17px;
+    font-weight: bold;
+}
+/* .sub-content {
+    font-size: 13px;
+} */
+
+.signup-input-container-height {
+    margin-bottom: 18px;
+}
+
+.signup-modal-signup-btn {
+    width: 100%;
+    background: #F86847;
+    border: 1px solid #F86847;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+.login-button {
+    padding: 6px 32px;
+    background-color: #32A4FC;
+    border-radius: 10px;
+    font-size: 12px;
+    border: 2px solid #FFFFFF;
+}
+
+.signup-img-eye {
+    top: 50%;
+    right: 1.5%;
+    transform: translate(-50%, -50%);
+}
+
+.signup-close-btn-container {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    z-index: 1;
+}
+
+
+.user-signup-label {
+    color: #130F26;
+}
+
+
+@media (min-width: 420px) {
+
+
+    /* .checkbox-container {
+        width: 345px !important;
+    }*/
+
+    /*.signup-modal-signup-btn {
+        width: 345px !important;
+    }*/
+}
+
+@media (min-width: 576px) {
+    #registerModal .modal-dialog {
+        max-width: 900px;
+        width: 100%;
+        padding: 0px 10px;
+    }
+}
+
+@media (min-width: 800px) {
+    #registerModal .btn-close {
+    }
+
+    .signup-grid-container {
+        grid-template-columns: 64% 36% !important;
+    }
+
+    .signup-background {
+        display: block !important;
+    }
+}
+
+/*--------------------------------------*/
+@media (min-width: 576px) {
+    #registerModalByNuban .modal-dialog {
+        max-width: 900px;
+        width: 100%;
+        padding: 0px 10px;
+    }
+}
+
+@media (min-width: 800px) {
+    #registerModalByNuban .btn-close {
+    }
+
+    .signup-grid-container {
+        grid-template-columns: 64% 36% !important;
+    }
+
+    .signup-background {
+        display: block !important;
+    }
+}
+/*----------------------------------------*/
+
+.signup-radio input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+}
+
+    .signup-radio input[type="radio"] + .signup-radio-label:before {
+        content: '';
+        background: #f4f4f4;
+        border-radius: 100%;
+        border: 1px solid #b4b4b4;
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        position: relative;
+        top: 0.27em;
+        margin-right: 0.4em;
+        vertical-align: top;
+        cursor: pointer;
+        text-align: center;
+        transition: all 250ms ease;
+        cursor: pointer;
+    }
+
+    .signup-radio input[type="radio"]:checked + .signup-radio-label:before {
+        background-color: #f26847;
+        box-shadow: inset 0 0 0 2px #f4f4f4;
+        border: 1px solid #f26847;
+    }
+
+    .signup-radio input[type="radio"]:focus + .signup-radio-label:before {
+        outline: none;
+        border-color: #f26847;
+        border: 1px solid #f26847;
+    }
+
+    .signup-radio input[type="radio"] + .signup-radio-label:empty:before {
+        margin-right: 0;
+    }
+
+
+
+
+
+
+/* custom checkbox css*/
+
+
+.custCheck {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+    /* Hide the browser's default checkbox */
+    .custCheck input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+/* Create a custom checkbox */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 15px;
+    width: 15px;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.custCheck:hover input ~ .checkmark {
+    background-color: #eeeeee;
+}
+
+/* When the checkbox is checked, add a blue background */
+.custCheck input:checked ~ .checkmark {
+    background-color: green;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+/* Show the checkmark when checked */
+.custCheck input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+.custCheck .checkmark:after {
+    left: 5px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/* custom checkbox csss*/
+
+/*vendor signup*/
+/*--------------------------------------*/
+@media (min-width: 576px) {
+    #registerModalByNubanVendor .modal-dialog {
+        max-width: 900px;
+        width: 100%;
+        padding: 0px 10px;
+    }
+}
+
+@media (min-width: 800px) {
+    #registerModalByNubanVendor .btn-close {
+    }
+
+    .signup-grid-container {
+        grid-template-columns: 64% 36% !important;
+    }
+
+    .signup-background {
+        display: block !important;
+    }
+}

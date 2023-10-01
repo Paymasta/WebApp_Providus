@@ -1,0 +1,92 @@
+﻿using PayMasta.DBEntity.Account;
+using PayMasta.DBEntity.BankDetail;
+using PayMasta.DBEntity.EmployerDetail;
+using PayMasta.DBEntity.NonRegisterEmployerDetail;
+using PayMasta.DBEntity.VirtualAccountDetail;
+using PayMasta.ViewModel;
+using PayMasta.ViewModel.Employer.EmployeesVM;
+using System;
+using System.Collections.Generic;
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace PayMasta.Repository.Account
+{
+    public interface IAccountRepository
+    {
+        bool IsAccountNumberExist(string accountNumber, IDbConnection exdbConnection = null);
+        Task<string> GetVirtualAccountDetailByUserId(long UserId, IDbConnection exdbConnection = null);
+        Task<UserMaster> Login(LoginRequest request);
+        bool IsStaffIdExist(string staffId, IDbConnection exdbConnection = null);
+        bool IsUserExists(string email, IDbConnection exdbConnection = null);
+        Task<UserMaster> CheckPassword(LoginRequest request);
+        bool IsEmailExist(string email, IDbConnection exdbConnection = null);
+        bool IsPhoneNumberExist(string phoneNumber, IDbConnection exdbConnection = null);
+        Task<UserMaster> InsertUser(UserMaster userEntity, IDbConnection exdbConnection = null);
+        Task<UserMaster> GetUserByGuid(Guid guid, IDbConnection exdbConnection = null);
+        Task<UserMaster> GetUserByGuidError(Guid guid, IDbConnection exdbConnection = null);
+        Task<int> UpdateUser(UserMaster userEntity, IDbConnection exdbConnection = null);
+        Task<UserMaster> GetUserByEmailOrPhone(int type, string emailorPhone);
+        Task<int> InsertOtpInfo(OtpInfo otpInfoEntity);
+        bool IsNINNumberExist(string ninNumber, IDbConnection exdbConnection = null);
+        Task<OtpInfo> GetOtpInfoByUserId(long userId);
+        Task<OtpInfo> GetOtpInfoByUserId(string mobile, string otp);
+        long GetUserIdByGuid(Guid guid, IDbConnection exdbConnection = null);
+        Task<int> ChangeUserStatus(UserMaster userEntity, IDbConnection exdbConnection = null);
+        Task<int> ChangeUserStatusError(UserMaster userEntity, IDbConnection exdbConnection = null);
+        Task<UserSession> GetSessionByDeviceId(long userId, string deviceId);
+        Task<int> UpdateSession(UserSession session);
+        Task<int> CreateSession(UserSession userSessionEntity);
+        UserMaster GetUserValidationInfo(Guid guid);
+        Task<int> GetNotificationCount(long userId, IDbConnection dbConnection);
+        Task<List<CountryResponse>> GetCountry(bool IsActive, IDbConnection exdbConnection = null);
+        Task<int> GetCountryIdByGuid(Guid guid, IDbConnection exdbConnection = null);
+        Task<List<StateResponse>> GetState(long id, IDbConnection exdbConnection = null);
+        Task<int> GetStateIdByGuid(Guid guid, IDbConnection exdbConnection = null);
+        Task<List<CityResponse>> GetCity(long id, IDbConnection exdbConnection = null);
+        Task<int> UpdateUserWalletBalance(UserMaster userEntity, IDbConnection exdbConnection = null);
+        Task<int> InsertBankDetail(BankDetail bankEntity, IDbConnection exdbConnection = null);
+        Task<BankDetail> GetBankDetailByUserId(long userId, IDbConnection exdbConnection = null);
+        Task<int> UpdateUserPassword(UserMaster userEntity, IDbConnection exdbConnection = null);
+        Task<UserMaster> GetUserByEmailOrPhone(string emailorPhone);
+        Task<UserMaster> GetUserByMobile(string mobile, IDbConnection exdbConnection = null);
+        Task<int> VerifyUserPhoneNumber(UserMaster userEntity, IDbConnection exdbConnection = null);
+        Task<int> InsertEmployerDetail(EmployerDetail employerDetail, IDbConnection exdbConnection = null);
+        Task<int> InsertBank(BankDetail otpInfoEntity, IDbConnection exdbConnection = null);
+        bool IsBankExists(string accountNumber, long userId, IDbConnection exdbConnection = null);
+        Task<List<GetBankList>> GetBankListByUserId(long userId, IDbConnection exdbConnection = null);
+        Task<int> UpdateUserProfile(UserMaster userEntity, IDbConnection exdbConnection = null);
+        bool IsPhoneNumberOrEmailExist(string phoneNumber, string email, IDbConnection exdbConnection = null);
+        Task<int> UpdateUserProfileRequest(PayMasta.DBEntity.UpdateUserProfileRequest.UpdateUserProfileRequest userEntity, IDbConnection exdbConnection = null);
+        Task<int> DeleteBankByBankDetailId(BankDetail bankDetail, IDbConnection exdbConnection = null);
+        Task<BankDetail> GetBankDetailById(long id, long UserId, IDbConnection exdbConnection = null);
+        Task<int> UploadProfileImage(UserMaster userEntity, IDbConnection exdbConnection = null);
+        bool IsPasswordValid(Guid userGuid, string password, IDbConnection exdbConnection = null);
+        Task<NonRegisterEmployerDetail> GetNonRegisteredEmployerByEmailOrMobile(string email, string mobile, IDbConnection exdbConnection = null);
+        Task<List<UserMaster>> GetEmployeesByNonRegisterEmployerId(long id, IDbConnection exdbConnection = null);
+        Task<int> BulkUpdateEmployeesEmployer(List<UserMaster> userEntity, IDbConnection exdbConnection = null);
+        Task<UserMaster> GetUserById(long userId, IDbConnection exdbConnection = null);
+        Task<BankDetail> GetBankByBankCode(string bankCode, long userid, IDbConnection exdbConnection = null);
+        Task<int> DeleteSession(long userId);
+        UserMaster GetUserByIdForSession(long userId, IDbConnection exdbConnection = null);
+        Task<UserSession> GetSessionByDeviceId(string deviceId);
+        Task<UserSession> GetSessionByUserId(long userId);
+        Task<int> IsStaffIdExists(long employerId, string staffId, IDbConnection exdbConnection = null);
+        UserSession GetSessionByDeviceId1(string deviceId);
+        Task<BankDetail> IsAccountNumberExists(string accountNumber, IDbConnection exdbConnection = null);
+        Task<int> VerifyEmail(UserMaster userEntity, IDbConnection exdbConnection = null);
+        bool IsNinExist(string NIn, IDbConnection exdbConnection = null);
+        Task<int> UpdateUsersEmployer(UserMaster userEntity, IDbConnection exdbConnection = null);
+        Task<int> UpdateVirtualAccountStatus(UserMaster userEntity, IDbConnection exdbConnection = null);
+        Task<VirtualAccountDetail> GetVirtualAccountDetailByUserId1(long UserId, IDbConnection exdbConnection = null);
+        Task<int> UpdateVirtualAccountPin(UserMaster userEntity, IDbConnection exdbConnection = null);
+        Task<UserMaster> InsertUserFromNubanRegister(UserMaster userEntity, IDbConnection exdbConnection = null);
+        Task<int> UpdateUserOtherDetail(UserMaster userEntity, IDbConnection exdbConnection = null);
+
+        Task<int> UpdatePasscode(long userId, int passcode, IDbConnection exdbConnection = null);
+        Task<int> CreateD2CEmployer(UserMaster userEntity, IDbConnection exdbConnection = null);
+        Task<GetEmployerDetailResponse> GetEmployerDetailById(long userId, IDbConnection exdbConnection = null);
+    }
+}

@@ -1,0 +1,266 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+body{
+  background-color: #F2F7FF;
+  width: 100%;
+}
+table {
+    font-family: arial, sans-serif;
+    border-collapse: separate;
+    width: 100%;
+    border-spacing: 0 10px;
+  }
+  .table-overflow{
+      overflow: auto;
+  }
+  th{
+      width: 30%;
+  }
+
+  th:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+th:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+td:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+td:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+  th{
+      background-color: #32A4FC;
+      font-size: 14px;
+  }
+  td, th {
+    /* border: 1px solid #dddddd; */
+    text-align: left;
+    padding: 8px; 
+
+  }
+  tr,th{
+      color: #ffffff;
+  }
+td {
+    color: #464646;
+    border-bottom: 0.3px solid #dddddd;
+    font-size: 14px;
+}
+  .top-section{
+      display: flex;
+      padding: 20px;
+  }
+  .text-size{
+    font-size: 18px;
+  }
+  .color-text{
+      color: #797979;
+  }
+  .display_text{
+      display: flex;
+      justify-content: space-between;
+  }
+  .display-text{
+    display: flex;
+  }
+  .background_white{
+      background-color: #fff;
+      margin: 5px 20px;
+      padding: 24px 45px;
+      border-radius: 16px;
+  }
+ 
+  .tab_data{
+      background-color: #fff;
+      margin: 30px 20px;
+      border-radius: 16px;
+  }
+  .tab_data1{
+      padding: 20px 30px;
+  }
+  .main_transaction{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 12px;
+    margin-bottom: 14px;
+  }
+  .sec_transaction{
+    display: flex;
+  }
+  .text{
+      color: #797979;
+  }
+  .text1{
+    color: #464646;
+    font-size:  18px;  
+  }
+  .space{
+    margin-top: 18px;
+  }
+  .trans_text{
+    font-size:  18px;  
+  }
+  .date_option{
+    display: flex;
+  }
+  .date_from{
+    margin: 0px 10px;
+  }
+  .to_date{
+    border: none;
+    border: 1px solid #BFBFBF;
+    padding: 7px;
+    border-radius: 10px;
+    margin: 0px 5px;
+    color: #464646CC;
+    text-transform: uppercase;
+    font-size: 13px;
+  }
+  .reset{
+    background-color: #F2F7FF;
+    border: none;
+    padding: 9px;
+    color:#130F26;
+     border-radius: 10px;
+     font-size: 14px;
+     margin: 0px 10px;
+     width: 90px;
+     border: 1px solid #BFBFBF;
+  }
+  .filter{
+    background-color: #F86847;
+    border: none;
+    padding: 9px;
+    color: #fff;
+     border-radius: 10px;
+     font-size: 14px;
+     margin: 0px 10px;
+     width: 90px;
+  }
+  .csvexport{
+    background-color: #F86847;
+    border: none;
+    padding: 11px;
+    color: #fff;
+     border-radius: 10px;
+     font-size: 14px;
+     margin: 0px 10px;
+     width: 120px;
+  }
+  .text-class{
+      font-weight: 600;
+  }
+  .hour-limit{
+      display: flex;
+      justify-content: space-between;
+      margin-top: 26px;
+    margin-bottom: 15px;
+  }
+  .schedule{
+      display: flex;
+  }
+  .hour-img{
+    position: absolute;
+  }
+  .first-schedule{
+      display: flex;
+      position: relative;
+      align-items: center;
+  }
+  .hour-worked{
+      margin-left: 27px;
+      color: #0CAF38;
+  }
+  .hour-schedule{
+    margin-left: 27px;
+    color: #F86847;
+  }
+
+.top-section {
+    padding: 8px 0px;
+    margin-bottom: 20px;
+    list-style: none;
+    border-radius: 4px;
+}
+
+.top-section > li {
+    display: inline-block;
+    border: none;
+    outline: none;
+}
+
+.top-section .list-active {
+    color: #130F26;
+}
+
+.top-section > li + li:before {
+    padding: 0 5px;
+    color: #ccc;
+    content: "/\00a0";
+}
+
+.top-section li, .top-section li a {
+    color: #BFBFBF;
+}
+
+.top-section li a:hover {
+    color: #BFBFBF;
+}
+  @media(max-width:876px){
+    .main_transaction{
+      flex-direction: column !important;
+    }
+    .date_from{
+        margin: 0px;
+    }
+    .filter{
+        margin: 0px;
+    }
+      .to_date{
+        margin-top: 10px;
+      }
+      .reset{
+        margin-top: 10px;
+        margin-left: 0px;
+      }
+      .filter{
+        margin-top: 10px !important;
+        margin-left: 0px;
+      }
+  }
+  @media(max-width:768px){
+      .date_option{
+          margin-top: 10px;
+          flex-direction: column;
+      }
+  }
+  @media(max-width:576px){
+      .hour-limit{
+          flex-direction: column;
+      }
+  }
+  @media(max-width:453px){
+      .schedule{
+          flex-direction: column;
+      }
+      .csvexport{
+          margin-top: 10px;
+          margin-left: 0px;
+      }
+      .first-schedule{
+          margin-top: 10px;
+      }
+  }
+  
+
+
+
+  

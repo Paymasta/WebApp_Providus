@@ -1,0 +1,86 @@
+﻿.modal-content {
+    border-radius: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+}
+
+.contrats-heading-container {
+    position: relative;
+    margin: auto;
+    /* width: 440px; */
+}
+
+.congrats-btn-container {
+    padding: 2rem 1rem !important;
+}
+
+.heading {
+    padding: 10px;
+    margin: auto;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.input-field {
+    width: 440px;
+    height: 54px;
+    font-size: 12px;
+    color: #130F2666;
+    border: 1px solid #707070;
+    border-radius: 10px;
+    padding-left: 10px;
+}
+
+.close-img {
+    position: absolute;
+    top: 10%;
+    right: 1rem;
+    cursor: pointer;
+}
+
+.congrats-img {
+    padding-top: 70px;
+}
+
+.contrats-request-btn {
+    margin: auto;
+    padding: 1rem 0rem;
+    width: 280px;
+    background: #F86847;
+    border: 1px solid #F86847;
+    border-radius: 10px;
+    font-size: 16px;
+    color: #FFFFFF;
+}
+
+/*span {
+    color: #32A4FF;
+}*/
+
+.modal-dialog {
+    height: 100%;
+    margin: 0px auto;
+}
+
+.img-help {
+    margin-top: 15px;
+}
+
+p {
+    font-size: 14px;
+    color: #130F26;
+}
+
+@media(min-width:576px) {
+    .modal-dialog {
+        max-width: 440px;
+        width: 100%;
+    }
+
+    .contrats-request-btn {
+        width: 335px !important;
+    }
+}

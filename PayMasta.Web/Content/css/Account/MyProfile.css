@@ -1,0 +1,162 @@
+﻿body {
+}
+
+.kycDoc {
+    padding-left: 12px;
+    margin-top: 9px;
+}
+.user-frofile-main-container {
+   /* padding: 1rem 3rem;*/
+}
+#spnUserName {
+    display: inline-block;
+    width: 240px;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
+}
+.profile-details {
+    padding: 1rem 0rem;
+    display: block;
+}
+
+.profile-pic-container {
+    position: relative;
+    margin: 0px auto;
+    width: 176px;
+    height: 176px;
+    border: 2px solid rgb(228, 228, 228);
+    border-radius: 50%;
+}
+
+.profile-pic {
+    width: 169px;
+    height: 169px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    box-shadow: 0px 1px 3px #00000029;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.name-email-details {
+    padding: 1.5rem 0 0 0;
+    text-align: center;
+}
+
+.view-profile-btn {
+    padding: 1rem 0rem;
+    margin: 0px auto;
+    width: 150px;
+    background: #88A4BA;
+    border-radius: 10px;
+    color: #FFFFFF;
+    text-align: center;
+    /* font-size: 16px; */
+}
+
+.user-name {
+    color: #464646;
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.user-email {
+    padding-bottom: 0.5rem;
+    color: #797979;
+    font-size: 22px;
+}
+
+.user-detail-container {
+    padding: 1.5rem;
+    margin-bottom: 0.5rem;
+    width: 100% !important;
+    background: #FFFFFF;
+    box-shadow: 0px 2px 4px #00000029;
+    border-radius: 10px;
+}
+
+.user-detail-heading {
+    color: #130F26;
+    padding-bottom: 0.5rem;
+}
+
+.user-info {
+    color: #797979;
+    font-size: 12px;
+}
+
+.add-acc-img-container {
+    position: relative;
+    width: 36px;
+    height: 36px;
+    background-color: #FFECE8;
+    border-radius: 50%;
+}
+
+.add-acc-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.bank-name-container {
+    padding: 1rem 0rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(242, 242, 242);
+}
+
+    .bank-name-container > div {
+        display: flex;
+        align-items: center;
+    }
+
+#bank-account-heading {
+    padding: 0px;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-account-container {
+    padding: 1rem 0 0 0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.bank-content {
+    padding: 0rem 0.5rem;
+}
+
+@media (min-width: 480px) {
+    .profile-details {
+        display: flex !important;
+        align-items: center;
+    }
+
+    .profile-pic-container {
+        margin: 0px !important;
+    }
+
+    .user-detail-container {
+        width: 32rem !important;
+    }
+
+    .name-email-details {
+        padding: 0 1.5rem !important;
+        text-align: start !important;
+    }
+
+    .view-profile-btn {
+        margin: 0px !important;
+    }
+} 

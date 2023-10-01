@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F94AEA90-A5E6-4BBC-8FA9-AE4A3DDF8246}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PayMasta.ViewModel</RootNamespace>
+    <AssemblyName>PayMasta.ViewModel</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AccountViewModel.cs" />
+    <Compile Include="AirtimeVM\AirtimeViewModel.cs" />
+    <Compile Include="BankTransferVM\BankTransferViewModel.cs" />
+    <Compile Include="BouquetsVM\BouquetsViewModel.cs" />
+    <Compile Include="BudgetVM\BugdetViewModel.cs" />
+    <Compile Include="BulkPaymentVM\BulkPaymentViewModel.cs" />
+    <Compile Include="CallBack\WebHookViewModel.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="CMS\CmsViewModel.cs" />
+    <Compile Include="Common\Common.cs" />
+    <Compile Include="Common\CryptographyViewModel.cs" />
+    <Compile Include="Common\ResponseMessages.cs" />
+    <Compile Include="ConstMessage.cs" />
+    <Compile Include="DataRechargeVM\DataRechargeViewModel.cs" />
+    <Compile Include="EarningVM\EarningViewModel.cs" />
+    <Compile Include="ElectricityPurchaseVM\ElectricityPurchaseViewModel.cs" />
+    <Compile Include="ElectricityVM\ElectricityViewModel.cs" />
+    <Compile Include="EmployerVM\CommonEmployerViewModel.cs" />
+    <Compile Include="EmployerVM\EmployerProfileDetail.cs" />
+    <Compile Include="Employer\Dashboard\DashboardViewModel.cs" />
+    <Compile Include="Employer\EmployeeBankDetailVM\EmployeeBankDetailViewModel.cs" />
+    <Compile Include="Employer\EmployeesVM\EmployeesListViewModel.cs" />
+    <Compile Include="Employer\EWAVM\EWAViewModel.cs" />
+    <Compile Include="Employer\EWAVM\PayToPayMastaViewModel.cs" />
+    <Compile Include="Enums\EnumUserType.cs" />
+    <Compile Include="Enums\TransactionEnums.cs" />
+    <Compile Include="FlutterWaveVM\FlutterWaveViewModel.cs" />
+    <Compile Include="InternetVM\InternetViewModel.cs" />
+    <Compile Include="ItexVM\ItexViewModel.cs" />
+    <Compile Include="LidyaVM\LidyaViewModal.cs" />
+    <Compile Include="ManageArticle\ManageArticleViewModel.cs" />
+    <Compile Include="ManageFinanceVM\ManageFinanceViewModel.cs" />
+    <Compile Include="MultiChoicePurchaseVM\MultiChoicePurchaseViewModel.cs" />
+    <Compile Include="NotificationsVM\NotificationsViewModel.cs" />
+    <Compile Include="OkraAPIVM\OkraApiViewModel.cs" />
+    <Compile Include="OkraBankVM\OkraBankResponseViewMoel.cs" />
+    <Compile Include="OkraVM\OkraViewModel.cs" />
+    <Compile Include="OtherDetailVM\OtherDetailViewModal.cs" />
+    <Compile Include="PayAirtimeAndOtherBillsVM\PayAirtimeAndOtherBillsViewModel.cs" />
+    <Compile Include="PlanVM\PlanViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProvidusBank\ProvidusBankViewModel.cs" />
+    <Compile Include="ProvidusExpresssWalletVM\ProvidusExpresssWalletViewModel.cs" />
+    <Compile Include="PurchaseInternetVM\PurchaseInternetViewModel.cs" />
+    <Compile Include="PurchaseStarLineVM\PurchaseStarLineViewModel.cs" />
+    <Compile Include="Response.cs" />
+    <Compile Include="SupportVM\SupportViewModel.cs" />
+    <Compile Include="ValidateMultichoiceVM\ValidateMultichoiceViewModel.cs" />
+    <Compile Include="ValidateStartimesVM\ValidateStartimesViewModel.cs" />
+    <Compile Include="ValidatInternetVM\ValidatInternetViewModel.cs" />
+    <Compile Include="VerifyNinVM\QoreIdViewModel.cs" />
+    <Compile Include="VerifyNinVM\VerifyNinViewModel.cs" />
+    <Compile Include="VirtualAccountVM\ProvidusVirtualAccountViewModel.cs" />
+    <Compile Include="VirtualAccountVM\VirtualAccountViewModel.cs" />
+    <Compile Include="VNINVM\VninViewModel.cs" />
+    <Compile Include="VoterIdVM\VoterIdViewModel.cs" />
+    <Compile Include="WalletBalanceAndNuban\WalletBalanceAndNubanViewModel.cs" />
+    <Compile Include="WalletToBankVM\WalletToBankViewModel.cs" />
+    <Compile Include="WebHookVM\WebHookViewModel.cs" />
+    <Compile Include="ZealvendBillsVM\PayTvViewModel.cs" />
+    <Compile Include="ZealvendBillsVM\ZealvendBillsViewModel.cs" />
+    <Compile Include="ZealvendBillsVM\ZealvendDataVM.cs" />
+    <Compile Include="ZealvendBillsVM\ZealvendElectricityViewModel.cs" />
+    <Compile Include="ZealvendBillsVM\ZealvendTokenViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

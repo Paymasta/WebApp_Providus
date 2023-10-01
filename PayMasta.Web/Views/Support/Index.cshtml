@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "Support";
+}
+
+<link href="~/Content/css/Support/support.css" rel="stylesheet" />
+<script src="~/Content/js/Support/Support.js"></script>
+@*<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">*@
+@*<script src="~/Content/js/plugins/sweetalert.min.js"></script>*@
+
+<div class="lmarg">
+    <div class="row uppermargin">
+        <div class="col-xl-6 col-lg-6 col-sm-10 upperspace">
+            <div class="position-relative pb4 infodata">
+                <label for="" class="position-absolute label">Ticket Number</label>
+                <div>
+                    <input type="text" id="txtInvoice" readonly>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="Note"><span class="fdata">Note:</span><p class="ldata"> Tickets will be auto generated.</p></div>
+
+    <div class="row uppermargin">
+        <div class="col-xl-6 col-lg-6 col-sm-10   upperspace">
+            <div class="position-relative pb4 infodata">
+                <label for="" class="position-absolute label">Title</label>
+                <div class="support-select-container">
+                    <select class="support-select-box" placeholder="Enter Title" id="txtTitle">
+                        <option>Select</option>
+                        <option>EWA Access</option>
+                        <option>Profile</option>
+                        <option>Bill Payments</option>
+                        <option>Others</option>
+                    </select>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row uppermargin">
+        <div class="col-xl-6 col-lg-6 col-sm-10   upperspace">
+            <div class="position-relative pb4 infodata">
+                <label for="" class="position-absolute label">Description</label>
+                <div>
+                    <textarea type="text" placeholder="Write Description" id="txtDesc" maxlength="500"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row btns">
+        <div class="col-xl-6 col-lg-6 col-sm-10">
+            <div class="support-btn-conntainer text-center">
+                <a class="viewdata" href="@Url.Action("ViewTickets","Support")">View Tickets</a>
+                <button type="button" class="submitdata" id="btnSaveQuery">Submit</button>
+            </div>
+
+        </div>
+
+
+
+
+        @*<button type="button" class="viewdata" id="btnViewTickets">View Tickets</button>*@
+
+
+    </div>
+    <div class="txt row">
+        <div class="col-xl-6 col-lg-6 col-sm-10">
+            <p class="lowerdata">
+                If you'd like to get in touch with us, please do write<br />us at
+                <span class="coloureddata">hello@paymasta.co</span> or call us on<br />
+                <span class="coloureddata middledata" style=" margin-left: -20px">
+                    +234 (0) 903 5061 611.
+                </span>
+            </p>
+        </div>
+
+    </div>
+
+</div>
+
+
+

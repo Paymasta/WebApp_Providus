@@ -1,0 +1,247 @@
+{
+  "code": "00",
+  "message": "success",
+  "data": [
+    {
+      "bankCode": "063",
+      "bankAccronym": "DIAMOND",
+      "type": "DMB",
+      "bankName": "ACCESS BANK (DIAMOND)",
+      "shortCode": "426"
+    },
+    {
+      "bankCode": "044",
+      "bankAccronym": "ACCESS",
+      "type": "DMB",
+      "bankName": "ACCESS BANK PLC",
+      "shortCode": "901"
+    },
+    {
+      "bankCode": "023",
+      "bankAccronym": "CITI",
+      "type": "DMB",
+      "bankName": "CITIBANK NIG LTD",
+      "shortCode": null
+    },
+    {
+      "bankCode": "459",
+      "bankAccronym": "CMB",
+      "type": "DMB",
+      "bankName": "CORONATION MERCHANT BANK LIMITED",
+      "shortCode": null
+    },
+    {
+      "bankCode": "050",
+      "bankAccronym": "ECOBANK",
+      "type": "DMB",
+      "bankName": "ECOBANK NIGERIA PLC",
+      "shortCode": "326"
+    },
+    {
+      "bankCode": "084",
+      "bankAccronym": "SPRING",
+      "type": "DMB",
+      "bankName": "ENTERPRISE BANK",
+      "shortCode": null
+    },
+    {
+      "bankCode": "460",
+      "bankAccronym": "FBNQ MB",
+      "type": "DMB",
+      "bankName": "FBNQUEST MERCHANT BANK",
+      "shortCode": null
+    },
+    {
+      "bankCode": "070",
+      "bankAccronym": "FIDELITY",
+      "type": "DMB",
+      "bankName": "FIDELITY BANK PLC",
+      "shortCode": "770"
+    },
+    {
+      "bankCode": "011",
+      "bankAccronym": "FBN",
+      "type": "DMB",
+      "bankName": "FIRST BANK OF NIGERIA PLC",
+      "shortCode": "894"
+    },
+    {
+      "bankCode": "214",
+      "bankAccronym": "FCMB",
+      "type": "DMB",
+      "bankName": "FIRST CITY MONUMENT BANK PLC",
+      "shortCode": "329"
+    },
+    {
+      "bankCode": "401",
+      "bankAccronym": "FSDH",
+      "type": "DMB",
+      "bankName": "FSDH MERCHANT BANK LTD",
+      "shortCode": null
+    },
+    {
+      "bankCode": "103",
+      "bankAccronym": "GLOBUS",
+      "type": "DMB",
+      "bankName": "GLOBUS BANK",
+      "shortCode": null
+    },
+    {
+      "bankCode": "462",
+      "bankAccronym": "GMB",
+      "type": "DMB",
+      "bankName": "GREENWICH MERCHANT BANK",
+      "shortCode": null
+    },
+    {
+      "bankCode": "058",
+      "bankAccronym": "GTB",
+      "type": "DMB",
+      "bankName": "GUARANTY TRUST BANK PLC",
+      "shortCode": "737"
+    },
+    {
+      "bankCode": "030",
+      "bankAccronym": "HERITAGE",
+      "type": "DMB",
+      "bankName": "HERITAGE BANK",
+      "shortCode": "745"
+    },
+    {
+      "bankCode": "301",
+      "bankAccronym": "JAIZ",
+      "type": "DMB",
+      "bankName": "JAIZ BANK PLC",
+      "shortCode": null
+    },
+    {
+      "bankCode": "082",
+      "bankAccronym": "KEYSTONE",
+      "type": "DMB",
+      "bankName": "KEYSTONE BANK",
+      "shortCode": "7111"
+    },
+    {
+      "bankCode": "303",
+      "bankAccronym": "LOTUS",
+      "type": "DMB",
+      "bankName": "LOTUS BANK LIMITED",
+      "shortCode": null
+    },
+    {
+      "bankCode": "461",
+      "bankAccronym": "NOVA",
+      "type": "DMB",
+      "bankName": "NOVA MERCHANT BANK LIMITED",
+      "shortCode": null
+    },
+    {
+      "bankCode": "999",
+      "bankAccronym": "OFB",
+      "type": "DMB",
+      "bankName": "OFFLINE BANK ",
+      "shortCode": null
+    },
+    {
+      "bankCode": "076",
+      "bankAccronym": "POLARIS",
+      "type": "DMB",
+      "bankName": "POLARIS BANK",
+      "shortCode": "833"
+    },
+    {
+      "bankCode": "101",
+      "bankAccronym": "PROVIDUS",
+      "type": "DMB",
+      "bankName": "PROVIDUS BANK PLC",
+      "shortCode": null
+    },
+    {
+      "bankCode": "598",
+      "bankAccronym": "REMITAWALLET",
+      "type": "DMB",
+      "bankName": "REMITA WALLET",
+      "shortCode": null
+    },
+    {
+      "bankCode": "068",
+      "bankAccronym": "STANCHART",
+      "type": "DMB",
+      "bankName": "STANDARD CHARTERED BANK NIGERIA LTD",
+      "shortCode": null
+    },
+    {
+      "bankCode": "232",
+      "bankAccronym": "STERLING",
+      "type": "DMB",
+      "bankName": "STERLING BANK PLC",
+      "shortCode": "822"
+    },
+    {
+      "bankCode": "100",
+      "bankAccronym": "SUNTRUST",
+      "type": "DMB",
+      "bankName": "SUNTRUST BANK NIG LTD",
+      "shortCode": null
+    },
+    {
+      "bankCode": "597",
+      "bankAccronym": "SYSTEMSPECSWALLET",
+      "type": "DMB",
+      "bankName": "SYSTEMSPECS WALLET",
+      "shortCode": null
+    },
+    {
+      "bankCode": "302",
+      "bankAccronym": "TAJ",
+      "type": "DMB",
+      "bankName": "TAJBANK LTD",
+      "shortCode": null
+    },
+    {
+      "bankCode": "102",
+      "bankAccronym": "TITAN",
+      "type": "DMB",
+      "bankName": "TITAN TRUST BANK LIMITED",
+      "shortCode": null
+    },
+    {
+      "bankCode": "033",
+      "bankAccronym": "UBA",
+      "type": "DMB",
+      "bankName": "UBA PLC",
+      "shortCode": "919"
+    },
+    {
+      "bankCode": "032",
+      "bankAccronym": "UBN",
+      "type": "DMB",
+      "bankName": "UNION BANK OF NIGERIA PLC",
+      "shortCode": "826"
+    },
+    {
+      "bankCode": "215",
+      "bankAccronym": "UNITY",
+      "type": "DMB",
+      "bankName": "UNITY BANK PLC",
+      "shortCode": "7799"
+    },
+    {
+      "bankCode": "035",
+      "bankAccronym": "WEMA",
+      "type": "DMB",
+      "bankName": "WEMA BANK PLC",
+      "shortCode": "945"
+    },
+    {
+      "bankCode": "057",
+      "bankAccronym": "ZENITH",
+      "type": "DMB",
+      "bankName": "ZENITH BANK PLC",
+      "shortCode": "966"
+    }
+  ],
+  "metadata": {
+    "size": 34
+  }
+}

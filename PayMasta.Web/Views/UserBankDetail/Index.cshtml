@@ -1,0 +1,119 @@
+﻿
+@{
+    ViewBag.Title = "User Account Detail";
+}
+
+<script src="~/Content/js/EmployerJs/UserBankDetail.js"></script>
+<link href="~/Content/css/UserBankdetail/UserBankDetail.css" rel="stylesheet" />
+
+<div class="main_div">
+    <div class="sec_div">
+        <div class="drop_down">
+            <div class="drop_select">
+                Status
+                <select name="cars" id="ddlStatus">
+                    <option value="-1">All</option>
+                    <option value="1">Active</option>
+                    <option value="0">Inactive</option>
+                </select>
+            </div>
+            <div class="date_option">
+                <div class="date_from">
+                    From
+                    <span style="display: inline-block; position: relative">
+                        <input type="text" class="to_date" placeholder="MM/DD/YYYY" id="txtFromDate">
+                        <i class="fa fa-calendar-check-o calender" aria-hidden="true" id="calender_from"></i>
+                    </span>
+                    <div>
+                        <span id="fromdateError" style="color:red"></span>
+                    </div>
+                </div>
+
+                <div class="date_from">
+                    <span class="">TO</span>
+                    <span style="display: inline-block; position: relative">
+                        <input type="text" class="to_date" id="txtEnddate" placeholder="MM/DD/YYYY">
+                        <i class="fa fa-calendar-check-o calender" aria-hidden="true" id="calender_to"></i>
+                    </span>
+                    <div>
+                        <span id="TodateError" style="color:red"></span>
+                    </div>
+
+                </div>
+                <div>
+                    <button type="button" class="reset" id="btnReset">Reset</button>
+                </div>
+                <div>
+                    <button type="button" class="filter" id="btnFilter">Fliter</button>
+                </div>
+            </div>
+        </div>
+        <div class="tab_data">
+            <div class="tab_data1">
+                <div class="main_transaction">
+                    <div class="text">
+                        Employees
+                    </div>
+                    <div class="sec_transaction">
+                        <div>
+                            <button type="button" class="csvexport" id="btnExportToCSV">Export To CSV</button>
+                        </div>
+                        
+                        <div class="search_icon">
+                            <input type="search" placeholder="Search" class="search" id="txtSearch">
+                            <img class="search-img" src="~/Content/images/Employer/search-line.svg" alt="">
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="table-overflow">
+                    <table class="employees-table">
+                        <thead>
+                            <tr>
+                                <th class="employees-table-heading">S.No</th>
+                                <th class="employees-table-heading">Name</th>
+                                <th class="employees-table-heading">Staff Id</th>
+                                <th class="employees-table-heading">Phone Number</th>
+                                <th class="employees-table-heading">Email Id</th>
+                                <th class="employees-table-heading">Status</th>
+                                <th class="employees-table-heading">Date</th>
+                                <th class="employees-table-heading">Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="userBankDetails">
+                            @*<tr>
+                                <td>1</td>
+                                <td>Lorem Ipsum</td>
+                                <td>1234</td>
+                                <td>+234 123456789</td>
+                                <td>ab@gmail.com</td>
+                                <td>Success</td>
+                                <td>May/27/2022</td>
+                                <td><img class="img-eye" src="../Content/images/Employer/view_eye_icon.svg" alt="" data-toggle="tooltip" title="View Profile"></td>
+                            </tr>*@
+                        </tbody>
+
+                    </table>
+
+
+
+                </div>
+                <div class="card" id="userBankNoRecord">
+                    <div class="card-body" style="text-align:center">
+                        No record found.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pagination">
+            <ul id="emplyr_pagination" class="pagination"></ul>
+        </div>
+    </div>
+</div>
+<script src="~/Content/js/plugins/jquery.twbsPagination.min.js"></script>
+<script src="~/Content/js/plugins/jquery.twbsPagination.js"></script>
+

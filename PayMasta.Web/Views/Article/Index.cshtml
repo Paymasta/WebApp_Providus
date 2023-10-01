@@ -1,0 +1,153 @@
+﻿
+@{
+    ViewBag.Title = "Articles";
+}
+<link href="~/Content/css/ViewAccountBalanceCss/ViewAccountBalance.css" rel="stylesheet" />
+<script src="~/Content/js/ManageArticle/ManageArticle.js"></script>
+<style>
+    body {
+        background-color: #F2F7FF;
+    }
+
+    .viewdata {
+       /* font: normal normal 600 18px/24px Open Sans;*/
+        letter-spacing: 0px;
+        color: #464646;
+        opacity: 1;
+        margin-bottom:20px;
+       @* margin-top: 40px;*@
+
+        font-size:18px;
+    }
+
+    #divBankList {
+        margin-top: 30px;
+       @* margin-left: 30px;*@
+        border-radius: 10px;
+        opacity: 1;
+    }
+
+    .sidebardata1 {
+        display: flex;
+        justify-content: space-between;
+        background-color: #FFFFFF;
+        border: none;
+        width: 307px;
+        box-shadow: 0px 3px 6px #00000029;
+        padding: 5px 10px;
+    }
+
+    .imgdata {
+        margin-left: 30px;
+    }
+
+    .toggles {
+        margin-left: 22px;
+        margin-top: 5px;
+        font: normal normal bold 16px/22px Open Sans;
+        letter-spacing: 0px;
+        color: #5A5757;
+        opacity: 1;
+    }
+
+    .down-arrow-icon {
+        transform: rotate(0deg);
+        margin-top: 6px;
+    }
+
+    .collapsed .down-arrow-icon {
+        transform: rotate(-90deg);
+    }
+
+    .imgs {
+        height: 36px;
+    }
+
+    .bd1 {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .bd2 {
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    .dataNotfound {
+        /* align-items: center; */
+        text-align: center;
+    }
+
+    .view-account-balance-container {
+        padding: 16px 18px;
+        width: 30%;
+        background: #FFFFFF;
+        box-shadow: 0px 3px 6px #00000029;
+        border-radius: 9px;
+    }
+
+    .bank-name-container {
+        display: flex;
+        align-items: center;
+        margin-bottom: 16px;
+        margin-top:20px
+    }
+
+    .bank-type-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 16px;
+    }
+
+    .bankname {
+        margin-left: 10px;
+        color: #130F26;
+    }
+
+    .view-amount {
+        color: #130F26;
+        font-size: 32px;
+    }
+
+    .view-available-amount-txt {
+        color: #130F26;
+        font-size: 14px;
+        opacity: 0.5;
+    }
+
+    .view-saving-account {
+        color: #797979;
+        font-size: 14px;
+    }
+
+    .view-account-number {
+        color: #32A4FF;
+        font-weight: bold;
+    }
+
+    .view-balance-hr {
+        border: 0.5px solid #00000029;
+    }
+    .transactiondiv {
+        margin-top: 20px;
+    }
+</style>
+
+<div id="articleList_body">
+
+    @*<div class="panel panel-default">
+        <div class="panel-heading">Question 1</div>
+        <div class="panel-body">
+            <p>...</p>
+        </div>
+
+        <ul class="list-group">
+            <li class="list-group-item">Cras justo odio</li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Morbi leo risus</li>
+            <li class="list-group-item">Porta ac consectetur ac</li>
+        </ul>
+    </div>*@
+
+</div>

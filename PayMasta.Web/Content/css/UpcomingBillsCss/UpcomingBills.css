@@ -1,0 +1,157 @@
+﻿.finance-container {
+    max-width: 425px;
+    width: 100%;
+}
+
+.back-img {
+    width: 20px;
+    height: 20px;
+}
+
+.travel-img {
+    background: #F86847 !important;
+}
+
+.amount-container {
+    padding: 1rem 1.5rem;
+    margin: 1rem 0rem;
+    background-color: #88A4BA;
+    border-radius: 13px;
+}
+
+.amount-text {
+    color: #FFFFFF;
+    font-size: 14px;
+    opacity: 0.5;
+}
+
+.amount {
+    color: #FFFFFF;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.spend-container {
+    padding: 1.5rem;
+    border-radius: 12px;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 8px #0000001A;
+}
+
+.spend-text {
+    padding-bottom: 0.5rem;
+    font-size: 16px;
+}
+
+.image {
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #32A4FF;
+    padding: 6px;
+}
+
+.content {
+    padding-left: 0.5rem;
+}
+
+.spend-amount {
+    padding: 0.25rem 0.5rem;
+    border: 0.5px solid #BFBFBF;
+    border-radius: 16px;
+    color: #130F26;
+    font-size: 12px;
+}
+
+.close-btn {
+    padding-left: 0.5rem;
+}
+
+.total-text {
+    color: #797979;
+    font-size: 18px;
+}
+
+.finance-amount {
+    color: #32A4FF;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+.box-main-container {
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-container {
+    display: flex;
+    align-items: center;
+    grid-column-gap: 10px;
+}
+
+.padding-container {
+    padding-left: 2.45rem;
+}
+
+.heading-container {
+    display: flex;
+    align-items: center;
+    grid-column-gap: 14px;
+}
+
+    .heading-container span {
+        color: #130F26;
+        font-size: 18px;
+    }
+
+.total-cost-container {
+    margin: 20px 0px 0px 0px;
+    display: flex;
+    justify-content: space-between;
+    grid-column-gap: 10px;
+}
+
+.access-earned-wage-btn {
+    padding: 14px 0px;
+    margin: 20px 0px 10px 0px;
+    width: 100%;
+    color: #464646;
+    border: 0.5px solid #BFBFBF;
+    border-radius: 16px;
+    text-align: center;
+}
+
+.pay-btn {
+    padding: 14px 0px;
+    width: 100%;
+    background-color: #F86847;
+    border-radius: 16px;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+@media (min-width: 375px) {
+    .earned-wage-pay-container {
+        margin: 20px 0px 0px 0px;
+        display: flex;
+        justify-content: space-between;
+        grid-column-gap: 16px;
+    }
+
+
+
+    .access-earned-wage-btn {
+        margin: 0px;
+        width: 50%;
+    }
+
+    .pay-btn {
+        width: 50%;
+        background-color: #F86847;
+        border-radius: 16px;
+        text-align: center;
+        color: #FFFFFF;
+    }
+}

@@ -1,0 +1,234 @@
+﻿
+@{
+    ViewBag.Title = "Profile";
+}
+<link href="~/Content/css/Employer/edit-profile.css" rel="stylesheet" />
+<div class="accordion accordion-flush view-profile-grid-container" id="my-profile">
+    <div class="view-profile-sub-container pt-3">
+        <div class="panel-group" id="accordion">
+            <div class="panel">
+                <div data-toggle="collapse" data-parent="#accordion" href="#collapse1" class="profile-accordian">
+                    <div class="text-container">
+                        <img src="~/Content/images/setting-img.svg" alt="">
+                        <div class="accordion-content">My Profile</div>
+                    </div>
+                    <div class="text-end drop-down-img-container">
+                        <img src="~/Content/images/drop-down-icon.svg" alt="" id="profile-arrow-img" class="down-arrow-icon">
+
+                    </div>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse">
+                    <div class="accordion-body">
+                        <a href="@Url.Action("Index","Profile")">
+                            <div class="collapse-sub-content">
+                                <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                                <div class="px-2 accordion-content">View Profile</div>
+                            </div>
+                        </a>
+                        @* <div class="collapse-sub-content">
+                                <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                                <div class="px-2 accordion-content">FAQs</div>
+                            </div>
+                            <div class="collapse-sub-content">
+                                <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                                <div class="px-2 accordion-content">Terms & Conditions</div>
+                            </div>
+                            <div class="collapse-sub-content">
+                                <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                                <div class="px-2 accordion-content">Privacy Policy</div>
+                            </div>*@
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div data-toggle="collapse" data-parent="#accordion" href="#collapse2" class="profile-accordian">
+                    <div class="text-container">
+                        <img src="~/Content/images/setting-img.svg" alt="">
+                        <div class="accordion-content">Settings</div>
+                    </div>
+                    <div class="text-end drop-down-img-container">
+                        <img src="~/Content/images/drop-down-icon.svg" alt="" id="setting-down-img" class="down-arrow-icon">
+                    </div>
+                </div>
+                <div id="collapse2" class="panel-collapse collapse">
+                    <div class="accordion-body">
+                        <a href="@Url.Action("ChangePassword","Profile")">
+                            <div class="collapse-sub-content">
+                                <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                                <div class="px-2 accordion-content">Change Password</div>
+                            </div>
+                        </a>
+                        @*  <div class="collapse-sub-content">
+                                <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                                <div class="px-2 accordion-content">FAQs</div>
+                            </div>
+                            <div class="collapse-sub-content">
+                                <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                                <div class="px-2 accordion-content">Terms & Conditions</div>
+                            </div>
+                            <div class="collapse-sub-content">
+                                <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                                <div class="px-2 accordion-content">Privacy Policy</div>
+                            </div>*@
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex align-items-center profile-logout-btn">
+                <img src="~/Content/images/logout-img.svg" alt="">
+                <div class="px-2 accordion-content">Logout</div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="view-profile-sub-container-two">
+        <div class="">
+            <div class="view-profile-heading">Edit Profile</div>
+        </div>
+        <div class="userpage">
+            <!-- <div class="container"> -->
+            <div id="personalinfo">
+                <div class="row">
+                    <div class="col-md-12 col-sm-10">
+                        <div class="infodata">
+                            <label for="" class="label">Organisation Name</label>
+                            <div>
+                                <input type="text" placeholder="" value="" id="txtOrganisation" maxlength="50">
+                            </div>
+                            <span id="txttxtOrganisationError" style="color:red"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row padding-top">
+                    <div class="col-md-12 col-sm-10">
+                        <div class="infodata">
+                            <label for="" class="label">Email Address</label>
+                            <div>
+                                <input type="text" placeholder="" value="" id="txtEmail" maxlength="50">
+                            </div>
+                            <span id="txtEmailError" style="color:red"></span>
+                        </div>
+                    </div>
+                </div>
+
+                @*<div class="row padding-top">
+                        <div class="col-md-12 col-sm-10">
+                            <div class="infodata">
+                                <label for="" class="label">Mobile Number</label>
+                                <div>
+                                    <input type="text" placeholder="" value="" id="txtMobile">
+                                </div>
+                                <span id="txtMobileError" style="color:red"></span>
+                            </div>
+                        </div>
+                    </div>*@
+                <div class="row padding-top">
+                    <div class="col-md-12 col-sm-10">
+                        <div class="infodata">
+                            <label for="" class="label">Mobile Number</label>
+                            <div>
+                                <div class="country-code" id="countruCode"></div>
+                                <input type="text" placeholder="" value="" class="datedata mobile-field" id="txtMobile" maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                            </div>
+                            <span id="txtMobileError" style="color:red"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6  col-sm-10">
+                        <div class="infodata">
+                            <label for="" class="label">Country</label>
+                            <div>
+                                <select name="cars" id="ddlcountry" class="select-data">
+                                    <option value="">select</option>
+
+                                </select>
+                            </div>
+                            <span id="ddlcountryError" style="color:red"></span>
+                        </div>
+                    </div>
+                    <div class="col-md-6  col-sm-10">
+                        <div class="infodata">
+                            <label for="" class="label">State</label>
+                            <div>
+                                <select name="cars" id="ddlState" class="select-data">
+                                    <option value="" selected>Please select state</option>
+
+                                </select>
+                            </div>
+                            <span id="ddlStateError" style="color:red"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row padding-top">
+                    <div class="col-md-12 col-sm-10">
+                        <div class="infodata">
+                            <label for="" class="label">Office Address</label>
+                            <div>
+                                <input type="email" placeholder="" class="datedata" id="txtAddress" maxlength="100">
+                            </div>
+                            <span id="txtAddressError" style="color:red"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row padding-top">
+                    <div class="col-md-12 col-sm-10">
+                        <div class="infodata">
+                            <label for="" class="label">Post Code</label>
+                            <div>
+                                @*<div class="country-code"></div>*@
+                                <input type="text" placeholder="" value="" class="datedata" id="txtPostalCode" maxlength="6" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                            </div>
+                            <span id="txtPostalCodeError" style="color:red"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row padding-top">
+                    <div class="col-md-12 col-sm-10">
+                        <div class="infodata">
+                            <label for="" class="label">Working hours/day</label>
+                            <div>
+                                <input type="text" placeholder="" class="datedata" id="txtWorkingHours" maxlength="5" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                            </div>
+                            <span id="txtWorkingHoursError" style="color:red"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row padding-top padding-bottom">
+                    <div class="col-md-12 col-sm-10">
+                        <div class="infodata">
+                            <label for="" class="label">Working Days in a Week</label>
+                            <div>
+                                <select name="cars" id="ddlWorkingDaysinaWeek" class="select-data">
+                                    <option value="0">Select</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="3">5</option>
+                                    <option value="4">6</option>
+                                </select>
+                            </div>
+                            <span id="ddlWorkingDaysinaWeekError" style="color:red"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row request-btn-container">
+                    <div class="col-md-12 col-sm-10">
+                        <button type="button" class="request-btn" id="btnUpdateProfile">Save</button>
+                    </div>
+                </div>
+            </div>
+            <!-- </div> -->
+        </div>
+    </div>
+
+</div>
+
+<script src="~/Content/js/EmployerJs/EmployerProfileDetail.js"></script>

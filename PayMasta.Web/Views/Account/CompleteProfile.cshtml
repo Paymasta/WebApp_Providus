@@ -1,0 +1,1182 @@
+﻿@*@model PayMasta.ViewModel.UpdateUserRequest;*@
+@{
+    Layout = null;
+}
+
+
+@{
+    ViewBag.Title = "CompleteProfile";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css" integrity="sha512-aOG0c6nPNzGk+5zjwyJaoRUgCdOrfSDhmMID2u4+OIslr0GjpLKo7Xm0Ao3xmpM4T8AmIouRkqwj1nrdVsLKEQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/Content/js/Profile/Profile.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+    <link href="~/Content/css/Account/CompleteProfile.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+    <title>Complete Profile</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/css/select2.min.css" rel="stylesheet" />
+    <link rel="icon" type="image/x-icon" href="~/Content/images/pay-master-logo.png">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.6-rc.0/js/select2.min.js"></script>
+    <script src="~/Content/js/Profile/select2.js"></script>
+
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <style>
+        .select2-container--default .select2-selection--single {
+            padding: 7px 0px 7px 4px !important;
+            height: 44px;
+        }
+
+            .select2-container--default .select2-selection--single .select2-selection__arrow {
+                top: 7px;
+                right: 7px;
+            }
+    </style>
+
+
+</head>
+<body>
+    @*@if (TempData["ErrorMessage"] != null)
+        {
+            if (!string.IsNullOrEmpty(TempData["ErrorMessage"].ToString()))
+            {
+                <script type="text/javascript">
+                            alert('@TempData["ErrorMessage"]');
+                </script>
+            }
+        }*@
+    @*@using (Html.BeginForm("CompleteProfile", "Account", FormMethod.Post, new { @class = "form-vertical" }))
+        {*@
+    <div class="header">
+
+
+        <img src="~/Content/images/Logos/latest-paymasta-logo.png" class="logo-img"/>
+        <button type="button" id="btnBack">Back</button>
+        <button type="button" id="btnBackFromEmployer">Back</button>
+    </div>
+    <div class="userpage" id="divuserpage">
+
+        <div class="container mt-5">
+            <!-- <div class="topBar">
+                <div class="">
+
+                </div>
+            </div> -->
+
+            <div id="myDIV" class="listLi">
+
+
+                <img src="~/Content/images/page-one.png" width="60px" height="20px" id="page-one" /> <img src="~/Content/images/tick.png" width="60px" height="20px" id="page-one-tick" style="display:none" /> <div class="profile-tab border-bottom" id="first"> Personal Info</div>
+                <img src="~/Content/images/page-two.png" width="60px" height="20px" id="page-two" /> <img src="~/Content/images/tick.png" width="60px" height="20px" id="page-two-tick" style="display:none" /> <div class="profile-tab" id="second">Address</div>
+                <img src="~/Content/images/page-three.png" width="60px" height="20px" id="page-three" /><img src="~/Content/images/tick.png" width="60px" height="20px" id="page-three-tick" style="display:none" /><div class="profile-tab" id="three">Employer Details</div>
+                <img src="~/Content/images/page-four.png" width="60px" height="20px" id="page-four" /><img src="~/Content/images/tick.png" width="60px" height="20px" id="page-four-tick" style="display:none" /><div class="profile-tab" id="four">Account Details</div>
+
+            </div>
+            @*<button id="TestOpenModal">
+                    test
+                </button>*@
+
+
+
+
+            <!-- PersonalINfo -->
+
+            <div id="personalinfo">
+                <div class="row uppermargin">
+                    <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1 upperspace">
+                        <div class="position-relative pb4 infodata">
+                            <label for="" class="position-absolute label">First Name<sup>*</sup></label>
+                            <div>
+                                <input type="text" placeholder="Enter your first name" id="txtFirstName" min="2" maxlength="50">
+
+                            </div>
+                            <span id="txtFirstNameError" style="color:red">
+
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row uppermargin">
+                    <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1">
+                        <div class="position-relative pb4 infodata">
+                            <label for="" class="position-absolute label">Middle Name</label>
+                            <div>
+                                <input type="text" placeholder="Enter your middle name" id="txtMiddleName" minlength="2" maxlength="50">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row uppermargin">
+                    <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1">
+                        <div class="position-relative pb4 infodata">
+                            <label for="" class="position-absolute label">Last Name<sup>*</sup></label>
+                            <div>
+                                <input type="text" placeholder="Enter your last name" id="txtLastName" minlength="2" maxlength="50">
+                            </div>
+                            <span id="txtLastNameError" style="color:red">
+
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row uppermargin">
+                    <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1">
+                        <div class="position-relative pb4 infodata">
+                            <label for="" class="position-absolute label">NIN N0.<sup>*</sup></label>
+                            <div>
+                                <input type="text" placeholder="Enter your NIN number" id="txtNinNo" min="11" maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                            </div>
+                            <span id="txtNinNoError" style="color:red">
+
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row uppermargin">
+                    <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1">
+                        <div class="position-relative pb4 infodata">
+                            <label for="" class="position-absolute label">Date of Birth<sup>*</sup></label>
+                            <div>
+                                @*<input type="date" class="datedata" id="txtDateOfBirth">*@
+                                <input type="text" class="datedata" id="txtDateOfBirth" placeholder="Select date" readonly>
+                                @*<p><input type="text" id="datepicker" /></p>*@
+                            </div>
+                            <span id="txtDateOfBirthError" style="color:red">
+                                Please select your date of birth.
+                            </span>
+                            <span id="lblError" style="color:red">
+
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row uppermargin">
+                    <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1">
+                        <div class="position-relative pb4 infodata">
+                            <label for="" class="position-absolute label">Gender<sup>*</sup></label>
+                            <div>
+                                <select id="ddlGender" name="menu">
+                                    <option value="Select">Select</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                    <option value="Others">Others</option>
+                                </select>
+                            </div>
+                            <span id="ddlGenderError" style="color:red">
+                                Please select your gender.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1 text-center">
+                        <button class="continue" onclick="showdata1()">Continue</button>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- AddressINfo -->
+
+            <div id="addressinfo" style="display: none;">
+
+
+
+                <div class="row uppermargin">
+                    <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1">
+                        <div class="position-relative pb4 infodata">
+                            <label for="" class="position-absolute label">Country<sup>*</sup></label>
+                            <div>
+                                <select id="ddlcountry" name="country">
+                                    <option value="Male">Please select country</option>
+                                    @*<option value="Male">USA</option>
+                                        <option value="Female">INDIA</option>
+                                        <option value="Others">CHINA</option>*@
+                                </select>
+                            </div>
+                            <span id="ddlcountryError" style="color:red">
+                                Please select country.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row uppermargin">
+                    <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1">
+                        <div class="position-relative pb4 infodata">
+                            <label for="" class="position-absolute label">State<sup>*</sup></label>
+                            <div>
+                                <select id="ddlState" name="state">
+                                    <option value="">Please select State</option>
+
+                                </select>
+                            </div>
+                            <span id="ddlStateError" style="color:red">
+                                Please select state.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row uppermargin">
+                    <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1">
+                        <div class="position-relative pb4 infodata">
+                            <label for="" class="position-absolute label">City<sup>*</sup></label>
+                            <div>
+                                <select id="ddlCity" name="city">
+                                    <option value="">Please select city</option>
+                                </select>
+                            </div>
+                            <span id="ddlCityError" style="color:red">
+                                Please select city.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row uppermargin">
+                    <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1">
+                        <div class="position-relative pb4 infodata">
+                            <label for="" class="position-absolute label">Home Addresss<sup>*</sup></label>
+                            <div>
+                                <input type="text" placeholder="Enter your Home Address" id="txtAddress" min="10" maxlength="300">
+                            </div>
+                            <span id="txtAddressError" style="color:red">
+
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row uppermargin">
+                    <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1">
+                        <div class="position-relative pb4 infodata">
+                            <label for="" class="position-absolute label">Post Code</label>
+                            <div>
+                                <input type="text" placeholder="Enter Post Code" id="txtPostalCode" maxlength="6" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                            </div>
+                            <span id="txtPostalCodeError" style="color:red">
+
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1 text-center">
+                        <button class="continue" onclick="showdata2()">Continue</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- EmployerINfo -->
+
+
+            <div id="employerinfo" style="display: none;">
+                <div class="row uppermargin">
+                    <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1">
+                        <div class="position-relative pb4 infodata">
+                            <label for="" class="position-absolute label">Employer Name</label>
+                            <div class="mainhead">
+                                <div>
+                                    <select id="ddlEmployer" name="menu" class="accordion">
+
+                                        @*<option value="Male" class="mt">Google</option>
+                                            <option value="Female" class="mt">Appventurez</option>
+                                            <option value="Others" class="mt">Apple</option>
+                                            <option value="Others" class="mt">Others</option>*@
+                                    </select>
+                                </div>
+                                <span id="ddlEmployerError" style="color:red">
+
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <div class="row uppermargin">
+                    <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1">
+                        <div class="position-relative pb4 infodata">
+                            <label for="" class="position-absolute label">Staff ID</label>
+                            <div>
+                                <input type="text" placeholder="Enter your staff ID" id="txtStaffId" maxlength="10">
+                            </div>
+                            <span id="txtStaffIdError" style="color:red">
+
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1 text-center">
+                        <button class="skipbtn" onclick="showdata3()">Skip</button>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1 text-center">
+                        <button class="continue1" onclick="Continue()">Continue</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <!-- Account-Detail -->
+
+        <div id="accountdetail" style="display: none;">
+
+            <div class="row uppermargin">
+                <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1">
+                    <div class="position-relative pb4 infodata">
+                        <label for="" class="position-absolute label">Bank Name</label>
+                        <div>
+                            <select id="ddlBank" name="menu">
+                                @*<option value="Select">Select</option>*@
+                                @*<option value="State Bank of India">State Bank of India</option>
+                                    <option value="Punjab National Bank">Punjab National Bank</option>
+                                    <option value="Kotak Bank">Kotak Bank</option>*@
+                            </select>
+                        </div>
+                        <span id="ddlBankError" style="color:red">
+
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row uppermargin">
+                <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1">
+                    <div class="position-relative pb4 infodata">
+                        <label for="" class="position-absolute label">Account Number</label>
+                        <div>
+                            <input type="text" placeholder="Enter your Account Number" id="txtAccountNumber" maxlength="17" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                        </div>
+                        <span id="txtAccountNumberError" style="color:red">
+
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="row uppermargin">
+                <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1">
+                    <div class="position-relative pb4 infodata">
+                        <label for="" class="position-absolute label">BVN</label>
+                        <div>
+                            <input type="text" placeholder="Enter your BVN code" id="txtBVN" maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '');">
+                        </div>
+                        <span id="txtBVNError" style="color:red">
+
+                        </span>
+                    </div>
+                </div>
+            </div>
+            @*<div class="row uppermargin">
+                    <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1">
+                        <div class="position-relative pb4 infodata">
+                            <label for="" class="position-absolute label">Customer ID</label>
+                            <div>
+                                <input type="text" placeholder="Enter your customer id" id="txtCustomerId" maxlength="15">
+                            </div>
+                            <span id="txtCustomerIdError" style="color:red">
+
+                            </span>
+                        </div>
+                    </div>
+                </div>*@
+            <div class="row uppermargin">
+                <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1">
+                    <div class="position-relative pb4 infodata">
+                        <label for="" class="position-absolute label">Username</label>
+                        <div>
+                            <input type="text" placeholder="Enter your username" id="txtBankAccountHolderName" maxlength="100">
+                        </div>
+                        <span id="txtBankAccountHolderNameError" style="color:red">
+
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1 text-center">
+                    <button type="button" class="skipbtn" id="btnUpdateProfile">Skip</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1 text-center">
+                    <button class="continue1" type="button" id="btnSaveUserProfile">Save</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+    @*divNonRegisterEmployer*@
+    @*<div class="" id="">
+            <div class="add-employer-grid-container">
+
+
+                <div class="add-employer-headdata">
+                    <span class="add-employer-heading">Add Employer Name</span>
+                    <p class="add-employer-para">The employer is not currently signed up but would Contact so and will get back to you</p>
+                </div>
+                <div class="row uppermargin nonRegisterModalHeight">
+                    <div class="col-xl-12 col-lg-12 col-sm-12 upperspace">
+                        <div class="pb4 add-imployer-infodata">
+
+                            <label for="" class="add-employer-label">Employer Name</label>
+                            <select class="form-control select2" style="width: 100%;" id="ddlNonRegisterEmployer">
+
+                            </select>
+                            <div>
+                                <span id="nonRegisteredEmployerError" style="color:red;float:left"></span>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1 text-center">
+                            <button class="add-employer-savedata" id="btnSaveNonRegisterEmployer">Ok</button>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>*@
+    <div class="container" id="divNonRegisterEmployer">
+
+        <div class="row uppermargin add-employer-grid-container">
+            <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1">
+                @*<button type="button" class="" data-bs-dismiss="modal"> <img src="~/Content/images/close.png" style=" position: absolute; right: 26px;" /></button>*@
+
+                <div class="add-employer-headdata">
+                    <span class="add-employer-heading">Add Employer Name</span>
+                    <p class="add-employer-para">The employer is not currently signed up but would Contact so and will get back to you</p>
+                </div>
+
+                <div class="row uppermargin">
+                    <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1">
+                        <div class=" add-imployer-infodata">
+                            <label for="" class="add-employer-label">Employer Name</label>
+                            @*<select class="form-control select2" style="width: 100%;" id="ddlNonRegisterEmployer">
+                                <option selected>Please select employer</option>
+                            </select>*@
+
+                            <input type="text" id="tags" placeholder="Search your employer......"/>
+                            <div>
+                                <span id="nonRegisteredEmployerError" style="color:red;float:left"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xl-6 col-lg-6 col-sm-10 offset-xl-3 offset-lg-3 offset-sm-1 text-center">
+                        <button class="add-employer-savedata" id="btnSaveNonRegisterEmployer">Ok</button>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+        </div>
+    </div>
+    @*<button type="button" id="EmployerTest">TESTING</button>*@
+
+    @*}*@
+</body>
+
+</html>
+
+<script type="text/javascript">
+
+
+    let usernameError1 = true;
+    //let FirstNameError1 = true;
+    let LastNameError1 = true;
+    let MiddleNameError1 = true;
+    let NinNoError1 = true;
+    let DateOfBirthError1 = true;
+    let StateError1 = true;
+    let CityError1 = true;
+    let CountryError1 = true;
+    let AddressError1 = true;
+    let PostalCodeError1 = true;
+    let GenderError1 = true;
+    let EmployerNameError1 = true;
+    let EmployerIdError1 = true;
+    let StaffIdError1 = true;
+    let BankNameError1 = true;
+    let AccountNumberError1 = true;
+    let BVNError1 = true;
+    let customerIdError = true;
+    let BankAccountHolderNameError1 = true;
+    let IsAgeValid = true;
+    var country = "";
+    var state = "";
+    var city = "";
+    var gender = "";
+    var employerName = "";
+    var employerId = 0;
+    var bankName = "";
+    var TabNum = 0;
+    var countryval = "";
+    var stateval = "";
+    var cityval = "";
+    var bankId = "";
+    var bankCode = "";
+    let IsStringValid = true;
+    let IsStringValid1 = true;
+    let IsStringValid2 = true;
+    let IsStringValid3 = true;
+    let IsStringValid4 = true;
+    let isCountrySelected = false
+    let isStateSelected1 = false;
+    // btnBack
+    $("#btnBack").click(function () {
+        if (TabNum == 1) {
+            showdata();
+        } else if (TabNum == 2) {
+            showdata1()
+        }
+        else if (TabNum == 3) {
+            showdata2();
+        }
+    });
+
+
+    function showdata() {
+        $('#btnBack').hide();
+        document.getElementById('addressinfo').style.display = "none";
+        document.getElementById('personalinfo').style.display = "block";
+        document.getElementById('employerinfo').style.display = "none";
+        document.getElementById('accountdetail').style.display = "none";
+        document.getElementById("first").classList.add('border-bottom');
+        document.getElementById("second").classList.remove('border-bottom');
+        document.getElementById("three").classList.remove('border-bottom');
+        document.getElementById("four").classList.remove('border-bottom');
+        TabNum = 0
+
+
+    }
+
+    function showdata1() {
+
+        TabNum = 1
+        validate1();
+        if (usernameError1 == true && LastNameError1 == true && NinNoError1 == true && GenderError1 == true && DateOfBirthError1 == true && IsStringValid == true && IsStringValid1 == true) {
+            $('#btnBack').show();
+            var header = document.getElementById("myDIV");
+            var btns = header.getElementsByClassName("profile-tab");
+
+            var val1 = document.getElementById('addressinfo')
+            val1.style.display = "block";
+            document.getElementById('personalinfo').style.display = "none";
+            document.getElementById('employerinfo').style.display = "none";
+            document.getElementById('accountdetail').style.display = "none";
+            document.getElementById("first").classList.remove('border-bottom');
+            document.getElementById("second").classList.add('border-bottom');
+            document.getElementById("three").classList.remove('border-bottom');
+            document.getElementById("four").classList.remove('border-bottom');
+            document.getElementById("page-one").style.display = "none";
+            document.getElementById("page-one-tick").style.display = "block";
+
+        }
+    }
+
+    function showdata2() {
+
+        $('#btnBack').show();
+        TabNum = 2
+        validate2();
+        if (PostalCodeError1==true && CountryError1 == true && StateError1 == true && CityError1 == true && AddressError1 == true && usernameError1 == true && LastNameError1 == true && NinNoError1 == true && GenderError1 == true && DateOfBirthError1 == true && IsStringValid == true) {
+
+            var header = document.getElementById("myDIV");
+
+            document.getElementById('addressinfo').style.display = "none";
+            document.getElementById('personalinfo').style.display = "none";
+            document.getElementById('employerinfo').style.display = "block";
+            document.getElementById('accountdetail').style.display = "none";
+            document.getElementById("first").classList.remove('border-bottom');
+            document.getElementById("second").classList.remove('border-bottom');
+            document.getElementById("three").classList.add('border-bottom');
+            document.getElementById("four").classList.remove('border-bottom');
+            document.getElementById("page-two").style.display = "none";
+            document.getElementById("page-two-tick").style.display = "block";
+        }
+
+    }
+
+    function showdata3() {
+        $('#btnBack').show();
+        $('#btnBackFromEmployer').hide();
+        TabNum = 3
+        validate1();
+        validate2();
+        if (usernameError1 == true && LastNameError1 == true && NinNoError1 == true && GenderError1 == true && DateOfBirthError1 == true && CountryError1 == true && StateError1 == true && CityError1 == true && AddressError1 == true) {
+            var header = document.getElementById("myDIV");
+            var btns = header.getElementsByClassName("profile-tab");
+            @*       for (var i = 0; i < btns.length; i++) {
+                btns[i].addEventListener("click", function () {
+                    var current = document.getElementsByClassName("border-bottom");
+                    current[0].className = current[0].className.replace(" border-bottom", "");
+                    this.className += " border-bottom";
+                });
+            }*@
+
+            document.getElementById('addressinfo').style.display = "none";
+            document.getElementById('personalinfo').style.display = "none";
+            document.getElementById('employerinfo').style.display = "none";
+            document.getElementById('accountdetail').style.display = "block";
+            document.getElementById("first").classList.remove('border-bottom');
+            document.getElementById("three").classList.remove('border-bottom');
+            document.getElementById("second").classList.remove('border-bottom');
+            document.getElementById("four").classList.add('border-bottom');
+            document.getElementById("page-three").style.display = "none";
+            document.getElementById("page-three-tick").style.display = "block";
+        }
+    }
+
+    function Continue() {
+        TabNum = 3
+        validate1();
+        validate2();
+        validate3();
+        if (EmployerNameError1 == true && StaffIdError1 == true) {
+
+            var header = document.getElementById("myDIV");
+            var btns = header.getElementsByClassName("profile-tab");
+            @*            for (var i = 0; i < btns.length; i++) {
+                btns[i].addEventListener("click", function () {
+                    var current = document.getElementsByClassName("border-bottom");
+                    current[0].className = current[0].className.replace(" border-bottom", "");
+                    this.className += " border-bottom";
+                });
+            }*@
+
+            document.getElementById('addressinfo').style.display = "none";
+            document.getElementById('personalinfo').style.display = "none";
+            document.getElementById('employerinfo').style.display = "none";
+            document.getElementById('accountdetail').style.display = "block";
+            document.getElementById("first").classList.remove('border-bottom');
+            document.getElementById("three").classList.remove('border-bottom');
+            document.getElementById("second").classList.remove('border-bottom');
+            document.getElementById("four").classList.add('border-bottom');
+            @* document.getElementById("page-four").style.display = "none";
+            document.getElementById("page-four-tick").style.display = "block";*@
+            document.getElementById("page-three").style.display = "none";
+            document.getElementById("page-three-tick").style.display = "block";
+        }
+
+    }
+
+
+    $(document).ready(function () {
+        var dtToday = new Date();
+        var month = dtToday.getMonth() + 1;
+        var day = dtToday.getDate();
+        var year = dtToday.getFullYear();
+        if (month < 10)
+            month = '0' + month.toString();
+        if (day < 10)
+            day = '0' + day.toString();
+        var maxDate = year + '-' + month + '-' + day;
+        $('#txtDateOfBirth').attr('max', maxDate);
+    });
+
+    function validate1() {
+
+        var txtFirstName = $('#txtFirstName').val();
+        var txtLastName = $('#txtLastName').val();
+        var txtNinNo = $('#txtNinNo').val();
+        var txtDateOfBirth = $('#txtDateOfBirth').val();
+        var txtGender = gender;
+
+        if (txtFirstName == '' || txtFirstName == "" || txtFirstName == null) {
+            usernameError1 = false;
+            $('#txtFirstNameError').show();
+            $('#txtFirstNameError').text("Please enter your first name");
+        }
+        else {
+            if (txtFirstName.length < 2) {
+                $('#txtFirstNameError').show();
+                $('#txtFirstNameError').text("Please enter atleast 2 characters");
+                usernameError1 = false;
+            } else {
+                    usernameError1 = true;
+                    $('#txtFirstNameError').hide();
+                validateString(txtFirstName);
+            }
+
+        }
+        if (txtNinNo == '' || txtNinNo == "" || txtNinNo == null) {
+            $('#txtNinNoError').show();
+            $('#txtNinNoError').text("Please enter your NIN number.");
+            NinNoError1 = false;
+        } else {
+            if (txtNinNo.length < 11) {
+                $('#txtNinNoError').show();
+                $('#txtNinNoError').text("Please enter 11 digit NIN number");
+                NinNoError1 = false;
+            }
+            else if (txtNinNo == "00000000000") {
+                $('#txtNinNoError').show();
+                $('#txtNinNoError').text("NIN number is not valid");
+                NinNoError = false;
+            }
+            else {
+                NinNoError1 = true;
+                $('#txtNinNoError').hide();
+            }
+
+
+        }
+        if (txtDateOfBirth == '' || txtDateOfBirth == "" || txtDateOfBirth == null) {
+            $('#txtDateOfBirthError').show();
+            DateOfBirthError1 = false;
+        } else {
+            DateOfBirthError1 = true;
+            $('#txtDateOfBirthError').hide();
+
+            //if (ValidateDOB(txtDateOfBirth) == true) {
+            //    DateOfBirthError1 = true;
+            //    $('#txtDateOfBirthError').hide();
+            //}
+            //else {
+            //    DateOfBirthError1 = false;
+            //    $('#txtDateOfBirthError').hide();
+            //}
+        }
+        if (txtGender == '' || txtGender == "" || txtGender == null || txtGender === "Select") {
+            $('#ddlGenderError').show();
+            GenderError1 = false;
+        } else {
+            GenderError1 = true;
+            $('#ddlGenderError').hide();
+        }
+        if (txtLastName == '' || txtLastName == "" || txtLastName == null && txtFirstName.length < 2) {
+            $('#txtLastNameError').show();
+            $('#txtLastNameError').text("Please enter your last name.");
+            LastNameError1 = false;
+        } else {
+            if (txtLastName.length < 2) {
+                $('#txtLastNameError').show();
+                $('#txtLastNameError').text("Please enter atleast 2 characters");
+                LastNameError1 = false;
+            } else {
+                LastNameError1 = true;
+                $('#txtLastNameError').hide();
+                LastNameValidate(txtLastName);
+            }
+        }
+    }
+
+    function validate2() {
+        var txtState = state;
+        var txtCity = city;
+        var txtCountry = country;
+        var txtAddress = $('#txtAddress').val();
+        var txtPostalCode = $('#txtPostalCode').val();
+        if (txtCountry == '' || txtCountry == "" || txtCountry == null || txtCountry === "Please select country" || countryval == "") {
+            //$('#passcheck').show();
+            $('#ddlcountryError').show();
+            CountryError1 = false;
+            // return false;
+        } else {
+            $('#ddlcountryError').hide();
+            CountryError1 = true;
+            // return true;
+        }
+        if (txtState == '' || txtState == "" || txtState == null || state === "Please select State" || stateval == "") {
+            //$('#passcheck').show();
+            $('#ddlStateError').show();
+            StateError1 = false;
+            // return false;
+        } else {
+            // $('#passcheck').hide();
+            StateError1 = true;
+            $('#ddlStateError').hide();
+            // return true;
+        }
+        if (txtCity == '' || txtCity == "" || txtCity == null || txtCity === "Please select city" || cityval == "") {
+            //$('#passcheck').show();
+            $('#ddlCityError').show();
+            CityError1 = false;
+            // return false;
+        } else {
+            // $('#passcheck').hide();
+            CityError1 = true;
+            $('#ddlCityError').hide();
+            // return true;
+        }
+        if (txtAddress == '' || txtAddress == "" || txtAddress == null) {
+            $('#txtAddressError').show();
+            $('#txtAddressError').text(" Please enter your addess.");
+            AddressError1 = false;
+            // return false;
+        } else {
+
+            if (txtAddress.length < 10) {
+                $('#txtAddressError').show();
+                $('#txtAddressError').text("Please enter atleast 10 characters");
+                AddressError1 = false;
+            } else {
+                AddressError1 = true;
+                $('#txtAddressError').hide();
+               // validateString(txtAddress);
+            }
+
+            // $('#passcheck').hide();
+            //AddressError = true;
+            //$('#txtAddressError').hide();
+            // return true;
+        }
+        if (txtPostalCode != "") {
+            if (txtPostalCode.length < 6) {
+                $('#txtPostalCodeError').show();
+                $('#txtPostalCodeError').text("Please enter 6 digit");
+                PostalCodeError1 = false;
+            }
+            else {
+                PostalCodeError1 = true;
+                $('#txtPostalCodeError').hide();
+            }
+        } else {
+            PostalCodeError1 = true;
+            $('#txtPostalCodeError').hide();
+        }
+    }
+
+    function validate3() {
+        var txtStaffId = $("#txtStaffId").val();
+        if (employerName == '' || employerName == "" || employerName == null || employerName == "Please select employer" || employerId == "") {
+            //$('#passcheck').show();
+            $('#ddlEmployerError').show();
+            $('#ddlEmployerError').text("Please select employer.");
+            EmployerNameError1 = false;
+            // return false;
+        } else {
+            $('#ddlcountryError').hide();
+            EmployerNameError1 = true;
+            // return true;
+        }
+        if (txtStaffId == '' || txtStaffId == "" || txtStaffId == null) {
+            //$('#passcheck').show();
+            $('#txtStaffIdError').show();
+            $('#txtStaffIdError').text("Please enter staff id.");
+            StaffIdError1 = false;
+            // return false;
+        } else {
+            // $('#passcheck').hide();
+            StaffIdError1 = true;
+            $('#txtStaffIdError').hide();
+            // return true;
+        }
+    }
+
+    function validate4() {
+        var txtAccountNumber = $("#txtAccountNumber").val();
+        var txtBVN = $("#txtBVN").val();
+       // var txtCustomerId = $("#txtCustomerId").val();
+        var txtBankAccountHolderName = $("#txtBankAccountHolderName").val();
+
+        if (bankName == '' || bankName == "" || bankName == null || bankName == "Please select bank") {
+            //$('#passcheck').show();
+            $('#ddlBankError').show();
+            $('#ddlBankError').text("Please select bank.");
+            BankNameError1 = false;
+            // return false;
+        } else {
+            $('#ddlBankError').hide();
+            BankNameError1 = true;
+            // return true;
+        }
+        if (txtAccountNumber == '' || txtAccountNumber == "" || txtAccountNumber == null) {
+            //$('#passcheck').show();
+            $('#txtAccountNumberError').show();
+            $('#txtAccountNumberError').text("Please enter account number.");
+            AccountNumberError1 = false;
+            // return false;
+        } else {
+            // $('#passcheck').hide();
+            AccountNumberError1 = true;
+            $('#txtAccountNumberError').hide();
+            // return true;
+        }
+        if (txtBVN == '' || txtBVN == "" || txtBVN == null) {
+            //$('#passcheck').show();
+            $('#txtBVNError').show();
+            $('#txtBVNError').text("Please enter BVN.");
+            BVNError1 = false;
+            // return false;
+        } else {
+            // $('#passcheck').hide();
+            BVNError1 = true;
+            $('#txtBVNError').hide();
+            // return true;
+        }
+        //if (txtCustomerId == '' || txtCustomerId == "" || txtCustomerId == null) {
+        //    //$('#passcheck').show();
+        //    $('#txtCustomerIdError').show();
+        //    $('#txtCustomerIdError').text("Please enter customer id.");
+        //    customerIdError = false;
+        //    // return false;
+        //} else {
+        //    // $('#passcheck').hide();
+        //    customerIdError = true;
+        //    $('#txtCustomerIdError').hide();
+        //    // return true;
+        //}
+        if (txtBankAccountHolderName == '' || txtBankAccountHolderName == "" || txtBankAccountHolderName == null) {
+            //$('#passcheck').show();
+            $('#txtBankAccountHolderNameError').show();
+            $('#txtBankAccountHolderNameError').text("Please enter account holder name.");
+            BankAccountHolderNameError1 = false;
+            // return false;
+        } else {
+            // $('#passcheck').hide();
+            BankAccountHolderNameError1 = true;
+            $('#txtBankAccountHolderNameError').hide();
+            // return true;
+        }
+    }
+
+
+
+    $('#ddlGender').change(function () {
+
+        var value = $('select#ddlGender option:selected').val();
+        gender = $('select#ddlGender option:selected').text();
+    });
+
+    $('#ddlcountry').change(function () {
+
+        if (isCountrySelected == true) {
+            $('#ddlState').empty();
+            $('#ddlCity').empty();
+            state = '';
+            city = ''
+            //$('select#ddlState option:selected').text('');
+            //$('select#ddlCity option:selected').text('');
+        }
+        isCountrySelected = true;
+
+        countryval = $('select#ddlcountry option:selected').val();
+        country = $('select#ddlcountry option:selected').text();
+
+    });
+    $('#ddlState').change(function () {
+        if (isStateSelected1 == true) {
+            $('#ddlCity').empty();
+            city = ''
+        }
+        isStateSelected1 = true;
+        stateval = $('select#ddlState option:selected').val();
+        state = $('select#ddlState option:selected').text();
+
+    });
+
+    $('#ddlCity').change(function () {
+
+        cityval = $('select#ddlCity option:selected').val();
+        city = $('select#ddlCity option:selected').text();
+
+    });
+
+    $('#ddlEmployer').change(function () {
+        employerId = $('select#ddlEmployer option:selected').val();
+        employerName = $('select#ddlEmployer option:selected').text();
+    });
+
+    $('#ddlBank').change(function () {
+        bankId = $('select#ddlBank option:selected').val();
+        bankName = $('select#ddlBank option:selected').text();
+    });
+
+    function ValidateDOB(dateString) {
+
+
+        var lblError = $("#lblError");
+        var parts = dateString.split("-");
+        var dtDOB = new Date(parts[2] + "/" + parts[1] + "/" + parts[0]);
+        var dtCurrent = new Date();
+        lblError.html("Age must be 18 years")
+
+
+        var date = new Date(dateString);
+
+        if (dtCurrent.getFullYear() - date.getFullYear() < 18) {
+            IsAgeValid = false;
+            return false;
+        }
+
+        if (dtCurrent.getFullYear() - dtDOB.getFullYear() == 18) {
+
+            //CD: 11/06/2018 and DB: 15/07/2000. Will turned 18 on 15/07/2018.
+            if (dtCurrent.getMonth() < dtDOB.getMonth()) {
+                return false;
+            }
+            if (dtCurrent.getMonth() == dtDOB.getMonth()) {
+                //CD: 11/06/2018 and DB: 15/06/2000. Will turned 18 on 15/06/2018.
+                if (dtCurrent.getDate() < dtDOB.getDate()) {
+                    return false;
+                }
+            }
+        }
+        lblError.html("");
+        return true;
+    }
+
+
+    function validateString(s) {
+        if (/^(\w+\s?)*\s*$/.test(s)) {
+            var data = s.replace(/\s+$/, '');
+            if (data === "") {
+                IsStringValid = false;
+            }
+            else {
+                IsStringValid = true;
+            }
+            return IsStringValid;
+        }
+        else {
+            IsStringValid = false;
+            return IsStringValid;
+        }
+
+    }
+    function LastNameValidate(s) {
+        if (/^(\w+\s?)*\s*$/.test(s)) {
+            var data = s.replace(/\s+$/, '');
+            if (data === "") {
+                IsStringValid1 = false;
+            }
+            else {
+                IsStringValid1 = true;
+            }
+            return IsStringValid1;
+        }
+        else {
+            IsStringValid1 = false;
+            return IsStringValid1;
+        }
+
+    }
+    //function validateStringAdd(s) {
+    //    if (/^(\w+\s?)*\s*$/.test(s)) {
+    //        var data = s.replace(/\s+$/, ' ');
+    //        if (data === "") {
+    //            IsStringValid = false;
+    //        }
+    //        else {
+    //            IsStringValid = true;
+    //        }
+    //        return IsStringValid;
+    //    }
+    //    else {
+    //        IsStringValid = false;
+    //        return IsStringValid;
+    //    }
+
+    //}
+    $(function () {
+        $('#txtStaffId').on('keypress', function (e) {
+            if (e.which == 32) {
+               // alert('Space not allowed');
+                return false;
+            }
+        });
+    });
+
+    $(function () {
+        $('#txtCustomerId').on('keypress', function (e) {
+            if (e.which == 32) {
+                // alert('Space not allowed');
+                return false;
+            }
+        });
+    });
+
+
+    $(function () {
+        $('#txtFirstName').on('keypress', function (e) {
+            if (event.target.value.substr(-1) === ' ' && event.code === 'Space') {
+                return false;
+            }
+        });
+    });
+
+    $(function () {
+        $('#txtMiddleName').on('keypress', function (e) {
+            if (event.target.value.substr(-1) === ' ' && event.code === 'Space') {
+                return false;
+            }
+        });
+    });
+    $(function () {
+        $('#txtLastName').on('keypress', function (e) {
+            if (event.target.value.substr(-1) === ' ' && event.code === 'Space') {
+                return false;
+            }
+        });
+    });
+    $(function () {
+        $('#txtAddress').on('keypress', function (e) {
+            if (event.target.value.substr(-1) === ' ' && event.code === 'Space') {
+                return false;
+            }
+        });
+    });
+
+    //function checkstuff(event) {
+    //    if (event.target.value.substr(-1) === ' ' && event.code === 'Space') {
+    //        console.log('space pressed in sequence');
+    //    }
+    //}
+    $(function () {
+        $('#txtBankAccountHolderName').on('keypress', function (e) {
+            if (event.target.value.substr(-1) === ' ' && event.code === 'Space') {
+                return false;
+            }
+        });
+    });
+
+</script>

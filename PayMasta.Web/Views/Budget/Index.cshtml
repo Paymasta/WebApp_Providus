@@ -1,0 +1,198 @@
+﻿
+@{
+    ViewBag.Title = "Manage Budget";
+}
+
+<script src="~/Content/js/Budget/BudgetJs.js"></script>
+@*<link href="~/Content/css/ManageFinance/managefinance.css" rel="stylesheet" />*@
+<link href="~/Content/css/CongratulationModalCss/contrats.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="~/Content/css/Budget/BudgetPage.css" rel="stylesheet" />
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+@*<div class="viewdata" id="">
+
+        <p>Create Budget & Manage Budget</p>
+        <button>Create Budget</button>
+    </div>*@
+
+<div class="transaction">
+    <div class="trans_text">
+        @*Manage Budget*@
+    </div>
+    <div id="transactionfilterIncon">
+
+        @*<img class="image" src="~/Content/images/vuesax-bold-filter.svg" />*@
+        <button class="submitdata" id="btnCreateBudget">Create Budget</button>
+    </div>
+</div>
+
+<div class="finance_back">
+
+    <div class="container-fluid finance_account ">
+        <div class="row finance_main">
+
+            <div class="col-md-6 col-sm-12 finance_pad">
+                <h1>Expenses</h1>
+                <div class="row first_sec">
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div style="height:180px">
+                            <canvas id="myChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12 piechart-side-content" id="divServiceData">
+                        <p></p>
+                        <p class=" recharge_text travel">AIRTIME</p>
+                        <p class="text_green" style="color: #F66847 !important" id="txtAIRTIME"></p>
+                        <p class="recharge_text" i>TV</p>
+                        <p class="text_blue" style="color: #53D17A !important" id="txtTV"></p>
+                        <p class="recharge_text">DATA</p>
+                        <p class="text_red" style="color: #01F9C6 !important" id="txtDATA"></p>
+                        <p class="recharge_text">INTERNET</p>
+                        <p class="text_red" style="color: #3EA4FF !important" id="txtINTERNET"></p>
+                        <p class="recharge_text">POWER</p>
+                        <p class="text_red" style="color: #151B54 !important" id="txtPOWER"></p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="col-md-6 col-sm-12 finance_pad">
+                <h1>Budget</h1>
+                <div class="row first_sec">
+
+
+                    <div class="col-md-6 col-sm-6 col-xs-12 piechart-side-content" id="divServiceData">
+                        <p class=" recharge_text travel" style="font-weight:bold;font-size:medium">Services & Budget Amount</p>
+                        <p class=" recharge_text travel">AIRTIME</p>
+                        <p class="text_green" style="color: #F66847 !important" id="txtAIRTIMEBudget"></p>
+                        <p class="recharge_text" i>TV</p>
+                        <p class="text_blue" style="color: #53D17A !important" id="txtTVBudget"></p>
+                        <p class="recharge_text">DATA</p>
+                        <p class="text_red" style="color: #01F9C6 !important" id="txtDATABudget"></p>
+                        <p class="recharge_text">INTERNET</p>
+                        <p class="text_red" style="color: #3EA4FF !important" id="txtINTERNETBudget"></p>
+                        <p class="recharge_text">POWER</p>
+                        <p class="text_red" style="color: #151B54 !important" id="txtPOWERBudget"></p>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div style="height:180px">
+                            <div class="col-md-6 col-sm-6 col-xs-12 piechart-side-content" id="divServiceData">
+                                <p class=" recharge_text travel" style="font-weight:bold;font-size:medium">Spend Amount</p>
+                                <p class=" recharge_text travel">AIRTIME</p>
+                                <p class="text_green" style="color: #F66847 !important" id="txtAIRTIMEUsedBudget"></p>
+                                <p class="recharge_text" i>TV</p>
+                                <p class="text_blue" style="color: #53D17A !important" id="txtTVUsedBudget"></p>
+                                <p class="recharge_text">DATA</p>
+                                <p class="text_red" style="color: #01F9C6 !important" id="txtDATAUsedBudget"></p>
+                                <p class="recharge_text">INTERNET</p>
+                                <p class="text_red" style="color: #3EA4FF !important" id="txtINTERNETUsedBudget"></p>
+                                <p class="recharge_text">POWER</p>
+                                <p class="text_red" style="color: #151B54 !important" id="txtPOWERUsedBudget"></p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+            @*<div class="col-md-3 col-sm-12 average_sec">
+                    <div class="second-sec">
+                        <p class="text">Average Spend Per Day</p>
+                        <div class="num_text" id="avgSpendPerDay"></div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-12  average_sec">
+                    <div class="second-sec">
+                        <p class="text">Okay to Spend</p>
+                        <div class="num_text" id="okSpend"></div>
+                    </div>
+                </div>*@
+        </div>
+
+
+    </div>
+
+    @*--------------------------new block---------------------*@
+
+    <div class="container-fluid finance_account ">
+        <div class="row finance_main">
+
+            <div class="col-md-12 col-sm-12 finance_pad">
+                <h1>Daily expenses</h1>
+                <div class="row first_sec">
+                    @*<div class="col-md-6 col-sm-6 col-xs-12">
+                        <div style="height:180px">
+                            <canvas id="lineChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-12">
+                        <div style="height:180px">
+                            <canvas id="barChart"></canvas>
+                        </div>
+                    </div>*@
+                    <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+                </div>
+
+            </div>
+
+           
+        </div>
+
+
+    </div>
+
+</div>
+
+<div class="modal" tabindex="-1" id="budgetModal" aria-labelledby="exampleModalCenterTitle">
+    <div class="modal-dialog ">
+        <div class="modal-content">
+            <div class="loader" id="Budgetloader1"></div>
+            <div class="modal-header">
+                <h3 class="modal-title">Create Budget</h3>
+                <div data-dismiss="modal" class="airtime-close-btn-container">
+                    <img src="~/Content/images/close.svg" id="BtnCloseAirtime" />
+
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="midguard">
+                    <div class="row">
+                        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xl-offset-1 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
+                            <div class="infodata">
+                                @* <label for="" class="label">Operator Name</label>*@
+                                <div>
+                                    @*<input type="text" placeholder="Enter your operator name">*@
+                                    <select id="budgetServices" class="operator">
+                                        <option value="">Select Category</option>
+                                    </select>
+                                    <span style="color:red" class="form-validations-error" id="BudgetCategoryError"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row padding-top">
+                        <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 col-xl-offset-1 col-lg-offset-1 col-md-offset-1 col-sm-offset-1">
+                            <div class="infodata">
+                                @* <label for="" class="label">Amount</label>*@
+                                <div>
+                                    <input type="text" placeholder="Amount" id="txtBudgetAmount" maxlength="9">
+                                    <span style="color:red" class="form-validations-error" id="txtBudgetAmountError"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+
+                <button class="submitdata" id="btnSaveBudget">Save Budget</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

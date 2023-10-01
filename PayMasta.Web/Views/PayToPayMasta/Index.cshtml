@@ -1,0 +1,214 @@
+﻿
+@{
+    ViewBag.Title = "Pay to PayMasta";
+}
+<script src="~/Content/js/EmployerJs/PayToPayMasta.js"></script>
+<link href="~/Content/css/Employer/paytopaymasta.css" rel="stylesheet" />
+<div class="main_div">
+    <div class="sec_div">
+
+        <div class="drop_down">
+            <div class="drop_select">
+                <select class="paytopaymasta-status" id="ddlStatus">
+                    <option value="-1">All</option>
+                    <option value="1">Paid</option>
+                    <option value="0">Unpaid</option>
+
+                </select>
+            </div>
+
+            <div class="date_option">
+                <div class="date_from">
+                    From
+                    <span style="display: inline-block; position: relative">
+                        <input type="text" class="to_date" placeholder="MM/DD/YYYY" id="txtFromDate">
+                        <i class="fa fa-calendar-check-o calender" aria-hidden="true" id="calender_from"></i>
+                    </span>
+                    <div>
+                        <span id="fromdateError" style="color:red"></span>
+                    </div>
+                </div>
+
+                <div class="date_from">
+                    <span class="">TO</span>
+                    <span style="display: inline-block; position: relative">
+                        <input type="text" class="to_date" id="txtEnddate" placeholder="MM/DD/YYYY">
+                        <i class="fa fa-calendar-check-o calender" aria-hidden="true" id="calender_to"></i>
+                    </span>
+                    <div>
+                        <span id="TodateError" style="color:red"></span>
+                    </div>
+
+                </div>
+                <div>
+                    <button type="button" class="reset" id="btnReset">Reset</button>
+                </div>
+                <div>
+                    <button type="button" class="filter" id="btnFilter">Fliter</button>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <div class="tab_data">
+            <div class="tab_data1">
+                <div class="main_transaction">
+                    <div class="text">
+                        EWA history
+                    </div>
+                    <div class="sec_transaction">
+                        <div>
+                            <button type="button" class="csvexport" id="btnDownloadInvoice">Invoice</button>
+                        </div>
+                        <div>
+                            <button type="button" class="csvexport" id="btnExportToCSV">Export To CSV</button>
+                        </div>
+                        <div class="search_icon">
+                            <input type="search" placeholder="Search" class="search" id="employeeSearch">
+                            <img class="search-img" src="~/Content/images/Employer/search-line.svg" alt="">
+                        </div>
+                        <div>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="table-overflow">
+                    <table class="paytopaymasta-table">
+                        <tr>
+                            @*<th>
+            <input type="checkbox" class="pay-to-paymasta-check" id="checkAll">
+        </th>*@
+                            <th class="paytopaymasta-table-heading">S.No</th>
+                            <th class="paytopaymasta-table-heading">Name</th>
+                            <th class="paytopaymasta-table-heading">Staff Id</th>
+                            <th class="paytopaymasta-table-heading">Phone Number</th>
+                            <th class="paytopaymasta-table-heading">Email Id</th>
+                            <th class="paytopaymasta-table-heading">Accessed Amount</th>
+                            <th class="paytopaymasta-table-heading">Commission Amount</th>
+                            <th class="paytopaymasta-table-heading">Total Amount</th>
+                            <th class="paytopaymasta-table-heading">Date</th>
+                            <th class="paytopaymasta-table-heading">Status</th>
+                        </tr>
+                        @*<tr>
+                            <td>
+                                <input type="checkbox" class="pay-to-paymasta-check" id="checkAll">
+                            </td>
+                            <td>1</td>
+                            <td>Alex Deo</td>
+                            <td>PM6789</td>
+                            <td>+919876543210</td>
+                            <td>alex.deo45@gmail.com</td>
+                            <td>₦100,00</td>
+                            <td>13/05/2022</td>
+                            <td>Paid</td>
+                        </tr>*@
+                        <tbody id="userList">
+                        </tbody>
+                    </table>
+                </div>
+                <div class="card" id="noRecordFound1">
+                    <div class="card-body" style="text-align:center">
+                        No record found.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="pagination">
+            <ul id="emplyr_pagination" class="pagination"></ul>
+        </div>
+       
+        @*<div class="lower-button">
+            <div class="space-right">
+                <button class="approve-btn" type="button" id="btnShowPayModal">Pay to PayMasta</button>
+            </div>
+           
+        </div>*@
+    </div>
+
+</div>
+
+<div class="modal fade" id="employerPaymentDetails" data-backdrop="static">
+    <div class="modal-dialog my-0">
+        <div class="modal-content">
+            <div class="text-center employerPaymentDetails-body-content">
+                <div class="heading-container">
+                    <div class="heading py-4 m-auto">Payment Details</div>
+                    <img src="~/Content/images/close.png" width="19" height="19" data-dismiss="modal" class="add-bank-acc-close-btn" />
+                    @*                                <img src="./close.png" alt="" width="19" height="19" data-bs-dismiss="modal" class="add-bank-acc-close-btn">
+                    *@
+                </div>
+
+                <form action="" class="">
+                    <div class="employerPaymentDetails-input-container">
+                        <label for="" class="label">Account holder name</label>
+                        <div>
+                            <input type="text" class="employerPaymentDetails-input-text" placeholder="Enter Account Holder Name" id="txtAccountHolderName"/>
+                        </div>
+                    </div>
+                    <div class="employerPaymentDetails-input-container">
+                        <label for="" class="label">Account Number</label>
+                        <div class="position-relative">
+                            <input type="text" class="employerPaymentDetails-input-text" placeholder="Enter Account Number" id="txtAccountNumber"  maxlength="17" oninput="this.value = this.value.replace(/[^0-9]/g, '');"/>
+                        </div>
+                    </div>
+                    <div class="employerPaymentDetails-input-container">
+                        <label for="" class="label">BVN</label>
+                        <div class="position-relative">
+                            <input type="text" class="employerPaymentDetails-input-text" placeholder="Enter your BVN code" id="txtBvnNumber"  maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '');"/>
+                        </div>
+                    </div>
+
+                    <div class="total-amount-container">
+                        <div class="total-detail-container">
+                            <div class="font-color">No.Of Transactions</div>
+                            <div class="paytopaymasta-employees" id="divTotalUser"></div>
+                        </div>
+                        <div class="border-divider"></div>
+                        <div class="total-detail-container">
+                            <div class="font-color">Total Amount</div>
+                            <div class="paytopaymasta-amount" id="divPayableAmt"></div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="employerPaymentDetails-btn-container">
+                        @*<div class="request-btn py-2 text-light" data-toggle="modal" data-target="#financeContratsModal" id="financePayBtn">Pay</div>*@
+                        <button class="pay-request-btn py-2 text-light" type="button" id="btnPayToPayMasta">Pay</button>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+  
+</div>
+
+
+@*Payment to PayMasta successfully done popup*@
+
+<div class="modal fade" id="paytopaymastaSuccess" data-backdrop="static">
+    <div class="modal-dialog my-0">
+        <div class="modal-content">
+            <div class="text-center employerPaymentDetails-body-content">
+                @*         <div class="heading-container">
+                        <img src="~/Content/images/close.png" width="19" height="19" data-dismiss="modal" class="add-bank-acc-close-btn" />
+
+                    </div>*@
+
+                <div class="employerPaymentDetails-btn-container">
+                    @*<div class="request-btn py-2 text-light" data-toggle="modal" data-target="#financeContratsModal" id="financePayBtn">Pay</div>*@
+                    <div class="paytopaymasta-success-content">Your Payment to PayMasta has been<br />successfully done</div>
+                    <button class="pay-request-btn py-2 text-light" type="button" data-dismiss="modal">Okay</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

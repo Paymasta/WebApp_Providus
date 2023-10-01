@@ -1,0 +1,297 @@
+﻿@*<img src="/Content/images/Spinner-3.gif" style="position: absolute;top: 50%;left: 50%;transform: translate(-50%,-50%);">*@
+<div class="loader" id="loader1"></div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+@*<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">*@
+<link href="~/Content/css/HeaderCss/header.css" rel="stylesheet" />
+<script>
+    $(document).ready(function () {
+        window.onpopstate = function (event) {
+
+            alert("location: " + document.location + ", state: " + JSON.stringify(event.state));
+        };
+    });
+
+</script>
+@{
+    try
+    {
+        var users = (PayMasta.Web.Models.CustomPrincipal)(HttpContext.Current.User);
+        var data = users;
+    <header class="main-header">
+        @* BEGIN Logo *@
+        <link href="~/Content/css/skins/skin-blue.css" rel="stylesheet" />
+        <link href="~/Content/Loader/Loader.css" rel="stylesheet" />
+
+        @if (users.RoleId == 4)
+        {
+            <a href="@Url.Action("Index", "Home")" class="logo">
+                @* Mini logo for sidebar 50x50 pixels *@
+                <span class="logo-mini">
+
+                    <img src="~/Content/images/paymasta-test-logo.png" />
+                </span>
+
+                <span class="logo-lg">
+                    <img src="~/Content/images/pay-master-logo.png" alt="" style="width: 72px; height: 40px; margin-top: 0px !important" />
+                </span>
+            </a>
+        }
+        @if (users.RoleId == 5)
+        {
+            <a href="@Url.Action("Index", "VendorDashboard")" class="logo">
+                @* Mini logo for sidebar 50x50 pixels *@
+                <span class="logo-mini">
+
+                    <img src="~/Content/images/paymasta-test-logo.png" />
+                </span>
+
+                <span class="logo-lg">
+                    <img src="~/Content/images/pay-master-logo.png" alt="" style="width: 72px; height: 40px; margin-top: 0px !important" />
+                </span>
+            </a>
+        }
+        else
+        {
+            <a href="@Url.Action("Index", "EmployerDashbord")" class="logo">
+                @* Mini logo for sidebar 50x50 pixels *@
+                <span class="logo-mini">
+
+                    <img src="~/Content/images/paymasta-test-logo.png" />
+                </span>
+                @* Logo for regular state and mobile devices *@
+                @*<span class="logo-lg"><b>Admin</b>LTE</span>*@
+                <span class="logo-lg">
+
+                    <img src="~/Content/images/pay-master-logo.png" alt="" style="width: 72px; height: 40px; margin-top: 0px !important" />
+
+                </span>
+            </a>
+        }
+
+
+
+        @* END Logo *@
+        @* BEGIN Header *@
+        @* BEGIN Header *@
+
+        @*loader*@
+        @*<div class="row">
+
+            <div class="col-md-3 bg">
+                <div class="loader" id="loader-1"></div>
+            </div>
+        </div>*@
+
+
+        <nav class="navbar navbar-static-top" role="navigation">
+            <a href="#" class="sidebar-toggle" data-toggle="push-menu" role="button" style="color: #464646 !important">
+                <span class="sr-only">Toggle navigation</span>
+            </a>
+            <div class="navbar-custom-menu">
+                <ul class="nav navbar-nav">
+                    @* BEGIN Messages *@
+                    <li class="dropdown messages-menu">
+                        @*<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-envelope-o"></i>
+                            <span class="label label-success">4</span>
+                        </a>*@
+                        <ul class="dropdown-menu">
+                            <li class="header">You have 4 messages</li>
+                            <li>
+                                <ul class="menu">
+                                    <li>
+                                        <a href="#">
+                                            <div class="pull-left">
+                                                <img src="" class="img-circle" alt="User Image">
+
+                                            </div>
+                                            <h4>
+                                                Support Team
+                                                <small><i class="fa fa-clock-o"></i> 5 mins</small>
+                                            </h4>
+                                            <p>Why not buy a new awesome theme?</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="footer"><a href="#">See All Messages</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="" class="" data-toggle="modal" data-target="#headerHelpModal">
+                            @* <img src="~/Content/images/Employer/question-mark.png" alt="" width="14" height="14" />*@
+                            <i class="fa fa-question-circle help-icon" aria-hidden="true"></i>
+                        </a>
+
+                    </li>
+                    @* END Messages *@
+                    @* BEGIN Notifications *@
+                    <li class="dropdown notifications-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="btnReadMessage">
+                            <div style="position: relative">
+                                <i class="fa fa-bell-o"></i>
+
+                                @*<span class="label label-warning" id="spnCount"></span>*@
+                                <div class="label-warning" id="IsShowCountInRed"></div>
+                            </div>
+
+                        </a>
+
+                        <div class="dropdown-menu notification-menu-height">
+                            <div class="notification-heading-container">
+                                <div style="color: #464646; margin: auto; font-weight: bold">Notifications</div>
+                                <img src="~/Content/images/close.png" alt="" class="cursor-pointer" />
+                            </div>
+
+
+
+                            <div id="divNotifications">
+
+                            </div>
+                            <div class="card" id="noRecordFound">
+                                <div class="card-body" style="text-align: center; margin-top: 69px">
+                                    No record found.
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    @* END Notifications *@
+                    @* BEGIN Tasks *@
+
+                    @* END Tasks *@
+                    @* BEGIN User Account Menu *@
+                    <li class="dropdown user user-menu">
+                        <a href="#" class="dropdown-toggle admin-profile-img-cintainer" data-toggle="dropdown">
+                            <img src="" class="user-image" alt="User Image">
+                            @*<span class="hidden-xs" id="spnHeaderName"></span>*@
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="mainBlock">
+                                <p class="mainTitle" style="font-weight: bold">Profile</p>
+                                <div class="closeIcon cursor-pointer">
+                                    <img src="~/Content/images/close.png" />
+
+                                </div>
+                            </li>
+
+
+                            <li class="notification-content">
+                                <div class="leftBlock" style="grid-column-gap: 8px;">
+                                    <div class="notification-profile-img">
+
+                                        <img src="~/Content/images/user-profile.png" />
+
+                                    </div>
+                                    @if (users.RoleId == 4)
+                                    {<div class="titleHead">
+                                            <a href="@Url.Action("MyProfile", "Account")">   My Profile</a>
+                                        </div>
+                                    }
+                                    else if (users.RoleId == 3)
+                                    {
+                                        <div class="titleHead">
+                                            <a href="@Url.Action("Index", "Profile")">   My Profile</a>
+                                        </div>
+                                    }
+                                </div>
+                                @* <div>
+
+                                    <img src="~/Content/images/right-arrow.svg" />
+                                </div>*@
+                            </li>
+                            <li class="notification-content">
+                                <div class="leftBlock" style="grid-column-gap: 8px;">
+                                    <div class="notification-profile-img">
+                                        <img src="~/Content/images/setting-img.svg" />
+
+                                    </div>
+                                    @if (users.RoleId == 4)
+                                    {
+                                        <div class="titleHead">
+                                            <a href="@Url.Action("ChangePassword", "Account")">Settings</a>
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="titleHead">
+                                            <a href="@Url.Action("ChangePassword", "Profile")">Settings</a>
+                                        </div>
+                                    }
+                                </div>
+                                @* <div>
+
+                                    <img src="~/Content/images/right-arrow.svg" />
+                                </div>*@
+                            </li>
+                            <li class="notification-content">
+                                <div class="leftBlock" style="grid-column-gap: 8px;">
+                                    <div class="notification-profile-img">
+                                        <img src="~/Content/images/logout-img.svg" />
+
+                                    </div>
+                                    @if (users.RoleId == 4)
+                                    {
+                                        <div class="titleHead">
+                                            <div id="btnLogout">Logout</div>
+                                            @*<a href="#">Logout</a>*@
+                                        </div>
+                                    }
+                                    else
+                                    {
+                                        <div class="titleHead">
+
+                                            @*<button type="button" id="btnEmployerLogout"> Logout</button>*@
+                                            <div id="btnEmployerLogout">Logout</div>
+
+                                            @*<a href="@Url.Action("LogoutEmployer","Account")">Logout</a>*@
+                                        </div>
+                                    }
+                                </div>
+                                @*<div>
+
+                                    <img src="~/Content/images/right-arrow.svg" />
+                                </div>*@
+                            </li>
+                        </ul>
+
+
+                    </li>
+                    @* END User Account Menu *@
+                    @* BEGIN Control Sidebar Toggle Button *@
+
+                    @* END Control Sidebar Toggle Button *@
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    }
+    catch
+    {
+
+    }
+}
+
+
+
+<div class="modal" aria-modal="true" role="dialog" id="headerHelpModal" data-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content position-absolute">
+            <div class="text-center">
+                <div class="help-modal-heading-container">
+                    <div class="heading py-4 m-auto">Help</div>
+
+                    <img src="~/Content/images/close.png" data-dismiss="modal" class="help-modal-close-btn cursor-pointer" width="19" height="19" style="position: absolute; top: 50%; right: 0.8rem; transform: translateY(-50%); padding-left: 0px !important" />
+                </div>
+                <img src="~/Content/images/help.png" style="padding-top: 1rem;" />
+                <p style="padding-bottom: 1rem; font-size: 14px">If you’d like to get in touch with us, please do write <br> us at <span class="help-popup-contact-detail">hello@paymasta.co</span> or call us on <br> <span class="help-popup-contact-detail">+234 (0) 903 5061 611</span>.</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+<script src="~/Content/js/Account/Account.js"></script>
+<script src="~/Content/js/Account/Header.js"></script>

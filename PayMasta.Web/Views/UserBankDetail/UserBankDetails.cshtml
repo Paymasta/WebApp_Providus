@@ -1,0 +1,64 @@
+﻿
+@{
+    ViewBag.Title = "User Bank Details";
+}
+<link href="~/Content/css/ViewUserbankDetailCss/ViewUserBakDetail.css" rel="stylesheet" />
+<link href="~/Content/css/ToggleButton.css" rel="stylesheet" />
+<script src="~/Content/js/EmployerJs/EmployeeBankDetail.js"></script>
+<div class="">
+    <ol class="top-section">
+        <li>
+            <a href="@Url.Action("Index","UserBankDetail")" class="color-text">
+                <img src="~/Content/images/Employer/arrow-left.png" />
+
+                Employees
+            </a>
+        </li>
+        <li class="list-active color-text">Employees Detail</li>
+    </ol>
+    <div class="employee-main" id="divEmployeeBanks">
+        <input type="hidden" id="UserId" name="" value="">
+        @*<div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="row left-column">
+                        <p class="para">
+                            <img src="~/Content/images/bank-logo.png" /><span class=" bank-name-padding">XYZ Bank</span>
+                        </p>
+                        <div class="col-md-6 col-sm-6 col-xs-6  name-data">
+
+
+                            <p class="para">Bank Account Holder Name</p>
+                            <p class="para">Customer Id</p>
+                            <p class="para"><input type="checkbox" /><label class="bank-name-padding">Is  Salary Account</label></p>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6  name-data1">
+                            <p class="para1" id="firstName">Lorem Ipsum</p>
+                            <p class="para1" id="lastName">12345</p>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div class="row left-column">
+                        <div class="col-md-6 col-sm-6 col-xs-6  name-data">
+                            <p class="para">Account Number</p>
+                            <p class="para">BVN Number</p>
+                            <p class="para">Bank Code</p>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6 name-data1">
+                            <p class="para1" id="middlename">123456789</p>
+                            <p class="para1" id="email">32629565276</p>
+                            <p class="para1" id="dob">BOB347</p>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+    </div>
+
+    <div class="card" id="user-no-record1">
+        <div class="card-body" style="text-align:center">
+            No record found.
+        </div>
+    </div>
+</div>
+

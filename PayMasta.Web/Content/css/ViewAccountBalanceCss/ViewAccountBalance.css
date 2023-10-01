@@ -1,0 +1,57 @@
+﻿
+.view-account-balance-container {
+    padding: 16px 18px;
+    width: 100% !important;
+    background: #FFFFFF;
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 9px;
+}
+
+.bank-name-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.bank-type-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+}
+
+.bankname {
+    margin-left: 10px;
+    color: #130F26;
+}
+
+.view-amount {
+    color: #130F26;
+    font-size: 32px;
+}
+
+.view-available-amount-txt {
+    color: #130F26;
+    font-size: 14px;
+    opacity: 0.5;
+}
+
+.view-saving-account {
+    color: #797979;
+    font-size: 14px;
+}
+
+.view-account-number {
+    color: #32A4FF;
+    font-weight: bold;
+}
+
+.view-balance-hr {
+    border: 0.5px solid #00000029;
+}
+
+@media (min-width: 576px) {
+    .view-account-balance-container {
+        width: 335px !important;
+    }
+}

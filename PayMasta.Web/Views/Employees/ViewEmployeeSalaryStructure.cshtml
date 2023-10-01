@@ -1,0 +1,139 @@
+﻿
+@{
+    ViewBag.Title = "View Employee Salary Structure";
+}
+<link href="~/Content/css/Employer/emloyeesalary.css" rel="stylesheet" />
+<div class="main_div">
+    @*<div class="top-section">
+        <img src="./images/arrow-left.png" alt="">
+        <div>
+            <span class="color-text">Employees</span><a href="@Url.Action("Index","Employees")"><span class="color-text">/ Employees Detail /</span></a><span class="text-size">
+                Employee
+                Salary Structure
+            </span>
+        </div>
+    </div>*@
+
+    <ol class="top-section">
+        <li>
+            <img src="~/Content/images/Employer/arrow-left.png" />
+            Employees
+        </li>
+        <li>
+            <a href="@Url.Action("Index","Employees")">
+                Employees Detail
+            </a>
+        </li>
+        <li class="list-active">Employee Salary Structure</li>
+    </ol>
+    <div class="tab_data">
+        <div class="tab_data1">
+            <div class="main_transaction">
+                <div class="text1">
+                    Salary Structure
+                </div>
+                <div class="date_option">
+                    <div class="date_from">
+                        From
+                        <input type="date" class="to_date">
+                    </div>
+                    <div class="date_from">
+                        To
+                        <input type="date" class="to_date">
+                    </div>
+                    <div>
+                        <button class="reset">Reset</button>
+                    </div>
+                    <div>
+                        <button class="filter">Filter</button>
+                    </div>
+                </div>
+            </div>
+            <div class="hour-limit">
+                <div class="first-schedule">
+                    @* <img class="hour-img" src="./images/alarm-line.svg" alt="">*@
+                    <img src="~/Content/images/Employer/alarm-line.svg" alt="" class="hour-img" width="24" height="24" />
+                    <span class="hour-worked">20 Hours Worked</span>
+                </div>
+                <div class="schedule">
+                    <div class="first-schedule">
+                        @* <img class="hour-img" src="./images/timer-2-line.svg" alt="">*@
+                        <img src="~/Content/images/Employer/timer-2-line.svg" alt="" class="hour-img" width="24" height="24" />
+                        <span class="hour-schedule">10 Hours more Scheduled</span>
+                    </div>
+                    <div>
+                        <button class="csvexport">Export To CSV</button>
+                    </div>
+                </div>
+
+            </div>
+            <div class="table-overflow">
+                <table>
+                    <tr>
+                        <th>S.No</th>
+                        <th>Date</th>
+                        <th>Working Time</th>
+                        <th>Amount</th>
+                    </tr>
+                    <tr>
+                        <td>1</td>
+                        <td>15/06/2022</td>
+                        <td>5:30</td>
+                        <td class="text-class">₦100,00</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>15/06/2022</td>
+                        <td>5:30</td>
+                        <td class="text-class">₦100,00</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>15/06/2022</td>
+                        <td>5:30</td>
+                        <td class="text-class">₦100,00</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>15/06/2022</td>
+                        <td>5:30</td>
+                        <td class="text-class">₦100,00</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>15/06/2022</td>
+                        <td>5:30</td>
+                        <td class="text-class">₦100,00</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>15/06/2022</td>
+                        <td>5:30</td>
+                        <td class="text-class">₦100,00</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>15/06/2022</td>
+                        <td>5:30</td>
+                        <td class="text-class">₦100,00</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>15/06/2022</td>
+                        <td>5:30</td>
+                        <td class="text-class">₦100,00</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>15/06/2022</td>
+                        <td>5:30</td>
+                        <td class="text-class">₦100,00</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

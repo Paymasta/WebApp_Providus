@@ -1,0 +1,290 @@
+/*File includes all the CSS of Bills and Payment Modals*/
+
+
+/*Airtime Modal*/
+
+#airtimeModal .modal-dialog {
+    padding: 10px;
+    margin: 0px 0px;
+    width: 100%;
+    max-width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+.modaldata{
+    text-align: center;
+    margin:0 18%;
+    font-size: 18px;
+    color: #130F26;
+}
+
+.modal-header{
+    border:none;
+    margin-right:10px;
+    display: flex;
+    text-align: center;
+}
+
+.modal-title{
+    margin:auto;
+    color: #130F26;
+    font-family: Helvetica, sans-serif;
+   
+}
+
+.airtime-close-btn-container img {
+    cursor: pointer;
+}
+
+.modal-content{
+    border-radius: 10px;
+}
+
+.closedata{
+    /* padding:5px; */
+    float: right;
+    background: none;
+    border: none;
+}
+
+.rela {
+    position: relative;
+}
+
+.abso{
+    position: absolute;
+    top: 51%;
+    left:10px;
+    transform: translate(0%, -50%);
+    font-size: 12px;
+}
+
+.abso p {
+    margin-bottom: 0px;
+}
+
+.numberdata{
+    padding-left: 40px; 
+}
+
+.modal-footer{
+    display: flex;
+    justify-content: center;
+    gap:10px;
+    border:none;
+    padding-bottom: 35px;
+}
+
+.viewdata{
+    color:#464646;
+    padding: 10px 45px;
+    background-color: transparent;
+    border-radius: 10px;
+    border: 0.5px solid #A2A1A1;
+
+}
+
+  /* .modal-open .modal{
+    display: flex !important;
+      align-items: center;
+      
+
+  }
+   */
+.submitdata {
+    padding: 10px 40px;
+    margin-left: 20px;
+    color: #FFFFFF;
+    font-size: 18px;
+    background-color: #F86847;
+    border-radius: 10px;
+    border: none;
+}
+
+.btn-close{
+    width:13px;
+    height:13px;
+    /* transform: matrix(0.90, 0.71, -0.71, 0.71, 0, 0); */
+/* UI Properties */
+}
+
+.modal-body{
+    text-align: center;
+}
+
+.midguard{
+    margin:auto;
+}
+
+.padding-top {
+    padding-top: 2.5rem;
+}
+
+.infodata{
+    position: relative;
+}
+
+.label {
+    padding: 0px 2px;
+    position: absolute;
+    top: -6px;
+    left: 10px;
+    background-color: #FFFFFF;
+    color:#130F26 !important;
+    font-size: 14px;
+    z-index: 1; 
+}
+
+input {
+    width:100%;
+    border: 1px solid #707070;
+    border-radius: 10px;
+    height: 50px;
+    opacity: 1;
+    padding-left: 10px;
+    font-size: 12px;
+}
+
+/* @media(max-width:768px){
+    .modal-open .modal-dialog{
+        display: flex !important;
+          align-items: center;
+          
+    
+      }
+} */
+/* @media(max-width:500px){
+
+
+    .viewdata{
+        color:#464646;
+        padding: 10px 35px;
+        background-color: transparent;
+        border-radius: 10px;
+        border: 0.5px solid #A2A1A1;
+    
+    }
+    .submitdata{
+        padding: 10px 30px;
+        color:#FFFFFF;
+        font: normal normal 600 18px/24px Sans-serif;
+    letter-spacing: 0px;
+    opacity: 1;
+    background-color:#F86847;
+    /* margin-left:20px; */
+    /* border-radius: 10px;
+    border:none;
+    }
+} */
+
+.operator {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: #FFFFFF;
+    border: 1px solid #707070;
+}
+
+/*Airtime Modal ends*/
+
+/*Cabel TV Modal*/
+
+#cableTvModal .modal-dialog {
+    padding: 10px;
+    margin: 0px 0px;
+    width: 100%;
+    max-width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+/*Cabel TV Modal ends */
+
+/*Internet Modal */
+
+#internetModal .modal-dialog {
+    padding: 10px;
+    margin: 0px 0px;
+    width: 100%;
+    max-width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+/*Internet Modal ends*/
+
+/*Electricity Modal*/
+
+#electricityModal .modal-dialog {
+    padding: 10px;
+    margin: 0px 0px;
+    width: 100%;
+    max-width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+/*Electricity Modal ends*/
+
+/*Data Bundle Modal*/
+
+#dataBundleModal .modal-dialog {
+    padding: 10px;
+    margin: 0px 0px;
+    width: 100%;
+    max-width: 500px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+/*Data Bundle Modal ends*/
+
+@media (min-width: 768px) {
+    #airtimeModal .modal-dialog {
+        width: 100%;
+        max-width: 500px;
+        margin: 0px auto;
+    }
+
+    #cableTvModal .modal-dialog {
+        width: 100%;
+        max-width: 500px;
+        margin: 0px auto;
+    }
+
+    #internetModal .modal-dialog {
+        width: 100%;
+        max-width: 500px;
+        margin: 0px auto;
+    }
+
+    #electricityModal .modal-dialog {
+        width: 100%;
+        max-width: 500px;
+        margin: 0px auto;
+    }
+
+    #dataBundleModal .modal-dialog {
+        width: 100%;
+        max-width: 500px;
+        margin: 0px auto;
+    }
+}
+
+.form-validations-error {
+    float: left;
+    margin-left: 4px;
+    color: red;
+}

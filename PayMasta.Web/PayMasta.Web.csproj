@@ -1,0 +1,961 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{59290D9C-57A7-4355-B2C8-CF548F9DF94D}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PayMasta.Web</RootNamespace>
+    <AssemblyName>PayMasta.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44327</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
+      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlRenderer, Version=1.5.0.5, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlRenderer.Core.1.5.0.5\lib\net45\HtmlRenderer.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlRenderer.PdfSharp, Version=1.5.0.6, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlRenderer.PdfSharp.1.5.0.6\lib\net45\HtmlRenderer.PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.13.3\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker, Version=5.5.13.3, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itextsharp.xmlworker.5.5.13.3\lib\itextsharp.xmlworker.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PdfSharp, Version=1.32.3057.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.32.3057.0\lib\net20\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting, Version=1.32.3057.0, Culture=neutral, PublicKeyToken=f94615aa0424f9eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\PDFsharp.1.32.3057.0\lib\net20\PdfSharp.Charting.dll</HintPath>
+    </Reference>
+    <Reference Include="RouteJs, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RouteJs.Mvc5.2.2.0\lib\net45\RouteJs.dll</HintPath>
+    </Reference>
+    <Reference Include="RouteJs.Mvc5, Version=2.2.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RouteJs.Mvc5.2.2.0\lib\net45\RouteJs.Mvc5.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.DataVisualization" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Abstractions, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.11.1\lib\net47\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.11.1\lib\net47\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mvc5, Version=1.4.0.0, Culture=neutral, PublicKeyToken=43da31bc42a85347, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Mvc5.1.4.0\lib\net45\Unity.Mvc5.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.0.5\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="WebHelpers.Mvc5, Version=2.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebHelpers.Mvc5.2.1.1\lib\net45\WebHelpers.Mvc5.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\UnityConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ArticleController.cs" />
+    <Compile Include="Controllers\BillAndPaymentController.cs" />
+    <Compile Include="Controllers\BudgetController.cs" />
+    <Compile Include="Controllers\CMSController.cs" />
+    <Compile Include="Controllers\CommonEmployerController.cs" />
+    <Compile Include="Controllers\DashBoardController.cs" />
+    <Compile Include="Controllers\EarlyWageAccessController.cs" />
+    <Compile Include="Controllers\Employer\EmployeesController.cs" />
+    <Compile Include="Controllers\Employer\EmployeesTransactionsController.cs" />
+    <Compile Include="Controllers\Employer\EmployerDashbordController.cs" />
+    <Compile Include="Controllers\Employer\PayToPayMastaController.cs" />
+    <Compile Include="Controllers\Employer\ProfileController.cs" />
+    <Compile Include="Controllers\Employer\UserBankDetailController.cs" />
+    <Compile Include="Controllers\Employer\WithdrawRequestController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\ExpressWalletServicesController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ManageFinanceController.cs" />
+    <Compile Include="Controllers\MyBaseController.cs" />
+    <Compile Include="Controllers\OkraController.cs" />
+    <Compile Include="Controllers\RegisterWithNubanController.cs" />
+    <Compile Include="Controllers\SettingsController.cs" />
+    <Compile Include="Controllers\SupportController.cs" />
+    <Compile Include="Controllers\TransactionsController.cs" />
+    <Compile Include="Controllers\Vendor\DailyTransactionsController.cs" />
+    <Compile Include="Controllers\Vendor\VendorDashboardController.cs" />
+    <Compile Include="Controllers\ZealvendBillsPayController.cs" />
+    <Compile Include="Controllers\ZealVendBills\DataPaybillsController.cs" />
+    <Compile Include="Controllers\ZealVendBills\ElectricityBillPaymentController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CustomAuthorizeAttribute.cs" />
+    <Compile Include="Models\CustomPrincipal.cs" />
+    <Compile Include="Models\SessionExpireFilterAttribute.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitignore" />
+    <Content Include="admin-lte\css\AdminLTE.css" />
+    <Content Include="admin-lte\css\AdminLTE.min.css" />
+    <Content Include="admin-lte\css\alt\AdminLTE-bootstrap-social.css" />
+    <Content Include="admin-lte\css\alt\AdminLTE-bootstrap-social.min.css" />
+    <Content Include="admin-lte\css\alt\AdminLTE-fullcalendar.css" />
+    <Content Include="admin-lte\css\alt\AdminLTE-fullcalendar.min.css" />
+    <Content Include="admin-lte\css\alt\AdminLTE-select2.css" />
+    <Content Include="admin-lte\css\alt\AdminLTE-select2.min.css" />
+    <Content Include="admin-lte\css\alt\AdminLTE-without-plugins.css" />
+    <Content Include="admin-lte\css\alt\AdminLTE-without-plugins.min.css" />
+    <Content Include="admin-lte\css\skins\skin-black-light.css" />
+    <Content Include="admin-lte\css\skins\skin-black-light.min.css" />
+    <Content Include="admin-lte\css\skins\skin-black.css" />
+    <Content Include="admin-lte\css\skins\skin-black.min.css" />
+    <Content Include="admin-lte\css\skins\skin-blue-light.css" />
+    <Content Include="admin-lte\css\skins\skin-blue-light.min.css" />
+    <Content Include="admin-lte\css\skins\skin-blue.css" />
+    <Content Include="admin-lte\css\skins\skin-blue.min.css" />
+    <Content Include="admin-lte\css\skins\skin-green-light.css" />
+    <Content Include="admin-lte\css\skins\skin-green-light.min.css" />
+    <Content Include="admin-lte\css\skins\skin-green.css" />
+    <Content Include="admin-lte\css\skins\skin-green.min.css" />
+    <Content Include="admin-lte\css\skins\skin-purple-light.css" />
+    <Content Include="admin-lte\css\skins\skin-purple-light.min.css" />
+    <Content Include="admin-lte\css\skins\skin-purple.css" />
+    <Content Include="admin-lte\css\skins\skin-purple.min.css" />
+    <Content Include="admin-lte\css\skins\skin-red-light.css" />
+    <Content Include="admin-lte\css\skins\skin-red-light.min.css" />
+    <Content Include="admin-lte\css\skins\skin-red.css" />
+    <Content Include="admin-lte\css\skins\skin-red.min.css" />
+    <Content Include="admin-lte\css\skins\skin-yellow-light.css" />
+    <Content Include="admin-lte\css\skins\skin-yellow-light.min.css" />
+    <Content Include="admin-lte\css\skins\skin-yellow.css" />
+    <Content Include="admin-lte\css\skins\skin-yellow.min.css" />
+    <Content Include="admin-lte\css\skins\_all-skins.css" />
+    <Content Include="admin-lte\css\skins\_all-skins.min.css" />
+    <Content Include="admin-lte\img\avatar.png" />
+    <Content Include="admin-lte\img\avatar04.png" />
+    <Content Include="admin-lte\img\avatar2.png" />
+    <Content Include="admin-lte\img\avatar3.png" />
+    <Content Include="admin-lte\img\avatar5.png" />
+    <Content Include="admin-lte\img\boxed-bg.jpg" />
+    <Content Include="admin-lte\img\boxed-bg.png" />
+    <Content Include="admin-lte\img\credit\american-express.png" />
+    <Content Include="admin-lte\img\credit\cirrus.png" />
+    <Content Include="admin-lte\img\credit\mastercard.png" />
+    <Content Include="admin-lte\img\credit\mestro.png" />
+    <Content Include="admin-lte\img\credit\paypal.png" />
+    <Content Include="admin-lte\img\credit\paypal2.png" />
+    <Content Include="admin-lte\img\credit\visa.png" />
+    <Content Include="admin-lte\img\default-50x50.gif" />
+    <Content Include="admin-lte\img\icons.png" />
+    <Content Include="admin-lte\img\photo1.png" />
+    <Content Include="admin-lte\img\photo2.png" />
+    <Content Include="admin-lte\img\photo3.jpg" />
+    <Content Include="admin-lte\img\photo4.jpg" />
+    <Content Include="admin-lte\img\user1-128x128.jpg" />
+    <Content Include="admin-lte\img\user2-160x160.jpg" />
+    <Content Include="admin-lte\img\user3-128x128.jpg" />
+    <Content Include="admin-lte\img\user4-128x128.jpg" />
+    <Content Include="admin-lte\img\user5-128x128.jpg" />
+    <Content Include="admin-lte\img\user6-128x128.jpg" />
+    <Content Include="admin-lte\img\user7-128x128.jpg" />
+    <Content Include="admin-lte\img\user8-128x128.jpg" />
+    <Content Include="admin-lte\js\adminlte.js" />
+    <Content Include="admin-lte\js\adminlte.min.js" />
+    <Content Include="admin-lte\js\demo.js" />
+    <Content Include="admin-lte\js\pages\dashboard.js" />
+    <Content Include="admin-lte\js\pages\dashboard2.js" />
+    <Content Include="Content\adminlte.js" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\Account\AddotherDetails.css" />
+    <Content Include="Content\css\Account\bootstrap.css" />
+    <Content Include="Content\css\Account\Change-Password-Modal.css" />
+    <Content Include="Content\css\Account\ChangePassword.css" />
+    <Content Include="Content\css\Account\CompleteProfile.css" />
+    <Content Include="Content\css\Account\create-password.css" />
+    <Content Include="Content\css\Account\employerCompleteProfile.css" />
+    <Content Include="Content\css\Account\forgot-pswd.css" />
+    <Content Include="Content\css\Account\landing.css" />
+    <Content Include="Content\css\Account\landing1.css" />
+    <Content Include="Content\css\Account\login.css" />
+    <Content Include="Content\css\Account\MyProfile.css" />
+    <Content Include="Content\css\Account\NonRegisterEmployer.css" />
+    <Content Include="Content\css\Account\otp-verification.css" />
+    <Content Include="Content\css\Account\RegisterWithNuban.css" />
+    <Content Include="Content\css\Account\signup.css" />
+    <Content Include="Content\css\Account\UpdateProfile.css" />
+    <Content Include="Content\css\Account\verification.css" />
+    <Content Include="Content\css\Account\ViewProfile.css" />
+    <Content Include="Content\css\AdminLTE.css" />
+    <Content Include="Content\css\AdminLTE.min.css" />
+    <Content Include="Content\css\all.css" />
+    <Content Include="Content\css\all.min.css" />
+    <Content Include="Content\css\Bank\AddBank.css" />
+    <Content Include="Content\css\BillPayment\Airtimemodal.css" />
+    <Content Include="Content\css\BillPayment\billPayment.css" />
+    <Content Include="Content\css\bootstrap-datepicker3.min.css" />
+    <Content Include="Content\css\bootstrap-select.css" />
+    <Content Include="Content\css\bootstrap-select.min.css" />
+    <Content Include="Content\css\bootstrap.min.css" />
+    <Content Include="Content\css\Budget\BudgetPage.css" />
+    <Content Include="Content\css\CmsCss\CommonCms.css" />
+    <Content Include="Content\css\CMS\Aboutus.css" />
+    <Content Include="Content\css\CMS\ContactUs.css" />
+    <Content Include="Content\css\CMS\Employer.css" />
+    <Content Include="Content\css\CMS\Faq.css" />
+    <Content Include="Content\css\CMS\FaqAfterLogin.css" />
+    <Content Include="Content\css\CongratulationModalCss\contrats.css" />
+    <Content Include="Content\css\Dashboard\dashboard.css" />
+    <Content Include="Content\css\daterangepicker.css" />
+    <Content Include="Content\css\EarnedAmountCss\EarnedAmount.css" />
+    <Content Include="Content\css\Employer\edit-profile.css" />
+    <Content Include="Content\css\Employer\emloyeesalary.css" />
+    <Content Include="Content\css\Employer\emloyeescreen.css" />
+    <Content Include="Content\css\Employer\employeeviewprofile.css" />
+    <Content Include="Content\css\Employer\employeeWithdrawals.css" />
+    <Content Include="Content\css\Employer\employerDashboard.css" />
+    <Content Include="Content\css\Employer\paytopaymasta.css" />
+    <Content Include="Content\css\Employer\transaction.css" />
+    <Content Include="Content\css\Employer\widthdrawrequest.css" />
+    <Content Include="Content\css\font-awesome.min.css" />
+    <Content Include="Content\css\HeaderCss\header.css" />
+    <Content Include="Content\css\icheck-bootstrap.css" />
+    <Content Include="Content\css\icheck-bootstrap.min.css" />
+    <Content Include="Content\css\icheck\aero.css" />
+    <Content Include="Content\css\icheck\aero.min.css" />
+    <Content Include="Content\css\icheck\blue.css" />
+    <Content Include="Content\css\icheck\blue.min.css" />
+    <Content Include="Content\css\icheck\green.css" />
+    <Content Include="Content\css\icheck\green.min.css" />
+    <Content Include="Content\css\icheck\grey.css" />
+    <Content Include="Content\css\icheck\grey.min.css" />
+    <Content Include="Content\css\icheck\minimal.css" />
+    <Content Include="Content\css\icheck\minimal.min.css" />
+    <Content Include="Content\css\icheck\orange.css" />
+    <Content Include="Content\css\icheck\orange.min.css" />
+    <Content Include="Content\css\icheck\pink.css" />
+    <Content Include="Content\css\icheck\pink.min.css" />
+    <Content Include="Content\css\icheck\purple.css" />
+    <Content Include="Content\css\icheck\purple.min.css" />
+    <Content Include="Content\css\icheck\red.css" />
+    <Content Include="Content\css\icheck\red.min.css" />
+    <Content Include="Content\css\icheck\yellow.css" />
+    <Content Include="Content\css\icheck\yellow.min.css" />
+    <Content Include="Content\css\jquery-ui.css" />
+    <Content Include="Content\css\jqvmap.css" />
+    <Content Include="Content\css\jqvmap.min.css" />
+    <Content Include="Content\css\landing.css" />
+    <Content Include="Content\css\ManageFinance\managefinance.css" />
+    <Content Include="Content\css\OverlayScrollbars.css" />
+    <Content Include="Content\css\OverlayScrollbars.min.css" />
+    <Content Include="Content\css\select2.css" />
+    <Content Include="Content\css\skins\skin-black-light.css" />
+    <Content Include="Content\css\skins\skin-black-light.min.css" />
+    <Content Include="Content\css\skins\skin-black.css" />
+    <Content Include="Content\css\skins\skin-black.min.css" />
+    <Content Include="Content\css\skins\skin-blue-light.css" />
+    <Content Include="Content\css\skins\skin-blue-light.min.css" />
+    <Content Include="Content\css\skins\skin-blue.css" />
+    <Content Include="Content\css\skins\skin-blue.min.css" />
+    <Content Include="Content\css\skins\skin-green-light.css" />
+    <Content Include="Content\css\skins\skin-green-light.min.css" />
+    <Content Include="Content\css\skins\skin-green.css" />
+    <Content Include="Content\css\skins\skin-green.min.css" />
+    <Content Include="Content\css\skins\skin-purple-light.css" />
+    <Content Include="Content\css\skins\skin-purple-light.min.css" />
+    <Content Include="Content\css\skins\skin-purple.css" />
+    <Content Include="Content\css\skins\skin-purple.min.css" />
+    <Content Include="Content\css\skins\skin-red-light.css" />
+    <Content Include="Content\css\skins\skin-red-light.min.css" />
+    <Content Include="Content\css\skins\skin-red.css" />
+    <Content Include="Content\css\skins\skin-red.min.css" />
+    <Content Include="Content\css\skins\skin-yellow-light.css" />
+    <Content Include="Content\css\skins\skin-yellow-light.min.css" />
+    <Content Include="Content\css\skins\skin-yellow.css" />
+    <Content Include="Content\css\skins\skin-yellow.min.css" />
+    <Content Include="Content\css\skins\_all-skins.css" />
+    <Content Include="Content\css\skins\_all-skins.min.css" />
+    <Content Include="Content\css\summernote-bs4.css" />
+    <Content Include="Content\css\summernote-bs4.min.css" />
+    <Content Include="Content\css\Support\support.css" />
+    <Content Include="Content\css\Support\viewTickets.css" />
+    <Content Include="Content\css\tempusdominus-bootstrap-4.css" />
+    <Content Include="Content\css\tempusdominus-bootstrap-4.min.css" />
+    <Content Include="Content\css\ToggleButton.css" />
+    <Content Include="Content\css\Transaction\transaction.css" />
+    <Content Include="Content\css\UpcomingBillsCss\UpcomingBills.css" />
+    <Content Include="Content\css\UserBankdetail\UserBankDetail.css" />
+    <Content Include="Content\css\VendorCss\Dashboard.css" />
+    <Content Include="Content\css\ViewAccountBalanceCss\ViewAccountBalance.css" />
+    <Content Include="Content\css\ViewUserbankDetailCss\ViewUserBakDetail.css" />
+    <Content Include="Content\datatable\css\buttons.dataTables.min.css" />
+    <Content Include="Content\datatable\css\jquery.dataTables.min.css" />
+    <Content Include="Content\datatable\images\sort_asc.png" />
+    <Content Include="Content\datatable\images\sort_asc_disabled.png" />
+    <Content Include="Content\datatable\images\sort_both.png" />
+    <Content Include="Content\datatable\images\sort_desc.png" />
+    <Content Include="Content\datatable\js\buttons.flash.min.js" />
+    <Content Include="Content\datatable\js\buttons.html5.min.js" />
+    <Content Include="Content\datatable\js\buttons.print.min.js" />
+    <Content Include="Content\datatable\js\dataTables.buttons.min.js" />
+    <Content Include="Content\datatable\js\jquery.dataTables.min.js" />
+    <Content Include="Content\datatable\js\jszip.min.js" />
+    <Content Include="Content\datatable\js\pdfmake.min.js" />
+    <Content Include="Content\datatable\js\vfs_fonts.js" />
+    <Content Include="Content\font-awesome.css" />
+    <Content Include="Content\font-awesome.min.css" />
+    <Content Include="Content\fonts\fontawesome-webfont.svg" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\icons\Account icon 1x.png" />
+    <Content Include="Content\icons\Account icon 2x.png" />
+    <Content Include="Content\icons\Account icon 3x.png" />
+    <Content Include="Content\icons\Bills &amp; Payments 1x.png" />
+    <Content Include="Content\icons\BIlls &amp; Payments 2x.png" />
+    <Content Include="Content\icons\BIlls &amp; Payments 3x.png" />
+    <Content Include="Content\icons\Dashboard 1x.png" />
+    <Content Include="Content\icons\Dashboard 2x.png" />
+    <Content Include="Content\icons\Dashboard 3x.png" />
+    <Content Include="Content\icons\Manage Finance 1x.png" />
+    <Content Include="Content\icons\Manage Finance 2x.png" />
+    <Content Include="Content\icons\Manage Finance 3x.png" />
+    <Content Include="Content\icons\Received.png" />
+    <Content Include="Content\icons\Sent.png" />
+    <Content Include="Content\icons\Support 1x.png" />
+    <Content Include="Content\icons\Support 2x.png" />
+    <Content Include="Content\icons\Support 3x.png" />
+    <Content Include="Content\icons\Transaction icon 1x.png" />
+    <Content Include="Content\icons\Transaction icon 2x.png" />
+    <Content Include="Content\icons\Transaction icon 3x.png" />
+    <Content Include="Content\images\1%282x%29.png" />
+    <Content Include="Content\images\3Dimages\1.png" />
+    <Content Include="Content\images\3Dimages\2.png" />
+    <Content Include="Content\images\3Dimages\3.png" />
+    <Content Include="Content\images\3Dimages\3D employer-2.png" />
+    <Content Include="Content\images\3Dimages\4.png" />
+    <Content Include="Content\images\3Dimages\5.png" />
+    <Content Include="Content\images\3Dimages\6.png" />
+    <Content Include="Content\images\3Dimages\7.png" />
+    <Content Include="Content\images\3Dimages\about us-2.png" />
+    <Content Include="Content\images\3Dimages\about us-3.png" />
+    <Content Include="Content\images\3Dimages\about us-4.png" />
+    <Content Include="Content\images\3Dimages\about us-5.png" />
+    <Content Include="Content\images\3Dimages\about us.png" />
+    <Content Include="Content\images\3Dimages\AboutUs\10.png" />
+    <Content Include="Content\images\3Dimages\AboutUs\7.png" />
+    <Content Include="Content\images\3Dimages\AboutUs\8.png" />
+    <Content Include="Content\images\3Dimages\AboutUs\9.png" />
+    <Content Include="Content\images\3Dimages\AboutUs\aboutuscontent18.png" />
+    <Content Include="Content\images\3Dimages\AboutUs\Aboutusnew1.png" />
+    <Content Include="Content\images\3Dimages\AboutUs\aboutusnew2.png" />
+    <Content Include="Content\images\3Dimages\AboutUs\LastContent.png" />
+    <Content Include="Content\images\3Dimages\ContactUs\contact us.png" />
+    <Content Include="Content\images\3Dimages\employeesNew.png" />
+    <Content Include="Content\images\3Dimages\Employernew.png" />
+    <Content Include="Content\images\3Dimages\Faq.png" />
+    <Content Include="Content\images\3Dimages\Employees1.png" />
+    <Content Include="Content\images\3Dimages\PayMasta Website Blog %281%29.png" />
+    <Content Include="Content\images\3Dimages\PP.png" />
+    <Content Include="Content\images\3Dimages\request a demo-2.png" />
+    <Content Include="Content\images\3Dimages\Request Demo.png" />
+    <Content Include="Content\images\3Dimages\T%27s&amp;C%27s.png" />
+    <Content Include="Content\images\accesspay-success-img.png" />
+    <Content Include="Content\images\add-account-img.png" />
+    <Content Include="Content\images\aero.svg" />
+    <Content Include="Content\images\arrow-left.svg" />
+    <Content Include="Content\images\avatar.jpg" />
+    <Content Include="Content\images\bank-logo.png" />
+    <Content Include="Content\images\bank.svg" />
+    <Content Include="Content\images\bank1.svg" />
+    <Content Include="Content\images\box.svg" />
+    <Content Include="Content\images\buttons.png" />
+    <Content Include="Content\images\camera-img.svg" />
+    <Content Include="Content\images\card-mobile.png" />
+    <Content Include="Content\images\check 2.svg" />
+    <Content Include="Content\images\close.png" />
+    <Content Include="Content\images\close.svg" />
+    <Content Include="Content\images\congrats-img.png" />
+    <Content Include="Content\images\copy-icon-img.png" />
+    <Content Include="Content\images\customcolor_logo_transparent_background.png" />
+    <Content Include="Content\images\dashboard-icon.svg" />
+    <Content Include="Content\images\delete-icon.png" />
+    <Content Include="Content\images\doller.png" />
+    <Content Include="Content\images\down-arrow.svg" />
+    <Content Include="Content\images\drop-down-icon.svg" />
+    <Content Include="Content\images\dropdown.svg" />
+    <Content Include="Content\images\earned-amount-img.svg" />
+    <Content Include="Content\images\Electricity.png" />
+    <Content Include="Content\images\email-img.png" />
+    <Content Include="Content\images\Employer\alarm-line.svg" />
+    <Content Include="Content\images\Employer\arrow-down.svg" />
+    <Content Include="Content\images\Employer\arrow-left.png" />
+    <Content Include="Content\images\Employer\arrow-line.png" />
+    <Content Include="Content\images\Employer\changeprofile.svg" />
+    <Content Include="Content\images\Employer\checkbox-circle-line.svg" />
+    <Content Include="Content\images\Employer\close.png" />
+    <Content Include="Content\images\Employer\delete-bin-6-line.png" />
+    <Content Include="Content\images\Employer\delete.png" />
+    <Content Include="Content\images\Employer\dropdown.svg" />
+    <Content Include="Content\images\Employer\Icon.png" />
+    <Content Include="Content\images\Employer\men.png" />
+    <Content Include="Content\images\Employer\money-icon.png" />
+    <Content Include="Content\images\Employer\off-btn.png" />
+    <Content Include="Content\images\Employer\PayMasta Logo.png" />
+    <Content Include="Content\images\Employer\question-mark.png" />
+    <Content Include="Content\images\Employer\search-line.svg" />
+    <Content Include="Content\images\Employer\timer-2-line.svg" />
+    <Content Include="Content\images\Employer\total_transactions.png" />
+    <Content Include="Content\images\Employer\usericon.png" />
+    <Content Include="Content\images\Employer\view_eye_icon.svg" />
+    <Content Include="Content\images\Employer\vuesax-bold-filter.svg" />
+    <Content Include="Content\images\Employer\vuesax-linear-arrow-left%402x.png" />
+    <Content Include="Content\images\Employer\wallet_icon.png" />
+    <Content Include="Content\images\eye-icon.png" />
+    <Content Include="Content\images\finance.png" />
+    <Content Include="Content\images\flight-img.svg" />
+    <Content Include="Content\images\flight.svg" />
+    <Content Include="Content\images\Group 12303.svg" />
+    <Content Include="Content\images\Group 12436.svg" />
+    <Content Include="Content\images\Group 13545.png" />
+    <Content Include="Content\images\Group 13547.png" />
+    <Content Include="Content\images\Group 13549.png" />
+    <Content Include="Content\images\Group 50150.svg" />
+    <Content Include="Content\images\Group 50151.svg" />
+    <Content Include="Content\images\Group 50152.svg" />
+    <Content Include="Content\images\Group 50163.svg" />
+    <Content Include="Content\images\Group 50168.svg" />
+    <Content Include="Content\images\Group 50176.svg" />
+    <Content Include="Content\images\Group 50181.svg" />
+    <Content Include="Content\images\Group 50183.svg" />
+    <Content Include="Content\images\Group 50195.svg" />
+    <Content Include="Content\images\Group 50198.svg" />
+    <Content Include="Content\images\Group 50216.svg" />
+    <Content Include="Content\images\Group 50220.svg" />
+    <Content Include="Content\images\Group 50502 %281%29.png" />
+    <Content Include="Content\images\Group 50503 %281%29.png" />
+    <Content Include="Content\images\help.png" />
+    <Content Include="Content\images\icons.svg" />
+    <Content Include="Content\images\Internet.svg" />
+    <Content Include="Content\images\invite-modal-img.png" />
+    <Content Include="Content\images\Landing2\manage-finance.png" />
+    <Content Include="Content\images\Landing2\mob-recharge.png" />
+    <Content Include="Content\images\Landing2\mobile1.png" />
+    <Content Include="Content\images\Landing2\services.png" />
+    <Content Include="Content\images\Landing2\signup1.png" />
+    <Content Include="Content\images\LandingPage\1.png" />
+    <Content Include="Content\images\LandingPage\2.png" />
+    <Content Include="Content\images\LandingPage\3.png" />
+    <Content Include="Content\images\LandingPage\4.png" />
+    <Content Include="Content\images\LandingPage\App Store Blue.png" />
+    <Content Include="Content\images\LandingPage\App-Store-Blue-1.png" />
+    <Content Include="Content\images\LandingPage\app-store.png" />
+    <Content Include="Content\images\LandingPage\Employee-2.png" />
+    <Content Include="Content\images\LandingPage\employee.png" />
+    <Content Include="Content\images\LandingPage\full-width-pics.png" />
+    <Content Include="Content\images\LandingPage\Google Play Blue icon.png" />
+    <Content Include="Content\images\LandingPage\Google-Play-Blue-icon-1.png" />
+    <Content Include="Content\images\LandingPage\google-play-store.png" />
+    <Content Include="Content\images\LandingPage\PayMasta Website contact us.png" />
+    <Content Include="Content\images\Loader.gif" />
+    <Content Include="Content\images\locat.svg" />
+    <Content Include="Content\images\logo.svg" />
+    <Content Include="Content\images\Logos\footer-paymasta-logo.svg" />
+    <Content Include="Content\images\Logos\latest-logo.svg" />
+    <Content Include="Content\images\Logos\latest-paymasta-logo.png" />
+    <Content Include="Content\images\Logos\Logo 1x.png" />
+    <Content Include="Content\images\Logos\Logo 2x.png" />
+    <Content Include="Content\images\Logos\Logo 3x.png" />
+    <Content Include="Content\images\Logos\Logo 4x.png" />
+    <Content Include="Content\images\Logos\new-Logo.png" />
+    <Content Include="Content\images\logout-img.svg" />
+    <Content Include="Content\images\mail.svg" />
+    <Content Include="Content\images\messagecheck.png" />
+    <Content Include="Content\images\mobile-icon.svg" />
+    <Content Include="Content\images\mobile.png" />
+    <Content Include="Content\images\mobile.svg" />
+    <Content Include="Content\images\mobile1.png" />
+    <Content Include="Content\images\page-four.png" />
+    <Content Include="Content\images\page-one.png" />
+    <Content Include="Content\images\page-three.png" />
+    <Content Include="Content\images\page-two.png" />
+    <Content Include="Content\images\Path 68454.svg" />
+    <Content Include="Content\images\Path 68474.svg" />
+    <Content Include="Content\images\Path 68503 %281%29.svg" />
+    <Content Include="Content\images\pay-masta.svg" />
+    <Content Include="Content\images\pay-master-logo.png" />
+    <Content Include="Content\images\PayMasta Logo.png" />
+    <Content Include="Content\images\paymasta-test-logo.png" />
+    <Content Include="Content\images\phone.png" />
+    <Content Include="Content\images\phone.svg" />
+    <Content Include="Content\images\phone1.png" />
+    <Content Include="Content\images\profile.svg" />
+    <Content Include="Content\images\reward-img.png" />
+    <Content Include="Content\images\right-arrow.svg" />
+    <Content Include="Content\images\setting-icon.svg" />
+    <Content Include="Content\images\setting-img.svg" />
+    <Content Include="Content\images\setting.svg" />
+    <Content Include="Content\images\signup.png" />
+    <Content Include="Content\images\Social-icons\facebook.svg" />
+    <Content Include="Content\images\Social-icons\instagram.svg" />
+    <Content Include="Content\images\Social-icons\linkedn.svg" />
+    <Content Include="Content\images\Social-icons\Tik-tok.svg" />
+    <Content Include="Content\images\Social-icons\twitter.svg" />
+    <Content Include="Content\images\Social-icons\Youtube.svg" />
+    <Content Include="Content\images\socialicon.svg" />
+    <Content Include="Content\images\Spinner-3.gif" />
+    <Content Include="Content\images\tab.svg" />
+    <Content Include="Content\images\tele.svg" />
+    <Content Include="Content\images\tick.png" />
+    <Content Include="Content\images\tik.png" />
+    <Content Include="Content\images\timer-img.svg" />
+    <Content Include="Content\images\user-profile.png" />
+    <Content Include="Content\images\VerifiedImg\notVerified.png" />
+    <Content Include="Content\images\VerifiedImg\not_verified.jfif" />
+    <Content Include="Content\images\VerifiedImg\verified.png" />
+    <Content Include="Content\images\vuesax-bold-filter.svg" />
+    <Content Include="Content\images\vuesax-linear-arrow-left.svg" />
+    <Content Include="Content\images\W2B_icon.svg" />
+    <Content Include="Content\images\wallet.png" />
+    <Content Include="Content\images\WallettoBank\Icon%282x%29.png" />
+    <Content Include="Content\images\WallettoBank\Icon%283x%29.png" />
+    <Content Include="Content\images\WallettoBank\Icon.png" />
+    <Content Include="Content\images\WallettoBank\Icon.svg" />
+    <Content Include="Content\images\WallettoBank\W2B.png" />
+    <Content Include="Content\images\WallettoBank\W2B_2x.png" />
+    <Content Include="Content\images\WallettoBank\W2B_3x.png" />
+    <Content Include="Content\images\WallettoBank\W2B_SVG.svg" />
+    <Content Include="Content\images\WallettoBank\W2W.png" />
+    <Content Include="Content\images\WallettoBank\W2W_2x.png" />
+    <Content Include="Content\images\WallettoBank\W2W_3x.png" />
+    <Content Include="Content\images\WallettoBank\W2W_SVG.svg" />
+    <Content Include="Content\images\watch.svg" />
+    <Content Include="Content\images\wifi.png" />
+    <Content Include="Content\images\Youtube .png" />
+    <Content Include="Content\images\youtube.svg" />
+    <Content Include="Content\img\animation_Default_3s9pdjlx %281%29.gif" />
+    <Content Include="Content\img\Group 49963.svg" />
+    <Content Include="Content\img\icheck\aero%402x.png" />
+    <Content Include="Content\img\icheck\aero.png" />
+    <Content Include="Content\img\icheck\blue%402x.png" />
+    <Content Include="Content\img\icheck\blue.png" />
+    <Content Include="Content\img\icheck\green%402x.png" />
+    <Content Include="Content\img\icheck\green.png" />
+    <Content Include="Content\img\icheck\grey%402x.png" />
+    <Content Include="Content\img\icheck\grey.png" />
+    <Content Include="Content\img\icheck\minimal%402x.png" />
+    <Content Include="Content\img\icheck\minimal.png" />
+    <Content Include="Content\img\icheck\orange%402x.png" />
+    <Content Include="Content\img\icheck\orange.png" />
+    <Content Include="Content\img\icheck\pink%402x.png" />
+    <Content Include="Content\img\icheck\pink.png" />
+    <Content Include="Content\img\icheck\purple%402x.png" />
+    <Content Include="Content\img\icheck\purple.png" />
+    <Content Include="Content\img\icheck\red%402x.png" />
+    <Content Include="Content\img\icheck\red.png" />
+    <Content Include="Content\img\icheck\yellow%402x.png" />
+    <Content Include="Content\img\icheck\yellow.png" />
+    <Content Include="Content\img\mobile.png" />
+    <Content Include="Content\img\user.jpg" />
+    <Content Include="Content\init.js" />
+    <Content Include="Content\js\Account\Account.js" />
+    <Content Include="Content\js\Account\ChangePassword.js" />
+    <Content Include="Content\js\Account\Header.js" />
+    <Content Include="Content\js\Account\Logout.js" />
+    <Content Include="Content\js\Account\RegisterByNuban.js" />
+    <Content Include="Content\js\adminlte.js" />
+    <Content Include="Content\js\BillPayments\BillPayment.js" />
+    <Content Include="Content\js\BillPayments\DataBundles.js" />
+    <Content Include="Content\js\BillPayments\ElectricityPayment.js" />
+    <Content Include="Content\js\BillPayments\InternetBillPayment.js" />
+    <Content Include="Content\js\BillPayments\TVBillPayment.js" />
+    <Content Include="Content\js\BillPayments\WalletToBank.js" />
+    <Content Include="Content\js\Budget\BudgetJs.js" />
+    <Content Include="Content\js\CMS\faq.js" />
+    <Content Include="Content\js\CMS\privacy_policy.js" />
+    <Content Include="Content\js\CMS\RequestDemo.js" />
+    <Content Include="Content\js\CMS\terms_conditions.js" />
+    <Content Include="Content\js\Dashboard\Dashboard.js" />
+    <Content Include="Content\js\EmployerJs\EmployeeBankDetail.js" />
+    <Content Include="Content\js\EmployerJs\Employees.js" />
+    <Content Include="Content\js\EmployerJs\EmployeeTransactions.js" />
+    <Content Include="Content\js\EmployerJs\EmployeeWithdrawals.js" />
+    <Content Include="Content\js\EmployerJs\EmployerDashboard.js" />
+    <Content Include="Content\js\EmployerJs\EmployerProfileDetail.js" />
+    <Content Include="Content\js\EmployerJs\PayToPayMasta.js" />
+    <Content Include="Content\js\EmployerJs\UpdateEmployerProfile.js" />
+    <Content Include="Content\js\EmployerJs\UserBankDetail.js" />
+    <Content Include="Content\js\EmployerJs\ViewEmployeeProfile.js" />
+    <Content Include="Content\js\EmployerJs\WithdrawRequest.js" />
+    <Content Include="Content\js\init.js" />
+    <Content Include="Content\js\ManageArticle\ManageArticle.js" />
+    <Content Include="Content\js\ManageFinance\managefinance.js" />
+    <Content Include="Content\js\ManageFinance\upcomingBills.js" />
+    <Content Include="Content\js\OkraAccount\OkraAccount.js" />
+    <Content Include="Content\js\plugins\bootstrap-select\bootstrap-select.js" />
+    <Content Include="Content\js\plugins\bootstrap-select\bootstrap-select.min.js" />
+    <Content Include="Content\js\plugins\bootstrap\bootstrap.js" />
+    <Content Include="Content\js\plugins\bootstrap\bootstrap.min.js" />
+    <Content Include="Content\js\plugins\datepicker\bootstrap-datepicker.js" />
+    <Content Include="Content\js\plugins\datepicker\bootstrap-datepicker.min.js" />
+    <Content Include="Content\js\plugins\fastclick\fastclick.js" />
+    <Content Include="Content\js\plugins\fastclick\fastclick.min.js" />
+    <Content Include="Content\js\plugins\icheck\icheck.js" />
+    <Content Include="Content\js\plugins\icheck\icheck.min.js" />
+    <Content Include="Content\js\plugins\inputmask\jquery.inputmask.bundle.js" />
+    <Content Include="Content\js\plugins\inputmask\jquery.inputmask.bundle.min.js" />
+    <Content Include="Content\js\plugins\jquery.dataTables.min.js" />
+    <Content Include="Content\js\plugins\jquery.twbsPagination.js" />
+    <Content Include="Content\js\plugins\jquery.twbsPagination.min.js" />
+    <Content Include="Content\js\plugins\jquery\jquery-3.3.1.js" />
+    <Content Include="Content\js\plugins\jquery\jquery-3.3.1.min.js" />
+    <Content Include="Content\js\plugins\jquery\jquery-3.5.1.js" />
+    <Content Include="Content\js\plugins\moment\moment.js" />
+    <Content Include="Content\js\plugins\moment\moment.min.js" />
+    <Content Include="Content\js\plugins\pagination\pagination.min.js" />
+    <Content Include="Content\js\plugins\select2.js" />
+    <Content Include="Content\js\plugins\slimscroll\jquery.slimscroll.js" />
+    <Content Include="Content\js\plugins\slimscroll\jquery.slimscroll.min.js" />
+    <Content Include="Content\js\plugins\sweetalert.min.js" />
+    <Content Include="Content\js\plugins\validator\validator.js" />
+    <Content Include="Content\js\plugins\validator\validator.min.js" />
+    <Content Include="Content\js\Profile\EmployerProfile.js" />
+    <Content Include="Content\js\Profile\MyProfile.js" />
+    <Content Include="Content\js\Profile\NonRegisterEmployer.js" />
+    <Content Include="Content\js\Profile\OtherAndPersonalDetails.js" />
+    <Content Include="Content\js\Profile\Profile.js" />
+    <Content Include="Content\js\Profile\select2.js" />
+    <Content Include="Content\js\Profile\UpdateProfile.js" />
+    <Content Include="Content\js\Support\Support.js" />
+    <Content Include="Content\js\Support\ViewTicket.js" />
+    <Content Include="Content\js\Transaction\Transaction.js" />
+    <Content Include="Content\js\VendorJs\VendorAccount.js" />
+    <Content Include="Content\Loader\Loader.css" />
+    <Content Include="Content\tether\tether-theme-arrows-dark.css" />
+    <Content Include="Content\tether\tether-theme-arrows-dark.min.css" />
+    <Content Include="Content\tether\tether-theme-arrows.css" />
+    <Content Include="Content\tether\tether-theme-arrows.min.css" />
+    <Content Include="Content\tether\tether-theme-basic.css" />
+    <Content Include="Content\tether\tether-theme-basic.min.css" />
+    <Content Include="Content\tether\tether.css" />
+    <Content Include="Content\tether\tether.min.css" />
+    <Content Include="customcolor_logo_transparent_background.png" />
+    <Content Include="favicon.ico" />
+    <Content Include="FileUpload\APILog.txt" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="HtmlTemplates\AccountStatusTemplate.html" />
+    <Content Include="HtmlTemplates\ChangePasswordEmailTemplate.html" />
+    <Content Include="HtmlTemplates\EmailVerificationTemplate.html" />
+    <Content Include="HtmlTemplates\EWA Alert.html" />
+    <Content Include="HtmlTemplates\ForgotPasswordEmailTemplate.html" />
+    <Content Include="HtmlTemplates\Invoice.html" />
+    <Content Include="HtmlTemplates\LoginCredsAndWelcome.html" />
+    <Content Include="HtmlTemplates\NewCustomerTemplate.html" />
+    <Content Include="HtmlTemplates\RegistrationTemplate.html" />
+    <Content Include="HtmlTemplates\RequestDemo.html" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="admin-lte\css\adminlte.min.css.map" />
+    <Content Include="admin-lte\css\adminlte.css.map" />
+    <Content Include="Content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Content\fonts\fontawesome-webfont.ttf" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Content\fonts\FontAwesome.otf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="HtmlTemplates\BulkUploadUser.xlsx" />
+    <Content Include="Content\images\3Dimages\.DS_Store" />
+    <Content Include="Content\Banklist.json" />
+    <Content Include="Content\js\utils.js" />
+    <Content Include="widget.html" />
+    <Content Include="widgetmono.js" />
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\popper.min.js" />
+    <Content Include="Scripts\tether.js" />
+    <Content Include="Scripts\tether.min.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\Shared\_Sidebar.cshtml" />
+    <Content Include="Views\Shared\_ControlSideBar.cshtml" />
+    <Content Include="Views\Error\InternalServerError.cshtml" />
+    <Content Include="Views\Error\NotFound.cshtml" />
+    <Content Include="Views\Transactions\Index.cshtml" />
+    <Content Include="Views\BillAndPayment\Index.cshtml" />
+    <Content Include="Views\ManageFinance\Index.cshtml" />
+    <Content Include="Views\Support\Index.cshtml" />
+    <Content Include="Views\DashBoard\Index.cshtml" />
+    <Content Include="Views\Account\Index_1.cshtml" />
+    <Content Include="Views\Account\CompleteProfile.cshtml" />
+    <Content Include="Views\Account\MyProfile.cshtml" />
+    <Content Include="Views\Settings\Index.cshtml" />
+    <Content Include="Views\Account\CompleteEmployerProfile.cshtml" />
+    <Content Include="Views\Support\ViewTickets.cshtml" />
+    <Content Include="Views\Account\ViewProfile.cshtml" />
+    <Content Include="Views\Home\Account.cshtml" />
+    <Content Include="Views\Home\ViewAccountBalance.cshtml" />
+    <Content Include="Views\Account\ChangePassword.cshtml" />
+    <Content Include="Views\Account\UpdateProfile.cshtml" />
+    <Content Include="Views\EmployerDashbord\Index.cshtml" />
+    <Content Include="Views\EmployeesTransactions\Index.cshtml" />
+    <Content Include="Views\Employees\Index.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
+    <Content Include="Views\WithdrawRequest\Index.cshtml" />
+    <Content Include="Views\Employees\ViewEmployeeProfile.cshtml" />
+    <Content Include="Views\Employees\ViewEmployeeSalaryStructure.cshtml" />
+    <Content Include="Views\Profile\UpdateEmployerProfile.cshtml" />
+    <Content Include="Views\PayToPayMasta\Index.cshtml" />
+    <Content Include="Views\ManageFinance\UpComingBill.cshtml" />
+    <Content Include="Views\EmployeesTransactions\GetEmployeDetailByGuid.cshtml" />
+    <Content Include="Views\Profile\ChangePassword.cshtml" />
+    <Content Include="Views\EarlyWageAccess\Index.cshtml" />
+    <Content Include="Views\UserBankDetail\Index.cshtml" />
+    <Content Include="Views\UserBankDetail\UserBankDetails.cshtml" />
+    <Content Include="Views\CMS\PayMastaPrivacyPolicy.cshtml" />
+    <Content Include="Views\CMS\PayMastaFaq.cshtml" />
+    <Content Include="Views\Error\AccessDenied.cshtml" />
+    <Content Include="UploadedFiles\BulkUploadUser1.xlsx" />
+    <Content Include="Views\CMS\AboutUs.cshtml" />
+    <Content Include="Views\CMS\ContactUs.cshtml" />
+    <Content Include="Views\CMS\Employees.cshtml" />
+    <Content Include="Views\CMS\Employer.cshtml" />
+    <Content Include="Views\CMS\RequestDemo.cshtml" />
+    <Content Include="Views\CMS\Faq.cshtml" />
+    <Content Include="Views\CMS\PrivacyPolicy.cshtml" />
+    <Content Include="Views\CMS\TermsConditions.cshtml" />
+    <Content Include="Views\Shared\_Website.cshtml" />
+    <Content Include="Views\Account\Index.cshtml" />
+    <Content Include="Views\CMS\PayMastaTermAndCondition.cshtml" />
+    <Content Include="Views\CMS\SubmitTicket.cshtml" />
+    <Content Include="Views\CMS\Blog.cshtml" />
+    <Content Include="Views\Employees\EmployeesNotUploaded.cshtml" />
+    <Content Include="Views\Budget\Index.cshtml" />
+    <Content Include="Views\Article\Index.cshtml" />
+    <Content Include="Views\VendorDashboard\Index.cshtml" />
+    <Content Include="Views\DailyTransactions\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Filters\" />
+    <Folder Include="Views\CommonEmployer\" />
+    <Folder Include="Views\DataPaybills\" />
+    <Folder Include="Views\ExpressWalletServices\" />
+    <Folder Include="Views\MyBase\" />
+    <Folder Include="Views\Okra\" />
+    <Folder Include="Views\RegisterWithNuban\" />
+    <Folder Include="Views\ZealvendBillsPay\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PayMasta.Service\PayMasta.Service.csproj">
+      <Project>{191ac4b3-2199-4e3e-b8cc-e1bd0251846a}</Project>
+      <Name>PayMasta.Service</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PayMasta.Utilities\PayMasta.Utilities.csproj">
+      <Project>{594f1e94-341e-47e3-a25d-3fbb0996a784}</Project>
+      <Name>PayMasta.Utilities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PayMasta.ViewModel\PayMasta.ViewModel.csproj">
+      <Project>{f94aea90-a5e6-4bbc-8fa9-ae4a3ddf8246}</Project>
+      <Name>PayMasta.ViewModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>52338</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44327/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,515 @@
+﻿
+@{
+    ViewBag.Title = "My Profile";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> -->
+    <title>My Profile</title>
+
+    @*<script src="~/Content/js/plugins/jquery/jquery-3.3.1.min.js"></script>
+        <script src="~/Content/js/plugins/jquery/jquery-3.3.1.js"></script>*@
+    <link href="~/Content/css/Account/MyProfile.css" rel="stylesheet" />
+    <link href="~/Content/css/Bank/AddBank.css" rel="stylesheet" />
+    <script src="~/Content/js/Profile/MyProfile.js"></script>
+    <script src="~/Content/js/Profile/OtherAndPersonalDetails.js"></script>
+</head>
+<body>
+    <div class="user-frofile-main-container">
+        <div class="profile-details">
+            <div class="profile-pic-container">
+                <img src="" class="profile-pic" />
+            </div>
+
+            <div class="name-email-details">
+                <div class="user-name">  <span id="spnUserName"></span></div>
+                <div class="user-email">
+                    <span id="spnEmail"></span>
+                    <img style="width:17px" src="~/Content/images/VerifiedImg/verified.png" id="imgVerified" />
+                    <img style="width:17px" src="~/Content/images/VerifiedImg/notVerified.png" id="imgNotVerified" />
+                </div>
+                <div class="user-email">
+                    Your KYC Status: <span id="spnEmail">
+                        <img style="width:17px" src="~/Content/images/VerifiedImg/verified.png" id="imgKYCVerified" />
+                        <img style="width:17px" src="~/Content/images/VerifiedImg/notVerified.png" id="imgKYCNotVerified" />
+                    </span>
+
+                </div>
+                <div class="view-profile-btn" id="btnViewProfile" style="cursor:pointer">View Profile</div>
+            </div>
+        </div>
+        <div class="user-detail-container">
+            <div class="info">
+                <div class="user-detail-heading">Address Details</div>
+                <img src="~/Content/images/drop-down-icon.svg" alt="">
+            </div>
+            <div class="user-info">
+                <span id="spnAddess">
+
+                </span>
+            </div>
+        </div>
+        <div class="user-detail-container">
+            <div class="info">
+                <div class="user-detail-heading">Employer Details</div>
+                <img src="~/Content/images/drop-down-icon.svg" alt="">
+            </div>
+            <div class="user-info" id="EmployerDetail"></div>
+        </div>
+        <div class="user-detail-container">
+            <div id="bank-account-heading" class="user-detail-heading">Bank Account Detail</div>
+            <div id="divBankList">
+
+            </div>
+
+            <div class="add-account-container" id="addBankDiv">
+                <div class="add-acc-img-container">
+                    <img src="~/Content/images/add-account-img.png" alt="" class="position-absolute add-acc-img">
+                </div>
+
+                <div class="bank-content">Add Bank Account</div>
+            </div>
+        </div>
+        <div class="user-detail-container">
+            <div id="bank-account-heading" class="user-detail-heading">Employer Details</div>
+            @*<div id="divBankList">
+
+                </div>*@
+
+            <div class="add-account-container" id="addEmployerDiv">
+                <div class="add-acc-img-container">
+                    <i class="fa fa-users" aria-hidden="true" style="padding-top: 10px; padding-left: 10px;"></i>
+                </div>
+
+                <div class="bank-content">Select Existing Employer</div>
+            </div>
+            <div class="add-account-container" id="addD2CEmployerDiv">
+                <div class="add-acc-img-container">
+                    <i class="fa fa-users" aria-hidden="true" style="padding-top: 10px; padding-left: 10px;"></i>
+                </div>
+
+                <div class="bank-content">Add New Employer</div>
+            </div>
+        </div>
+
+        @*----------------------------*@
+
+        @*<div class="user-detail-container">
+            <div id="bank-account-heading" class="user-detail-heading">Add Other/Personal Details</div>
+           
+            <div class="add-account-container" id="addOtherDetailsDiv">
+                <div class="add-acc-img-container">
+                    <i class="fa fa-users" aria-hidden="true" style="padding-top: 10px; padding-left: 10px;"></i>
+                </div>
+
+                <div class="bank-content">Add Personal Details</div>
+            </div>
+        </div>*@
+
+        @*-------------------------------------------------*@
+
+
+        @*<div class="user-detail-container">
+            <div id="bank-account-heading" class="user-detail-heading">Upload your kyc document</div>
+            <div class="add-account-container" id="addDocDiv">
+                <div class="add-acc-img-container">
+                    <i class="fa fa-file kycDoc" aria-hidden="true"></i>
+                </div>
+
+                <div class="bank-content">Upload documents</div>
+            </div>
+        </div>*@
+    </div>
+
+
+
+
+    @*modal*@
+    <div>
+        <div class="modal fade" id="addDocsModal" data-bs-backdrop="static">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="add-bank-body-content">
+                        <div class="add-bank-acc-heading-container">
+                            <div class="heading m-auto">Upload Kyc Documents</div>
+
+                            <img src="~/Content/images/close.svg" alt="" width="19px" height="19px" data-dismiss="modal" class="add-bank-acc-close-btn">
+                        </div>
+
+                        <form action="" class="">
+                            <div class="input-text-container">
+                                <label for="" class="label">Valid ID (NIN Slip, Driver's License, or Voter's Card)</label>
+                                <div class="field-container">
+                                    <select name="" id="ddlDocType" class="input-text">
+                                        <option value="">Please select type</option>
+                                        <option value="NIN">NIN Slip</option>
+                                        <option value="DL">Driver's License</option>
+                                        <option value="VoterCard">Voter's Card</option>
+                                    </select>
+
+                                </div>
+                                <span id="ddlddlcountryError" style="color:red;float:left">
+
+                                </span>
+                            </div>
+
+                            <div class="input-text-container">
+                                <label for="" class="label">Upload file</label>
+                                <div class="field-container">
+                                    @*<select name="" id="ddlState" class="input-text">
+                                            <option value="">Please select state</option>
+                                        </select>*@
+                                    <input type="file" class="input-text img1" accept="image/png, image/jpeg" id="IdType" />
+                                    <span>
+                                        <img src="" alt="" class="IdTypeDoc">
+                                    </span>
+                                </div>
+
+                                <span id="ddlStateError" style="color:red;float:left">
+
+                                </span>
+                            </div>
+                            <div class="input-text-container">
+                                <label for="" class="label">Proof of Address (Utility Bill or Court Letter,Latest)</label>
+                                <div class="field-container">
+                                    <select name="" id="ddlAddressProof" class="input-text">
+                                        <option value="">Please select</option>
+                                        <option value="UtilityBill">Utility Bill</option>
+                                        <option value="CourtLetter">Court Letter</option>
+
+                                    </select>
+
+                                </div>
+                                <span id="ddlCityError" style="color:red;float:left">
+
+                                </span>
+                            </div>
+                            <div class="input-text-container">
+                                <label for="" class="label">Upload file</label>
+                                <div class="field-container">
+                                    <input type="file" class="input-text" accept="image/png, image/jpeg" />
+                                </div>
+                                <span id="txtNINError" style="color: red; float: left">
+
+                                </span>
+                            </div>
+                            <div class="input-text-container">
+                                <label for="" class="label">Upload Photograph</label>
+                                <div class="field-container">
+                                    <input type="file" class="input-text" accept="image/png, image/jpeg" />
+                                </div>
+                                <span id="txtAddressError" style="color: red; float: left">
+
+                                </span>
+                            </div>
+                            @*<div class="input-text-container">
+                                    <label for="" class="label">Post code</label>
+                                    <div class="field-container">
+                                        <input type="text" class="input-text" placeholder="Enter your post code" id="txtPostCode" maxlength="6" />
+                                    </div>
+                                    <span id="txtPostCodeError" style="color: red; float: left">
+
+                                    </span>
+                                </div>*@
+
+                            <div class="btn-padding-bottom">
+                                <button type="button" id="btnUploadDocs" class="request-btn">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <div class="modal fade" id="addBankModal" data-bs-backdrop="static">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="add-bank-body-content">
+                        <div class="add-bank-acc-heading-container">
+                            <div class="heading m-auto">Add Bank Account</div>
+
+                            <img src="~/Content/images/close.svg" alt="" width="19px" height="19px" data-dismiss="modal" class="add-bank-acc-close-btn">
+                        </div>
+
+                        <form action="" class="">
+                            <div class="input-text-container">
+                                <label for="" class="label">Bank Name</label>
+                                <div class="field-container">
+                                    <select name="" id="ddlBankAdd" class="input-text">
+                                        <option value="">Select</option>
+
+                                    </select>
+
+                                </div>
+                                <span id="ddlBankError" style="color:red;float:left">
+
+                                </span>
+                            </div>
+
+                            <div class="input-text-container">
+                                <label for="" class="label">BVN</label>
+                                <div class="field-container">
+                                    <input type="text" class="input-text" placeholder="Enter your BVN code" id="txtbvnCode" maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '');" />
+                                </div>
+                                <span id="txtbvnCodeError" style="color: red; float: left">
+
+                                </span>
+                            </div>
+
+                            <div class="input-text-container">
+                                <label for="" class="position-absolute label">Account Number</label>
+                                <div class="field-container">
+                                    <input type="text" class="input-text" placeholder="Enter Account Number" id="txtAccountNumber" maxlength="30" oninput="this.value = this.value.replace(/[^0-9]/g, '');" />
+                                </div>
+                                <span id="txtAccountNumberError" style="color: red; float: left">
+
+                                </span>
+                            </div>
+
+                            <div class="input-text-container">
+                                <label for="" class="position-absolute label">Username</label>
+                                <div class="field-container">
+                                    <input type="text" class="input-text" placeholder="Enter username" id="txtAccountHolderName" maxlength="30" />
+                                </div>
+                                <span id="txtAccountHolderNameError" style="color: red; float: left">
+
+                                </span>
+                            </div>
+                            <div class="btn-padding-bottom">
+                                <button type="button" id="btnSaveBanks" class="request-btn">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div>
+        <div class="modal fade" id="addEmployerModal" data-bs-backdrop="static">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="add-bank-body-content">
+                        <div class="add-bank-acc-heading-container">
+                            <div class="heading m-auto">Add Employer</div>
+
+                            <img src="~/Content/images/close.svg" alt="" width="19px" height="19px" data-dismiss="modal" class="add-bank-acc-close-btn">
+                        </div>
+
+                        <form action="" class="">
+                            <div class="input-text-container">
+                                <label for="" class="label">Employer Name</label>
+                                <div class="field-container">
+                                    <select name="" id="ddlEmployer" class="input-text">
+                                    </select>
+
+                                </div>
+                                <span id="ddlEmployerError" style="color:red;float:left">
+
+                                </span>
+                            </div>
+                            <div class="input-text-container">
+                                <label for="" class="label">Staff Id</label>
+                                <div class="field-container">
+                                    <input type="text" class="input-text" placeholder="Enter your staff id" id="txtstaffId" maxlength="11" />
+                                </div>
+                                <span id="txtStaffIdError" style="color: red; float: left">
+
+                                </span>
+                            </div>
+
+                            <div class="btn-padding-bottom">
+                                <button type="button" id="btnSaveEmployer" class="request-btn">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div>
+        <div class="modal fade" id="addOtherDetailsModal" data-bs-backdrop="static">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="add-bank-body-content">
+                        <div class="add-bank-acc-heading-container">
+                            <div class="heading m-auto">Add Details</div>
+
+                            <img src="~/Content/images/close.svg" alt="" width="19px" height="19px" data-dismiss="modal" class="add-bank-acc-close-btn">
+                        </div>
+
+                        <form action="" class="">
+                            <div class="input-text-container">
+                                <label for="" class="label">Country Name</label>
+                                <div class="field-container">
+                                    <select name="" id="ddlcountry" class="input-text">
+                                        <option value="">Please select country</option>
+                                    </select>
+
+                                </div>
+                                <span id="ddlddlcountryError" style="color:red;float:left">
+
+                                </span>
+                            </div>
+
+                            <div class="input-text-container">
+                                <label for="" class="label">State Name</label>
+                                <div class="field-container">
+                                    <select name="" id="ddlState" class="input-text">
+                                        <option value="">Please select state</option>
+                                    </select>
+
+                                </div>
+                                <span id="ddlStateError" style="color:red;float:left">
+
+                                </span>
+                            </div>
+                            <div class="input-text-container">
+                                <label for="" class="label">City Name</label>
+                                <div class="field-container">
+                                    <select name="" id="ddlCity" class="input-text">
+                                        <option value="">Please select city</option>
+                                    </select>
+
+                                </div>
+                                <span id="ddlCityError" style="color:red;float:left">
+
+                                </span>
+                            </div>
+                            <div class="input-text-container">
+                                <label for="" class="label">NIN Number</label>
+                                <div class="field-container">
+                                    <input type="text" class="input-text" placeholder="Enter your NIN number" id="txtNinNumber" maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '');" />
+                                </div>
+                                <span id="txtNINError" style="color: red; float: left">
+
+                                </span>
+                            </div>
+                            <div class="input-text-container">
+                                <label for="" class="label">Address</label>
+                                <div class="field-container">
+                                    <input type="text" class="input-text" placeholder="Enter your address" id="txtAddress" maxlength="200" />
+                                </div>
+                                <span id="txtAddressError" style="color: red; float: left">
+
+                                </span>
+                            </div>
+                            <div class="input-text-container">
+                                <label for="" class="label">Post code</label>
+                                <div class="field-container">
+                                    <input type="text" class="input-text" placeholder="Enter your post code" id="txtPostCode" maxlength="6" />
+                                </div>
+                                <span id="txtPostCodeError" style="color: red; float: left">
+
+                                </span>
+                            </div>
+
+                            <div class="btn-padding-bottom">
+                                <button type="button" id="btnSaveOtherDetails" class="request-btn">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <div class="modal fade" id="addD2CEmployerModal" data-bs-backdrop="static">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="add-bank-body-content">
+                        <div class="add-bank-acc-heading-container">
+                            <div class="heading m-auto">Add Other Employer</div>
+
+                            <img src="~/Content/images/close.svg" alt="" width="19px" height="19px" data-dismiss="modal" class="add-bank-acc-close-btn">
+                        </div>
+
+                        <form action="" class="">
+
+                            <div class="input-text-container">
+                                <label for="" class="label">Employer Name</label>
+                                <div class="field-container">
+                                    <input type="text" class="input-text" placeholder="Enter Employer Name" id="txtD2CEmployerName" maxlength="11" />
+                                </div>
+                                <span id="txtD2CEmployerNameError" style="color: red; float: left">
+
+                                </span>
+                            </div>
+
+                            <div class="input-text-container">
+                                <label for="" class="label">Staff Id</label>
+                                <div class="field-container">
+                                    <input type="text" class="input-text" placeholder="Enter your staff id" id="txtD2CStaffId" maxlength="11" />
+                                </div>
+                                <span id="txtD2CStaffIdError" style="color: red; float: left">
+
+                                </span>
+                            </div>
+                            <div class="input-text-container">
+                                <label for="" class="label">Bank Name</label>
+                                <div class="field-container">
+                                    <select name="" id="ddlD2cBankAdd" class="input-text">
+                                        <option value="">Select</option>
+
+                                    </select>
+
+                                </div>
+                                <span id="ddlD2cBankError" style="color:red;float:left">
+
+                                </span>
+                            </div>
+
+                            <div class="input-text-container">
+                                <label for="" class="position-absolute label">Salary Account Number</label>
+                                <div class="field-container">
+                                    <input type="text" class="input-text" placeholder="Enter Salary Account Number" id="txtD2CAccountNumber" maxlength="30" oninput="this.value = this.value.replace(/[^0-9]/g, '');" />
+                                </div>
+                                <span id="txtD2CAccountNumberError" style="color: red; float: left">
+
+                                </span>
+                            </div>
+
+                            <div class="input-text-container">
+                                <label for="" class="position-absolute label">Monthly Salary</label>
+                                <div class="field-container">
+                                    <input type="text" class="input-text" placeholder="Enter Monthly Salary" id="txtD2CGrossSalary" maxlength="30" oninput="this.value = this.value.replace(/[^0-9]/g, '');" />
+                                </div>
+                                <span id="txttxtD2CGrossSalary" style="color: red; float: left">
+
+                                </span>
+                            </div>
+
+                            @*<div class="input-text-container">
+            <label for="" class="position-absolute label">Net Salary</label>
+            <div class="field-container">
+                <input type="text" class="input-text" placeholder="Enter Net Salary" id="txtD2CNetSalary" maxlength="30" oninput="this.value = this.value.replace(/[^0-9]/g, '');" />
+            </div>
+            <span id="txtD2CNetSalaryError" style="color: red; float: left">
+
+            </span>
+        </div>*@
+
+                            <div class="btn-padding-bottom">
+                                <button type="button" id="btnSaveOtherEmployer" class="request-btn">Save</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

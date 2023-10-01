@@ -1,0 +1,67 @@
+﻿.container-fluid-nuban {
+    max-width: 800px;
+    width: 100%;
+}
+
+h1 {
+    font-size: 31px;
+    text-align: center;
+}
+
+p {
+    font-size: 13px;
+    color: #b8b8b8;
+    margin: 0px;
+    text-align: center;
+}
+
+h4 {
+    font-size: 12px;
+    color: #808080;
+    position: absolute;
+    background: #fff;
+    /* left: -4px; */
+    margin-left: 11px;
+    margin-top: -7px;
+}
+
+.input {
+    width: 100%;
+    padding: 17px 12px 17px 12px;
+    border-radius: 8px;
+    border: 1px solid gray;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.card-wrap {
+    margin-top: 32px;
+}
+.wrapper {
+    margin-top: 12px;
+}
+.card-wraper {
+    margin-top: 12px;
+    position: relative;
+}
+
+.btn-nuban-Register {
+    width: 364px;
+    height: 44px;
+    border: 1px solid gray;
+    border-radius: 8px;
+    background: #f87638db;
+    color: #fff;
+    margin: auto;
+    display: block;
+    border: none;
+    margin-bottom: 31px;
+    margin-left: 181px;
+}
+
+span {
+    color: #619ef8;
+}
+.divmain{
+    margin-left:40px
+}

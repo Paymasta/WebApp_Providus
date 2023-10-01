@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "View Employee Profile";
+}
+<link href="~/Content/css/Employer/employeeviewprofile.css" rel="stylesheet" />
+<link href="~/Content/css/ToggleButton.css" rel="stylesheet" />
+
+<div class="">
+    <ol class="top-section">
+        <li>
+            <a href="@Url.Action("Index","Employees")" class="color-text">
+                <img src="~/Content/images/Employer/arrow-left.png" />
+
+                Employees
+            </a>
+        </li>
+        <li class="list-active color-text">Employees Detail</li>
+    </ol>
+    <div class="employee-main">
+        <div class="emp-detail">
+            <div>
+                <img class="profile-pic" src="" style="height:200px;width:200px;border-radius:50%"/>
+            </div>
+            <div class="button-all">
+                <input type="hidden" id="userGuidHiddenField" name="userGuidHiddenField" />
+                <button type="button" class="save" id="btnSaveNetPays">Save</button>
+                @*<button type="button" class="delete">Delete</button>*@
+                <button type="button" class="view-button" id="btnViewTransactions">View Transactions</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="row left-column">
+                    <div class="col-md-6 col-sm-6 col-xs-6  name-data">
+                        <p class="para">First Name</p>
+                        <p class="para">Last Name</p>
+                        <p class="para">Mobile Number</p>
+                        <p class="para">Gender</p>
+                        <p class="para">Net Pay / month</p>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6  name-data1">
+                        <p class="para1" id="firstName"></p>
+                        <p class="para1" id="lastName"></p>
+                        <p class="para1" id="Mobile"></p>
+                        <p class="para1" id="gender"></p>
+                        <p class="para1 net-gross-pay-padding"><input type="text" class="" id="netPay" /></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                <div class="row left-column">
+                    <div class="col-md-6 col-sm-6 col-xs-6  name-data">
+                        <p class="para">Middle Name</p>
+                        <p class="para">Email Address</p>
+                        <p class="para">Date of Birth</p>
+                        <p class="para">Staff ID</p>
+                        <p class="para">Gross Pay / month</p>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-xs-6 name-data1">
+                        <p class="para1" id="middlename"></p>
+                        <p class="para1" id="email"></p>
+                        <p class="para1" id="dob"></p>
+                        <p class="para1" id="staffid"></p>
+                        <p class="para1 net-gross-pay-padding"><input type="text" class="" id="grosspay" /></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="emp-structure">
+            <div>Employees Salary Structure</div>
+            <button type="button" class="view-button" id="btnApproveProfile">Verify Profile</button>
+            @*<div>
+            <a class="anch-tag" href="@Url.Action("ViewEmployeeSalaryStructure","Employees")">View Salary Structure</a>
+        </div>*@
+        </div>
+        
+    </div>
+</div>
+
+<script src="~/Content/js/EmployerJs/ViewEmployeeProfile.js"></script>

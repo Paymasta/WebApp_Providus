@@ -1,0 +1,263 @@
+﻿
+@{
+    ViewBag.Title = "Update Profile";
+}
+
+<link href="~/Content/css/Account/UpdateProfile.css" rel="stylesheet" />
+
+<script src="~/Content/js/Profile/UpdateProfile.js"></script>
+<script src="~/Scripts/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
+
+<div class="accordion accordion-flush view-profile-grid-container" id="my-profile">
+    <div class="view-profile-sub-container pt-3">
+        <div class="accordion-item">
+            <h2 class="accordion-header" id="flush-headingOne">
+                <button class="btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
+                    <div class="text-container">
+
+                        <img src="~/Content/images/setting-img.svg" alt="">
+                        <div class="accordion-content">My Profile</div>
+                    </div>
+                    <div class="text-end position-absolute drop-down-img-container">
+                        <img src="~/Content/images/drop-down-icon.svg" alt="" class="down-arrow-icon">
+                    </div>
+                </button>
+
+            </h2>
+            <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="my-profile" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    <a href="@Url.Action("ViewProfile","Account")">
+                        <div class="collapse-sub-content">
+                            <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                            <div class="px-2 accordion-content">View Profile</div>
+                        </div>
+                    </a>
+                    @*<div class="collapse-sub-content">
+                            <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                            <div class="px-2 accordion-content">FAQs</div>
+                        </div>
+                        <div class="collapse-sub-content">
+                            <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                            <div class="px-2 accordion-content">Terms & Conditions</div>
+                        </div>
+                        <div class="collapse-sub-content">
+                            <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                            <div class="px-2 accordion-content">Privacy Policy</div>
+                        </div>*@
+                </div>
+            </div>
+        </div>
+        <div class="accordion-item">
+    @*        <h2 class="accordion-header" id="flush-headingOne">
+                <button class="btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                    <div class="text-container">
+                        <img src="~/Content/images/setting-img.svg" alt="">
+                        <div class="accordion-content">Settings</div>
+                    </div>
+                    <div class="text-end position-absolute drop-down-img-container">
+                        <img src="~/Content/images/drop-down-icon.svg" alt="" class="down-arrow-icon">
+                    </div>
+                </button>
+
+            </h2>*@
+            @*<div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                <div class="accordion-body">
+                    <a href="@Url.Action("ChangePassword","Account")">
+                </div>
+            </div>*@
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="flush-headingOne">
+                    <button class="btn collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
+                        <div class="text-container">
+                            <img src="~/Content/images/setting-img.svg" alt="">
+                            <div class="accordion-content">Settings</div>
+                        </div>
+                        <div class="text-end position-absolute drop-down-img-container">
+                            <img src="~/Content/images/drop-down-icon.svg" alt="" class="down-arrow-icon">
+                        </div>
+                    </button>
+
+                </h2>
+
+                <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                    <div class="accordion-body">
+                        <a href="@Url.Action("ChangePassword", "Account")">
+                            <div class="collapse-sub-content">
+                                <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                                <div class="px-2 accordion-content">Change Password</div>
+                            </div>
+                        </a>
+                        <a href="@Url.Action("Faq", "CMS")">
+                            <div class="collapse-sub-content">
+                                <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                                <div class="px-2 accordion-content">
+                                    FAQs
+
+                                </div>
+                            </div>
+                        </a>
+                        <a href="@Url.Action("TermsConditions", "CMS")">
+
+                            <div class="collapse-sub-content">
+                                <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                                <div class="px-2 accordion-content">Terms & Conditions</div>
+                            </div>
+                        </a>
+                        <a href="@Url.Action("PrivacyPolicy", "CMS")">
+                            <div class="collapse-sub-content">
+                                <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                                <div class="px-2 accordion-content">Privacy Policy</div>
+                            </div>
+                        </a>
+                        
+                   
+                    
+                    @*<div class="collapse-sub-content">
+                        <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                        <div class="px-2 accordion-content">Invite</div>
+                    </div>*@
+                </div>
+            </div>
+        </div>
+        <div class="d-flex align-items-center profile-logout-btn" id="divLogout">
+            <img src="~/Content/images/logout-img.svg" alt="">
+            <div class="px-2 accordion-content">Logout</div>
+        </div>
+    </div>
+        </div>
+
+    <div class="view-profile-sub-container-two">
+        <div class="">
+            <div class="view-profile-heading">Edit Profile</div>
+        </div>
+        <div class="userpage">
+            <!-- <div class="container"> -->
+            <div id="personalinfo">
+                <div class="row">
+                    <div class="col-xl-12 col-sm-10">
+                        <div class="infodata">
+                            <label for="" class="label">First Name</label>
+                            <div>
+                                <input type="text" placeholder="Enter your first name" id="txtFirstName">
+                            </div>
+                            <span id="txtFirstNameError" style="color:red"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row padding-top">
+                    <div class="col-xl-12 col-sm-10">
+                        <div class="infodata">
+                            <label for="" class="label">Middle Name</label>
+                            <div>
+                                <input type="text" placeholder="Enter your middle name" id="txtMiddleName">
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row padding-top">
+                    <div class="col-xl-12 col-sm-10">
+                        <div class="infodata">
+                            <label for="" class="label">Last Name</label>
+                            <div>
+                                <input type="text" placeholder="Enter your last name" id="txtLastName">
+                            </div>
+                            <span id="txtLastNameError" style="color:red"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row padding-top">
+                    <div class="col-xl-12 col-sm-10">
+                        <div class="infodata">
+                            <label for="" class="label"><div class="nin-label">NIN Number</div></label>
+                            <div>
+                                <input type="text" name="nin-no" placeholder="Enter your nin number" id="txtNinNumber">
+                            </div>
+                            <span id="txtNinNumberError" style="color:red"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row padding-top">
+                    <div class="col-xl-12 col-sm-10">
+                        <div class="infodata">
+                            <label for="" class="label">Email Address</label>
+                            <div>
+                                <input type="email" placeholder="Enter your email id" class="datedata" id="txtEmail" readonly>
+                            </div>
+                            <span id="txtEmailError" style="color:red"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row padding-top">
+                    <div class="col-xl-12 col-sm-10">
+                        <div class="infodata">
+                            <label for="" class="label">Mobile Number</label>
+                            <div>
+                                <input type="text" placeholder="Enter your mobile number" class="datedata" id="txtMobileNumber" readonly>
+                            </div>
+                            <span id="txtMobileNumberError" style="color:red"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row padding-top">
+                    <div class="col-xl-12 col-sm-10">
+                        <div class="infodata">
+                            <label for="" class="label">Comment</label>
+                            <div>
+                                <input type="text" placeholder="Enter the reason" class="datedata" id="txtComment" maxlength="500">
+                            </div>
+                            <span id="txtCommentError" style="color:red"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row padding-top padding-bottom" id="AddressDiv">
+                    <div class="col-xl-12 col-sm-10">
+                        <div class="infodata">
+                            <label for="" class="label">Address</label>
+                            <div>
+                                <input type="text" placeholder="Enter your address" class="datedata" id="txtAddess">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row request-btn-container">
+                    <div class="col-xl-12 col-sm-10">
+                        <button type="button" class="request-btn" id="btnRequestUpdateProfile">Request admin to update changes</button>
+                    </div>
+                </div>
+            </div>
+            <!-- </div> -->
+        </div>
+    </div>
+
+</div>
+
+@*Request sent to Admin popup*@
+
+<div class="modal" id="rqstSentAdminModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="text-center rqstSentAdminModal-body-content">
+                <div class="rqstSentAdminModal-heading-container">
+                    <img src="~/Content/images/close.png" class="" data-bs-dismiss="modal" alt="" width="19" height="19"/>
+                </div>
+                <img src="~/Content/images/messagecheck.png" alt="" class="rqstSentAdminModal-msg-image"/>
+                <p class="rqstSentAdminModal-content">Your request has been sent to the admin.</p>
+                <div class="rqstSentAdminModal-btn-container">
+                    <button class="rqstSentAdminModal-btn" id="rqstSentAdminModalBtn" data-dismiss="modal">Okay</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

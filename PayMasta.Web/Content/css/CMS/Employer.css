@@ -1,0 +1,169 @@
+﻿body {
+}
+
+.home-container {
+    display: grid;
+    grid-template-columns: 100%;
+    align-items: center;
+}
+
+.header {
+    padding: 30px 40px 0px 40px;
+    margin-top: 140px;
+    border-radius: 0px 30px 30px 0px;
+}
+
+.header-tag {
+    font-size: 50px !important;
+}
+
+.info {
+    font-size: 30px !important;
+    color: black !important;
+    font-weight: 600 !important;
+}
+
+.info-container {
+    padding: 0px 40px;
+
+}
+
+.employer-info-container {
+    display: flex;
+    padding: 20px 24px;
+}
+
+.employer-img-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.employer-img-container img {
+    display: none;
+}
+
+.employer-content-heading {
+    width: 100%;
+    text-align: center;
+    font-size: 34px;
+    line-height: 54px;
+    color: #464646;
+    padding: 0px !important;
+}
+
+.employees-content-heading {
+    text-align: center;
+    width: 100%;
+    padding: 0px !important;
+    font-size: 34px;
+    line-height: 54px;
+    color: #464646;
+}
+
+.employees-img-container{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.employees-img-container img {
+    display: none;
+}
+
+h3 {
+    line-height: 44px;
+}
+
+.img-container {
+    text-align: end;
+}
+
+@media (min-width: 992px) {
+    .home-container {
+        display: grid;
+        grid-template-columns: 35% 65% !important;
+        align-items: center;
+    }
+
+    .employer-img-container img {
+        display: block;
+    }
+
+    .employees-img-container img {
+        display: block;
+    }
+
+    .employer-content-heading {
+        width: 30%;
+    }
+
+    .employees-content-heading {
+        width: 30%;
+    }
+}
+
+.img-container-second{
+    text-align:center;
+}
+
+.employees-info-container{
+    padding: 20px 24px;
+}
+
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+.employees-animation {
+    /* This section calls the slideInFromLeft animation we defined above */
+    animation: 1s ease-out 0s 1 slideInFromLeft;
+   
+}
+
+
+.employees-animation2 {
+    /* This section calls the slideInFromLeft animation we defined above */
+    animation: 1s ease-out 0s 1 slideInFromRight;
+}
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.employer-content-heading {
+    animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+.faq-animation {
+    animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+
+.web-details {
+    padding: 20px 14px;
+    display: flex;
+    justify-content: center;
+}
+
+p {
+    margin: 0px !important;
+    line-height: 36px;
+    color: #464646;
+}
+
+.req-demo-body-content {
+    padding: 20px 12px 30px 12px;
+}

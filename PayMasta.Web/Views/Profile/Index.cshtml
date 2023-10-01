@@ -1,0 +1,189 @@
+﻿
+@{
+    ViewBag.Title = "Profile";
+}
+
+<link href="~/Content/css/Account/ViewProfile.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+@*<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>*@
+<div class="view-profile-grid-container">
+    <div class="border-right">
+
+        <button type="button" class="btn side-collapse-btn" data-toggle="collapse" data-target="#my-profile">
+            <div class="text-container">
+
+                <img src="~/Content/images/setting-img.svg" />
+                <div class="accordion-content">View Profile</div>
+            </div>
+            <img src="~/Content/images/drop-down-icon.svg" alt="" class="drop-down-img">
+        </button>
+
+
+
+        <div id="my-profile" class="collapse">
+            @*<a href="@Url.Action("ChangePassword","Profile")">*@
+            @*<div class="collapse-sub-container">
+                <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                <div class="accordion-content">View Profile</div>
+            </div>*@
+            @*</a>*@
+            @*<div class="collapse-sub-container">
+                <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                <div class="accordion-content">Change Password</div>
+            </div>
+            <div class="collapse-sub-container">
+                <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                <div class="accordion-content">Change Password</div>
+            </div>*@
+        </div>
+
+        <button type="button" class="btn side-collapse-btn" data-toggle="collapse" data-target="#settings">
+            <div class="text-container">
+                <img src="~/Content/images/setting-img.svg" alt="">
+                <div class="accordion-content">Settings</div>
+            </div>
+            <img src="~/Content/images/drop-down-icon.svg" alt="" class="drop-down-img">
+        </button>
+        @*<div id="settings" class="collapse">
+            <a href="@Url.Action("ChangePassword","Profile")">
+                <div class="collapse-sub-container">
+
+                    <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                    <div class="accordion-content">Change Password</div>
+
+                </div>
+            </a>
+        </div>*@
+        <div id="settings" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+            <div class="accordion-body">
+                <a href="@Url.Action("ChangePassword", "Account")">
+                    <div class="collapse-sub-content">
+                        <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                        <div class="px-2 accordion-content">Change Password</div>
+                    </div>
+                </a>
+                <a href="https://lastmilefin-my.sharepoint.com/:w:/g/personal/geralderih_lastmilefin_onmicrosoft_com/EXhahbHm4ehNsHeySYYqlycB3Zh0YmuYF04gCUqspH-Nzg?e=ZMZteY")">
+                    <div class="collapse-sub-content">
+                        <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                        <div class="px-2 accordion-content">
+                            FAQs
+
+                        </div>
+                    </div>
+                </a>
+                <a href="https://lastmilefin-my.sharepoint.com/:w:/r/personal/geralderih_lastmilefin_onmicrosoft_com/_layouts/15/Doc.aspx?sourcedoc=%7B5C15C465-A85F-4976-AA4C-F06573A37110%7D&file=Document1.docx&action=default&mobileredirect=true&cid=7ad97eaf-dd3c-4d1b-b417-2c5c5f07b057")">
+
+                    <div class="collapse-sub-content">
+                        <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                        <div class="px-2 accordion-content">Terms & Conditions</div>
+                    </div>
+                </a>
+                <a href="https://lastmilefin-my.sharepoint.com/:w:/g/personal/geralderih_lastmilefin_onmicrosoft_com/ETxtfKjRcwFAkJ9bLrT7ay0BjkJgH9lwvrM8oQSbvTj8Kw?e=tLjWSB">
+                    <div class="collapse-sub-content">
+                        <img src="~/Content/images/setting-icon.svg" alt="" width="34px" height="34px" />
+                        <div class="px-2 accordion-content">Privacy Policy</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class="profile-logout-btn">
+            <img src="~/Content/images/logout-img.svg" alt="">
+            <div class="px-2 accordion-content" id="divLogout">Logout</div>
+        </div>
+
+    </div>
+    <div class="view-profile-sub-container-two">
+        <div class="view_profile ">
+            <div class="view-profile-heading">View Profile</div>
+            <a href="@Url.Action("UpdateEmployerProfile","Profile")">
+                <div class="edit-profile-btn">Edit Profile</div>
+            </a>
+
+        </div>
+        <div class="profile-details">
+            <div class="profile-pic-container">
+                <img src="" alt="" class="profile-pic" id="test" />
+
+                <img src="~/Content/images/camera-img.svg" alt="" class="camera-img" data-toggle="modal" data-target="#uploadProfileModal">
+            </div>
+            <div class="user-info-container">
+                <div class="user-info-container_1">
+                    <div class="border-color">
+                        <div class="user-detail-heading">Organisation Name</div>
+                        <div class="user-info"><span id="txtFirstName"></span></div>
+                    </div>
+                </div>
+
+
+                <div class="user-info-container_1">
+                    <div class="border-color">
+                        <div class="user-detail-heading">Email Address</div>
+                        <div class="user-info"><span id="txtEmail"></span></div>
+                    </div>
+                </div>
+
+                <div class="user-info-container_1">
+                    <div class="border-color">
+                        <div class="user-detail-heading">Mobile Number</div>
+                        <div class="user-info"><span id="txtMobileNumber"></span></div>
+                    </div>
+                </div>
+
+                <div class="user-info-container_1">
+                    <div class="border-color">
+                        <div class="user-detail-heading">Country</div>
+                        <div class="user-info"><span id="txtCountry"></span></div>
+                    </div>
+                </div>
+
+                <div class="user-info-container_1">
+                    <div class="border-color">
+                        <div class="user-detail-heading">State</div>
+                        <div class="user-info"><span id="txtState"></span></div>
+                    </div>
+                </div>
+
+                <div class="user-info-container_1">
+                    <div class="border-color">
+                        <div class="user-detail-heading">Office Address</div>
+                        <div class="user-info"><span id="txtAddress"></span></div>
+                    </div>
+                </div>
+                <div class="user-info-container_1">
+                    <div class="border-color">
+                        <div class="user-detail-heading">Post Code</div>
+                        <div class="user-info"><span id="txtPostCode"></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+
+
+@*modal upload image*@
+<div>
+    <div class="modal" id="uploadProfileModal">
+        <div class="modal-dialog ">
+            <div class="modal-content ">
+                <div class=" body-content">
+                    <div class=" heading-container">
+                        <div class="heading ">Change Profile Picture</div>
+                        <img class="img-pic" src="~/Content/images/Employer/close.png" data-dismiss="modal" alt="" width="19px" height="19px">
+                    </div>
+                    <div class=" changeprofileimg  upload-button">
+                        <label for="profile-pic" class="profile-upload-img"> <img src="~/Content/images/Employer/changeprofile.svg"/></label>
+                        <input type="file" id="profile-pic" name="myfile" style="display: none;" class="file-upload" accept="image/*">
+                    </div>
+                    <button type="button" class="upload-btn" name="Save" id="btnSaveImage">Upload</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Content/js/EmployerJs/UpdateEmployerProfile.js"></script>

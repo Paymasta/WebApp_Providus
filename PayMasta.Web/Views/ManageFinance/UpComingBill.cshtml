@@ -1,0 +1,221 @@
+﻿
+@{
+    ViewBag.Title = "Pay Now";
+}
+<link href="~/Content/css/UpcomingBillsCss/UpcomingBills.css" rel="stylesheet" />
+<script src="~/Content/js/ManageFinance/upcomingBills.js"></script>
+<style>
+        .modal-content {
+            border-radius: 16px;
+        }
+
+        .heading-container {
+           @* width: 440px;*@
+            margin: auto;
+            position: relative;
+            padding: 1.5rem 0rem;
+        }
+
+        .heading {
+            margin: auto;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .input-field {
+            width: 335px;
+            height: 54px;
+            font-size: 12px;
+            color: #130F2666;
+            border: 1px solid #707070;
+            border-radius: 10px;
+            padding-left: 10px;
+        }
+
+        .request-btn {
+            padding: 1rem 0rem;
+            width: 335px;
+            margin: auto;
+            background: #F86847;
+            border: 1px solid #F86847;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        .pay-request-btn {
+            padding: 1rem 0rem;
+            width: 280px;
+            margin: auto;
+            background: #F86847;
+            color: #FFFFFF;
+            border: 1px solid #F86847;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        .remove-request-btn {
+            padding: 1rem 0rem;
+            width: 100%;
+            margin: auto;
+            background: #F86847;
+            border: 1px solid #F86847;
+            border-radius: 10px;
+            font-size: 16px;
+        }
+
+        .contact-pay {
+            width: 280px;
+            padding: 1rem 0rem;
+            margin: auto;
+            border-radius: 10px;
+            font-size: 16px;
+            background-color: #fff;
+            color: #464646;
+            border: 1px solid #707070;
+        }
+
+        .input-text {
+            padding-left: 10px;
+            width: 345px;
+            height: 54px;
+            /* UI Properties */
+            background: #FFFFFF 0% 0% no-repeat padding-box;
+            border: 1px solid #797979;
+            border-radius: 10px;
+            font-size: 12px;
+        }
+
+        .recharge-input-text {
+            padding-left: 10px;
+            width: 280px;
+            height: 54px;
+            /* UI Properties */
+            background: #FFFFFF 0% 0% no-repeat padding-box;
+            border: 1px solid #797979;
+            border-radius: 10px;
+            font-size: 12px;
+        }
+
+        .label {
+            padding: 0px 2px;
+            position: absolute;
+            top: -6px;
+            left: 10px;
+            background-color: white;
+            font-size: 12px;
+            z-index: 1;
+            color: #130F26;
+        }
+
+        select {
+            appearance: none;
+        }
+
+        .add-bank-acc-close-btn {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            right: 2rem;
+            transform: translateY(-50%);
+        }
+
+        .recharge-input-container {
+            margin-bottom: 2rem;
+            display: inline-block;
+            position: relative;
+        }
+
+        .recharge-btn-container {
+            padding: 1rem 0rem;
+        }
+
+        .paymentmodal-input-container {
+            padding-bottom: 1.5rem 0rem;
+        }
+
+        .financeBillheading-container {
+            display: flex;
+            justify-content: end;
+            padding-top: 10px;
+            padding-right: 20px;
+
+        }
+
+        .financeBillheading-container img {
+            margin: 10px 0px;
+        }
+
+        .access-earned-padding {
+            margin-bottom: 20px;
+        }
+
+
+</style>
+<div class="finance-container">
+    <div class="heading-container">
+
+        <img src="~/Content/images/arrow-left.svg" class="back-img" id="backBtn" />
+        <span>Upcoming Bills</span>
+    </div>
+
+    <div class="padding-container">
+        <div class="amount-container">
+            <div class="amount-text">Bank Balance</div>
+            <div class="amount" id="divCurrentBalance"></div>
+        </div>
+        <div class="spend-container">
+            <div class="spend-text">Spend</div>
+            <div id="upcomingBillsDiv">
+
+                @*<div class="box-main-container">
+                        <div class="flex-container">
+
+                            <img src="~/Content/images/mobile.svg" class="image" />
+                            <div class="upcoming-bill-content">Mobile Recharge</div>
+                        </div>
+                        <div class="flex-container">
+                            <div class="spend-amount">₦100,000</div>
+                            <img src="~/Content/images/close.png" class="close-btn" />
+
+                        </div>
+                    </div>*@
+            </div>
+
+
+
+        </div>
+        <div class="total-cost-container">
+            <div class="total-text">Total</div>
+            <div class="finance-amount" id="UpcomingBillsTotal"></div>
+        </div>
+
+        <div class="earned-wage-pay-container">
+            <div class="access-earned-wage-btn">Access Earned Wage</div>
+            <div class="pay-btn">Pay</div>
+        </div>
+    </div>
+
+</div>
+
+@*Remove bill Modal*@
+<div class="modal fade" id="managefinanceBillModal84">
+    <div class="modal-dialog h-100 my-0">
+        <div class="modal-content position-absolute">
+            <div class="text-center body-content">
+                <div class="d-flex align-items-center justify-content-end m-auto financeBillheading-container">
+                    <!-- <div class="heading py-4 m-auto">Access Pay</div> -->
+
+                    <img src="~/Content/images/close.png" data-dismiss="modal" width="19" height="19" style="cursor: pointer" />
+
+
+
+                </div>
+                <!-- <img src="./ewaimg.png" alt="img"> -->
+                <p style="padding: 10px 0px">Are you sure you want to remove<br />this bill?</p>
+                <div class="mb-2" style="padding: 20px 0px">
+                    <button class="pay-request-btn py-2 text-light" data-dismiss="modal" id="removeBtn">Remove</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

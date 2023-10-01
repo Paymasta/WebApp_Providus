@@ -1,0 +1,178 @@
+﻿
+@{
+    ViewBag.Title = "Employees";
+}
+
+<link href="~/Content/css/Employer/emloyeescreen.css" rel="stylesheet" />
+<div class="loader" id="loaderEmployees"></div>
+<div class="main_div">
+    <div class="sec_div">
+        <div class="drop_down">
+            <div class="drop_select">
+                Status
+                <select name="cars" id="ddlStatus">
+                    <option value="-1">All</option>
+                    <option value="1">Active</option>
+                    <option value="0">Inactive</option>
+                </select>
+            </div>
+            <div class="date_option">
+                <div class="date_from">
+                    From
+                    <span style="display: inline-block; position: relative">
+                        <input type="text" class="to_date" placeholder="MM/DD/YYYY" id="txtFromDate">
+                        <i class="fa fa-calendar-check-o calender" aria-hidden="true" id="calender_from"></i>
+                    </span>
+
+                </div>
+
+                <div class="date_from">
+                    <span class="">TO</span>
+                    <span style="display: inline-block; position: relative">
+                        <input type="text" class="to_date" id="txtEnddate" placeholder="MM/DD/YYYY">
+                        <i class="fa fa-calendar-check-o calender" aria-hidden="true" id="calender_to"></i>
+                    </span>
+
+                </div>
+                <div>
+                    <button type="button" class="reset" id="btnReset">Reset</button>
+                </div>
+                <div>
+                    <button type="button" class="filter" id="btnFilter">Fliter</button>
+                </div>
+            </div>
+        </div>
+        <div class="tab_data">
+            <div class="tab_data1">
+                <div class="main_transaction">
+                    <div class="text">
+                        Employees
+                    </div>
+                    <div class="sec_transaction">
+                        <div class="drop_select2">
+                            <select name="cars" id="dllBankList">
+                                <option value="">Bank Detail</option>
+                            </select>
+                        </div>
+                        <div>
+                            <button type="button" class="csvexport" id="btnExportToCSV">Export To CSV</button>
+                        </div>
+                        <div class="search_icon">
+                            <button class="paycycle" data-toggle="modal" data-target="#uploadUserListModal">Upload User List</button>
+                            <img class="search-arrow" src="~/Content/images/Employer/arrow-line.png" alt="">
+                        </div>
+                        <div class="search_icon">
+                            <input type="search" placeholder="Search" class="search" id="txtSearch">
+                            <img class="search-img" src="~/Content/images/Employer/search-line.svg" alt="">
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="table-overflow">
+                    <table class="employees-table">
+                        <thead>
+                            <tr>
+                                <th class="employees-table-heading">S.No</th>
+                                <th class="employees-table-heading">Name</th>
+                                <th class="employees-table-heading">Staff Id</th>
+                                <th class="employees-table-heading">Phone Number</th>
+                                <th class="employees-table-heading">Email Id</th>
+                                <th class="employees-table-heading">User Status</th>
+                                <th class="employees-table-heading">Employer Verification</th>
+                                <th class="employees-table-heading">Date</th>
+                                <th class="employees-table-heading">Action</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="tblEmployees">
+                        </tbody>
+
+                    </table>
+
+
+
+                </div>
+                <div class="card" id="user-no-record">
+                    <div class="card-body" style="text-align:center">
+                        No record found.
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="pagination">
+            <ul id="emplyr_pagination" class="pagination"></ul>
+        </div>
+
+        @*<div class="pagination">
+            <ul id="pagination-demo" class="pagination"></ul>
+        </div>*@
+
+
+        @*<div class="pagination" id="pagination">
+            <div class="arrow_custom"><a href="#">&lt;</a></div>
+            <a class="anch_tag" href="#">1</a>
+
+            <div class="arrow_custom"> <a href="#">&gt;</a></div>
+        </div>*@
+
+        @*<div class="wrapper1">
+            <div class="container">
+
+                <div class="row">
+                    <div class="col-sm-12">
+
+                        <ul id="pagination-demo" class="pagination-sm"></ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>*@
+
+    </div>
+</div>
+
+@*Upload User List Modal*@
+
+<div class="modal fade" id="uploadUserListModal" role="dialog">
+    <div class="modal-dialog">
+    
+        <!-- Modal content-->
+        <div class="modal-content">
+        @*<div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Modal Header</h4>
+        </div>*@
+            <div class="modal-body">
+                <button type="button" class="close" data-dismiss="modal" id="btnClose">&times;</button>
+                <div class="col-xs-12 col-sm-12 col-md-12 upload-user-list-content">
+                    <span class="col-xs-12 col-sm-4 col-md-4">Download format:</span>
+                    <div class="col-xs-12 col-sm-8 col-md-8">
+                        <button type="button" class="upload-modal-btns upload-modal-download-btn" id="btnDownload">Download</button>
+                    </div>
+
+                </div>
+
+                <div class="col-xs-12 col-sm-12 col-md-12 upload-user-list-content">
+                    <span class="col-xs-12 col-sm-4 col-md-4">Upload user list:</span>
+                    <div class="col-xs-12 col-sm-8 col-md-8">
+                        <label for="uploadMmodalFileBrowse" class="upload-modal-btns">File Browse</label>
+                        <input type="file" id="uploadMmodalFileBrowse" class="upload-modal-btns upload-modal-brows-btn" accept=".xlsx, .csv"/>
+                    </div>
+                    <span>
+                        <label id="lblfilename"></label>
+                    </span>
+                </div>
+                <button type="button" class="upload-modal-upload-btn" id="btnUploadCsv">Upload</button>
+            </div>
+       
+        </div>
+      
+</div>
+</div>
+
+<script src="~/Content/js/EmployerJs/Employees.js"></script>
+<script src="~/Content/js/plugins/jquery.twbsPagination.min.js"></script>
+<script src="~/Content/js/plugins/jquery.twbsPagination.js"></script>

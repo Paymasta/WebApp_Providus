@@ -1,0 +1,391 @@
+﻿@{
+    ViewBag.Title = "Dashboard";
+}
+
+<link href="~/Content/css/Dashboard/dashboard.css" rel="stylesheet" />
+<script src="~/Content/js/Dashboard/Dashboard.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+@* <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>*@
+<style>
+
+        .select-box-container {
+            padding: 0rem 1rem;
+            position: relative;
+        }
+
+        #select-box {
+            color: #464646CC;
+            @*width: 113px;
+            height: 40px*@;
+            width: 113px;
+            height: 32px;
+            border: 1px solid #707070;
+            border-radius: 10px;
+            font-size: 13px;
+            appearance: none;
+            padding: 0 0.5rem;
+
+            background-image: url('../../Content/images/down-arrow.svg');
+            background-repeat: no-repeat;
+            appearance: none;
+            -webkit-appearance: none;
+            background-position: calc(100% - 10px);
+            outline: none;
+        }
+
+        .down-arrow-img {
+            position: absolute;
+            top: 50%;
+            right: 0.3rem;
+            transform: translate(-50%, -50%);
+        }
+
+        #pieChart {
+            max-width: 500px !important;
+            display: block !important;
+            height: 200px !important;
+            width: 200px !important;
+        }
+
+
+
+        .padding-top {
+            padding-top: 1.5rem;
+        }
+
+        .padding-bottom {
+            padding-bottom: 0.79rem;
+        }
+
+        /* .padding-top {
+            padding-top: 0.48rem;
+        } */
+        .small-box {
+            padding: 18px 20px;
+            height: 129px;
+        }
+
+        .big-box-main-container {
+            padding-right: 0px;
+        }
+
+        .small-box-main-container {
+            padding-right: 0px;
+        }
+
+</style>
+
+<div class="dashboard-container">
+    <div class="flexwrap">
+        <div class="w-60">
+            <div class="balance-container">
+                <div class="padding-top">
+                    <div class="balance-sub-container ">
+                        <div>
+                            <div class="balance-text">Available Balance</div>
+                            <div class="amount-text">₦<span id="availableAmount"></span></div>
+                        </div>
+
+                        <div class="access-pay-btn" role="button" data-toggle="modal" data-target="#accessPayModal">Access Pay</div>
+                    </div>
+                </div>
+
+
+                <hr class="hr-tag">
+
+                <div class="pay-cycle-main-container">
+                    <div class="pay-cycle-text">Pay Cycle</div>
+                    <div class="date">
+                        <span id="fromTo"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="flexwrap w-40">
+            <div class="w-50">
+                <div class="accessed-amount-container">
+                    <div class="doller-img-container ">
+                        <img src="~/Content/images/doller.png" alt="" width="24px" height="24px" class="doller-img" />
+                        <div class="access-amount-text">
+                            <div class="amountTitle">Accessed Amount</div>
+                            <div class="accessed-amount text-start">
+                                ₦<span id="AccessedAmount1"></span>
+                                @*<span id="AccessedAmount"></span>*@
+
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="hr-tag">
+                    <div class="paycycleText">Pay Cycle: <span id="fromToCycle"></span></div>
+                </div>
+            </div>
+            <div class="w-50">
+                <a href="@Url.Action("Index","EarlyWageAccess")">
+                    <div class="accessed-amount-container">
+                        <div class="doller-img-container ">
+                            <img src="~/Content/images/earned-amount-img.svg" width="24px" height="24px" class="doller-img" />
+
+                            <div class="access-amount-text">
+                                <div class="amountTitle">Earned Amount</div>
+                                <div class="accessed-amount text-start">
+                                    ₦<span id="EarnedAmount"></span>
+
+                                </div>
+                            </div>
+
+                        </div>
+                        <hr class="hr-tag">
+                        <div class="paycycleText">Pay Cycle: <span id="fromToCycle1"></span></div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="flexwrap">
+        <div class="w-60">
+            <div class="transaction-container" role="button">
+                <div class="transaction-text">Transactions history</div>
+                <div id="mainDivTransaction">
+                    @*<div class="card" >*@
+                    <div class="card-body transaction-no-record" id="transactions">No record found.</div>
+                    @* </div>*@
+                </div>
+
+
+            </div>
+
+        </div>
+        <div class="w-40">
+            <div class="expense-tracker">
+                <div class="expence-heading">Track My Expenses</div>
+                <div class="pie-chart-container">
+
+                    <div>
+                        <canvas id="pieChart" style="max-width: 500px"></canvas>
+                    </div>
+
+                    <div class="">
+                        <div>
+                            <div>Travel</div>
+                            <div class="num-percent-one" id="Travel"></div>
+                        </div>
+                        <div class="">
+                            <div>Recharge & Bills</div>
+                            <div class="num-percent-two" id="RechargeBills"></div>
+                        </div>
+                        <div class="">
+                            <div>E-Commerce</div>
+                            <div class="num-percent-three" id="ecom"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="flexwrap">
+        <div class="w-60">
+            <div class="barchart-container">
+                <div class="income-text-container">
+                    <div class="income-text">
+                        Spendings
+                    </div>
+                    <div class="select-box-container">
+                        <select name="" id="select-box">
+                            <option value="-1">Last Week</option>
+                            <option value="3 Week">Last 3 Weeks</option>
+                            <option value="3 Month">Last 3 Months</option>
+                            <option value="3 Years">Last 3 Years</option>
+                        </select>
+                        @*  <img src="~/Content/images/down-arrow.svg" alt="" class="down-arrow-img">*@
+                    </div>
+                </div>
+                <div class="graph-container">
+                    <canvas id="myChart" style="padding-bottom: 20px"></canvas>
+                    @*<div class="card" id="NoSpendingsFound">*@
+                    <div class="card-body spending-no-record" id="NoSpendingsFound" style="text-align:center">No record found.</div>
+                    @*</div>*@
+                </div>
+            </div>
+        </div>
+        <div class="w-40">
+            <div class="invite-img-container">
+                <div class="invite-text">Invite Your Friends to</div>
+                <div class="pay-masta-text">PayMasta</div>
+                <div class="invite-content-main-container">
+                    <div class="invite-content">
+                        Enable another employee's financial<br /> wellness today.
+                    </div>
+                    <div class="reward-img-container">
+                        <img src="~/Content/images/reward-img.png" alt="">
+                    </div>
+                </div>
+                <div class="invite-btn" data-toggle="modal" data-target="#dashboardInviteModal" role="button">Invite</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+@*modal access pay request*@
+<div>
+    <div class="modal fade" id="accessPayModal" data-backdrop="static">
+        <div class="modal-dialog" id="modal-centered">
+            <div class="modal-content">
+                <div class="body-content">
+                    <div class="text-container">
+                        <div class="heading ">Access Pay</div>
+                        <div class="access-pay-close-btn" data-dismiss="modal" aria-label="Close">
+                            <img src="~/Content/images/close.svg" />
+                        </div>
+                    </div>
+                    <form action="" class="">
+                        @*<input type="text" placeholder="Enter the amount" class="input-field" id="txtAccessAmount" maxlength="5" oninput="this.value = this.value.replace(/[^0-9\.]/g, '');" />*@
+                        <input type="text" placeholder="Enter the amount" class="input-field" id="txtAccessAmount" maxlength="6" oninput="this.value = this.value.replace(/[^0-9]/g, '');" />
+                        <span id="requestFee" style="display: flex; justify-content: center; align-items: center; width: 290px; margin: auto;color:red"></span>
+                        <span id="AccessAmountError" class="access-amount-error"></span>
+                        <div class="py-4 buton-container">
+                            <button id="btnAccessRequest" type="button" class="request-btn ">Send Request</button>
+
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Access Pay Success Modal*@
+
+<div class="modal" id="accessPaySuccessModal">
+    <div class="modal-dialog h-100 my-0">
+        <div class="modal-content position-absolute">
+            <div class="text-center accesspay-success-content">
+                <div class="heading-container">
+                    <img src="~/Content/images/close.png" class="" data-dismiss="modal" alt="" width="19" height="19" />
+                </div>
+                <img src="~/Content/images/accesspay-success-img.png" />
+                <p class="accessPaySuccessModal-content">Your request has been sent to the authority<br />and the amount will credited to your<br />account in a while.</p>
+                <div class="access-pay-success-bt-container">
+                    <button class="access-pay-success-btn py-2 text-light" data-dismiss="modal">Okay</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Payment Modal*@
+<div class="modal fade" id="finance-payment-modal" data-backdrop="static">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="text-center body-content">
+                <div class="m-auto position-relative">
+                    <div class="heading py-4 m-auto">Payment</div>
+                    <img src="./close-btn.png" alt="" width="19" height="19" class="payment-close-btn">
+                </div>
+                <form action="" class="">
+                    <div class="paymentmodal-input-container">
+                        <label for="" class="label">Email Address</label>
+                        <div class="position-relative">
+                            <input type="text" class="input-text" placeholder="Enter your email address" />
+                        </div>
+                    </div>
+                    <div class="paymentmodal-input-container">
+                        <label for="" class="label">Amount</label>
+                        <div class="position-relative">
+                            <input type="text" class="input-text" placeholder="Enter your amount" />
+                        </div>
+                    </div>
+                    <div class="pay-btn-container">
+                        <button class="payment-request-btn py-2 text-light">Pay</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="dashboardInviteModal" data-backdrop="static">
+    <div class="modal-dialog h-100 my-0">
+        <div class="modal-content">
+            <div class="text-center invite-modal-body-content">
+                <div class="invite-heading-container">
+                    <div class="heading py-2 m-auto">Invite</div>
+                    @*<img src="./close.png" class="close" data-bs-dismiss="modal" alt="" width="19px" height="19px">*@
+                    <img src="~/Content/images/close.png" class="invite-modal-close-btn" data-dismiss="modal" alt="" width="19" height="19" />
+                </div>
+                <img src="~/Content/images/invite-modal-img.png" />
+                <p style="margin-bottom: 0px !important; padding: 12px 0px 18px 0px;">
+                    Enable another employee's financial wellness today.
+                </p>
+                <div class="img2 mb-5 link-mail-container">
+                    <div class="cursor-pointer">
+                        <button onclick="copyToClipboard('#txtLink')" class="copy-link-btn">
+                            <img src="~/Content/images/copy-icon-img.png" />
+                        </button>
+                        <br />
+                        <span>Copy Link</span>
+                        <p id="txtLink" style="display:none">paymasta.co</p>
+                        <div id="linkCopiedText" class="link-copied-text" style="display: none">Link copied</div>
+                    </div>
+                    <div id="inviteMailIcon" class="mail cursor-pointer">
+                        <img src="~/Content/images/email-img.png" /><br />
+                        <span>Mail</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" id="inviteEmailModal" data-backdrop="static">
+    <div class="modal-dialog h-100 my-0">
+        <div class="modal-content">
+            <div class="text-center invite-modal-body-content">
+                <div class="d-flex align-items-center justify-content-end m-auto invite-heading-container">
+                    <div class="heading py-2 m-auto">Invite</div>
+                    @*<img src="./close.png" class="close" data-bs-dismiss="modal" alt="" width="19px" height="19px">*@
+                    <img src="~/Content/images/close.png" class="invite-modal-close-btn" data-dismiss="modal" alt="" width="19" height="19" />
+                </div>
+                <img src="~/Content/images/invite-modal-img.png" />
+                <p style="margin-bottom: 0px !important; padding: 12px 0px 18px 0px;">
+                    Enable another employee's financial wellness today.
+                </p>
+                <div class="invite-email-input-container">
+                    <input type="email" placeholder="Enter your email" id="txtEmailInvite" maxlength="80" />
+                </div>
+                <div class="invite-email-input-container">
+                    <button type="button" class="request-btn py-2 text-light" id="btnInviteTofriend">Invite</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+    function copyToClipboard(element) {
+        var $temp = $("<input>");
+        $("body").append($temp);
+        $temp.val($(element).text()).select();
+        document.execCommand("copy");
+        $temp.remove();
+
+        document.getElementById("linkCopiedText").style.display = "block";
+
+        setTimeout(() => {
+            const linkCopiedBox = document.getElementById('linkCopiedText');
+            linkCopiedBox.style.display = 'none';
+        }, 2000);
+    }
+
+</script>

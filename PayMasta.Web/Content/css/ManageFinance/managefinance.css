@@ -1,0 +1,307 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.finance_back {
+   
+    width: 100%;
+}
+
+.finance_account {
+    padding: 0px 16px;
+}
+
+
+.manage-chart {
+    max-width: 500px;
+}
+
+#myChart {
+    /*   position: absolute !important;
+    top: 41% !important;
+    transform: translateY(-50%) !important; */
+}
+
+.first_sec {
+    box-shadow: 0px 3px 6px #00000029;
+    background-color: #fff;
+    border-radius: 16px;
+    margin-right: 1px;
+    padding: 40px 0;
+}
+
+.finance_main {
+    padding: 0px 18px;
+}
+
+.finance_pad {
+   /* padding: 10px;*/
+   margin-bottom: 16px;
+}
+
+.chart_bottom {
+    padding-bottom: 25px;
+}
+
+.average_sec {
+    margin-bottom: 16px;
+    text-align: center;
+    /*padding: 10px;*/
+}
+
+.text_green {
+    color: #53D17A;
+}
+
+.text_blue {
+    color: #32A4FF;
+}
+
+.text_red {
+    color: #F86847;
+}
+
+.text_green, .text_blue, .text_red {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.second-sec {
+   /* padding: 20px 0px 206px 0px;*/
+   height: 268px;
+    box-shadow: 0px 3px 6px #00000029;
+    background-color: #fff;
+    border-radius: 16px;
+    position: relative;
+   /* padding: 49px;*/
+}
+
+.upcoming_sec {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0px 8px 0px;
+}
+
+#noUpcomingBillFound {
+    display: flex;
+    align-items: center;
+}
+
+#upComingbillsList {
+    display: flex;
+    overflow-x: auto;
+}
+
+.card_section {
+    padding: 10px;
+    /*width: 16.6666667%;*/
+    min-width: 163px;
+    position: relative;
+}
+
+.card-close-icon {
+    position: absolute;
+    top: 20px;
+    right: 16px;
+    cursor: pointer;
+    z-index: 999;
+}
+
+.close_img {
+    width: 17px;
+
+}
+
+.text {
+    padding-top: 20px;
+    color: #797979;
+    font-size: 22px;
+}
+
+.num_text {
+    color: #32A4FF;
+    font-size: 35px;
+    font-weight: 600;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /* @media only screen and (min-width: 800px) {
+        body {
+         font-size:25px;
+        }
+      } */
+}
+
+.bill_text, .img-top {
+    color: #32A4FF;
+   
+    font-size: 18px;
+    vertical-align: initial;
+    font-weight: bold;
+}
+
+.mob_recharge {
+    box-shadow: 0px 3px 6px #00000029;
+    background-color: #F868470F;
+    border-radius: 14px;
+    padding: 10px;
+    margin-top: 3px;
+    cursor: pointer;
+}
+
+.text_center {
+    text-align: center;
+}
+
+.phone_img {
+    background-color: #F86847;
+    border-radius: 50%;
+    padding: 5px;
+    margin-left: 16px;
+}
+
+.ph_text {
+    white-space: nowrap;
+    width: 123px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 12px;
+    color: #797979;
+    margin: 0px;
+    margin-top: 5px;
+}
+
+.ph_num {
+    font-size: 18px;
+    font-weight: bold;
+    margin-top: 8px !important;
+    margin: 0px;
+}
+
+.list_section {
+    box-shadow: 0px 3px 6px #00000029;
+    border-radius: 9px;
+    background-color: #fff;
+    padding: 0px 10px;
+}
+
+.line {
+    padding: 10px 0px;
+    border-bottom: 1px solid #E0E0E0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.line:last-child {
+    padding: 10px 0px 24px 0px
+}
+
+/*.line1 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 7px;
+}*/
+
+.travel {
+   /* margin-top: 37px !important;*/
+}
+
+.recharge_text {
+    font-size: 14px;
+    color: #797979;
+    margin: 0px;
+    /*margin-top: 10px !important;*/
+    /* @media(min-width:760x){
+       text-align:center;
+    } */
+}
+
+.recharge_num {
+    font-size: 14px;
+    color: #32A4FF;
+    font-weight: bold;
+}
+
+.today_text1 {
+    margin-top: 14px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.today_text {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.middle_responsive {
+    margin-top: 20px;
+    position: absolute;
+    right: 0;
+}
+
+.remove-btn-container {
+    padding: 20px 0px;
+    width: 290px;
+    margin: auto;
+}
+
+.piechart-side-content {
+    padding-top: 20px;
+}
+
+.upcoming-bills-no-record-found {
+    padding: 32px;
+    background: #e3e3e3;
+    text-align: center;
+    border-radius: 10px;
+}
+
+@media (max-width: 991px) {
+    .average_sec {
+        padding-left: 0px;
+    }
+
+    .piechart-side-content {
+        text-align: center;
+    }
+}
+
+@media(max-width:1024px) {
+    .num_text {
+        font-size: 25px;
+    }
+}
+
+@media(max-width:1000px) {
+    .middle_responsive {
+        text-align: center !important;
+    }
+}
+
+@media(max-width:1000px) {
+    .first_sec {
+       /* height: 360px !important;*/
+    }
+}
+
+@media (max-width: 380px) {
+    .remove-btn-container {
+        width: 100%;
+        padding: 20px
+    }
+}
+
+@media (min-width: 992px) {
+    .finance_pad {
+        margin-bottom: 0px;
+    }
+
+    .average_sec {
+        margin-bottom: 0px;
+    }
+}
+

@@ -1,0 +1,145 @@
+﻿
+@{
+    ViewBag.Title = "Request Demo";
+    Layout = "~/Views/Shared/_Website.cshtml";
+
+}
+<!-- Start of Meetings Embed Script -->
+
+<script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
+<!-- End of Meetings Embed Script -->
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(this).css("color", "#020202B3");
+        $("#item-portfolio").css("color", " #02020299");
+        $("#item-pages").css("color", " #02020299");
+        $("#item-home").css("color", " #02020299");
+        $("#item-news").css("color", " #02020299");
+        $("#item-blog").css("color", " #02020299");
+
+        $("#sidebar-item-home").css("color", " #02020299");
+        $("#sidebar-item-portfolio").css("color", "#02020299");
+        $("#sidebar-item-pages").css("color", "#02020299");
+        $("#sidebar-item-elements").css("color", " #41B6E6");
+        $("#sidebar-item-news").css("color", " #02020299");
+        $("#sidebar-item-blog").css("color", " #02020299");
+
+        $("#active-home-item").hide();
+        $("#active-portfolio-item").hide();
+        $("#active-pages-item").hide();
+        $("#active-elements-item").show();
+        $("#active-news-item").hide();
+        $("#active-blog-item").hide();
+    });
+</script>
+
+<script src="~/Content/js/CMS/RequestDemo.js"></script>
+<link href="~/Content/css/CMS/Employer.css" rel="stylesheet" />
+@*<img class="employees-animation" src="~/Content/images/3Dimages/request a demo-2.png" style="width: 100%" />*@
+
+<!-- Start of Meetings Embed Script -->
+<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/chidera-awurum/paymasta?embed=true"></div>
+<script type="text/javascript" src="https://static.hsappstatic.net/MeetingsEmbed/ex/MeetingsEmbedCode.js"></script>
+<!-- End of Meetings Embed Script -->
+@*<div class="req-demo-body-content">
+        <div class="mainBody">
+            <div class="heading">Request a Demo</div>
+            <div class="py-2">
+                <div class="sub-heading mb-3">Hey user, Welcome to PayMasta, Let's work together</div>
+            </div>
+            <div class="">
+                <div class="position-relative  create-pswd-input-container-height mb-3">
+
+                    <div class="field-container mb-3">
+                        <div class="position-relative me-1 w-50">
+                            <label for="" class="position-absolute label">First Name</label>
+                            <input type="text" class="create-pswd-input-text form-control" placeholder="Enter your first name" id="txtRequestDemoFirstName" maxlength="100" />
+                            <div>
+                                <span id="errortxtRequestDemoFirstName" style="color:red"></span>
+                            </div>
+                        </div>
+                        <div class="position-relative ms-1 w-50">
+                            <label for="" class="position-absolute label">Last Name</label>
+                            <input type="text" class="create-pswd-input-text form-control" placeholder="Enter your last name" id="txtRequestDemoLastName" maxlength="100" />
+                            <div>
+                                <span id="errortxtRequestDemoLastName" style="color:red"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field-container mb-3">
+                        <div class="position-relative me-1 w-50">
+                            <label for="" class="position-absolute label">Email</label>
+                            <input type="email" class="create-pswd-input-text form-control" placeholder="Enter your email" id="txtRequestDemoEmail" maxlength="100" />
+                            <div>
+                                <span id="errortxtRequestDemoEmail" style="color:red"></span>
+                            </div>
+                        </div>
+                        <div class="position-relative ms-1 w-50">
+                            <label for="" class="position-absolute label">Phone Number</label>
+                            <input type="text" class="create-pswd-input-text form-control" placeholder="Enter your phone number" id="txtRequestDemoPhone" maxlength="11" oninput="this.value = this.value.replace(/[^0-9]/g, '');" />
+                            <div>
+                                <span id="errortxtRequestDemoPhone" style="color:red"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="field-container mb-3">
+                        <div class="position-relative me-1 w-50">
+                            <label for="" class="position-absolute label">Job Title</label>
+                            <input type="text" class="create-pswd-input-text form-control" placeholder="Enter your job title" id="txtRequestDemoJobTitle" maxlength="100" />
+                            <div>
+                                <span id="errortxtRequestDemoJobTitle" style="color:red"></span>
+                            </div>
+                        </div>
+                        <div class="position-relative ms-1 w-50">
+                            <label for="" class="position-absolute label">Company Name</label>
+                            <input type="text" class="create-pswd-input-text form-control" placeholder="Enter your company name" id="txtRequestDemoCompany" maxlength="100" />
+                            <div>
+                                <span id="errortxtRequestDemoCompany" style="color:red"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="">
+                <div class="position-relative  create-pswd-input-container-height mb-3">
+                    <label for="" class="position-absolute label">How Can We Help?</label>
+                    <div class="position-relative">
+                        <textarea class="create-pswd-input-text toggle-password form-control pt-2 req-demo-text-area" placeholder="Please enter description" id="txtRequestDemoDetail"></textarea>
+                        <div>
+                            <span id="errortxtRequestDemoDetail" style="color:red"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="">
+                <div class="position-relative  create-pswd-input-container-height mb-3">
+                    <label for="" class="position-absolute label">Company Size</label>
+                    <div class="position-relative">
+                        <select class="create-pswd-input-text form-control" id="ddlCompanySize">
+                            <option value="0">Select</option>
+                            <option value="10-50"> 10-50</option>
+                            <option value="51-100"> 51-100</option>
+                            <option value="100-500"> 100-500</option>
+                            <option value="501-2000"> 501-2000</option>
+                            <option value="Above 2000">Above 2000</option>
+                        </select>
+                    </div>
+                    <div>
+                        <span id="errorddlCompanySize" style="color:red"></span>
+                    </div>
+                </div>
+
+            </div>
+            <div class="pt-5  text-center">
+                <button type="button" class="login-btn py-2 text-light" id="btnSendRequestDemo">Request a Demo</button>
+            </div>
+        </div>
+
+
+    </div>*@
+<div class="meetings-iframe-container" data-src="https://meetings.hubspot.com/chidera-awurum/paymasta?embed=true"></div>

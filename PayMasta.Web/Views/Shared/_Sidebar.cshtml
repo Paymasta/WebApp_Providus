@@ -1,0 +1,172 @@
+﻿@using WebHelpers.Mvc5
+@{
+    try
+    {
+        var users = (PayMasta.Web.Models.CustomPrincipal)(HttpContext.Current.User);
+        var data = users;
+        <aside class="main-sidebar">
+            <section class="sidebar">
+                @* BEGIN Search *@
+                @*<form action="#" method="get" class="sidebar-form">
+                        <div class="input-group">
+                                <input type="text" name="q" class="form-control" placeholder="Search...">
+                                <span class="input-group-btn">
+                                    <button type="submit" name="search" id="search-btn" class="btn btn-flat">
+                                        <i class="fa fa-search"></i>
+                                    </button>
+                                </span>
+                            </div>
+                    </form>*@
+                @* END Search *@
+                @* BEGIN Menu *@
+                @if (users.RoleId == 4)
+                {
+                    <ul class="sidebar-menu" data-widget="tree" id="ulEmployees">
+
+                        <li class="@Url.IsLinkActive("Index", "Home")">
+                            <a href="@Url.Action("Index", "Home")">
+                                <i class="fa fa-tachometer"></i>
+                                @* <img src="~/Content/images/dashboard-icon.svg" width="18" />*@
+                                @*<img src="~/Content/icons/Dashboard 1x.png" style="width:20px;height:20px"/>*@
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="@Url.IsLinkActive("Account", "Home")">
+                            <a href="@Url.Action("Account", "Home")">
+                                <i class="fa fa-university"></i>
+                                <span>Account</span>
+                            </a>
+                        </li>
+                        <li class="@Url.IsLinkActive("Index", "Transactions")">
+                            <a href="@Url.Action("Index", "Transactions")">
+                                <i class="fa fa-exchange"></i>
+                                @*<img src="~/Content/icons/Transaction icon 1x.png" style="width:20px;height:20px"/>*@
+                                <span>Transactions</span>
+                            </a>
+                        </li>
+                        <li class="@Url.IsLinkActive("Index", "BillAndPayment")">
+                            <a href="@Url.Action("Index", "BillAndPayment")">
+                                <i class="fa fa-book"></i>
+                                @*<img src="~/Content/icons/Bills & Payments 1x.png" style="width:20px;height:20px"/>*@
+                                <span>Bill & Payments</span>
+                            </a>
+                        </li>
+                        <li class="@Url.IsLinkActive("Index", "ManageFinance")">
+                            <a href="@Url.Action("Index", "ManageFinance")">
+                                <i class="fa fa-credit-card-alt"></i>
+                                @*<img src="~/Content/icons/Bills & Payments 1x.png" style="width:20px;height:20px"/>*@
+                                <span>Manage Finance</span>
+                            </a>
+                        </li>
+                        <li class="@Url.IsLinkActive("Index", "Budget")">
+                            <a href="@Url.Action("Index", "Budget")">
+                                <i class="fa fa-money" aria-hidden="true"></i>
+                                @*<img src="~/Content/icons/Bills & Payments 1x.png" style="width:20px;height:20px"/>*@
+                                <span>Manage Budget</span>
+                            </a>
+                        </li>
+                        <!--<li class="@Url.IsLinkActive("Index", "ManageFinance")">
+                        <a href="@Url.Action("Index", "ManageFinance")">
+                            <i class="fa fa-credit-card-alt"></i>-->
+                        @*<img src="~/Content/icons/Manage Finance 1x.png" style="width:20px;height:20px"/>*@
+                        <!--<span>Manage Finance</span>
+                            </a>
+                        </li>-->
+                        <li class="@Url.IsLinkActive("Index", "Support")">
+                            <a href="@Url.Action("Index", "Support")">
+                                <i class="fa fa-user"></i>
+                                @*<img src="~/Content/icons/Support 1x.png" style="width:20px;height:20px"/>*@
+                                <span>Support</span>
+                            </a>
+
+                        </li>
+                        <li class="@Url.IsLinkActive("Index", "Article")">
+                            <a href="@Url.Action("Index", "Article")">
+                                <i class="fa fa-credit-card-alt"></i>
+                                @*<img src="~/Content/icons/Support 1x.png" style="width:20px;height:20px"/>*@
+                                <span>Articles</span>
+                            </a>
+
+                        </li>
+
+                    </ul>
+                }
+                @if (users.RoleId == 3)
+                {
+                    <ul class="sidebar-menu" data-widget="tree" id="ulEmployees">
+
+                        <li class="@Url.IsLinkActive("Index", "EmployerDashbord")">
+                            <a href="@Url.Action("Index", "EmployerDashbord")">
+                                <i class="fa fa-tachometer"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="@Url.IsLinkActive("Index", "EmployeesTransactions")">
+                            <a href="@Url.Action("Index", "EmployeesTransactions")"> <i class="fa fa-exchange"></i> <span>Transactions</span></a>
+
+                        </li>
+                        <li class="@Url.IsLinkActive("Index", "Employees")">
+                            <a href="@Url.Action("Index", "Employees")">
+
+                                <i class="fa fa-users" aria-hidden="true"></i>
+
+                                <span>Employees</span>
+                            </a>
+
+                        </li>
+                        <li class="@Url.IsLinkActive("EmployeesNotUploaded", "Employees")">
+                            <a href="@Url.Action("EmployeesNotUploaded", "Employees")">
+
+                                <i class="fa fa-users" aria-hidden="true"></i>
+
+                                <span>Employees Not Uploaded</span>
+                            </a>
+
+                        </li>
+                        <li class="@Url.IsLinkActive("Index", "WithdrawRequest")">
+                            <a href="@Url.Action("Index", "WithdrawRequest")"><i class="fa fa-print" aria-hidden="true"></i><span>Withdraw Requests</span></a>
+
+                        </li>
+                        <li class="@Url.IsLinkActive("Index", "Support")">
+                            <a href="@Url.Action("Index", "Support")"><i class="fa fa-headphones" aria-hidden="true"></i><span>Support</span></a>
+
+                        </li>
+                        <li class="@Url.IsLinkActive("Index", "Profile")">
+                            <a href="@Url.Action("Index", "Profile")"><i class="fa fa-user" aria-hidden="true"></i> <span>Profile</span></a>
+
+                        </li>
+                        <li class="@Url.IsLinkActive("Index", "PayToPayMasta")">
+                            <a href="@Url.Action("Index", "PayToPayMasta")"><i class="fa fa-exchange"></i><span>Pay To PayMasta</span></a>
+
+                        </li>
+                        <li class="@Url.IsLinkActive("Index", "UserBankDetail")">
+                            <a href="@Url.Action("Index", "UserBankDetail")"><i class="fa fa-info" aria-hidden="true"></i><span>Verify User's Account</span></a>
+
+                        </li>
+                    </ul>
+                }
+                @if (users.RoleId == 5)
+                {<ul class="sidebar-menu" data-widget="tree" id="ulEmployees">
+
+                        <li class="@Url.IsLinkActive("Index", "VendorDashboard")">
+                            <a href="@Url.Action("Index", "VendorDashboard")">
+                                <i class="fa fa-tachometer"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="@Url.IsLinkActive("Index", "DailyTransactions")">
+                            <a href="@Url.Action("Index", "DailyTransactions")"> <i class="fa fa-exchange"></i> <span>Employee Transactions</span></a>
+
+                        </li>
+                    </ul>
+                }
+                @* END Menu *@
+            </section>
+        </aside> }
+    catch
+    {
+
+    }
+
+}
+<script src="~/Content/js/Account/Account.js"></script>

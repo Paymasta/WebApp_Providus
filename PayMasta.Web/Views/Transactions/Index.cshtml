@@ -1,0 +1,149 @@
+﻿
+@{
+    ViewBag.Title = "Transactions";
+}
+
+
+<link href="~/Content/css/Transaction/transaction.css" rel="stylesheet" />
+
+<script src="~/Content/js/Transaction/Transaction.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#transactionfilterIncon").click(function () {
+            $(".transaction-drop_down").toggle();
+        })
+    })
+</script>
+
+<div class="main_div">
+    <div class="transaction">
+        <div class="trans_text">
+            Transaction history
+        </div>
+        <div id="transactionfilterIncon">
+
+            <img class="image" src="~/Content/images/vuesax-bold-filter.svg" />
+        </div>
+    </div>
+    <div class="transaction-drop_down" style="display: none;">
+        <div class="drop_select">
+            <select id="ddlMonth">
+                <option value="0">Month</option>
+                <option value="1">January</option>
+                <option value="2">February</option>
+                <option value="3">March</option>
+                <option value="4">April</option>
+                <option value="5">May</option>
+                <option value="6">June</option>
+                <option value="7">July</option>
+                <option value="8">August</option>
+                <option value="9">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+            </select>
+        </div>
+
+        @*<div class="drop_image">
+
+                <img src="~/Content/images/dropdown.svg" />
+            </div>*@
+        <div class="drop_select1">
+            <select name="cars" id="ddlCategory">
+                <option value="Category">Category</option>
+
+
+            </select>
+        </div>
+        @*<div class="drop_image1">
+                <img src="~/Content/images/dropdown.svg" />
+            </div>*@
+    </div>
+    <div class="tab_data">
+        <div class="tab_data1">
+            @* <div class="text">
+                    Transaction history
+                </div>*@
+
+            <table>
+                <tr>
+                    <th>S.No</th>
+                    <th>Date</th>
+                    <th>Description</th>
+                    <th>Status</th>
+                    <th>Amount</th>
+                    <th>Debit/Credit</th>
+                </tr>
+                <tbody id="tblTransaction">
+                </tbody>
+
+            </table>
+        </div>
+        <div class="card" id="transactionNoRecordFound">
+            <div class="card-body" style="text-align:center">
+                No record found.
+            </div>
+        </div>
+    </div>
+    <div class="pagination" id="userTransactionPagination">
+        <ul id="user_pagination" class="pagination"></ul>
+    </div>
+</div>
+
+<div class="modal" id="transactionSuccessfullModal" data-backdrop="static">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="transaction-successfull-heading-container">
+                <div class="heading">Transaction Successful</div>
+                <img src="~/Content/images/close.png" width="19" height="19" class="transaction-successful-close-btn" data-dismiss="modal" />
+            </div>
+
+            <div class="transaction-successfull-padding-box">
+                <div class="transaction-successfull-details color-black-shade-one">
+                    <div>
+                        <span class="transaction-successfull-detail-heading">DATE</span>
+                        <p class="font-weight-600">21 Jan 2022, 01:02 PM IST</p>
+                    </div>
+                    <div>
+                        <span class="transaction-successfull-detail-heading">TRANSACTION ID</span>
+                        <p class="font-weight-600">123456789jhkigfsdh</p>
+                    </div>
+                </div>
+
+                <div class="transaction-successfull-details transaction-successfull-details-margin-top color-black-shade-one">
+                    <div>
+                        <div class="transaction-successfull-detail-heading">BILLED TO</div>
+                        <div>
+                            <div class="transaction-successfull-padding-top font-weight-600">Robert Stewart</div>
+                            <div class="font-weight-600">9876543210</div>
+                            <div class="font-weight-600">robert@mail.com</div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="transaction-successfull-detail-heading">DEBITED FROM</div>
+                        <div class="transaction-successfull-padding-top font-weight-600">**** **** **** 1234</div>
+                    </div>
+                </div>
+
+                <div class="transaction-paid-container">
+                    <div class="transaction-successfull-details">
+                        <div class="transaction-paid color-black-shade-one font-weight-600">Paid to Robert Stewart</div>
+                        <div class="transaction-paid-amount color-black-shade-two">-₦1700</div>
+                    </div>
+                    <div class="bottom_line"></div>
+                    <div class="transaction-successfull-details">
+                        <div class="transaction-total-amount color-black-shade-one">Total Amount</div>
+                        <div class="transaction-total-amount color-black-shade-two">₦1700</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="transaction-successfull-btn-container">
+                <button class="transaction-successfull-btn">Contact Paymasta Support</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

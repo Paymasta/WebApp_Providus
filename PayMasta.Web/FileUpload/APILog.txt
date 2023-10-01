@@ -1,0 +1,147 @@
+
+{"userGuid":"01dc8b5c-9ccc-ec11-997e-0050f237794d","SearchTest":null,"pageNumber":1,"PageSize":10,"FromDate":null,"ToDate":null,"Status":-1}
+{"userGuid":"01dc8b5c-9ccc-ec11-997e-0050f237794d","SearchTest":null,"pageNumber":1,"PageSize":10,"FromDate":null,"ToDate":null,"Status":-1}
+{"userGuid":"01dc8b5c-9ccc-ec11-997e-0050f237794d","SearchTest":null,"pageNumber":1,"PageSize":10,"FromDate":"2022-05-01T00:00:00","ToDate":"2022-05-07T00:00:00","Status":-1}
+{"userGuid":"01dc8b5c-9ccc-ec11-997e-0050f237794d","SearchTest":null,"pageNumber":1,"PageSize":10,"FromDate":null,"ToDate":null,"Status":-1}
+{"userGuid":"01dc8b5c-9ccc-ec11-997e-0050f237794d","SearchTest":null,"pageNumber":1,"PageSize":10,"FromDate":"2022-05-01T00:00:00","ToDate":"2022-05-07T00:00:00","Status":-1}
+{"userGuid":"01dc8b5c-9ccc-ec11-997e-0050f237794d","SearchTest":null,"pageNumber":1,"PageSize":10,"FromDate":null,"ToDate":null,"Status":-1}
+{"userGuid":"01dc8b5c-9ccc-ec11-997e-0050f237794d","SearchTest":null,"pageNumber":1,"PageSize":10,"FromDate":"2022-05-01T00:00:00","ToDate":"2022-05-07T00:00:00","Status":-1}
+{"userGuid":"01dc8b5c-9ccc-ec11-997e-0050f237794d","SearchTest":null,"pageNumber":1,"PageSize":10,"FromDate":null,"ToDate":null,"Status":-1}
+{"userGuid":"01dc8b5c-9ccc-ec11-997e-0050f237794d","SearchTest":null,"pageNumber":1,"PageSize":10,"FromDate":"2022-01-05T00:00:00","ToDate":"2022-07-05T00:00:00","Status":-1}
+{"userGuid":"01dc8b5c-9ccc-ec11-997e-0050f237794d","SearchTest":null,"pageNumber":1,"PageSize":10,"FromDate":"2022-01-05T00:00:00","ToDate":null,"Status":-1}
+{"userGuid":"01dc8b5c-9ccc-ec11-997e-0050f237794d","SearchTest":null,"pageNumber":1,"PageSize":10,"FromDate":null,"ToDate":null,"Status":-1}
+{"userGuid":"01dc8b5c-9ccc-ec11-997e-0050f237794d","SearchTest":null,"pageNumber":1,"PageSize":10,"FromDate":"2022-05-01T00:00:00","ToDate":"2022-05-19T00:00:00","Status":-1}
+{"userGuid":"01dc8b5c-9ccc-ec11-997e-0050f237794d","SearchTest":null,"pageNumber":1,"PageSize":10,"FromDate":"2022-05-01T00:00:00","ToDate":"2022-05-07T00:00:00","Status":-1}
+   at System.Data.SqlClient.SqlBulkCopy.ConvertValue(Object value, _SqlMetaData metadata, Boolean isNull, Boolean& isSqlType, Boolean& coercedToDataFeed)
+   at System.Data.SqlClient.SqlBulkCopy.ReadWriteColumnValueAsync(Int32 col)
+   at System.Data.SqlClient.SqlBulkCopy.CopyColumnsAsync(Int32 col, TaskCompletionSource`1 source)
+   at System.Data.SqlClient.SqlBulkCopy.CopyRowsAsync(Int32 rowsSoFar, Int32 totalRows, CancellationToken cts, TaskCompletionSource`1 source)
+   at System.Data.SqlClient.SqlBulkCopy.CopyBatchesAsyncContinued(BulkCopySimpleResultSet internalResults, String updateBulkCommandText, CancellationToken cts, TaskCompletionSource`1 source)
+   at System.Data.SqlClient.SqlBulkCopy.CopyBatchesAsync(BulkCopySimpleResultSet internalResults, String updateBulkCommandText, CancellationToken cts, TaskCompletionSource`1 source)
+   at System.Data.SqlClient.SqlBulkCopy.WriteToServerInternalRestContinuedAsync(BulkCopySimpleResultSet internalResults, CancellationToken cts, TaskCompletionSource`1 source)
+   at System.Data.SqlClient.SqlBulkCopy.WriteToServerInternalRestAsync(CancellationToken cts, TaskCompletionSource`1 source)
+   at System.Data.SqlClient.SqlBulkCopy.WriteToServerInternalAsync(CancellationToken ctoken)
+   at System.Data.SqlClient.SqlBulkCopy.WriteRowSourceToServerAsync(Int32 columnCount, CancellationToken ctoken)
+   at System.Data.SqlClient.SqlBulkCopy.WriteToServer(DataTable table, DataRowState rowState)
+   at PayMasta.Repository.Employer.Employees.EmployeesRepository.<BulkUploadUsersList>d__8.MoveNext() in D:\Projects\GitProjects\UserPanel_v2\PayMasta.Repository\Employer\Employees\EmployeesRepository.cs:line 239
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at PayMasta.Service.Employer.Employees.EmployeesService.<BulkUploadUsersCSV>d__22.MoveNext() in D:\Projects\GitProjects\UserPanel_v2\PayMasta.Service\Employer\Employees\EmployeesService.cs:line 1085
+   at System.Data.DataRow.GetDefaultRecord()
+   at System.Data.DataRow.get_Item(String columnName)
+   at PayMasta.Service.Employer.Employees.EmployeesService.<BulkUploadUsersCSV>d__22.MoveNext() in D:\Projects\GitProjects\UserPanel_v2\PayMasta.Service\Employer\Employees\EmployeesService.cs:line 1070
+   at System.Data.RBTree`1.RBTreeEnumerator.MoveNext()
+   at PayMasta.Service.Employer.Employees.EmployeesService.<BulkUploadUsersCSV>d__22.MoveNext() in D:\Projects\GitProjects\UserPanel_v2\PayMasta.Service\Employer\Employees\EmployeesService.cs:line 986
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, String endMethod, Boolean isInternal)
+   at System.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at System.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Dapper.SqlMapper.<ExecuteImplAsync>d__39.MoveNext() in /_/Dapper/SqlMapper.Async.cs:line 646
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at PayMasta.Repository.Employer.Employees.EmployeesRepository.<BulkUploadUsersListError>d__10.MoveNext() in D:\Projects\GitProjects\UserPanel_v2\PayMasta.Repository\Employer\Employees\EmployeesRepository.cs:line 350
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at PayMasta.Service.Employer.Employees.EmployeesService.<BulkUploadUsersCSV>d__23.MoveNext() in D:\Projects\GitProjects\UserPanel_v2\PayMasta.Service\Employer\Employees\EmployeesService.cs:line 1183
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, String endMethod, Boolean isInternal)
+   at System.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at System.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Dapper.SqlMapper.<ExecuteImplAsync>d__39.MoveNext() in /_/Dapper/SqlMapper.Async.cs:line 646
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at PayMasta.Repository.Employer.Employees.EmployeesRepository.<BulkUploadUsersListError>d__10.MoveNext() in D:\Projects\GitProjects\UserPanel_v2\PayMasta.Repository\Employer\Employees\EmployeesRepository.cs:line 350
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at PayMasta.Service.Employer.Employees.EmployeesService.<BulkUploadUsersCSV>d__23.MoveNext() in D:\Projects\GitProjects\UserPanel_v2\PayMasta.Service\Employer\Employees\EmployeesService.cs:line 1183
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, String endMethod, Boolean isInternal)
+   at System.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at System.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Dapper.SqlMapper.<ExecuteImplAsync>d__39.MoveNext() in /_/Dapper/SqlMapper.Async.cs:line 646
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at PayMasta.Repository.Employer.Employees.EmployeesRepository.<BulkUploadUsersListError>d__10.MoveNext() in D:\Projects\GitProjects\UserPanel_v2\PayMasta.Repository\Employer\Employees\EmployeesRepository.cs:line 350
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at PayMasta.Service.Employer.Employees.EmployeesService.<BulkUploadUsersCSV>d__23.MoveNext() in D:\Projects\GitProjects\UserPanel_v2\PayMasta.Service\Employer\Employees\EmployeesService.cs:line 1183
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.CompleteAsyncExecuteReader(Boolean isInternal, Boolean forDescribeParameterEncryption)
+   at System.Data.SqlClient.SqlCommand.InternalEndExecuteNonQuery(IAsyncResult asyncResult, String endMethod, Boolean isInternal)
+   at System.Data.SqlClient.SqlCommand.EndExecuteNonQueryInternal(IAsyncResult asyncResult)
+   at System.Data.SqlClient.SqlCommand.EndExecuteNonQueryAsync(IAsyncResult asyncResult)
+   at System.Threading.Tasks.TaskFactory`1.FromAsyncCoreLogic(IAsyncResult iar, Func`2 endFunction, Action`1 endAction, Task`1 promise, Boolean requiresSynchronization)
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Dapper.SqlMapper.<ExecuteImplAsync>d__39.MoveNext() in /_/Dapper/SqlMapper.Async.cs:line 646
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at PayMasta.Repository.Employer.Employees.EmployeesRepository.<BulkUploadUsersListError>d__10.MoveNext() in D:\Projects\GitProjects\UserPanel_v2\PayMasta.Repository\Employer\Employees\EmployeesRepository.cs:line 350
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at System.Runtime.CompilerServices.TaskAwaiter`1.GetResult()
+   at PayMasta.Service.Employer.Employees.EmployeesService.<BulkUploadUsersCSV>d__23.MoveNext() in D:\Projects\GitProjects\UserPanel_v2\PayMasta.Service\Employer\Employees\EmployeesService.cs:line 1183
+   at PayMasta.Service.Employer.Employees.EmployeesService.<BulkUploadUsersCSV>d__23.MoveNext() in D:\Projects\GitProjects\UserPanel_v2\PayMasta.Service\Employer\Employees\EmployeesService.cs:line 1122
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.SetPropertyValue(JsonProperty property, JsonConverter propertyConverter, JsonContainerContract containerContract, JsonProperty containerProperty, JsonReader reader, Object target)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at PayMasta.Service.Employer.Employees.EmployeesService.<BulkUploadUsersCSV>d__23.MoveNext() in D:\Projects\Manoj&Me\PayMastaWeb\paymasta\PayMasta.Service\Employer\Employees\EmployeesService.cs:line 1121
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.EnsureType(JsonReader reader, Object value, CultureInfo culture, JsonContract contract, Type targetType)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.SetPropertyValue(JsonProperty property, JsonConverter propertyConverter, JsonContainerContract containerContract, JsonProperty containerProperty, JsonReader reader, Object target)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.PopulateObject(Object newObject, JsonReader reader, JsonObjectContract contract, JsonProperty member, String id)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.CreateObject(JsonReader reader, Type objectType, JsonContract contract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerMember, Object existingValue)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at PayMasta.Service.Employer.Employees.EmployeesService.<BulkUploadUsersCSV>d__23.MoveNext() in D:\Projects\Manoj&Me\PayMastaWeb\paymasta\PayMasta.Service\Employer\Employees\EmployeesService.cs:line 1121

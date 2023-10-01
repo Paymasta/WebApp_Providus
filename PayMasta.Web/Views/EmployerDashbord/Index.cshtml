@@ -1,0 +1,285 @@
+﻿﻿
+@{
+    ViewBag.Title = "Dashboard";
+}
+<link href="~/Content/css/Employer/employerDashboard.css" rel="stylesheet" />
+@*<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>*@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+<script src="~/Content/js/EmployerJs/EmployerDashboard.js"></script>
+<div>
+    <span style="font-size:medium;font-weight:bold" id="spnEmployerName"></span>
+</div>
+
+<div class="">
+    <div class="padding">
+        <div class="row">
+
+            <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12 container-column">
+                <div class="column-content">
+                    <div>
+
+                        <img src="~/Content/images/Employer/usericon.png" class="user-img" />
+                    </div>
+                    <div class="column-content-container">
+                        <div class="column-numbers" id="total_employees"></div>
+                        <div class="column-text">Total Empolyees</div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12 container-column">
+                <div class="column-content col-content-padding">
+                    <div>
+
+                        <img src="~/Content/images/Employer/money-icon.png" class="user-img" />
+
+                    </div>
+                    <div class="column-content-container">
+                        <div class="column-numbers" id="total_withdraw_req"></div>
+                        <div class="column-text">Total Withdrawal Request</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 container-column">
+                <div class="column-content active-request-container">
+                    <div>
+                        <img src="~/Content/images/Employer/timer-2-line.svg" class="user-img" />
+                    </div>
+                    <div class="column-content-container">
+                        <div class="column-numbers" id="withdrawalrequestispending"></div>
+                        <div class="column-text">Withdrawal request is pending</div>
+                    </div>
+                    <div class="anch-padding">
+                        <a class="anchortag" href="@Url.Action("Index","WithdrawRequest")">View All</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12 container-column">
+                <div class="column-content">
+                    <div>
+                        @* <img src="./images/Total Transactions .png" alt="" class="user-img">*@
+                        <img src="~/Content/images/Employer/total_transactions.png" class="user-img" />
+                    </div>
+                    <div class="column-content-container">
+                        <div class="column-numbers" id="totalTransaction"></div>
+                        <div class="column-text">Total Transactions</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12 container-column">
+                <div class="column-content col-content-padding">
+                    <div>
+
+                        <img src="~/Content/images/Employer/wallet_icon.png" class="user-img" />
+                    </div>
+                    <div class="column-content-container">
+                        <div class="column-numbers" id="totalWithdrawalValue"></div>
+                        <div class="column-text">Total Withdrawal Value</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-sm-12 col-xs-12 container-column">
+                <div class="column-content active-request-container">
+                    @*<img src="./images/checkbox-circle-line.svg" alt="" class="user-img">*@
+                    <img src="~/Content/images/Employer/checkbox-circle-line.svg" class="user-img" />
+                    <div class="column-content-container">
+                        <div class="column-numbers" id="totalActiveEmplopees"></div>
+                        <div class="column-text">Total Active Employees</div>
+                    </div>
+                    <div class="anch-padding1">
+                        <a class="anchortag" href="@Url.Action("Index","Employees")">View All</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-6 col-xs-12 container-section employer-transaction-main-container">
+                <div class="section2-col">
+                    <div class="withdraw-text">
+                        <div class="request-text">Number of EWA Transaction</div>
+                        <div>
+                            <select name="" id="month">
+                                <option value="-1">Last Week</option>
+                                <option value="3 Week">Last 3 Weeks</option>
+                                <option value="3 Month">Last 3 Months</option>
+                                <option value="3 Years">Last 3 Years</option>
+                            </select>
+                            <!-- <a class="anchortag" href="">View All</a> -->
+                        </div>
+                    </div>
+                    <div class="employer-graph-container"><canvas id="employerBarChart" style="padding-bottom: 6px"></canvas><div id="noEmployerBarChart">No record found.</div></div>
+                    <hr>
+                    <div class="withdraw-text1">
+                        <div class="pay-text">Pay Cycle</div>
+                        <div>
+                            <button class="date-btn" id="PayCycle"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-12 container-section2 employer-withdrawal-main-container">
+                <div class="section2-col1">
+                    <div class="withdraw-text">
+                        <div class="request-text">Withdrawal Request</div>
+                        <div>
+                            <a class="anchortag" href="@Url.Action("Index","WithdrawRequest")">View All</a>
+                        </div>
+                    </div>
+                    <div id="maiDivEwa">
+                        @*<div><img src="~/Content/images/Employer/Icon.png" /></div>
+            <div class="cherry-text"><span class="deo-color" id="fullname">Cherry Deo</span> request you to withdraw <span class="value-num">₦2,000</span> amount. <span class="date-text">03/01/2021</span> </div>*@
+                    </div>
+
+                    <div class="card" id="noWithdrawlRequest">
+                        <div class="card-body" style="text-align:center">
+                            No record found.
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- datatable -->
+        <div class="main_div">
+            <div class="tab_data">
+                <div class="tab_data1">
+                    <div class="main_transaction">
+                        <div class="text1">
+                            Employee
+                        </div>
+                        <div class="sec_transaction">
+                            <a class="anchortag" href="@Url.Action("Index","Employees")">View All</a>
+                        </div>
+                    </div>
+                    <div class="table-overflow">
+                        <table>
+                            <tr>
+                                <th>S.No</th>
+                                <th>Name</th>
+                                <th>Email Id</th>
+                                <th>Phone Number</th>
+                                <th>Staff Id</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                            <tbody id="userList">
+                            </tbody>
+
+
+
+                        </table>
+                        <div class="card" id="transnorecord">
+                            <div class="card-body" style="text-align:center">
+                                No record found.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+    </div>
+</div>
+
+<script>
+    //var ctx = document.getElementById('employerBarChart').getContext('2d');
+
+    ////  Subtract the value coming from Backend with 2000 ===> 6000(Backend vale) - 2000
+
+    //var data1 = [6000 - 2000, 8000 - 2000, 6500 - 2000, 7000 - 2000, 6200 - 2000, 8500 - 2000, 7200 - 2000];
+    //var data2 = [];
+    //data1.forEach((element, index) => {
+    //    data2.push(10000 - data1[index])
+    //    console.log(data2)
+    //})
+    //var chart = new Chart(ctx, {
+    //    // The type of chart we want to create
+    //    type: 'bar',
+
+    //    // The data for our dataset
+    //    data: {
+    //        labels: ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"],
+    //        datasets: [{
+    //            label: '',
+    //            backgroundColor: "#32A4FC",
+    //            hoverBackgroundColor: "#32A4FC",
+    //            data: data1,
+
+
+    //        }, {
+    //            label: '',
+    //            backgroundColor: "#32A4FC50",
+    //            data: data2,
+
+    //        },
+    //        ],
+    //    },
+
+    //    options: {
+    //        legend: {
+    //            display: false,
+    //            position: 'right' // place legend on the right side of chart
+    //        },
+    //        scales: {
+    //            xAxes: [{
+    //                gridLines: {
+    //                    color: "rgba(0, 0, 0, 0)",
+    //                    display: false,
+
+
+    //                },
+    //                stacked: true,
+    //                barPercentage: 0.55,
+    //                ticks: {
+    //                    fontSize: 18,
+    //                    fontColor: "#464646"
+
+    //                }// this should be set to make the bars stacked
+    //            }],
+
+    //            yAxes: [{
+    //                gridLines: {
+    //                    color: "rgba(0, 0, 0, 0)",
+
+    //                    display: false,
+
+    //                },
+
+    //                stacked: true,
+
+    //                display: true,
+    //                scaleOverride: true,
+    //                scaleSteps: 2000,
+    //                scaleStepWidth: 2000,
+    //                scaleStartValue: 2000,
+
+    //                ticks: {
+    //                    callback: function (value, index, values) {
+    //                        return "₦" + value;
+    //                    },
+    //                    stepSize: 2000,
+    //                    beginAtZero: false,
+
+    //                    min: 2000,
+    //                    fontSize: 18,
+    //                    fontColor: "#464646",
+    //                    padding: -14
+
+    //                }
+    //            }]
+    //        },
+    //        //causes chart to resize when its container resizes
+    //        responsive: true,
+    //        //setting to false will prevent the height of the chart from shrinking when resizing
+    //        maintainAspectRatio: false
+    //    }
+    //});
+</script>
+

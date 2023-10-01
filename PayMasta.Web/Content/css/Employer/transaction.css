@@ -1,0 +1,379 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: #F2F7FF;
+}
+
+.pagination {
+    display: flex;
+    justify-content: end;
+}
+
+.employer-transaction-table {
+    border-collapse: separate;
+    width: 100%;
+    border-spacing: 0 5px;
+}
+
+.table-overflow {
+    overflow: auto;
+}
+
+.employer-transaction-head {
+    background-color: #32A4FC;
+    color: #ffffff;
+}
+
+.employer-transaction-table .employees-table-heading {
+    color: #ffffff;
+}
+
+th:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+th:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+/* td:first-child {
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+td:last-child {
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+} */
+
+td, th {
+    /* border: 1px solid #dddddd; */
+    text-align: left;
+    padding: 8px;
+    font-size: 14px;
+}
+
+td {
+    border-bottom: 0.3px solid #dddddd;
+    /* text-align: left;
+    padding: 8px; */
+    color: #130F26;
+    font-size: 14px;
+    font-weight: 600;
+    white-space: nowrap;
+    max-width: 168px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.main_transaction {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 12px;
+    margin-bottom: 14px;
+}
+
+.sec_transaction {
+    display: flex;
+}
+
+.paycycle-export-btn-container {
+    display: flex;
+}
+
+.paycycle {
+    background-color: #32A4FC;
+    width: 105px;
+    border: none;
+    padding: 11px;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 14px;
+    margin: 0px 10px 0px 0px;
+}
+
+.csvexport {
+    background-color: #F86847;
+    border: none;
+    padding: 11px;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 14px;
+    margin: 0px 10px 0px 0px;
+    width: 120px;
+}
+
+.search {
+    border: 1px solid #707070;
+    border-radius: 10px;
+    padding: 11px;
+    width: 230px;
+    padding-left: 25px;
+}
+
+.search_icon {
+    position: relative;
+}
+
+.search-img {
+    width: 11px;
+    left: 5px;
+    position: absolute;
+    top: 50%;
+    transform: translate(5px, -50%);
+}
+/* tr:nth-child(even) {
+    background-color: #F2F1FF;
+  } */
+.main_div {
+    width: 100%;
+}
+
+.tab_data {
+    background-color: #fff;
+    /*      margin: 5px 24px;*/
+    border-radius: 16px;
+}
+
+.tab_data1 {
+    padding: 15px 30px;
+}
+
+.text {
+    margin-bottom: 5px;
+    color: #464646;
+    font-size: 18px;
+    font-family: sans-serif;
+}
+
+.transaction {
+    display: flex;
+    justify-content: space-between;
+    padding: 22px 24px 0px 22px;
+    font-size: normal normal 600 18px/24px Open Sans;
+}
+
+.trans_text {
+    font-size: 18px;
+}
+
+.image {
+    background-color: #32A4FC;
+    padding: 7px;
+    border-radius: 50%;
+}
+
+.employer-transaction-drop_down {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+    justify-content: space-between;
+    padding: 28px 0px 0px 0px;
+}
+
+.drop_select {
+    position: relative;
+}
+
+.drop_select1 {
+    position: relative;
+    margin-left: 10px;
+}
+/* .drop_image{
+      position: absolute;
+      margin-left: 72px;
+      margin-top: 7px;
+  }
+  .drop_image1{
+    position: absolute;
+    margin-left: 206px;
+    margin-top: 7px;
+  } */
+.date_option {
+    display: flex;
+    flex-direction: column;
+}
+
+.date-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.reset-filter-btn-container {
+    display: flex;
+    margin-top: 10px;
+}
+
+.filter {
+    background-color: #F86847;
+    border: none;
+    padding: 9px;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 14px;
+    width: 90px;
+}
+
+.reset {
+    background-color: #F2F7FF;
+    border: none;
+    padding: 9px;
+    color: #130F26;
+    border-radius: 10px;
+    font-size: 14px;
+    margin-right: 10px;
+    width: 90px;
+    border: 1px solid #BFBFBF;
+}
+
+.date_from {
+    margin: 0px 10px 0px 0px;
+    /* position: relative;*/
+    display: flex;
+    align-items: center;
+}
+
+.date_to {
+    margin-top: 10px;
+}
+
+.to_date {
+    margin: 0px 5px;
+    height: 40px;
+    border: none;
+    border: 1px solid #BFBFBF;
+    padding: 7px;
+    border-radius: 10px;
+    color: #464646CC;
+    text-transform: uppercase;
+    font-size: 13px;
+}
+
+#ddlMonth {
+    width: 113px;
+    padding: 9px;
+    border-radius: 10px;
+    color: #464646CC;
+    background-color: white;
+    border: 1px solid #BFBFBF;
+    -webkit-appearance: none;
+    appearance: none;
+    padding-left: 7px;
+    background-image: url('../../images/Employer/arrow-down.svg');
+    background-repeat: no-repeat;
+    background-position: calc(100% - 6px);
+}
+
+.calender {
+    position: absolute;
+    top: 50%;
+    right: 14px;
+    transform: translateY(-50%);
+}
+
+.sucess {
+    color: #29a343;
+}
+
+.progress {
+    color: #336BAB;
+}
+
+.pending {
+    color: #E9BE10;
+}
+
+.img-eye {
+    margin-left: 11px;
+}
+
+.pagination {
+    /* display: inline-block; */
+    display: flex;
+    justify-content: flex-end;
+    /* margin: 10px 20px 10px 0px;*/
+}
+
+    .pagination li {
+        cursor: pointer;
+    }
+
+.arrow_custom {
+    border: 1px solid #BFBFBF;
+    border-radius: 10px;
+}
+
+.anch_tag {
+    /* border: 1px solid #BFBFBF; */
+    border-radius: 10px;
+    color: #fff !important;
+    background-color: #32A4FC;
+    margin: 0px 10px;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 4px 16px;
+    text-decoration: none;
+}
+
+@media (min-width: 992px) {
+    .employer-transaction-drop_down {
+        flex-direction: row !important;
+    }
+
+    .main_transaction {
+        flex-direction: row !important;
+    }
+
+    .date_option {
+        flex-direction: row;
+    }
+
+    .date-container {
+        margin-top: 0px;
+    }
+
+    .reset-filter-btn-container {
+        margin-top: 0px;
+    }
+}
+
+@media (min-width: 576px) {
+    .date-container {
+        flex-direction: row;
+    }
+
+    .date_to {
+        margin-top: 0px;
+    }
+}
+
+@media(max-width:590px) {
+    .sec_transaction {
+        flex-direction: column;
+    }
+
+    .search-img {
+        top: 60%;
+    }
+
+    .paycycle {
+        margin-left: 0px;
+    }
+
+    .csvexport {
+        margin-left: 0px;
+    }
+
+    .search {
+        margin-top: 10px;
+        margin-left: 0px;
+    }
+}
