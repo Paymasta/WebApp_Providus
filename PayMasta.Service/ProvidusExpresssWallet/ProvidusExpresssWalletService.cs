@@ -394,7 +394,8 @@ namespace PayMasta.Service.ProvidusExpresssWallet
                         amount = Convert.ToDecimal(request.Amount),
                         customerId = tokenDetail.CustomerId,
                         sortCode = request.destBankCode,
-                        narration = "Just kidding",
+                        // narration = "Just kidding",
+                        narration = invoiceNumber.InvoiceNumber,
                         metadata = new WalletToBankMetadata
                         {
                             customerdata = userData.Guid.ToString()

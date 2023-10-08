@@ -15,7 +15,7 @@ let txtwalletBankAmountError = true
 let txtwalletBeneficiaryError = true
 
 $(document).ready(function () {
-    $('#divmain_content').hide();
+    //$('#divmain_content').hide();
     $('.loader').hide();
     UserGuid = sessionStorage.getItem("User1");
 

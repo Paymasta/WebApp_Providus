@@ -239,6 +239,12 @@ namespace PayMasta.Service.ZealvendService
                     result.Message = ResponseMessages.INSUFICIENT_BALANCE;
                     return result;
                 }
+                if (accountDetails == null)
+                {
+                    result.RstKey = 101;
+                    result.Message = ResponseMessages.INSUFICIENT_BALANCE;
+                    return result;
+                }
 
                 var walletServiceData = await _transactionsRepository.GetWalletServicesListBySubcategoryIdAndService(request.SubCategoryId, request.Service);
 

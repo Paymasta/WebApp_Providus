@@ -69,10 +69,10 @@ namespace PayMasta.API.Controllers.Account
                         response = response.Create(false, ResponseMessages.USER_NOT_REGISTERED, errorList, result);
                         _iHttpActionResult = _converter.ApiResponseMessage(response, HttpStatusCode.InternalServerError);
                     }
-                    var otpReq = new VerifyOTPRequest { MobileNumber = request.PhoneNumber, OtpCode = request.OtpCode };
-                    var otp = await _accountService.VerifyOTP(otpReq);
-                    if (otp.RstKey == 6)
-                    {
+                    //var otpReq = new VerifyOTPRequest { MobileNumber = request.PhoneNumber, OtpCode = request.OtpCode };
+                    //var otp = await _accountService.VerifyOTP(otpReq);
+                    //if (otp.RstKey == 6)
+                    //{
                         result = await _verifyNinService.VerifyNuban(request);
                         switch (result.RstKey)
                         {
@@ -137,12 +137,12 @@ namespace PayMasta.API.Controllers.Account
                                 _iHttpActionResult = _converter.ApiResponseMessage(response, HttpStatusCode.OK);
                                 break;
                         }
-                    }
-                    else
-                    {
-                        response = response.Create(false, ResponseMessages.INVALID_OTP, null, result);
-                        _iHttpActionResult = _converter.ApiResponseMessage(response, HttpStatusCode.InternalServerError);
-                    }
+                    //}
+                    //else
+                    //{
+                    //    response = response.Create(false, ResponseMessages.INVALID_OTP, null, result);
+                    //    _iHttpActionResult = _converter.ApiResponseMessage(response, HttpStatusCode.InternalServerError);
+                    //}
                 }
                 catch (Exception ex)
                 {

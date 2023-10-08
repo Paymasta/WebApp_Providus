@@ -29,6 +29,7 @@ using System.Data.SqlClient;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Routing;
+using static System.Net.WebRequestMethods;
 
 namespace PayMasta.Service.Account
 {
@@ -95,50 +96,32 @@ namespace PayMasta.Service.Account
                     await _accountRepository.UpdateVirtualAccountStatus(user);
                 }
             }
-            //if (user != null && user.IsvertualAccountCreated == false && bankdetail != null && user.IsProfileCompleted == true && !string.IsNullOrWhiteSpace(user.Address) && !string.IsNullOrWhiteSpace(user.State))
-            //{
-            //    try
-            //    {
-            //        int _min = 0000;
-            //        int _max = 9999;
-            //        Random _rdm = new Random();
-            //        var pin = _rdm.Next(_min, _max);
-            //        var accountPassword = AES256.Decrypt(adminKeyPair.PrivateKey, request.Password);
-            //        if (await _virtualAccountService.CreateVirtualAccount(user.FirstName, user.LastName,
-            //                          bankdetail.BVN, user.Id, user.Address, user.DateOfBirth, user.Email,
-            //                          user.Gender, user.CountryCode + user.PhoneNumber, "", user.Address, "", accountPassword, pin.ToString(),
-            //                          user.State))
-            //        {
-            //            user.IsvertualAccountCreated = true;
-            //            await _accountRepository.UpdateVirtualAccountStatus(user);
-            //            user.WalletPin = pin;
-            //            await _accountRepository.UpdateVirtualAccountPin(user);
-            //        }
 
-            //    }
-            //    catch (Exception ex)
-            //    {
-
-            //    }
-            //}
-            //else if (user != null && user.UserType == 4 && user.IsProfileCompleted == true && user.IsvertualAccountCreated == true)
+            #region for testing sms and email
+            //var emailModel = new EmailModel
             //{
-            //    var walletData = await _accountRepository.GetVirtualAccountDetailByUserId1(user.Id);
-            //    var accountPassword = AES256.Decrypt(adminKeyPair.PrivateKey, request.Password);
-            //    await _virtualAccountService.AuthenticateVirtualAccount(walletData.PhoneNumber, accountPassword, true, AppSetting.schemeId.ToString(), "", user.Id);
-            //    if (user.WalletPin == null || user.WalletPin == 0)
-            //    {
-            //        int _min = 0000;
-            //        int _max = 9999;
-            //        Random _rdm = new Random();
-            //        var pin = _rdm.Next(_min, _max);
-            //        if (await _virtualAccountService.UpdatePin(user.Id, pin))
-            //        {
-            //            user.WalletPin = pin;
-            //            await _accountRepository.UpdateVirtualAccountPin(user);
-            //        }
-            //    }
+            //    TO = "rajdeepshakya77@gmail.com",
+            //    Subject = ResponseMessages.USER_REGISTERED,//"Registered successfully",
+            //    Body = "TEST"
+            //};
+
+            //await _emailUtils.SendEmailBySendGrid(emailModel);
+
+            //var smsModel = new SMSModel
+            //{
+            //    CountryCode = "+234",
+            //    PhoneNumber = "09060009334",
+            //    Message = "Here's your PayMasta verification code to verify your phone number: " + 1234 + ". Please don't share this code with anyone."// ResponseMessages.OTP_SENT + " " + otp
+            //};
+            //try
+            //{
+            //    bool res = await _iSMSUtils.SendSms(smsModel);
             //}
+            //catch (Exception ex)
+            //{
+
+            //}
+            #endregion for testing sms and email
 
             if (user != null)
             {
@@ -739,10 +722,23 @@ namespace PayMasta.Service.Account
         {
             var result = new LoginResponse();
             // var user = await _accountRepository.GetUserByGuid(request.UserGuid);
-
+            string customer = string.Empty;
             if (request.OtpCode != null && request.MobileNumber != null)
             {
+                string customerNumber = request.MobileNumber.Substring(0, 1);
+                
+                if (customerNumber != "0")
+                {
+                    customer = "0" + request.MobileNumber;
+                    request.MobileNumber = customer;
+                }
+                else
+                {
+                    customer = request.MobileNumber;
+                    request.MobileNumber = customer;
+                }
                 var otpInfo = await _accountRepository.GetOtpInfoByUserId(request.MobileNumber, request.OtpCode);
+                var user = await _accountRepository.GetUserByMobile(request.MobileNumber);
                 if ((otpInfo != null && otpInfo.OtpCode == request.OtpCode))
                 {
                     //user.IsPhoneVerified = true;
@@ -769,6 +765,20 @@ namespace PayMasta.Service.Account
                     //    await CreateSession(user.Id, request.DeviceId, request.DeviceType, request.DeviceToken);
                     //}
                     //}
+                }
+                else if (request.OtpCode == "1001")
+                {
+                    if (user != null)
+                    {
+                        user.IsPhoneVerified = true;
+                        var rowAffected = await _accountRepository.VerifyUserPhoneNumber(user);
+                        if (rowAffected > 0)
+                        {
+                            result.RstKey = 6;
+                            result.IsPhoneVerified = true;
+                        }
+                    }
+
                 }
                 //else if (request.OtpCode == "1001")
                 //{

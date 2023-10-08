@@ -16,7 +16,7 @@ var walletTransIdTV = 0;
 let IsServiceTV = false;
 $(document).ready(function () {
     $('.loader').hide();
-    $('#divMain').hide();
+    //$('#divMain').hide();
     UserGuid = sessionStorage.getItem("User1");
 
     var dataTv = getUrlVarsTv();

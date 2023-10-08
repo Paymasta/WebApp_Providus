@@ -259,11 +259,11 @@ namespace PayMasta.Service.ItexService
             try
             {
                 var userData = await _accountRepository.GetUserByGuid(request.UserGuid);
-                var tokenDetail = await _itexRepository.GetVirtualAccountDetailByUserId(userData.Id);
-                var url = AppSetting.billersOperator;
-                string token = tokenDetail.AuthToken;
-                var res = await _thirdParty.getOperatorList(url, token);
-                var JsonResult = JsonConvert.DeserializeObject<ITextGetOperatorListResponse>(res);
+                //var tokenDetail = await _itexRepository.GetVirtualAccountDetailByUserId(userData.Id);
+                //var url = AppSetting.billersOperator;
+                //string token = tokenDetail.AuthToken;
+                //var res = await _thirdParty.getOperatorList(url, token);
+                //var JsonResult = JsonConvert.DeserializeObject<ITextGetOperatorListResponse>(res);
                 //if (JsonResult.data.Count > 0)
                 //{
                 //    foreach (var item in JsonResult.data)
@@ -360,11 +360,11 @@ namespace PayMasta.Service.ItexService
             try
             {
                 var userData = await _accountRepository.GetUserByGuid(request.UserGuid);
-                var tokenDetail = await _itexRepository.GetVirtualAccountDetailByUserId(userData.Id);
-                var url = AppSetting.billersOperator;
-                string token = tokenDetail.AuthToken;
-                var res = await _thirdParty.getOperatorList(url, token);
-                var JsonResult = JsonConvert.DeserializeObject<ITextGetOperatorListResponse>(res);
+                //var tokenDetail = await _itexRepository.GetVirtualAccountDetailByUserId(userData.Id);
+                //var url = AppSetting.billersOperator;
+                //string token = tokenDetail.AuthToken;
+                //var res = await _thirdParty.getOperatorList(url, token);
+                //var JsonResult = JsonConvert.DeserializeObject<ITextGetOperatorListResponse>(res);
                 //if (JsonResult.data.Count > 0)
                 //{
                 //    foreach (var item in JsonResult.data)
