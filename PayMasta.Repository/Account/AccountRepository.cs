@@ -1148,7 +1148,7 @@ namespace PayMasta.Repository.Account
 
         public async Task<BankDetail> GetBankDetailByUserId(long userId, IDbConnection exdbConnection = null)
         {
-            string query = @"SELECT [Id]
+            string query = @"SELECT TOP 1 [Id]
                                       ,[Guid]
                                       ,[UserId]
                                       ,[BankName]

@@ -87,6 +87,7 @@ $(document).ready(function () {
         //  var validateData = AirtimeValidation(txtMobileNumberAirtime, txtAmount, billerName, billerCode, 'Electricity');
         if (txtMobileNumberAirtimeError && txtAmountError && ServiceNameError && txtmeterNumberError) {
             $('.loader').show();
+            $("#btnElectricityPay").prop('disabled', false);
             var formData = new FormData();
             formData.append("Service", ServiceName);
             formData.append("UserGuid", UserGuid);
@@ -114,7 +115,7 @@ $(document).ready(function () {
 
                         swal({
                             title: "Success!",
-                            text: response.electricityPurchaseResponse.message,
+                            text: response.electricityPurchaseResponse.message+ " and token sent to your email",
                             icon: "success",
                             button: "Aww yiss!",
                         }, function succes(isDone) { location.reload(); });
@@ -160,11 +161,17 @@ $(document).ready(function () {
                             response.Message,
                             'error'
                         ).catch(swal.noop);
+                    } else if (response.RstKey == 4) {
+                        swal(
+                            'Error!',
+                            "Amount should be greater then 100 Naira",
+                            'error'
+                        ).catch(swal.noop);
                     }
                 }
             });
         }
-
+        $("#btnElectricityPay").prop('disabled', false);
     });
 
 

@@ -130,7 +130,6 @@ $(document).ready(function () {
     });
 
     $("#btnWalletToBankPay").click(function () {
-        debugger
         //  $("#walletToBankModal").modal('hide');
         var txtAccountNumber = $("#txtBankAccountNumber").val();
         var txtAmount = $("#bankTransferAmount").val();
@@ -195,6 +194,7 @@ $(document).ready(function () {
         }
         //  var validateData = AirtimeValidation(txtMobileNumberAirtime, txtAmount, billerName, billerCode, 'DataBundle');
         if (txtAccountNumberError && txtBankAmountError && txtBankddlError) {
+            $("#btnWalletToBankPay").prop('disabled', true);
             if (isValidamt <= 100000) {
                 $('.loader').show();
                 var formData = new FormData();
@@ -215,7 +215,7 @@ $(document).ready(function () {
                     processData: false,
                     data: formData,
                     success: function (response) {
-                        debugger
+                        $("#btnWalletToBankPay").prop('disabled', false);
                         $('.loader').hide();
                         $(".modal").modal('hide');
                         if (response.RstKey == 1) {
@@ -264,9 +264,17 @@ $(document).ready(function () {
                                 'error'
                             ).catch(swal.noop);
                         }
+                        else if (response.RstKey == 31) {
+                            swal(
+                                'Error!',
+                                "Amount should be greater then 100 Naira",
+                                'error'
+                            ).catch(swal.noop);
+                        }
                     }
                 });
             } else {
+                $("#btnWalletToBankPay").prop('disabled', false);
                 swal(
                     'Error!',
                     "You can not transfer more than 100000",
@@ -383,6 +391,13 @@ $(document).ready(function () {
                             swal(
                                 'Error!',
                                 "Insufficient  fund",
+                                'error'
+                            ).catch(swal.noop);
+                        }
+                        else if (response.RstKey == 31) {
+                            swal(
+                                'Error!',
+                                "Amount should be greater then 100 Naira",
                                 'error'
                             ).catch(swal.noop);
                         }

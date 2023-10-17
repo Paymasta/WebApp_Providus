@@ -136,7 +136,7 @@ $(document).ready(function () {
 
     $("#btnCableTvPay").click(function () {
         debugger
-
+      
         $("#cableTvModal").modal('hide');
         var txtMobileNumberAirtime = $("#cableTvSmartCardNumber").val();
         var txtAmount = $("#cableTvAmount").val();
@@ -216,6 +216,7 @@ $(document).ready(function () {
             }
         }
         if (txtMobileNumberAirtimeError && txtAmountError && ServiceNameError && servicename.toLowerCase() == "startimes".toLowerCase()) {
+            $("#btnCableTvPay").prop('disabled', true);
             $('.loader').show();
             var formData = new FormData();
             formData.append("Service", servicename);
@@ -237,9 +238,10 @@ $(document).ready(function () {
                 processData: false,
                 data: formData,
                 success: function (response) {
+                    $("#btnCableTvPay").prop('disabled', false);
                     $('.loader').hide();
                     $(".modal").modal('hide');
-                    if (response.RstKey == 3) {
+                    if (response.RstKey == 1) {
                         $("#airtimeModal").modal('hide');
                         swal({
                             title: "Success!",
@@ -285,6 +287,8 @@ $(document).ready(function () {
                     }
                 }
             });
+
+            $("#btnCableTvPay").prop('disabled', false);
         }
         else if (ProductError && txtMobileNumberAirtimeError && txtAmountError && ServiceNameError && servicename.toLowerCase() != "startimes".toLowerCase()) {
             var formData = new FormData();
@@ -313,33 +317,12 @@ $(document).ready(function () {
                         $("#airtimeModal").modal('hide');
                         swal({
                             title: "Success!",
-                            text: response.multiChoicePurchaseResponse.message,
+                            text: response.Message,
                             icon: "success",
                             button: "Aww yiss!",
                         }, function succes(isDone) { location.reload(); });
                     }
                     else if (response.RstKey == 2) {
-                        swal(
-                            'Error!',
-                            response.multiChoicePurchaseResponse.message,
-                            'error'
-                        ).catch(swal.noop);
-                    }
-                    else if (response.RstKey == 4) {
-                        swal(
-                            'Error!',
-                            response.multiChoicePurchaseResponse.message,
-                            'error'
-                        ).catch(swal.noop);
-                    }
-                    else if (response.RstKey == 5) {
-                        swal(
-                            'Error!',
-                            response.Message,
-                            'error'
-                        ).catch(swal.noop);
-                    }
-                    else if (response.RstKey == 6) {
                         swal(
                             'Error!',
                             response.Message,
@@ -353,7 +336,21 @@ $(document).ready(function () {
                             'error'
                         ).catch(swal.noop);
                     }
-                    else {
+                    else if (response.RstKey == 4) {
+                        swal(
+                            'Error!',
+                            response.Message,
+                            'error'
+                        ).catch(swal.noop);
+                    }
+                    else if (response.RstKey == 5) {
+                        swal(
+                            'Error!',
+                            response.Message,
+                            'error'
+                        ).catch(swal.noop);
+                    }
+                    else if (response.RstKey == 6) {
                         swal(
                             'Error!',
                             response.Message,

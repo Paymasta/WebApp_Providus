@@ -23,7 +23,7 @@ namespace PayMasta.Utilities
         public static string RequestDemo = "RequestDemo.html";
         public static string LoginCreds = "LoginCredsAndWelcome.html";
         public static string EWAAlert = "EWA Alert.html";
-
+        public static string ElectricityEmail = "ElectricityToken.html";
 
 
         /// <summary>

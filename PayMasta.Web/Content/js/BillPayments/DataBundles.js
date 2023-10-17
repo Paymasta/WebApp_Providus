@@ -149,6 +149,7 @@ $(document).ready(function () {
         //  var validateData = AirtimeValidation(txtMobileNumberAirtime, txtAmount, billerName, billerCode, 'DataBundle');
         if (txtMobileNumberAirtimeError && txtAmountError && ServiceNameError && ProductError) {
             $('.loader').show();
+            $("#btnDataBundlePay").prop('disabled', true);
             var formData = new FormData();
             formData.append("Service", ServiceName);
             formData.append("UserGuid", UserGuid);
@@ -169,6 +170,7 @@ $(document).ready(function () {
                 processData: false,
                 data: formData,
                 success: function (response) {
+                    $("#btnDataBundlePay").prop('disabled', false);
                     $('.loader').hide();
                     $(".modal").modal('hide');
                     if (response.RstKey == 1) {
@@ -216,6 +218,12 @@ $(document).ready(function () {
                             "Insufficient funds",
                             'error'
                         ).catch(swal.noop);
+                    } else if (response.RstKey == 8) {
+                        swal(
+                            'Error!',
+                            "Amount should be greater then 100 Naira",
+                            'error'
+                        ).catch(swal.noop);
                     }
                     else {
                         swal(
@@ -226,6 +234,7 @@ $(document).ready(function () {
                     }
                 }
             });
+            $("#btnDataBundlePay").prop('disabled', false);
         }
 
     });

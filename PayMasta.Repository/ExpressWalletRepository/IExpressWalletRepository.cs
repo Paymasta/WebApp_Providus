@@ -1,4 +1,5 @@
-﻿using PayMasta.DBEntity.ExpressWallet;
+﻿using PayMasta.DBEntity.CustomerQrCodeDetail;
+using PayMasta.DBEntity.ExpressWallet;
 using PayMasta.DBEntity.WalletService;
 using PayMasta.DBEntity.WalletTransaction;
 using System;
@@ -17,5 +18,7 @@ namespace PayMasta.Repository.ExpressWalletRepository
         Task<ExpressVirtualAccountDetail> GetVirtualAccountDetailByWalletAccount(string walletAccount, IDbConnection exdbConnection = null);
         Task<WalletService> GetWalletServices(int SubCategoryId, string serviceName, IDbConnection exdbConnection = null);
         Task<int> InsertTransactions(WalletTransaction walletTransactionEntity, IDbConnection exdbConnection = null);
+        Task<int> InsertQRCodeDetail(CustomerQrCodeDetail customerQrCodeDetail, IDbConnection exdbConnection = null);
+        Task<CustomerQrCodeDetail> GetQRCodeDetailByUserId(long userId, IDbConnection exdbConnection = null);
     }
 }

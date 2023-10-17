@@ -70,6 +70,14 @@ namespace PayMasta.Service.ZealvendService
             //st.Append("ss");
             try
             {
+                if (Convert.ToDecimal(request.Amount) < 100)
+                {
+                    result.IsSuccess = false;
+                    result.RstKey = 4;
+                    result.Message = "Amount should be greater then 100 naira";
+                    //  result.vTUResponse = JsonResult;
+                }
+
                 var userData = await _accountRepository.GetUserByGuid(request.UserGuid);
                 var userBalance = await _providusExpresssWalletService.GetVirtualAccount(request.UserGuid);
                 decimal currentBalance = Convert.ToDecimal(userBalance.wallet.availableBalance);
@@ -220,6 +228,13 @@ namespace PayMasta.Service.ZealvendService
             var comissionAmt = 107.5;
             try
             {
+                if (Convert.ToDecimal(request.Amount) < 100)
+                {
+                    result.IsSuccess = false;
+                    result.RstKey = 4;
+                    result.Message = "Amount should be greater then 100 naira";
+                    //  result.vTUResponse = JsonResult;
+                }
                 //---------Check User Validation (User Not Found)----------
                 var userData = await _accountRepository.GetUserByGuid(request.UserGuid);
                 if (userData == null)
@@ -251,14 +266,14 @@ namespace PayMasta.Service.ZealvendService
                 var invoiceNumber = await _commonService.GetInvoiceNumber();
                 string customerNumber = request.Phone.Substring(0, 1);
 
-                if (customerNumber != "0")
-                {
-                    customer = "0" + request.Phone;
-                }
-                else
-                {
-                    customer = request.Phone;
-                }
+                //if (customerNumber != "0")
+                //{
+                //    customer = "0" + request.Phone;
+                //}
+                //else
+                //{
+                //    customer = request.Phone;
+                //}
                 string req = string.Empty;
                 string endpoint = string.Empty;
 
@@ -302,12 +317,22 @@ namespace PayMasta.Service.ZealvendService
                         result.Message = ResponseMessages.TRANSACTION_DONE;
                         result.TransactionId = invoiceNumber.InvoiceNumber;
                     }
+                    else
+                    {
+                        result.IsSuccess = true;
+                        result.RstKey = 2;
+                        result.Data = JsonResult;
+                        result.Message = ResponseMessages.TRANSACTION_FAIL;
+                        result.TransactionId = invoiceNumber.InvoiceNumber;
+                    }
                 }
                 else
                 {
-                    result.Data = JsonResult;
-                    result.IsSuccess = false;
+                    result.IsSuccess = true;
                     result.RstKey = 2;
+                    result.Data = JsonResult;
+                    result.Message = ResponseMessages.TRANSACTION_FAIL;
+                    result.TransactionId = invoiceNumber.InvoiceNumber;
                 }
             }
             catch (Exception ex)

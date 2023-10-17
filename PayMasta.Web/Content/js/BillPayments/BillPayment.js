@@ -71,6 +71,7 @@ $(document).ready(function () {
         var validateData = AirtimeValidation(txtMobileNumberAirtime, txtAmount, billerName, billerCode, 'Airtime');
 
         if (validateData) {
+            $("#btnAirtimePay").prop('disabled', true);
             $('.loader').show();
             var formData = new FormData();
             formData.append("Service", billerCode);
@@ -90,6 +91,7 @@ $(document).ready(function () {
                 processData: false,
                 data: formData,
                 success: function (response) {
+                    $("#btnAirtimePay").prop('disabled', false);
                     $('.loader').hide();
                     $(".modal").modal('hide');
                     if (response.RstKey == 1) {
@@ -140,6 +142,7 @@ $(document).ready(function () {
                 }
             });
 
+            $("#btnAirtimePay").prop('disabled', false);
         }
 
     });

@@ -55,6 +55,7 @@
     <Compile Include="BaseEntity.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="CommisionMaster\CommisionMaster.cs" />
+    <Compile Include="CustomerQrCodeDetail\CustomerQrCodeDetail.cs" />
     <Compile Include="Earning\EarningMaster.cs" />
     <Compile Include="EmployerDetail\EmployerDetail.cs" />
     <Compile Include="ErrorLog\ErrorLog.cs" />

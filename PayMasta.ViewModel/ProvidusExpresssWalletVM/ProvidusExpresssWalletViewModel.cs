@@ -160,6 +160,7 @@ namespace PayMasta.ViewModel.ProvidusExpresssWalletVM
         }
         public bool status { get; set; }
         public CustomerWallet wallet { get; set; }
+        public string QrCode { get; set; }
     }
 
     public class CustomerWallet

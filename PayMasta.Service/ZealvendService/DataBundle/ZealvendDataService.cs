@@ -152,6 +152,13 @@ namespace PayMasta.Service.ZealvendService.DataBundle
             // var comissionAmt = 53.75;
             try
             {
+                if (Convert.ToDecimal(request.Amount) < 100)
+                {
+                    result.IsSuccess = false;
+                    result.RstKey = 8;
+                    result.Message = "Amount should be greater than 100 naira";
+                    //  result.vTUResponse = JsonResult;
+                }
                 var userData = await _accountRepository.GetUserByGuid(request.UserGuid);
                 var walletServiceData = await _itexRepository.GetWalletServicesListBySubcategoryIdAndServiceForData(request.SubCategoryId, request.Service);
                 var url = AppSetting.ZealPayDataPayEndpoint;// "https://zealvend.com/api/data/vend";
@@ -173,19 +180,19 @@ namespace PayMasta.Service.ZealvendService.DataBundle
                         customer = request.phone;
                     }
 
-                    if (request.Service == "9 Mobile" && request.SubCategoryId == 5)
-                    {
-                        serviceName = "9mobiledata";
-                    }
-                    else
-                    {
-                        serviceName = walletServiceData.BillerName;
-                    }
+                    //if (request.Service == "9 Mobile" && request.SubCategoryId == 5)
+                    //{
+                    //    serviceName = "9mobiledata";
+                    //}
+                    //else
+                    //{
+                    //    serviceName = walletServiceData.BillerName;
+                    //}
 
                     var dataPaymentRequest = new DataPaymentRequest
                     {
-                        bundle = request.code,
-                        network = serviceName,
+                        bundle = request.code.Trim(),
+                        network = walletServiceData.BillerName,
                         number = request.phone,
                         referrence = invoiceNumber.InvoiceNumber,
                     };

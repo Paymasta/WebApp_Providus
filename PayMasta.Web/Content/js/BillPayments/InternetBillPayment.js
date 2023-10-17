@@ -77,6 +77,7 @@ $(document).ready(function () {
 
     $("#btnInternetPay").click(function () {
         $('.loader').show();
+      
         $("#internetModal").modal('hide');
         var txtMobileNumberAirtime = $("#txtMobileNumberInternet").val();
         var txtAmount = $("#InternetAmount").val();
@@ -114,6 +115,7 @@ $(document).ready(function () {
             $("#InternetProductError").hide();
         }
         if (txtMobileNumberAirtimeError && txtAmountError && ServiceNameError && ProductError) {
+            $("#btnInternetPay").prop('disabled', true);
             var formData = new FormData();
             formData.append("Service", ServiceName);
             formData.append("UserGuid", UserGuid);
@@ -133,6 +135,7 @@ $(document).ready(function () {
                 processData: false,
                 data: formData,
                 success: function (response) {
+                    $("#btnInternetPay").prop('disabled', false);
                     $('.loader').hide();
                     $(".modal").modal('hide');
                     if (response.RstKey == 1) {
@@ -175,7 +178,7 @@ $(document).ready(function () {
                 }
             });
         }
-
+        $("#btnInternetPay").prop('disabled', false);
     });
 
     $("#InternetAmount").on("keyup", function () {

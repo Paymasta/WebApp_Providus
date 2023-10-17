@@ -3,7 +3,7 @@ $(document).ready(function () {
     let ipAddress = "";
     $("#viewBalanceDetail").hide();
     $("#dataNotFound").hide();
-
+    $("#QrCodeImage").hide();
     $.getJSON("https://api.ipify.org/?format=json", function (e) {
         ipAddress = e.ip;
         console.log(e.ip);
@@ -121,6 +121,8 @@ $('body').on('click', 'span.view-bank-balance', function (e) {
                 //} else {
                 //    $('#bankImage').attr('src', response.ImageUrl);
                 //}
+                $("#QrCodeImage").attr("src", "data:image/png;base64," + response.QrCode); // Make sure to change the data type (e.g., image/png) based on your image format
+                //$('#QrCodeImage').attr('src', response.QrCode);
                 $('#bankImage').attr('src', "../Content/images/add-account-img.png");
                 //alert();
                 $("#balance").text('₦' + response.wallet.availableBalance);
@@ -148,6 +150,7 @@ function getWalletCurrentBalance(id) {
         success: function (response) {
             debugger
             if (response.status == true) {
+                $("#QrCodeImage").show();
                 $("#divBankList").hide();
                 $("#viewBalanceDetail").show();
 
@@ -162,7 +165,7 @@ function getWalletCurrentBalance(id) {
                 //$("#spnbankName").text(response.BankName);
                 //$("#spnAccountNumber").text(response.AccountNumber);
                 //$("#spnNubanAccountNumber").text(response.NubanAccountNumber);
-
+                $("#QrCodeImage").attr("src", "data:image/png;base64," + response.QrCode);
                 $('#bankImage').attr('src', "../Content/images/add-account-img.png");
                 //alert();
                 $("#balance").text('₦' + response.wallet.availableBalance);

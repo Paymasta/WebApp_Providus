@@ -132,6 +132,7 @@ namespace PayMasta.ViewModel.Common
         public static string DUPLICATE_CREDENTIALS = "This email and mobile no.  already exist, Please try with another email and mobile no.";
         public static string UNIQUE_CREDENTIALS = "You can procced with mobile and email.";
         public static string USER_REGISTERED = "Registration Successful!";
+        public static string ELECTRICITY_TOKEN = "Electricity Token!";
         public static string EMPLOYEE_VERIFiCATION = "Employee Verification!";
         public static string USER_NOT_REGISTERED = "Unable to sign up due to some error.";
         public static string REQUESTDATA_NOT_EXIST = "Your request is not complete.";

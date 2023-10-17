@@ -11,6 +11,7 @@ using PayMasta.DBEntity.VirtualAccountDetail;
 using PayMasta.DBEntity.ExpressWallet;
 using PayMasta.DBEntity.WalletService;
 using PayMasta.DBEntity.WalletTransaction;
+using PayMasta.DBEntity.CustomerQrCodeDetail;
 
 namespace PayMasta.Repository.ExpressWalletRepository
 {
@@ -213,7 +214,7 @@ namespace PayMasta.Repository.ExpressWalletRepository
                                                                ,[CommisionPercent]
                                                                ,[DisplayContent]
                                                                ,[IsUpcomingBillShow]
-                                                               ,[SubCategoryId])
+                                                               ,[SubCategoryId],[IsAmountPaid])
                                                          VALUES
                                                                (@TotalAmount
                                                                ,@CommisionId
@@ -245,7 +246,7 @@ namespace PayMasta.Repository.ExpressWalletRepository
                                                                ,@CommisionPercent
                                                                ,@DisplayContent
                                                                ,@IsUpcomingBillShow
-                                                               ,@SubCategoryId)";
+                                                               ,@SubCategoryId,@IsAmountPaid)";
             if (exdbConnection == null)
             {
                 using (var dbConnection = Connection)
@@ -256,6 +257,66 @@ namespace PayMasta.Repository.ExpressWalletRepository
             else
             {
                 return (await exdbConnection.ExecuteAsync(query, walletTransactionEntity));
+            }
+        }
+
+        public async Task<int> InsertQRCodeDetail(CustomerQrCodeDetail customerQrCodeDetail, IDbConnection exdbConnection = null)
+        {
+            string query = @"INSERT INTO [dbo].[CustomerQrCodeDetail]
+                                               ([UserId]
+                                               ,[IsActive]
+                                               ,[IsDeleted]
+                                               ,[CreatedAt]
+                                               ,[UpdatedAt]
+                                               ,[ImageUrl])
+                                         VALUES
+                                               (@UserId
+                                               ,@IsActive
+                                               ,@IsDeleted
+                                               ,@CreatedAt
+                                               ,@UpdatedAt
+                                               ,@ImageUrl)";
+            if (exdbConnection == null)
+            {
+                using (var dbConnection = Connection)
+                {
+                    return (await dbConnection.ExecuteAsync(query, customerQrCodeDetail));
+                }
+            }
+            else
+            {
+                return (await exdbConnection.ExecuteAsync(query, customerQrCodeDetail));
+            }
+        }
+
+        public async Task<CustomerQrCodeDetail> GetQRCodeDetailByUserId(long userId, IDbConnection exdbConnection = null)
+        {
+            string query = @"SELECT [Id]
+                                      ,[Guid]
+                                      ,[UserId]
+                                      ,[IsActive]
+                                      ,[IsDeleted]
+                                      ,[CreatedAt]
+                                      ,[UpdatedAt]
+                                      ,[ImageUrl]
+                                  FROM [dbo].[CustomerQrCodeDetail]
+                                  Where UserId=@UserId";
+            if (exdbConnection == null)
+            {
+                using (var dbConnection = Connection)
+                {
+                    return (await dbConnection.QueryAsync<CustomerQrCodeDetail>(query, new
+                    {
+                        UserId = userId
+                    })).FirstOrDefault();
+                }
+            }
+            else
+            {
+                return (await exdbConnection.QueryAsync<CustomerQrCodeDetail>(query, new
+                {
+                    UserId = userId
+                })).FirstOrDefault();
             }
         }
     }

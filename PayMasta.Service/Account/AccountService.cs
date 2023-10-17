@@ -70,6 +70,7 @@ namespace PayMasta.Service.Account
         }
         public async Task<LoginResponse> Login(LoginRequest request)
         {
+
             //password=App@1234
             var result = new LoginResponse();
             var bankdetail = new BankDetail();

@@ -25,6 +25,11 @@ using PayMasta.ViewModel.Enums;
 using PayMasta.Service.Common;
 using PayMasta.ViewModel.PayAirtimeAndOtherBillsVM;
 using PayMasta.ViewModel.WalletToBankVM;
+using System.Drawing;
+using System.IO;
+using QRCoder;
+using System.Drawing.Imaging;
+using PayMasta.DBEntity.CustomerQrCodeDetail;
 
 namespace PayMasta.Service.ProvidusExpresssWallet
 {
@@ -42,6 +47,7 @@ namespace PayMasta.Service.ProvidusExpresssWallet
             _commonService = new CommonService();
             // _virtualAccountRepository = new VirtualAccountRepository();
             // _thirdParty = new ThirdPartyService();
+
         }
         internal IDbConnection Connection
         {
@@ -137,9 +143,12 @@ namespace PayMasta.Service.ProvidusExpresssWallet
 
         public async Task<CustomerWalletDetailResponse> GetVirtualAccount(Guid userGuid)
         {
+
             var res = new CustomerWalletDetailResponse();
             var userData = await _accountRepository.GetUserByGuid(userGuid);
+            await newQRCode(userGuid);
             var virtualAccountDetail = await _expressWalletRepository.GetVirtualAccountDetailByUserId(userData.Id);
+            var qrCodeDetail = await _expressWalletRepository.GetQRCodeDetailByUserId(userData.Id);
             if (virtualAccountDetail != null)
             {
                 string url = AppSetting.ExpressWalletBaseUrl + AppSetting.GetExpressWallet + virtualAccountDetail.CustomerId;
@@ -148,7 +157,7 @@ namespace PayMasta.Service.ProvidusExpresssWallet
 
                     var resData = await _expressWalletThirdParty.GetDate(url);
                     res = JsonConvert.DeserializeObject<CustomerWalletDetailResponse>(resData);
-
+                    res.QrCode = qrCodeDetail.ImageUrl;
                 }
             }
 
@@ -189,7 +198,13 @@ namespace PayMasta.Service.ProvidusExpresssWallet
                     result.Message = ResponseMessages.RECEIVER_NOT_EXIST;
                     return result;
                 }
-
+                if (Convert.ToDecimal(request.Amount) < 100)
+                {
+                    result.IsSuccess = false;
+                    result.RstKey = 31;
+                    return result;
+                    //result.expressWalletToBankResponse = "Amount should be greater than 100 naira";
+                }
                 if (virtualAccountDetail != null && walletServiceData != null)
                 {
                     var reqBody = new ProvidusWalletToWalletRequest
@@ -240,6 +255,7 @@ namespace PayMasta.Service.ProvidusExpresssWallet
                         reqTran.UpdatedBy = userData.Id;
                         reqTran.VoucherCode = "";
                         reqTran.WalletAmount = string.Empty;
+                        reqTran.IsAmountPaid = true;
                         #endregion sender
                         #region receiver 
                         reqTranCredit.AccountNo = request.WalletAccountNumber;
@@ -275,6 +291,7 @@ namespace PayMasta.Service.ProvidusExpresssWallet
                         reqTranCredit.UpdatedBy = userData.Id;
                         reqTranCredit.VoucherCode = "";
                         reqTranCredit.WalletAmount = string.Empty;
+                        reqTranCredit.IsAmountPaid = true;
                         await _expressWalletRepository.InsertTransactions(reqTran);
                         await _expressWalletRepository.InsertTransactions(reqTranCredit);
                         #endregion receiver
@@ -321,6 +338,7 @@ namespace PayMasta.Service.ProvidusExpresssWallet
                         reqTran.UpdatedBy = userData.Id;
                         reqTran.VoucherCode = "";
                         reqTran.WalletAmount = string.Empty;
+                        reqTran.IsAmountPaid = false;
                         await _expressWalletRepository.InsertTransactions(reqTran);
                     }
                     if (walletData.status == true)
@@ -362,7 +380,15 @@ namespace PayMasta.Service.ProvidusExpresssWallet
             //st.Append("ss");
             try
             {
-                var userData = await _accountRepository.GetUserByGuid(request.UserGuid);
+                if (Convert.ToDecimal(request.Amount) < 100)
+                {
+                    result.IsSuccess = false;
+                    result.RstKey = 31;
+                    return result;
+                    //result.expressWalletToBankResponse = "Amount should be greater than 100 naira";
+                }
+
+                    var userData = await _accountRepository.GetUserByGuid(request.UserGuid);
                 var tokenDetail = await _expressWalletRepository.GetVirtualAccountDetailByUserId(userData.Id);
                 var walletServiceData = await _expressWalletRepository.GetWalletServices(request.SubCategoryId, request.Service);
                 string url = AppSetting.ExpressWalletBaseUrl + AppSetting.ExpressWalletToBankTransfer;
@@ -419,6 +445,7 @@ namespace PayMasta.Service.ProvidusExpresssWallet
 
                     if (JsonResult != null && JsonResult.status == true)
                     {
+                        //var debitRes = await DebitCustomerWalletForBills(userData.Guid, comissionAmt.ToString(), invoiceNumber.InvoiceNumber);
                         // if()
                         //var debitDetail = await _commonService.WalletToWalletTransfer(userData.Id, comissionAmt);
                         //responseTran = JsonConvert.DeserializeObject<WalletToWalletTransferResponse>(debitDetail);
@@ -437,6 +464,7 @@ namespace PayMasta.Service.ProvidusExpresssWallet
                         //{
                         //    reqTran.CommisionAmount = string.Empty;
                         //}
+                        reqTran.IsAmountPaid = true;
                         reqTran.CommisionId = 0;
                         reqTran.CommisionPercent = 0;
                         reqTran.CreatedAt = DateTime.UtcNow;
@@ -463,6 +491,7 @@ namespace PayMasta.Service.ProvidusExpresssWallet
                         reqTran.UpdatedBy = userData.Id;
                         reqTran.VoucherCode = "";
                         reqTran.WalletAmount = string.Empty;
+
                     }
                     else
                     {
@@ -499,6 +528,7 @@ namespace PayMasta.Service.ProvidusExpresssWallet
                         reqTran.UpdatedBy = userData.Id;
                         reqTran.VoucherCode = "";
                         reqTran.WalletAmount = string.Empty;
+                        reqTran.IsAmountPaid = false;
                     }
                     var saveRes = await _expressWalletRepository.InsertTransactions(reqTran);
                     if (JsonResult.status == true && saveRes > 0)
@@ -603,5 +633,111 @@ namespace PayMasta.Service.ProvidusExpresssWallet
             return res;
         }
 
+
+        public string QACode()
+        {
+            string qrText = "12345678";
+            string qr = string.Empty;
+            QRCodeGenerator qrGenerator = new QRCodeGenerator();
+            QRCodeData qrCodeData = qrGenerator.CreateQrCode(qrText, QRCodeGenerator.ECCLevel.Q);
+            QRCode qrCode = new QRCode(qrCodeData);
+
+            // Convert QR code to Bitmap
+            Bitmap qrCodeImage = qrCode.GetGraphic(20);
+
+            // Load logo image
+            Bitmap logo = new Bitmap("D:\\Projects\\GitProjects\\WebApp_Providus\\PayMasta.Web\\QrCode\\pay-master-logo.png");
+
+            // Calculate the position to overlay the logo in the center
+            int centerQR = qrCodeImage.Width / 2 - logo.Width / 2;
+            Graphics g = Graphics.FromImage(qrCodeImage);
+
+            // Draw logo on QR code
+            g.DrawImage(logo, new Point(centerQR, centerQR));
+
+            // Save QR code with the logo as an image file
+            using (MemoryStream memoryStream = new MemoryStream())
+            {
+                using (FileStream fs = new FileStream("D:\\Projects\\GitProjects\\WebApp_Providus\\PayMasta.Web\\QrCode\\qrcode.png", FileMode.Create, FileAccess.ReadWrite))
+                {
+                    qrCodeImage.Save(memoryStream, ImageFormat.Png);
+                    byte[] bytes = memoryStream.ToArray();
+                    fs.Write(bytes, 0, bytes.Length);
+                    qr = Convert.ToBase64String(memoryStream.ToArray());
+                }
+            }
+
+            //string qr = string.Empty;
+            //// Generate QR code
+            //QRCodeGenerator qrGenerator = new QRCodeGenerator();
+            //QRCodeData qrCodeData = qrGenerator.CreateQrCode(qrText, QRCodeGenerator.ECCLevel.Q);
+            //QRCode qrCode = new QRCode(qrCodeData);
+
+            //// Convert QR code to Bitmap
+            //Bitmap qrCodeImage = qrCode.GetGraphic(20);
+
+            //// Save QR code as an image file
+            //using (MemoryStream memoryStream = new MemoryStream())
+            //{
+            //    using (FileStream fs = new FileStream("D:\\Projects\\GitProjects\\WebApp_Providus\\PayMasta.Web\\QrCode\\qrcode.png", FileMode.Create, FileAccess.ReadWrite))
+            //    {
+            //        qrCodeImage.Save(memoryStream, System.Drawing.Imaging.ImageFormat.Png);
+            //        byte[] bytes = memoryStream.ToArray();
+            //        fs.Write(bytes, 0, bytes.Length);
+            //        qr = Convert.ToBase64String(memoryStream.ToArray());
+            //    }
+            //}
+            return qr;
+        }
+
+        public async Task newQRCode(Guid userGuid)
+        {
+            var userData = await _accountRepository.GetUserByGuid(userGuid);
+            var virtualAccountDetail = await _expressWalletRepository.GetVirtualAccountDetailByUserId(userData.Id);
+            var qrCodeDetail = await _expressWalletRepository.GetQRCodeDetailByUserId(userData.Id);
+            if (virtualAccountDetail.AccountName != null && qrCodeDetail == null)
+            {
+                // Generate QR code
+                QRCodeGenerator qrGenerator = new QRCodeGenerator();
+                QRCodeData qrCodeData = qrGenerator.CreateQrCode(virtualAccountDetail.AccountNumber + "," + userData.Guid, QRCodeGenerator.ECCLevel.Q);
+                QRCode qrCode = new QRCode(qrCodeData);
+
+                // Convert QR code to Bitmap
+                Bitmap qrCodeImage = qrCode.GetGraphic(20);
+
+                // Load logo image
+                Bitmap logo = new Bitmap("D:\\Projects\\GitProjects\\WebApp_Providus\\PayMasta.Web\\QrCode\\pay-master-logo.png");
+
+                // Calculate the position to overlay the logo in the center
+                int centerQR = qrCodeImage.Width / 2 - logo.Width / 2;
+                Graphics g = Graphics.FromImage(qrCodeImage);
+
+                // Draw logo on QR code
+                g.DrawImage(logo, new Point(centerQR, centerQR));
+
+                // Convert the QR code image with the logo to a base64 string
+                // string base64String;
+                using (MemoryStream memoryStream = new MemoryStream())
+                {
+                    qrCodeImage.Save(memoryStream, ImageFormat.Png);
+                    byte[] imageBytes = memoryStream.ToArray();
+                    var qr = Convert.ToBase64String(imageBytes);
+                    if (!string.IsNullOrEmpty(qr))
+                    {
+                        var qrReq = new CustomerQrCodeDetail
+                        {
+                            CreatedAt = DateTime.UtcNow,
+                            CreatedBy = userData.Id,
+                            ImageUrl = qr,
+                            IsActive = true,
+                            IsDeleted = false,
+                            UserId = userData.Id,
+                        };
+
+                        await _expressWalletRepository.InsertQRCodeDetail(qrReq);
+                    }
+                }
+            }
+        }
     }
 }

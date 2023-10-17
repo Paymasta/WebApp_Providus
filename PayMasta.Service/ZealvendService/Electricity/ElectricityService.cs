@@ -23,6 +23,12 @@ using PayMasta.ViewModel.PayAirtimeAndOtherBillsVM;
 using PayMasta.ViewModel.ZealvendBillsVM;
 using Newtonsoft.Json.Linq;
 using System.Security.Policy;
+using PayMasta.Utilities.EmailUtils;
+using PayMasta.Utilities.SMSUtils;
+using Microsoft.Office.Interop.Word;
+using PayMasta.ViewModel.Common;
+using System.Web;
+using static System.Net.WebRequestMethods;
 
 namespace PayMasta.Service.ZealvendService.Electricity
 {
@@ -35,6 +41,8 @@ namespace PayMasta.Service.ZealvendService.Electricity
         private readonly IAccountRepository _accountRepository;
         private readonly ITransactionsRepository _transactionsRepository;
         private readonly IProvidusExpresssWalletService _providusExpresssWalletService;
+        private readonly ISMSUtils _iSMSUtils;
+        private readonly IEmailUtils _emailUtils;
         public ElectricityService()
         {
             _accountRepository = new AccountRepository();
@@ -44,6 +52,8 @@ namespace PayMasta.Service.ZealvendService.Electricity
             _itexRepository = new ItexRepository();
             _commonService = new CommonService();
             _providusExpresssWalletService = new ProvidusExpresssWalletService();
+            _iSMSUtils = new SMSUtils();
+            _emailUtils = new EmailUtils();
         }
         internal IDbConnection Connection
         {
@@ -81,6 +91,11 @@ namespace PayMasta.Service.ZealvendService.Electricity
             string customer = string.Empty;
             try
             {
+                if (Convert.ToDecimal(request.Amount) < 100)
+                {
+                    result.IsSuccess = false;
+                    result.RstKey = 4;
+                }
                 var userData = await _accountRepository.GetUserByGuid(request.UserGuid);
                 //var tokenDetail = await _providusExpresssWalletService.GetVirtualAccount(userData.Guid);
                 var walletServiceData = await _itexRepository.GetWalletServicesListBySubcategoryIdAndServiceForElectricity1(request.SubCategoryId, request.Service, request.AccountType);
@@ -163,6 +178,36 @@ namespace PayMasta.Service.ZealvendService.Electricity
                             reqTran.UpdatedBy = userData.Id;
                             reqTran.VoucherCode = request.meterNo;
                             reqTran.WalletAmount = string.Empty;
+
+                            EmailUtils email = new EmailUtils();
+                            string filename = AppSetting.ElectricityEmail;
+                            var body = email.ReadEmailformats(filename);
+                            // string VerifyMailLink = AppSetting.VerifyMailLink + "/" + HttpUtility.UrlEncode(userEntity.Guid.ToString());
+                            body = body.Replace("$$UserName$$", userData.FirstName + " " + userData.LastName);
+                            body = body.Replace("$$Token$$", JsonResult.data.token);
+                            //Send Email to user on register
+                            var emailModel = new EmailModel
+                            {
+                                TO =userData.Email,
+                                Subject = ResponseMessages.ELECTRICITY_TOKEN,//"Registered successfully",
+                                Body = body
+                            };
+                            await _emailUtils.SendEmailBySendGrid(emailModel);
+                            var smsModel = new SMSModel
+                            {
+                                CountryCode = userData.CountryCode,
+                                PhoneNumber = userData.PhoneNumber,
+                                Message = "Here's your PayMasta verification code to verify your meter : " + JsonResult.data.token + ". Please don't share this code with anyone."// ResponseMessages.OTP_SENT + " " + otp
+                            };
+                            try
+                            {
+                                await _iSMSUtils.SendSms(smsModel);
+                            }
+                            catch (Exception ex)
+                            {
+
+                            }
+                            // _emailUtils.SendEmail();
                         }
                         else
                         {
