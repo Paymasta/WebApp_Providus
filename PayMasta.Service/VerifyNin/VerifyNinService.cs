@@ -602,8 +602,8 @@ namespace PayMasta.Service.VerifyNin
                         //request.VerificationId = "KJA47543AA01";
                         var dlReq = new DLVerificationRequest
                         {
-                            firstname = "Gerald", //user.FirstName,
-                            lastname = "Erih"// user.LastName,
+                            firstname = user.FirstName,
+                            lastname = user.LastName,
                         };
                         isUserVerified = await VerifyDL(dlReq, request.VerificationId);
                     }
@@ -628,20 +628,26 @@ namespace PayMasta.Service.VerifyNin
                         //    lastname = user.LastName,
                         //};
                         //isUserVerified = await VerifyVNIN(dlReq, request.VerificationId);
-                        var reqNin = new NINNumberVerifyRequest
+                        //var reqNin = new NINNumberVerifyRequest
+                        //{
+                        //    dob = user.DateOfBirth.ToString("dd-MM-yyyy"),
+                        //    firstname = user.FirstName,
+                        //    lastname = user.LastName,
+                        //    NINNumber = request.VerificationId,
+                        //    phone = user.PhoneNumber,
+                        //};
+                        //var ninRes = await _accountService.NinVerify(reqNin);
+                        //if (ninRes.RstKey == 1)
+                        //{
+                        //    isUserVerified = true;
+                        //}
+                        //isUserVerified = true;
+                        var dlReq = new DLVerificationRequest
                         {
-                            dob = user.DateOfBirth.ToString("dd-MM-yyyy"),
                             firstname = user.FirstName,
                             lastname = user.LastName,
-                            NINNumber = request.VerificationId,
-                            phone = user.PhoneNumber,
                         };
-                        var ninRes = await _accountService.NinVerify(reqNin);
-                        if (ninRes.RstKey == 1)
-                        {
-                            isUserVerified = true;
-                        }
-                        isUserVerified = true;
+                        isUserVerified = await VerifyNIN(dlReq, request.VerificationId);
                     }
                     if (isUserVerified)
                     {
@@ -1044,6 +1050,41 @@ namespace PayMasta.Service.VerifyNin
                     var jsonReq = JsonConvert.SerializeObject(request);
                     var res = await _thirdParty.NubanVerification(jsonReq, url, qoreidTokenResponse.accessToken);
                     var JsonRes = JsonConvert.DeserializeObject<VninResponse>(res);
+                    if (JsonRes != null && JsonRes.status.status.ToLower() == "verified".ToLower())
+                    {
+                        result = true;
+                    }
+                    else
+                    {
+                        result = false;
+                    }
+                }
+                else
+                {
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+            }
+            return result;
+        }
+
+        private async Task<bool> VerifyNIN(DLVerificationRequest request, string VerificationId)
+        {
+            bool result = false;
+            try
+            {
+                var qoreidTokenResponse = await AuthTokenForQoreId();
+                if (!string.IsNullOrWhiteSpace(qoreidTokenResponse.accessToken))
+                {
+                    var url = AppSetting.QoreIdNINVerificationURL + VerificationId;
+
+                    var jsonReq = JsonConvert.SerializeObject(request);
+                    var res = await _thirdParty.NubanVerification(jsonReq, url, qoreidTokenResponse.accessToken);
+                    var JsonRes = JsonConvert.DeserializeObject<NINResponse>(res);
                     if (JsonRes != null && JsonRes.status.status.ToLower() == "verified".ToLower())
                     {
                         result = true;

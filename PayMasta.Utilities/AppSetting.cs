@@ -48,6 +48,7 @@ namespace PayMasta.Utilities
         public static string QoreIdDLVerificationURL = ConfigurationManager.AppSettings["QoreIdDLVerificationURL"];
         public static string QoreIdVoterIdVerificationURL = ConfigurationManager.AppSettings["QoreIdVoterIdVerificationURL"];
         public static string QoreIdPassportNumberVerificationURL = ConfigurationManager.AppSettings["QoreIdPassportNumberVerificationURL"];
+        public static string QoreIdNINVerificationURL = ConfigurationManager.AppSettings["QoreIdNINVerificationURL"];
 
         public static string SMS_Path = ConfigurationManager.AppSettings["SMS_Path"];
         public static string SMS_application = ConfigurationManager.AppSettings["SMS_application"];
